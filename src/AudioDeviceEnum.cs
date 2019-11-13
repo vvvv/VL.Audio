@@ -39,6 +39,9 @@ namespace VL.Naudio
                 driverNames[driverName] = null;
             }
 
+            if (driverNames.None())
+                driverNames["No ASIO!? -> get yours from http://www.asio4all.org/"] = null; 
+
             return driverNames;
         }
     }
