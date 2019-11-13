@@ -1,0 +1,56 @@
+#---------------------------------#
+#      general configuration      #
+#---------------------------------#
+
+environment:
+  nuget_api_key:
+    secure: zKmLqwfnoJ4BT5cE7mGR2dKxkRPASAv1CEmAwki+GFyT5yxx8fLu8DpxrqTOSHWk
+
+# version format
+version: 0.1.{build}
+
+# Build worker image (VM template)
+image: Visual Studio 2017
+
+# clone directory
+clone_folder: c:\projects\VL.Audio
+
+branches:
+  only:
+    - master
+
+only_commits:
+  message: /build/
+
+install:
+  - nuget sources add -Name vvvv -Source http://teamcity.vvvv.org/guestAuth/app/nuget/feed/_Root/default/v3/index.json
+  - appveyor DownloadFile https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
+
+#---------------------------------#
+#       build configuration       #
+#---------------------------------#
+
+build_script:
+  - nuget pack appveyor\VL.Audio.nuspec -Version %APPVEYOR_BUILD_VERSION%-alpha
+  - nuget setApiKey %nuget_api_key%
+  - nuget push C:\projects\VL.Audio\VL.Audio.%APPVEYOR_BUILD_VERSION%-alpha.nupkg -Source https://api.nuget.org/v3/index.json
+    
+artifacts:
+  - path: '*.nupkg'
+    type: NuGetPackage
+  
+#---------------------------------#
+#         notifications           #
+#---------------------------------#
+
+test: off
+
+notifications:
+
+  # Email
+  - provider: Email
+    to:
+      - devvvvs@vvvv.org
+    subject: 'VL.Audio Build {{status}}'                  # optional
+    message: "{{message}}, {{commitId}}, ..."    # optional
+    on_build_status_changed: true
