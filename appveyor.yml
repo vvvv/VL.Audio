@@ -19,8 +19,12 @@ branches:
   only:
     - master
 
-only_commits:
-  message: /build/
+# enable patching of AssemblyInfo.* files
+assembly_info:
+  patch: true
+  file: AssemblyInfo.*
+  assembly_version: "0.1.{build}-alpha"
+  assembly_file_version: "{version}"
 
 install:
   - nuget sources add -Name vvvv -Source http://teamcity.vvvv.org/guestAuth/app/nuget/feed/_Root/default/v3/index.json
@@ -30,7 +34,25 @@ install:
 #       build configuration       #
 #---------------------------------#
 
-build_script:
+# build platform, i.e. x86, x64, Any CPU. This setting is optional.
+platform: Any CPU
+
+# build Configuration, i.e. Debug, Release, etc.
+configuration: Release
+
+build:
+  project: src\VL.Audio.sln      # path to Visual Studio solution or project
+  publish_nuget: false             # package projects with .nuspec files and push to artifacts
+  publish_nuget_symbols: false     # generate and publish NuGet symbol packages
+  include_nuget_references: true  # add -IncludeReferencedProjects option while packaging NuGet artifacts
+
+before_build:
+  - cd src
+  - nuget restore -DisableParallelProcessing
+  
+
+after_build:
+  - cd..
   - nuget pack appveyor\VL.Audio.nuspec -Version %APPVEYOR_BUILD_VERSION%-alpha
   - nuget setApiKey %nuget_api_key%
   - nuget push C:\projects\VL.Audio\VL.Audio.%APPVEYOR_BUILD_VERSION%-alpha.nupkg -Source https://api.nuget.org/v3/index.json
