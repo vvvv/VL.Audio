@@ -65,7 +65,7 @@
             <Pin Id="Vk7BC84a0RnNWSNBS3mGxE" Name="Buffer Size" Kind="OutputPin" />
           </Node>
           <Node Bounds="130,272,52,19" Id="R8F6ObfWTfZM4nekGdr68m">
-            <p:NodeReference LastCategoryFullName="Audio" LastSymbolSource="VL.Audio.vl">
+            <p:NodeReference LastCategoryFullName="Audio.Source" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="AudioIn" />
             </p:NodeReference>
@@ -77,7 +77,7 @@
             <Pin Id="O8mJMCMYSPlMVF5szryXJ5" Name="Output" Kind="OutputPin" />
           </Node>
           <Node Bounds="130,375,42,19" Id="Sve0jJ5h1yzLT3yKk4oedm">
-            <p:NodeReference LastCategoryFullName="Audio" LastSymbolSource="VL.Audio.vl">
+            <p:NodeReference LastCategoryFullName="Audio.Sink" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="Meter" />
             </p:NodeReference>
@@ -90,7 +90,7 @@
               <p:precision p:Type="Int32">4</p:precision>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="UzXtYMlf12LPj1PRN6wrQ3" Comment="Level dBs" Bounds="226,434,29,189" ShowValueBox="true" isIOBox="true">
+          <Pad Id="UzXtYMlf12LPj1PRN6wrQ3" Comment="Level dBs" Bounds="226,434,46,188" ShowValueBox="true" isIOBox="true">
             <p:ValueBoxSettings>
               <p:maximum p:Type="Single">0</p:maximum>
               <p:minimum p:Type="Single">-150</p:minimum>
@@ -99,7 +99,7 @@
             </p:ValueBoxSettings>
           </Pad>
           <Node Bounds="403,360,65,19" Id="IbjV3OTaF7CQM1iXyE3nI6">
-            <p:NodeReference LastCategoryFullName="Audio" LastSymbolSource="VL.Audio.vl">
+            <p:NodeReference LastCategoryFullName="Audio.Sink" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="FFT" />
             </p:NodeReference>
@@ -122,7 +122,7 @@
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="Renderer" />
             </p:NodeReference>
-            <Pin Id="AU04T2N6hgAM1xHo6O2RyD" Name="Bounds" Kind="InputPin" DefaultValue="1090, 65, 600, 400">
+            <Pin Id="AU04T2N6hgAM1xHo6O2RyD" Name="Bounds" Kind="InputPin" DefaultValue="1020, 53, 600, 400">
               <p:TypeAnnotation LastCategoryFullName="System.Drawing" LastSymbolSource="System.Drawing.dll">
                 <Choice Kind="TypeFlag" Name="Rectangle" />
               </p:TypeAnnotation>
@@ -221,7 +221,7 @@
             <ControlPoint Id="E8LK2pGZK6XM2VlMF00f9c" Bounds="474,539" Alignment="Top" />
             <ControlPoint Id="FoWlg3V5PDsOwpsHc8atHq" Bounds="422,773" Alignment="Bottom" />
           </Node>
-          <Node Bounds="423,819,44,19" Id="FoIwMklzNovNYCHMZD7y0Z">
+          <Node Bounds="423,795,44,19" Id="FoIwMklzNovNYCHMZD7y0Z">
             <p:NodeReference LastCategoryFullName="Graphics.Skia" LastSymbolSource="VL.Skia.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="Group (Spectral)" />
@@ -270,36 +270,15 @@
           </Pad>
           <Pad Id="AGwUkCqWyLsLaBcXs7bPSs" Comment="Time" Bounds="345,252,48,15" ShowValueBox="true" isIOBox="true" />
           <Pad Id="SdJW8xRHkYsNVhUDGIaHW6" Comment="Beat" Bounds="385,219,53,14" ShowValueBox="true" isIOBox="true" />
-          <Node Bounds="713,539" Id="LGvEtexKAY2PqIb3hbXsRH">
-            <p:NodeReference LastCategoryFullName="Audio" LastSymbolSource="VL.Audio.vl">
+          <Node Bounds="421,834" Id="JcWErpJJSVANvGRJzZEk9x">
+            <p:NodeReference LastCategoryFullName="Graphics.Skia" LastSymbolSource="VL.Skia.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-              <Choice Kind="ProcessAppFlag" Name="Gist" />
+              <Choice Kind="ProcessAppFlag" Name="Group" />
             </p:NodeReference>
-            <Pin Id="JLKJakGhkUBMD6j8kEFtKJ" Name="Value 2" Kind="InputPin" />
-            <Pin Id="HYVG3bM9l3jLD6noZS0MAS" Name="Get Features" Kind="InputPin" />
-            <Pin Id="SgwfTO7HOtrNoxntIJzo6Z" Name="Features" Kind="OutputPin" PinGroupName="MyOutputGroup">
-              <p:TypeAnnotation>
-                <Choice Kind="TypeFlag" Name="Spread" />
-                <p:TypeArguments>
-                  <TypeReference>
-                    <Choice Kind="TypeFlag" Name="Float32" />
-                  </TypeReference>
-                </p:TypeArguments>
-              </p:TypeAnnotation>
-            </Pin>
-            <Pin Id="AUTPKVT2ER6OSGDUw5Q7DD" Name="Spectrum" Kind="OutputPin" PinGroupName="MyOutputGroup">
-              <p:TypeAnnotation>
-                <Choice Kind="TypeFlag" Name="Spread" />
-                <p:TypeArguments>
-                  <TypeReference>
-                    <Choice Kind="TypeFlag" Name="Float32" />
-                  </TypeReference>
-                </p:TypeArguments>
-              </p:TypeAnnotation>
-            </Pin>
+            <Pin Id="DK6JTqHrSH5OVRYtyYvcRL" Name="Input" Kind="InputPin" />
+            <Pin Id="L73beMAyaYnNxKMZ9LraZc" Name="Input 2" Kind="InputPin" />
+            <Pin Id="DULbjDCw5DjPdJC7CJJSO8" Name="Output" Kind="OutputPin" />
           </Node>
-          <Pad Id="JVKfzcGCBdtQZekwkiIhRL" Comment="Features" Bounds="700,669,43,95" ShowValueBox="true" isIOBox="true" />
-          <Pad Id="S52ZtHS1lBhQTTGqQPI8t8" Comment="Spectrum" Bounds="868,679,37,95" ShowValueBox="true" isIOBox="true" />
         </Canvas>
         <Patch Id="BZfyHIn50AMOhy8qYm4OJJ" Name="Create" />
         <Patch Id="SKJMq4OWRupPBKu5KHiGNr" Name="Update" />
@@ -307,7 +286,6 @@
           <Fragment Id="SPgbxdiNF3GLixJA2VUzpO" Patch="BZfyHIn50AMOhy8qYm4OJJ" Enabled="true" />
           <Fragment Id="BZwuoSJFti1MYHzqE2gwT3" Patch="SKJMq4OWRupPBKu5KHiGNr" Enabled="true" />
         </ProcessDefinition>
-        <Link Id="EUXSSBgaFv6OK3GCM6r9NH" Ids="O8mJMCMYSPlMVF5szryXJ5,Ek4hOkUZUUrLPjc5GfMeDQ" />
         <Link Id="Q9m5GkIVYOrNR9HofEKGKw" Ids="KdRPAlMIQK7Oy76z1oVaLY,LdA0Hmk4ryAP0wOoulOyre" />
         <Link Id="RFh864Ksx0tOKFyxNz3RqW" Ids="PjigrFSBrBtPI0lDnwPUGc,UzXtYMlf12LPj1PRN6wrQ3" />
         <Link Id="D2jxvDcxyq5QTGftVXrx2p" Ids="GFJD498Q9RWMlEHQFGtZ4K,E3meBws1NkJQYu9aZvx0wE" />
@@ -318,7 +296,7 @@
         <Link Id="EEzLv4eX015LM2e3kFf4pK" Ids="MIDR5WZz87TMnTu11vguCS,JO0KOk6OYPTNfo7gB8uu2a" />
         <Link Id="LI1vjIn7Ql0LjI0Z1vjdY1" Ids="UFqGNksG1VML3IcrLjmO1i,FoWlg3V5PDsOwpsHc8atHq" />
         <Link Id="JJc0mZtRgAaNHw0NLrORtg" Ids="FoWlg3V5PDsOwpsHc8atHq,BmOLdPMl1pLLLJoaIXkIzB" />
-        <Link Id="Q4dtHP4TGtBPu7CJheItsa" Ids="N24TU3tU8OkNtbn6KRTDRi,IPFyjvZ2UuWQdKDXUz8zMR" />
+        <Link Id="Q4dtHP4TGtBPu7CJheItsa" Ids="N24TU3tU8OkNtbn6KRTDRi,DK6JTqHrSH5OVRYtyYvcRL" />
         <Link Id="GMyD6pSwXegOsMopIo2PL9" Ids="GFJD498Q9RWMlEHQFGtZ4K,Uu6DKy7LsvWQXioSMeQXh2" />
         <Link Id="NuFeqhwUB3yLIMn4XEGfbe" Ids="M1S3eQcO66DOWNjDIuV1V4,IwYRbTKWblVMfow3EJXlnn" />
         <Link Id="FZB7bNKNXdOOB6Jh5wnahC" Ids="M1S3eQcO66DOWNjDIuV1V4,AVX2U86nsG4O7zeasE80gs" />
@@ -327,13 +305,12 @@
         <Link Id="Us1wLVMxajPQDvlHcxDIpw" Ids="IFjJAgWa47QMmVSZK89Ad6,HGQDpg0QJClLrcB15Gsfv1" />
         <Link Id="BfWRTF0mg16MBJaV7KG5RA" Ids="ETP9GBGWnVBPfnyPbR6Jxd,Osw05ejAViGNFZMU2LBjpO" />
         <Link Id="V7t7m4fz5IhLlk0wGjatBH" Ids="HeQu8dMBZcHPTZQyNkk7nJ,P2h4D5EOIwbP7w3dBVqQgG" />
-        <Link Id="BnRuuM3H4I8NxszomJlu6M" Ids="O8mJMCMYSPlMVF5szryXJ5,RzuBOEWpbiDNruEMPQv1pK" />
         <Link Id="NFjoxDav9JbMngP2kaqsgL" Ids="NfoZjAzOGA0M1F43BWGpc5,VWujDYHhidNMOaIyBsrNh0" />
         <Link Id="UzY2mfOnXbgOFLkZIUXzyt" Ids="K2pMKD2Wko5Nv0XfTZXG8D,AGwUkCqWyLsLaBcXs7bPSs" />
         <Link Id="Ru57923CVGeMLhGP5LYpII" Ids="Dg4TqwHZpMaLbymA1xgKo6,SdJW8xRHkYsNVhUDGIaHW6" />
-        <Link Id="CAcG6vthpNdLUniYzqiB12" Ids="O8mJMCMYSPlMVF5szryXJ5,JLKJakGhkUBMD6j8kEFtKJ" />
-        <Link Id="GfqzcZxa09VPjJ0UCKyYDJ" Ids="SgwfTO7HOtrNoxntIJzo6Z,JVKfzcGCBdtQZekwkiIhRL" />
-        <Link Id="KOW1MAUAedRPCAnUhAnN5t" Ids="AUTPKVT2ER6OSGDUw5Q7DD,S52ZtHS1lBhQTTGqQPI8t8" />
+        <Link Id="TmZWo3545asMGxOn71JC2j" Ids="O8mJMCMYSPlMVF5szryXJ5,Ek4hOkUZUUrLPjc5GfMeDQ" />
+        <Link Id="NBQyn5NKboPO7qikzPx8Ou" Ids="O8mJMCMYSPlMVF5szryXJ5,RzuBOEWpbiDNruEMPQv1pK" />
+        <Link Id="EIpv7AAZMbTQPP5EiuUiCb" Ids="DULbjDCw5DjPdJC7CJJSO8,IPFyjvZ2UuWQdKDXUz8zMR" />
       </Patch>
     </Node>
   </Patch>
