@@ -8,6 +8,10 @@
     <OutputPath>..\lib\</OutputPath>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\lib\</OutputPath>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="System.Management" Version="4.6.0" />
     <PackageReference Include="VL.Core" Version="0.95.37-g8f06687fc6" />
