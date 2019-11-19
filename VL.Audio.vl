@@ -2151,75 +2151,6 @@
       <Canvas Id="KZsTRHdKpVtLGRymmbQ42w" Name="Filter" Position="173,323">
         <!--
 
-    ************************ Sum ************************
-
--->
-        <Node Name="Sum" Bounds="291,327" Id="OTeQad2V5gQQAGldRCZLCI">
-          <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="builtin">
-            <Choice Kind="ContainerDefinition" Name="Process" />
-          </p:NodeReference>
-          <Patch Id="BdDc0jSz8yNMhhQ5qFyddq">
-            <Canvas Id="VNj2NiePlmYMmw6zmmR6dI" CanvasType="Group">
-              <Node Bounds="274,359,105,26" Id="AGyqTbh4V60OcIfVuaHeP7">
-                <p:NodeReference LastCategoryFullName="VVVV.Audio.AudioSignalAddOperator" LastSymbolSource="VVVV.Audio.Signals.dll">
-                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <CategoryReference Kind="AssemblyCategory" Name="AudioSignalAddOperator" />
-                  <Choice Kind="OperationCallFlag" Name="Create" />
-                </p:NodeReference>
-                <Pin Id="QrSPhQRiFOLOIRUHwwUCgd" Name="Output" Kind="StateOutputPin" />
-              </Node>
-              <Pad Id="N0LnjBbxY4RNRcrpEKl5x4" Bounds="326,424" />
-              <ControlPoint Id="CHV5iZ3swv2LA1F64c5tUx" Bounds="410,387" />
-              <Node Bounds="311,462,114,85" Id="Q8VEtR59RFBNzeXrnbXCSz">
-                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-                  <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
-                  <Choice Kind="ProcessStatefulRegion" Name="Cache" />
-                  <FullNameCategoryReference ID="Primitive" />
-                </p:NodeReference>
-                <Pin Id="B3DgDQ3lMETNp3mgtfllqN" Name="Force" Kind="InputPin" />
-                <Pin Id="JsgMNKi3qA1O69GfHXG3ii" Name="Dispose Cached Outputs" Kind="InputPin" />
-                <Pin Id="SDOpSAP1KT4MIljB7nbdRr" Name="Has Changed" Kind="OutputPin" />
-                <Patch Id="JGYMEQtKiVnOmuql4roYCZ" ManuallySortedPins="true">
-                  <Patch Id="OBaWRGwVAF4NJmfg9IxDnB" Name="Create" ManuallySortedPins="true" />
-                  <Patch Id="N5Le3M7uiA4Pmwq9TY0Xjo" Name="Then" ManuallySortedPins="true" />
-                  <Node Bounds="323,491,90,26" Id="IhyWIJBxgJvLkBeJx0zUxl">
-                    <p:NodeReference LastCategoryFullName="VVVV.Audio.AudioSignalOperator" LastSymbolSource="VVVV.Audio.Signals.dll">
-                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                      <Choice Kind="OperationCallFlag" Name="SetInputs" />
-                    </p:NodeReference>
-                    <Pin Id="O0XZQ8f9RIMM2iiUPTRa0Q" Name="Input" Kind="StateInputPin" />
-                    <Pin Id="JW0antsX0WAMg3rN3UFMD3" Name="Value" Kind="InputPin" />
-                    <Pin Id="R2YoVdFfnfxQTBUY9t94qf" Name="Output" Kind="StateOutputPin" />
-                  </Node>
-                </Patch>
-                <ControlPoint Id="MzYiNVX8pBvOzu8glx5IS2" Bounds="410,468" Alignment="Top" />
-                <ControlPoint Id="UHGEIq9fplbOHQzyYxbML2" Bounds="326,468" Alignment="Top" />
-                <ControlPoint Id="VYYMFkpUFfBO0sKniUvM5V" Bounds="325,541" Alignment="Bottom" />
-              </Node>
-              <ControlPoint Id="KTEWpWQIc8WNAkTxADolgu" Bounds="325,603" />
-            </Canvas>
-            <Patch Id="MVVjILFW9GfLynlLBWOseP" Name="Create" ParticipatingElements="AGyqTbh4V60OcIfVuaHeP7" />
-            <Patch Id="FkHw6DxkYw7MruJGblrL71" Name="Update">
-              <Pin Id="RSjVEuDJbA5NeNcn5HiNdy" Name="Input" Kind="InputPin" Bounds="415,340" />
-              <Pin Id="A36Mbzy3CGELBeFhsOxgME" Name="Output" Kind="OutputPin" Bounds="325,603" />
-            </Patch>
-            <ProcessDefinition Id="JBFtqgz1OKiOepvfOFLLCW">
-              <Fragment Id="O16dPuqxmVGP2cPnChjufZ" Patch="MVVjILFW9GfLynlLBWOseP" Enabled="true" />
-              <Fragment Id="UwzjFOlDMYVNKFdYnofXW6" Patch="FkHw6DxkYw7MruJGblrL71" Enabled="true" />
-            </ProcessDefinition>
-            <Link Id="OUy1shfCar7LRShKA51q0l" Ids="QrSPhQRiFOLOIRUHwwUCgd,N0LnjBbxY4RNRcrpEKl5x4" />
-            <Link Id="A8xdIgPKIY8QKfcYWLe68O" Ids="RSjVEuDJbA5NeNcn5HiNdy,CHV5iZ3swv2LA1F64c5tUx" IsHidden="true" />
-            <Link Id="RgMFd7YAiLuLLum3OJRpXQ" Ids="CHV5iZ3swv2LA1F64c5tUx,MzYiNVX8pBvOzu8glx5IS2" />
-            <Link Id="CCnKU8QxFd8LT8KYKeNZGm" Ids="MzYiNVX8pBvOzu8glx5IS2,JW0antsX0WAMg3rN3UFMD3" />
-            <Link Id="QaNXwIdUWeBNeo9ZpfG9EX" Ids="N0LnjBbxY4RNRcrpEKl5x4,UHGEIq9fplbOHQzyYxbML2" />
-            <Link Id="L7JneBYwPp6PLmPPAC7g0S" Ids="UHGEIq9fplbOHQzyYxbML2,O0XZQ8f9RIMM2iiUPTRa0Q" />
-            <Link Id="BKM2jdOsCK7NnBPouS81k7" Ids="R2YoVdFfnfxQTBUY9t94qf,VYYMFkpUFfBO0sKniUvM5V" />
-            <Link Id="L6YKKECcwRwL21blBjwJ0a" Ids="VYYMFkpUFfBO0sKniUvM5V,KTEWpWQIc8WNAkTxADolgu" />
-            <Link Id="FR6P6b2KB4COebLyugFpQY" Ids="KTEWpWQIc8WNAkTxADolgu,A36Mbzy3CGELBeFhsOxgME" IsHidden="true" />
-          </Patch>
-        </Node>
-        <!--
-
     ************************ Filter ************************
 
 -->
@@ -3420,6 +3351,215 @@
               <Pin Id="JYK4PY5ZKjjLuLXOPcEvmW" Name="Output" Kind="StateOutputPin" />
             </Node>
             <Link Id="MEboMisAXF0MuIHbjUZONl" Ids="JYK4PY5ZKjjLuLXOPcEvmW,UHb3SEXhfglPtrahgTTegK" />
+          </Patch>
+        </Node>
+      </Canvas>
+      <Canvas Id="VJ8siFMA8bnPTw2h9yTXw9" Name="Operator" Position="346,322">
+        <!--
+
+    ************************ + (Spectral) ************************
+
+-->
+        <Node Name="+ (Spectral)" Bounds="208,307" Id="DlB0l1jat4HMToutmXEIws">
+          <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="builtin">
+            <Choice Kind="ContainerDefinition" Name="Process" />
+          </p:NodeReference>
+          <Patch Id="D9L1hIkiDV0LR3PoMaiKVh">
+            <Canvas Id="G0eXRS4Mb63QFFsjROmivv" CanvasType="Group">
+              <Node Bounds="274,359,105,26" Id="CA6dVIyZyOFPNKdclreKjG">
+                <p:NodeReference LastCategoryFullName="VVVV.Audio.AudioSignalAddOperator" LastSymbolSource="VVVV.Audio.Signals.dll">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <CategoryReference Kind="AssemblyCategory" Name="AudioSignalAddOperator" />
+                  <Choice Kind="OperationCallFlag" Name="Create" />
+                </p:NodeReference>
+                <Pin Id="U4jalezCh6cMMW7R0mUkGr" Name="Output" Kind="StateOutputPin" />
+              </Node>
+              <Pad Id="LC1QoolYoEgQEiMdFwkFFg" Bounds="326,424" />
+              <ControlPoint Id="FOxb9DduMeXODLDtijxf3t" Bounds="410,387" />
+              <Node Bounds="311,462,114,85" Id="RkYwSR6bO1YNUJQoQRDK8P">
+                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
+                  <Choice Kind="ProcessStatefulRegion" Name="Cache" />
+                  <FullNameCategoryReference ID="Primitive" />
+                </p:NodeReference>
+                <Pin Id="Rzq8ygKHtPPNJXrZ6oItzU" Name="Force" Kind="InputPin" />
+                <Pin Id="Icu3bj0vw9VPEYkSUpi1Ei" Name="Dispose Cached Outputs" Kind="InputPin" />
+                <Pin Id="T36hurrYCG8Pve8vPTh5Fg" Name="Has Changed" Kind="OutputPin" />
+                <Patch Id="PzDLrxWDbasN5lLDxe57ak" ManuallySortedPins="true">
+                  <Patch Id="ClOP3ItumxvPkE3wpXIklf" Name="Create" ManuallySortedPins="true" />
+                  <Patch Id="PhOnl8AB6hrQRELdhFgpMt" Name="Then" ManuallySortedPins="true" />
+                  <Node Bounds="323,491,90,26" Id="QmVVtrrtl1uOjXODG5zEGs">
+                    <p:NodeReference LastCategoryFullName="VVVV.Audio.AudioSignalOperator" LastSymbolSource="VVVV.Audio.Signals.dll">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <Choice Kind="OperationCallFlag" Name="SetInputs" />
+                    </p:NodeReference>
+                    <Pin Id="VkPLV0gBOsxPLoJhYftCEu" Name="Input" Kind="StateInputPin" />
+                    <Pin Id="J9yfFQDktPiPVnJekBo2Rl" Name="Value" Kind="InputPin" />
+                    <Pin Id="JlVX024DB2IPS2gjyjNfZv" Name="Output" Kind="StateOutputPin" />
+                  </Node>
+                </Patch>
+                <ControlPoint Id="JG2ZEiSm3BDLMWgd8Im9Gb" Bounds="410,468" Alignment="Top" />
+                <ControlPoint Id="KLJP1fFrEJyOCKVed3DQuZ" Bounds="326,468" Alignment="Top" />
+                <ControlPoint Id="Q4pudzjqzTmOP5kdnXGZz8" Bounds="325,541" Alignment="Bottom" />
+              </Node>
+              <ControlPoint Id="EzkB8gPAeWENncSMjnox3s" Bounds="325,603" />
+            </Canvas>
+            <Patch Id="TcsfqSjcpS7MdoZab31ck1" Name="Create" ParticipatingElements="CA6dVIyZyOFPNKdclreKjG" />
+            <Patch Id="Rx7wPjoNFoMMypf9SX66do" Name="Update">
+              <Pin Id="VvHmuIlzajqLND7XGxtjZS" Name="Input" Kind="InputPin" Bounds="415,340" />
+              <Pin Id="M23zVHKwKVCNhnNjzk7iXV" Name="Output" Kind="OutputPin" Bounds="325,603" />
+            </Patch>
+            <ProcessDefinition Id="Tz4mfA7Ff3uLW4PMj4wEKk">
+              <Fragment Id="JOwW5Hu5kmLObhDw6BVKfz" Patch="TcsfqSjcpS7MdoZab31ck1" Enabled="true" />
+              <Fragment Id="RnYwDyo2PDFPzTt20CUFv4" Patch="Rx7wPjoNFoMMypf9SX66do" Enabled="true" />
+            </ProcessDefinition>
+            <Link Id="UBuqu6QvghHMvF8RUStRts" Ids="U4jalezCh6cMMW7R0mUkGr,LC1QoolYoEgQEiMdFwkFFg" />
+            <Link Id="EW0HSiZ9xloPwfMpro7GoH" Ids="VvHmuIlzajqLND7XGxtjZS,FOxb9DduMeXODLDtijxf3t" IsHidden="true" />
+            <Link Id="H2OAHshpbPsM4RRRedKcyL" Ids="FOxb9DduMeXODLDtijxf3t,JG2ZEiSm3BDLMWgd8Im9Gb" />
+            <Link Id="LAQPeaTAIRWMQHH1Uk3FSJ" Ids="JG2ZEiSm3BDLMWgd8Im9Gb,J9yfFQDktPiPVnJekBo2Rl" />
+            <Link Id="MjCUDsgfFtILvrw94f7OQF" Ids="LC1QoolYoEgQEiMdFwkFFg,KLJP1fFrEJyOCKVed3DQuZ" />
+            <Link Id="Qf3Jl7yPnjuNPgjYXe8ECI" Ids="KLJP1fFrEJyOCKVed3DQuZ,VkPLV0gBOsxPLoJhYftCEu" />
+            <Link Id="F8ilPzbYWheMlpk2y0Ay2n" Ids="JlVX024DB2IPS2gjyjNfZv,Q4pudzjqzTmOP5kdnXGZz8" />
+            <Link Id="IBFQumDoxLiQPIyJzePxAE" Ids="Q4pudzjqzTmOP5kdnXGZz8,EzkB8gPAeWENncSMjnox3s" />
+            <Link Id="CEJhVgK6JjfOmfzMGBQmXJ" Ids="EzkB8gPAeWENncSMjnox3s,M23zVHKwKVCNhnNjzk7iXV" IsHidden="true" />
+          </Patch>
+        </Node>
+        <!--
+
+    ************************ * (Spectral) ************************
+
+-->
+        <Node Name="* (Spectral)" Bounds="565,305" Id="CRrMUQxDfPuPWrdGW1m0O4">
+          <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="builtin">
+            <Choice Kind="ContainerDefinition" Name="Process" />
+          </p:NodeReference>
+          <Patch Id="D0NL8kDhdwKPkVFZYVjYjS">
+            <Canvas Id="Kj8nnq1YttXNwWLqk75ON1" CanvasType="Group">
+              <Node Bounds="274,359,105,26" Id="IgSRUP7QCzWMysUuYUPpZj">
+                <p:NodeReference LastCategoryFullName="VVVV.Audio.AudioSignalMultiplyOperator" LastSymbolSource="VVVV.Audio.Signals.dll">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="OperationCallFlag" Name="Create" />
+                  <CategoryReference Kind="AssemblyCategory" Name="AudioSignalMultiplyOperator" NeedsToBeDirectParent="true" />
+                </p:NodeReference>
+                <Pin Id="A4NWWGo8FopNtUXYDOxALQ" Name="Output" Kind="StateOutputPin" />
+              </Node>
+              <Pad Id="NLl19vWwfx0Qajf7zaUNud" Bounds="326,424" />
+              <ControlPoint Id="JcTd8CVhxELLJexmgdNxEt" Bounds="410,387" />
+              <Node Bounds="311,462,114,85" Id="Q41df5l5N3gQSmbTCBETJr">
+                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
+                  <Choice Kind="ProcessStatefulRegion" Name="Cache" />
+                  <FullNameCategoryReference ID="Primitive" />
+                </p:NodeReference>
+                <Pin Id="Ahuhinjv34GLvSHNhqkmzh" Name="Force" Kind="InputPin" />
+                <Pin Id="KQSTe0Ad5kPPVxPi71i1jz" Name="Dispose Cached Outputs" Kind="InputPin" />
+                <Pin Id="QAhVcUlrikRPyLu5uibyp2" Name="Has Changed" Kind="OutputPin" />
+                <Patch Id="HoV8IyFYt65Oa5qnEw1Z2J" ManuallySortedPins="true">
+                  <Patch Id="T9LEluMWIbMOjkLIqWz9u5" Name="Create" ManuallySortedPins="true" />
+                  <Patch Id="DtSQkK2gKQiLxr4DNDYxlN" Name="Then" ManuallySortedPins="true" />
+                  <Node Bounds="323,491,90,26" Id="Fni7edf7Ve0LRUR05Zs4rs">
+                    <p:NodeReference LastCategoryFullName="VVVV.Audio.AudioSignalOperator" LastSymbolSource="VVVV.Audio.Signals.dll">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <Choice Kind="OperationCallFlag" Name="SetInputs" />
+                    </p:NodeReference>
+                    <Pin Id="LvsUi0WaXzGMlmvYZQfSGJ" Name="Input" Kind="StateInputPin" />
+                    <Pin Id="FckaGV0hVcXOhZm5cIx66V" Name="Value" Kind="InputPin" />
+                    <Pin Id="A7tRi1PRR6sOIHnr4sVz6a" Name="Output" Kind="StateOutputPin" />
+                  </Node>
+                </Patch>
+                <ControlPoint Id="SJRljSyvMWVOMFbjyPfdUF" Bounds="410,468" Alignment="Top" />
+                <ControlPoint Id="CbS9aWXlUF9MKbPYyJotJC" Bounds="326,468" Alignment="Top" />
+                <ControlPoint Id="HbHBOGm8w4wNI4mnHPHAju" Bounds="325,541" Alignment="Bottom" />
+              </Node>
+              <ControlPoint Id="JC5UvGcpqJBMCj5pfcUCnl" Bounds="325,603" />
+            </Canvas>
+            <Patch Id="Dj6MPa6NoxTOa7Lq0yEEtz" Name="Create" ParticipatingElements="IgSRUP7QCzWMysUuYUPpZj" />
+            <Patch Id="K5GfAwOHrrMQBBE2lTMQ3U" Name="Update">
+              <Pin Id="PtRxCmQBZTKPpsmT5mZRWl" Name="Input" Kind="InputPin" Bounds="415,340" />
+              <Pin Id="TUAvdm3HZbaPBFZXPqJBqE" Name="Output" Kind="OutputPin" Bounds="325,603" />
+            </Patch>
+            <ProcessDefinition Id="UOVY4ZXxCjEMFqIlp0Xv1c">
+              <Fragment Id="A4HQFgOvvs7P30laIVBKPr" Patch="Dj6MPa6NoxTOa7Lq0yEEtz" Enabled="true" />
+              <Fragment Id="KD9m7USUusmNZir5uipqgJ" Patch="K5GfAwOHrrMQBBE2lTMQ3U" Enabled="true" />
+            </ProcessDefinition>
+            <Link Id="GlBAJwdHDN8LV9sU3LnUDn" Ids="A4NWWGo8FopNtUXYDOxALQ,NLl19vWwfx0Qajf7zaUNud" />
+            <Link Id="Dxgh13deGWdQCnzBvzsDqj" Ids="PtRxCmQBZTKPpsmT5mZRWl,JcTd8CVhxELLJexmgdNxEt" IsHidden="true" />
+            <Link Id="C9wyMASPvo4NnlNOnL616z" Ids="JcTd8CVhxELLJexmgdNxEt,SJRljSyvMWVOMFbjyPfdUF" />
+            <Link Id="AbOLYmyFIakL1p89FatWLl" Ids="SJRljSyvMWVOMFbjyPfdUF,FckaGV0hVcXOhZm5cIx66V" />
+            <Link Id="OUhcVqNDNieLaUTXgwu0EI" Ids="NLl19vWwfx0Qajf7zaUNud,CbS9aWXlUF9MKbPYyJotJC" />
+            <Link Id="ROds1pMbyWnNNip8ftfvRZ" Ids="CbS9aWXlUF9MKbPYyJotJC,LvsUi0WaXzGMlmvYZQfSGJ" />
+            <Link Id="FcXuudpvLEoPmaJVokZBKr" Ids="A7tRi1PRR6sOIHnr4sVz6a,HbHBOGm8w4wNI4mnHPHAju" />
+            <Link Id="MaQlW7qqa1UQKiFOCGi7x7" Ids="HbHBOGm8w4wNI4mnHPHAju,JC5UvGcpqJBMCj5pfcUCnl" />
+            <Link Id="FOHhmZcjrtsLCqkqrT7oCs" Ids="JC5UvGcpqJBMCj5pfcUCnl,TUAvdm3HZbaPBFZXPqJBqE" IsHidden="true" />
+          </Patch>
+        </Node>
+        <!--
+
+    ************************ - (Spectral) ************************
+
+-->
+        <Node Name="- (Spectral)" Bounds="405,305" Id="VA0vq9Am1qUQIFPb2978kD">
+          <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="builtin">
+            <Choice Kind="ContainerDefinition" Name="Process" />
+          </p:NodeReference>
+          <Patch Id="NgVY3MWeX2pN9xykdiz6Gp">
+            <Canvas Id="Puv4jlwVgiSPNcMpn2FPMb" CanvasType="Group">
+              <Node Bounds="274,359,105,26" Id="NNTFKr6nhDANrnUnVMrCKy">
+                <p:NodeReference LastCategoryFullName="VVVV.Audio.AudioSignalSubtractOperator" LastSymbolSource="VVVV.Audio.Signals.dll">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="OperationCallFlag" Name="Create" />
+                  <CategoryReference Kind="AssemblyCategory" Name="AudioSignalSubtractOperator" NeedsToBeDirectParent="true" />
+                </p:NodeReference>
+                <Pin Id="SFMMrdA5UjlPQDq5K8yUDK" Name="Output" Kind="StateOutputPin" />
+              </Node>
+              <Pad Id="RdkQWU08fm0L1AyclP83IU" Bounds="326,424" />
+              <ControlPoint Id="GWpMDFM4QULNdS7dBrQtmg" Bounds="410,387" />
+              <Node Bounds="311,462,114,85" Id="S0zye5vRcALQZXcKkIYVAE">
+                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
+                  <Choice Kind="ProcessStatefulRegion" Name="Cache" />
+                  <FullNameCategoryReference ID="Primitive" />
+                </p:NodeReference>
+                <Pin Id="GhAa5W6ZiSKOEPbCQYlNQz" Name="Force" Kind="InputPin" />
+                <Pin Id="Ce74Kinlx1mOXPqIeHwI1b" Name="Dispose Cached Outputs" Kind="InputPin" />
+                <Pin Id="FxuGb8vGLyFPfV0lvhnJH2" Name="Has Changed" Kind="OutputPin" />
+                <Patch Id="NTNToRbLiIZPJ9hJ92jOPu" ManuallySortedPins="true">
+                  <Patch Id="EpOa52H0K0xMISCZntpf0f" Name="Create" ManuallySortedPins="true" />
+                  <Patch Id="NUJian7o8FONXpAhxUE6PQ" Name="Then" ManuallySortedPins="true" />
+                  <Node Bounds="323,491,90,26" Id="Jg5aouW3kX9L7Gdg67c6cS">
+                    <p:NodeReference LastCategoryFullName="VVVV.Audio.AudioSignalOperator" LastSymbolSource="VVVV.Audio.Signals.dll">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <Choice Kind="OperationCallFlag" Name="SetInputs" />
+                    </p:NodeReference>
+                    <Pin Id="CbheYHry3l2QFDqTRh0sEs" Name="Input" Kind="StateInputPin" />
+                    <Pin Id="U7JCUIF0KBxPKSQVTDHYQE" Name="Value" Kind="InputPin" />
+                    <Pin Id="Lu7GKIiAnxvOonSmUtHAvC" Name="Output" Kind="StateOutputPin" />
+                  </Node>
+                </Patch>
+                <ControlPoint Id="Atit06PObEpLAF6jKjnUer" Bounds="410,468" Alignment="Top" />
+                <ControlPoint Id="MjmmKb9DHJkLtcGgVZUvLZ" Bounds="326,468" Alignment="Top" />
+                <ControlPoint Id="OnfPlArzBacONnu0LbLsUa" Bounds="325,541" Alignment="Bottom" />
+              </Node>
+              <ControlPoint Id="K6WoJcsPkPVNTnr2vgfe3j" Bounds="325,603" />
+            </Canvas>
+            <Patch Id="Tgb5cOhvWfWNBngIz3fKGw" Name="Create" ParticipatingElements="NNTFKr6nhDANrnUnVMrCKy" />
+            <Patch Id="UmArhRUjLFlNezHDkOLna0" Name="Update">
+              <Pin Id="HABe6THadpjOBbTvvnmNn1" Name="Input" Kind="InputPin" Bounds="415,340" />
+              <Pin Id="DCI3JcVEz6DLjRcHHsMdxA" Name="Output" Kind="OutputPin" Bounds="325,603" />
+            </Patch>
+            <ProcessDefinition Id="F61M1trYfFBMsJjq2u0rYL">
+              <Fragment Id="PNxjeTD5qXGL6ZxDHgEmBx" Patch="Tgb5cOhvWfWNBngIz3fKGw" Enabled="true" />
+              <Fragment Id="EPOoo53go3EPUjGsHtC2JM" Patch="UmArhRUjLFlNezHDkOLna0" Enabled="true" />
+            </ProcessDefinition>
+            <Link Id="Nkeo38mhmIuMDS7iY3eYD9" Ids="SFMMrdA5UjlPQDq5K8yUDK,RdkQWU08fm0L1AyclP83IU" />
+            <Link Id="QkMjKurDjH5MzPOD3EmGS5" Ids="HABe6THadpjOBbTvvnmNn1,GWpMDFM4QULNdS7dBrQtmg" IsHidden="true" />
+            <Link Id="E1xOJ250cq1LRB3Ew1e70C" Ids="GWpMDFM4QULNdS7dBrQtmg,Atit06PObEpLAF6jKjnUer" />
+            <Link Id="PTa5LQLIrQONyFKBPLCjMc" Ids="Atit06PObEpLAF6jKjnUer,U7JCUIF0KBxPKSQVTDHYQE" />
+            <Link Id="POUwypjgKvnMbeXxJ4a6tu" Ids="RdkQWU08fm0L1AyclP83IU,MjmmKb9DHJkLtcGgVZUvLZ" />
+            <Link Id="HNVXiXzDCpWNE3sJxrpvD9" Ids="MjmmKb9DHJkLtcGgVZUvLZ,CbheYHry3l2QFDqTRh0sEs" />
+            <Link Id="Ot7jSTPOOYbNiaFpk5qbcK" Ids="Lu7GKIiAnxvOonSmUtHAvC,OnfPlArzBacONnu0LbLsUa" />
+            <Link Id="MNuVq6Fhw3mLi6Oz2idbO2" Ids="OnfPlArzBacONnu0LbLsUa,K6WoJcsPkPVNTnr2vgfe3j" />
+            <Link Id="S2ZEVuxp0A1NlA3K2KNRGD" Ids="K6WoJcsPkPVNTnr2vgfe3j,DCI3JcVEz6DLjRcHHsMdxA" IsHidden="true" />
           </Patch>
         </Node>
       </Canvas>
