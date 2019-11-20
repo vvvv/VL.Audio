@@ -8,7 +8,7 @@
     ************************ AudioEngine ************************
 
 -->
-      <Node Name="AudioEngine" Bounds="173,204" Id="KuVlAdkS707LcgTmpwbm2r">
+      <Node Name="AudioEngine" Bounds="173,204" Id="KuVlAdkS707LcgTmpwbm2r" Summary="Configures the audio engine">
         <p:NodeReference>
           <Choice Kind="ContainerDefinition" Name="Process" />
           <FullNameCategoryReference ID="Primitive" />
@@ -556,7 +556,7 @@
     ************************ AudioOut ************************
 
 -->
-        <Node Name="AudioOut" Bounds="323,246" Id="AUHLL4CKw7sNv9pneoZtP0">
+        <Node Name="AudioOut" Bounds="323,246" Id="AUHLL4CKw7sNv9pneoZtP0" Summary="Sends the given signals to the open audio output channels" Remarks="First slice will go to first driver output channel, second slice will be second and so on. With the offset pin the channels can be moved to other outputs: OutputChannel = SliceIndex + ChannelOffset">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="builtin">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -754,7 +754,7 @@
     ************************ Meter ************************
 
 -->
-        <Node Name="Meter" Bounds="323,320" Id="AzryH8D4q9wNSN9uIyG1X3">
+        <Node Name="Meter" Bounds="323,320" Id="AzryH8D4q9wNSN9uIyG1X3" Summary="Returns the max dBs">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="builtin">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -889,7 +889,7 @@
     ************************ FFT ************************
 
 -->
-        <Node Name="FFT" Bounds="323,383" Id="TGQeApelcqaOLR4deiU1LO">
+        <Node Name="FFT" Bounds="323,383" Id="TGQeApelcqaOLR4deiU1LO" Summary="Returns the FFT of an audio signal">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="builtin">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -1443,7 +1443,7 @@
     ************************ GetBuffer ************************
 
 -->
-        <Node Name="GetBuffer" Bounds="319,465" Id="HLSuzSaWCLgODBuZ9kxQ1E">
+        <Node Name="GetBuffer" Bounds="319,465" Id="HLSuzSaWCLgODBuZ9kxQ1E" Summary="Returns the last Buffer as values">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="builtin">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -1566,7 +1566,7 @@
     ************************ Gist ************************
 
 -->
-        <Node Name="Gist" Bounds="516,303" Id="T8iHs74oqFMPLeFNH4m4Pm">
+        <Node Name="Gist" Bounds="516,303" Id="T8iHs74oqFMPLeFNH4m4Pm" Summary="Tracks several features of the incoming audio" Remarks="CREDITS: Adam Stark" Tags="rms,pitch">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="builtin">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -1634,6 +1634,7 @@
                 <Pin Id="DvZddb8B4V6ObjOdWLGhE6" Name="Result" Kind="OutputPin" />
               </Node>
               <ControlPoint Id="EvRfeJIHUT0QBy9qo06aab" Bounds="592,462" />
+              <Pad Id="Jlm3FPc980FLK1Sr3aJ6GV" Comment="Feature Names" Bounds="739,388,112,158" ShowValueBox="true" isIOBox="true" />
             </Canvas>
             <Patch Id="IY2sUServukL41773nL2tn" Name="Create" />
             <Patch Id="O96ao4pVOuGOfxKLYKbssX" Name="Update">
@@ -1653,6 +1654,7 @@
             <Link Id="LmRyIXsNfBTMJoeW90GHR9" Ids="UpliLIGQVFlLOYJFdDUJX2,Ae9aorAcFGAMfIzxFIHYXr" />
             <Link Id="UHw7zUMM0aSMBP4trcKuy4" Ids="DvZddb8B4V6ObjOdWLGhE6,EvRfeJIHUT0QBy9qo06aab" />
             <Link Id="MrwqfsRdm68Oqg7Ef44BiG" Ids="EvRfeJIHUT0QBy9qo06aab,OcYXfePqxWLPVBTSb8knBJ" IsHidden="true" />
+            <Link Id="ATG9ENE3hq1Nj6wqBE5gVC" Ids="UWVV3ixtTiULETIFYuYNTP,Jlm3FPc980FLK1Sr3aJ6GV" />
           </Patch>
         </Node>
         <!--
@@ -1660,7 +1662,7 @@
     ************************ A2V ************************
 
 -->
-        <Node Name="A2V" Bounds="324,535" Id="DtM8fujlNU0LWHb2EdiJND">
+        <Node Name="A2V" Bounds="324,535" Id="DtM8fujlNU0LWHb2EdiJND" Summary="Returns the latest audio sample as value">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="builtin">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -1800,7 +1802,7 @@
     ************************ AudioIn ************************
 
 -->
-        <Node Name="AudioIn" Bounds="278,271" Id="FFS395946jvPxWmcddZxxi">
+        <Node Name="AudioIn" Bounds="278,271" Id="FFS395946jvPxWmcddZxxi" Summary="Returns the signals from the open audio input channels">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="builtin">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -1911,7 +1913,7 @@
     ************************ AudioPlayer ************************
 
 -->
-        <Node Name="AudioPlayer" Bounds="278,333" Id="ItYymiDKOMELD9d43wjAYV">
+        <Node Name="AudioPlayer" Bounds="278,333" Id="ItYymiDKOMELD9d43wjAYV" Summary="Plays back sound files">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="builtin">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -2467,7 +2469,7 @@
     ************************ OSC ************************
 
 -->
-        <Node Name="OSC" Bounds="282,422" Id="OOtuXvLCQjRNBHzUhyfzUI">
+        <Node Name="OSC" Bounds="282,422" Id="OOtuXvLCQjRNBHzUhyfzUI" Summary="Creates an audio wave">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="builtin">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -2587,7 +2589,7 @@
     ************************ V2A ************************
 
 -->
-        <Node Name="V2A" Bounds="283,503" Id="UlkWlChVBcMOZ6tDJFJjuA">
+        <Node Name="V2A" Bounds="283,503" Id="UlkWlChVBcMOZ6tDJFJjuA" Summary="Converts a value into a static audio signal">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="builtin">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -2687,7 +2689,7 @@
     ************************ Filter ************************
 
 -->
-        <Node Name="Filter" Bounds="287,286" Id="VDJQa6I8w0MP8ILK2vL94c">
+        <Node Name="Filter" Bounds="287,286" Id="VDJQa6I8w0MP8ILK2vL94c" Summary="Analog modeling filter">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="builtin">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -2763,7 +2765,7 @@
     ************************ IIR ************************
 
 -->
-        <Node Name="IIR" Bounds="415,283" Id="GqtjQw2t3YpLqgWomkJbsx">
+        <Node Name="IIR" Bounds="415,283" Id="GqtjQw2t3YpLqgWomkJbsx" Summary="Simple one pole lowpass filer, mainly for value smoothing">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="builtin">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -3893,7 +3895,7 @@
     ************************ + (Spectral) ************************
 
 -->
-        <Node Name="+ (Spectral)" Bounds="208,307" Id="DlB0l1jat4HMToutmXEIws">
+        <Node Name="+ (Spectral)" Bounds="208,307" Id="DlB0l1jat4HMToutmXEIws" Summary="Adds audio signals">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="builtin">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -3962,7 +3964,7 @@
     ************************ * (Spectral) ************************
 
 -->
-        <Node Name="* (Spectral)" Bounds="565,305" Id="CRrMUQxDfPuPWrdGW1m0O4">
+        <Node Name="* (Spectral)" Bounds="565,305" Id="CRrMUQxDfPuPWrdGW1m0O4" Summary="Multiplies audio signals">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="builtin">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -4031,7 +4033,7 @@
     ************************ - (Spectral) ************************
 
 -->
-        <Node Name="- (Spectral)" Bounds="387,304" Id="VA0vq9Am1qUQIFPb2978kD">
+        <Node Name="- (Spectral)" Bounds="387,304" Id="VA0vq9Am1qUQIFPb2978kD" Summary="Subtracts audio signals">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="builtin">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
