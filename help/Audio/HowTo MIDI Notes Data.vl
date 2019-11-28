@@ -105,9 +105,10 @@
           <Node Bounds="415,441,125,19" Id="HWnsP4sQfDUPDqKkSDkIrH">
             <p:NodeReference LastCategoryFullName="Audio.Elementa" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-              <Choice Kind="ProcessAppFlag" Name="PianoPreview" />
+              <Choice Kind="ProcessNode" Name="PianoKeyboardPreview (Elementa)" />
             </p:NodeReference>
             <Pin Id="TdBTnHv4NOiOqA65bfWvmD" Name="Piano" Kind="InputPin" />
+            <Pin Id="M7yuZ2WeYcyOnjRmDXB1wi" Name="MIDI In" Kind="InputPin" />
             <Pin Id="Ke8LKbtiQG1Pj1l7SwV1oE" Name="Position" Kind="InputPin" />
             <Pin Id="Cch8ELFQlJVNsA7LjemrcE" Name="Size" Kind="InputPin" />
             <Pin Id="Q2cEvvo9MO7Pd0xWMBzrfj" Name="Start Pitch" Kind="InputPin">
@@ -117,6 +118,8 @@
             </Pin>
             <Pin Id="CDdW3dS50c8OHSBeVOVoWt" Name="Notes Count" Kind="InputPin" />
             <Pin Id="LfxjWq2N7CmNeA9YRsidKf" Name="Color" Kind="InputPin" />
+            <Pin Id="C9iQ4k2e3WpL29oWdzjgop" Name="Flexibility" Kind="InputPin" />
+            <Pin Id="SLL6ifhYMZZMWYujM9sGh5" Name="Notes" Kind="InputPin" />
             <Pin Id="D2FJUeHGIRNQTFUViuVvkd" Name="Output" Kind="StateOutputPin" />
           </Node>
           <Node Bounds="69,677,85,19" Id="QuUnOIH0fEJNAeBLU9YBkF">
@@ -143,10 +146,10 @@
           <Node Bounds="52,393,205,19" Id="Kz3p3KU0dVfNLGnPdDnn72">
             <p:NodeReference LastCategoryFullName="Audio.Elementa" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-              <Choice Kind="ProcessNode" Name="Keyboard" />
               <CategoryReference Kind="Category" Name="Elementa" NeedsToBeDirectParent="true">
                 <p:OuterCategoryReference Kind="Category" Name="Audio" NeedsToBeDirectParent="true" />
               </CategoryReference>
+              <Choice Kind="ProcessNode" Name="Keyboard (Elementa)" />
             </p:NodeReference>
             <Pin Id="HhVlA4VxCQUPYmcXVrzZAf" Name="Position" Kind="InputPin" />
             <Pin Id="GIXlBQAALmhPtYFsGHCaz5" Name="Size" Kind="InputPin" />
@@ -202,6 +205,66 @@
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
             </p:ValueBoxSettings>
           </Pad>
+          <Node Bounds="655,349,88,19" Id="VDp721AVFvUMYI1a0uMe6f">
+            <p:NodeReference LastCategoryFullName="Audio.Utils" LastSymbolSource="VL.Audio.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <CategoryReference Kind="Category" Name="Utils" NeedsToBeDirectParent="true">
+                <p:OuterCategoryReference Kind="Category" Name="Audio" NeedsToBeDirectParent="true" />
+              </CategoryReference>
+              <Choice Kind="ProcessNode" Name="NoteRangeState" />
+            </p:NodeReference>
+            <Pin Id="DcgxaIYtl4JLM70ZyPlJTG" Name="MIDI In" Kind="InputPin" />
+            <Pin Id="HWp4oCR8Lp5MHqZFw86HjA" Name="Start Pitch" Kind="InputPin" />
+            <Pin Id="ASAFcq5MmmTLEddnS9xKGf" Name="Count" Kind="InputPin" />
+            <Pin Id="N5a62Iern0IMF1owpJYJta" Name="Notes" Kind="OutputPin" />
+          </Node>
+          <Node Bounds="613,475,125,19" Id="P9qieanT4aHP0iO3WFg2iN">
+            <p:NodeReference LastCategoryFullName="Audio.Skia" LastSymbolSource="VL.Audio.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessNode" Name="PianoKeyboardPreview (Skia)" />
+            </p:NodeReference>
+            <Pin Id="VuGM9OAKoe3NoPvSbfKb7L" Name="MIDI In" Kind="InputPin" />
+            <Pin Id="EC20BCNzEcwNlzNbjArN1Q" Name="Piano" Kind="InputPin" />
+            <Pin Id="MPSjRDU7zbqLxODl2KDXfH" Name="Notes" Kind="InputPin" />
+            <Pin Id="E9Pw8MpivfENTEt5hqa5ui" Name="Start Pitch" Kind="InputPin" DefaultValue="21">
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                <Choice Kind="TypeFlag" Name="Integer32" />
+              </p:TypeAnnotation>
+            </Pin>
+            <Pin Id="PbGBcaxRiYpOMoVuYhcn7i" Name="Notes Count" Kind="InputPin" DefaultValue="88">
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                <Choice Kind="TypeFlag" Name="Integer32" />
+              </p:TypeAnnotation>
+            </Pin>
+            <Pin Id="EQGJlnhGh10LGdqRtXc3AS" Name="Position" Kind="InputPin" />
+            <Pin Id="SvwqC4jXHuNLZbnbsZYKiL" Name="Size" Kind="InputPin" />
+            <Pin Id="TIAYAbMbFK9MNrhmnqImGY" Name="Color" Kind="InputPin" />
+            <Pin Id="HbnTKLFXQ48NvhZvOvtGIy" Name="Output" Kind="OutputPin" />
+          </Node>
+          <Node Bounds="48,724,125,19" Id="PhE5ClCMsatL7u7rBotHDH">
+            <p:NodeReference LastCategoryFullName="Graphics.Skia" LastSymbolSource="VL.Skia.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="Renderer" />
+            </p:NodeReference>
+            <Pin Id="PJWKnkVwb0uM1uRxPVSDi7" Name="Bounds" Kind="InputPin" DefaultValue="1604, 873, 894, 400">
+              <p:TypeAnnotation LastCategoryFullName="System.Drawing" LastSymbolSource="System.Drawing.dll">
+                <Choice Kind="TypeFlag" Name="Rectangle" />
+              </p:TypeAnnotation>
+            </Pin>
+            <Pin Id="E09FSq7CcayN1r9VjGQm2d" Name="Input" Kind="InputPin" />
+            <Pin Id="L1ayNki0EpLPQVubWtx9wR" Name="Color" Kind="InputPin" />
+            <Pin Id="AW266PJSfE3O9uaQCXQxlB" Name="Clear" Kind="InputPin" />
+            <Pin Id="FraX6zLK2vTPy6jspoX5QZ" Name="Space" Kind="InputPin" DefaultValue="DIPTopLeft">
+              <p:TypeAnnotation LastCategoryFullName="VL.Skia" LastSymbolSource="VL.Skia.dll">
+                <Choice Kind="TypeFlag" Name="CommonSpace" />
+              </p:TypeAnnotation>
+            </Pin>
+            <Pin Id="BHOaKxFlMjbONMjy9RgV9s" Name="VSync" Kind="InputPin" />
+            <Pin Id="CQfhljnl9wRLp0BFgHEZie" Name="Enabled" Kind="InputPin" />
+            <Pin Id="NHLvTFisoZ7MC2tSjyeADC" Name="Form" Kind="OutputPin" />
+            <Pin Id="O2JEhd0vf3KNcFOW09Jxfn" Name="ClientBounds" Kind="OutputPin" />
+            <Pin Id="OmkYAAhPmdNMl0LNrPbe6j" Name="Render Time" Kind="OutputPin" />
+          </Node>
         </Canvas>
         <Patch Id="NgUvgxQDaS8QEgrgN5wMJy" Name="Create" />
         <Patch Id="EnCLQaaRpmaL0ntOgeQjxe" Name="Update" />
@@ -214,16 +277,17 @@
         <Link Id="D62baTIcY8cMN9V1cgN09p" Ids="IUUR7LZXwX7P0n89A07RXG,OY0TC9I36h7LPW6o7LPIFZ" />
         <Link Id="Qq0CPS1UZsRLrHJCRekjVV" Ids="JAKazAFZSDAMJvOHWFulVJ,UigAUVM1FLUPBFKJ7ksSCp" />
         <Link Id="MhzNA91m6ioNsZppze8ITY" Ids="PyWd2T70JrIQMyOs3g1yjq,VYG26PDTz2sMa2DY2i3Bq8" />
-        <Link Id="M9ZWh19AHf6OI2dTNg7uHq" Ids="TaEr0D7wwE8MLXZoNZYSQ3,SmaWfKQ4xTmMhCruPOxUiu" />
-        <Link Id="ULvr6QOVh39L1NisDDWHif" Ids="UcTikUw1n03Pn2Y4JR663U,TdBTnHv4NOiOqA65bfWvmD" />
         <Link Id="H4q3u2lgEwDLci6CpuuXvl" Ids="KT17gREfuYSOLO5PrmAKIa,Cch8ELFQlJVNsA7LjemrcE" />
         <Link Id="Bozk8ahbK6aO3A6PRknJZ5" Ids="FCt0bBPQZomNF38DGc8vHz,GIXlBQAALmhPtYFsGHCaz5" />
         <Link Id="MMmZohW7v0NPrG1YmL43pt" Ids="DwH4KKTrpvpLNZIWSezX0H,HGiyqOxMxIoQJHUy6KM8fv" />
         <Link Id="JTLd1dO5LL5OI50vjXj98N" Ids="LIvmrHtae9iN7bqqsMbmhS,DjrFKkXFcxuNXYavrhEcDJ" />
         <Link Id="ELnUNUdswJlNXpjVoDEokx" Ids="OOhGKvJVH4MNqkFiSeypaJ,Qvs0Wy1ChugPjsLfVOFyBA" />
         <Link Id="A85psSkGCk2OhT7tRlxFA7" Ids="D2FJUeHGIRNQTFUViuVvkd,R0Y1ONTGpufPtDFrCrbsn8" />
-        <Link Id="Ipo0VC4oQgPNX3N751J2cH" Ids="L5EcE7Vax7XM8pShkeV4lD,U5bjzAGxfj3NpXJkToSgMw" />
         <Link Id="CybvZp42uM6O8IMNOdlXsG" Ids="L5EcE7Vax7XM8pShkeV4lD,EDqTX2bFwOdORdkTHpDanE" />
+        <Link Id="KrG1Id4FgrsObke1cRWCYH" Ids="L5EcE7Vax7XM8pShkeV4lD,DcgxaIYtl4JLM70ZyPlJTG" />
+        <Link Id="KIadhYmOUBOLonAqOI5xDg" Ids="HbnTKLFXQ48NvhZvOvtGIy,SmaWfKQ4xTmMhCruPOxUiu" />
+        <Link Id="RyFiPeiJCFrLVZwy22KTN5" Ids="TaEr0D7wwE8MLXZoNZYSQ3,E09FSq7CcayN1r9VjGQm2d" />
+        <Link Id="PxPjYdnzFzeOy6CjwFDXi0" Ids="L5EcE7Vax7XM8pShkeV4lD,M7yuZ2WeYcyOnjRmDXB1wi" />
       </Patch>
     </Node>
   </Patch>
