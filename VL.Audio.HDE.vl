@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="S3BYXYbBcOQLrAesdzH6KE" LanguageVersion="2019.1.0-961.roslyn-d28736e679" Version="0.128">
-  <NugetDependency Id="BfQ9BqV8poEPnZWKYQROv0" Location="VL.CoreLib" Version="2019.1.0-547" />
+<Document xmlns:p="property" Id="S3BYXYbBcOQLrAesdzH6KE" LanguageVersion="2020.1.7.184" Version="0.128">
+  <NugetDependency Id="BfQ9BqV8poEPnZWKYQROv0" Location="VL.CoreLib" Version="2020.1.7" />
   <Patch Id="DYRuwp4ufPyNyKtULooXvw">
     <Canvas Id="QYFOXjrMgATQTcpBMDj2hQ" DefaultCategory="Audio.HDE" CanvasType="FullCategory">
       <!--
@@ -22,11 +22,9 @@
           <Canvas Id="JOQonu8a6OHPY89PBXJtGI" CanvasType="Group">
             <ControlPoint Id="TuFrnJEFYfzPEl8nLHj7aj" Bounds="462,276" />
             <ControlPoint Id="JWWIsfIdhpjLl0F2hWXnii" Bounds="462,521" />
-            <Pad Id="LR5CzFPw7b6Pvy3WFdCsIq" Bounds="462,308">
-              <p:ValueBoxSettings />
-            </Pad>
+            <Pad Id="LR5CzFPw7b6Pvy3WFdCsIq" Bounds="462,308" />
             <Node Bounds="491,475,145,19" Id="A7kpKqFvf2ZQAoJgoKl5kt">
-              <p:NodeReference LastCategoryFullName="HDE.Widgets" LastSymbolSource="HDE.WidgetsAndViewers.vl">
+              <p:NodeReference LastCategoryFullName="HDE.TooltipWidgets" LastSymbolSource="HDE.WidgetsAndViewers.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="PanelWidget" />
               </p:NodeReference>
@@ -45,6 +43,7 @@
                   <Choice Kind="TypeFlag" Name="Boolean" />
                 </p:TypeAnnotation>
               </Pin>
+              <Pin Id="CNf99ZXPRakN63wcpqHi20" Name="Clip Enabled" Kind="InputPin" />
               <Pin Id="FDDBXR2VsLOLyf1nVVilTk" Name="Output" Kind="StateOutputPin" />
             </Node>
             <Pad Id="OKGHdBbTM3SPEqXIBF7vZ7" Comment="Padding" Bounds="526,394,35,28" ShowValueBox="true" isIOBox="true" Value="0, 0.02">
@@ -156,9 +155,7 @@
         <Patch Id="MKychyQTpFDNYheun9QI4c">
           <Canvas Id="B6hqqkM7HFHNaAzatGuIFT" CanvasType="Group">
             <ControlPoint Id="LFDLtYv2cDYN7tAXX01VCj" Bounds="508,915" />
-            <Pad Id="SoLfRGJdI3sMM5rJ5bjeOD" Bounds="521,403">
-              <p:ValueBoxSettings />
-            </Pad>
+            <Pad Id="SoLfRGJdI3sMM5rJ5bjeOD" Bounds="521,403" />
             <ControlPoint Id="HPaE8l86DL9NKaXRso5fYf" Bounds="421,426" />
             <ControlPoint Id="U37zhQzCBmtOoZopinHvhn" Bounds="254,441" />
             <ControlPoint Id="I7iei73BXaaP2JudPvZAIS" Bounds="275,337" />
@@ -181,9 +178,7 @@
             </Pad>
             <ControlPoint Id="OZO9sZsMNNuP5E7kr29XfQ" Bounds="437,162" />
             <ControlPoint Id="I9SzloXTy5eMWacjjOCq3R" Bounds="391,272" />
-            <Pad Id="RFqS0m49WpiMGwSCDZ7xDz" SlotId="EqEfnbtmz99ORsbQ0DSy7h" Bounds="438,209">
-              <p:ValueBoxSettings />
-            </Pad>
+            <Pad Id="RFqS0m49WpiMGwSCDZ7xDz" SlotId="EqEfnbtmz99ORsbQ0DSy7h" Bounds="438,209" />
             <Node Bounds="482,287,48,19" Id="RpxWXw1cl35MOhlXlvhpuy">
               <p:NodeReference LastCategoryFullName="Primitive.Object" LastSymbolSource="CoreLibBasics.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -219,6 +214,7 @@
                 <Choice Kind="ProcessAppFlag" Name="GetBuffer" />
               </p:NodeReference>
               <Pin Id="UAMT8x3wdOaNNpd1FaZqjp" Name="Input" Kind="InputPin" />
+              <Pin Id="GyRri8uoqGMMGB4ywAIADa" Name="Size" Kind="InputPin" />
               <Pin Id="S3uIfGrqkmgQTtveOF4uGo" Name="Result" Kind="OutputPin" />
             </Node>
             <Node Bounds="506,854,85,19" Id="JOC9folGNfwMDE12AGhdOg">
@@ -454,12 +450,7 @@
           <Canvas Id="SJcbDv2sSKsNclvN581HKP" CanvasType="Group">
             <ControlPoint Id="VkuQ0LHHfxQMA9Nz1P9fJT" Bounds="292,323,20,20" />
             <ControlPoint Id="PcHMVHiQfLeNnHA9J4uXz4" Bounds="292,375" />
-            <Pad Id="GJgSja0ZKZYLVP1wMK70Cb" SlotId="G6N9BdHoBQOLs0jjXygIei" Bounds="292,350,136,15">
-              <p:TypeAnnotation>
-                <Choice Kind="TypeFlag" Name="RGBA" />
-              </p:TypeAnnotation>
-              <p:ValueBoxSettings />
-            </Pad>
+            <Pad Id="GJgSja0ZKZYLVP1wMK70Cb" SlotId="G6N9BdHoBQOLs0jjXygIei" Bounds="292,350,136,15" />
             <Node Bounds="300,461" Id="C1KDWYzU7kUMDx7Opu0hwE">
               <p:NodeReference LastCategoryFullName="OpenCV.HDE.ScopeWidget (View)" LastSymbolSource="VL.Audio.HDE.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -521,7 +512,7 @@
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="PplJ8M06DDYNWsWk2Slfxl" Location="VL.Skia" Version="2019.1.0-0546-g5d9fbebda5" />
-  <NugetDependency Id="Vx0IDKk0ZwjLq5dkCVhG5Z" Location="VL.HDE" Version="0.0.0.0" />
-  <NugetDependency Id="FrX7g5P0W2mOzXNv73Xogy" Location="VL.Audio" Version="0.0.0.0" />
+  <NugetDependency Id="PplJ8M06DDYNWsWk2Slfxl" Location="VL.Skia" Version="2020.1.7" />
+  <NugetDependency Id="Vx0IDKk0ZwjLq5dkCVhG5Z" Location="VL.HDE" Version="2020.1.7" />
+  <DocumentDependency Id="Sm1TqsTkVFsProAmpQaAlM" Location="./VL.Audio.vl" IsFriend="true"/>
 </Document>

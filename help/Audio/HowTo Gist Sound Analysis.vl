@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="NRFj6c0qwQ6LxUAc4mUrt8" LanguageVersion="2019.1.0-0947-gbd6e4f7086" Version="0.128">
-  <NugetDependency Id="Hmr7kILdlvPMagkfyf51Iz" Location="VL.CoreLib" Version="2019.1.0-944" />
+<Document xmlns:p="property" Id="NRFj6c0qwQ6LxUAc4mUrt8" LanguageVersion="2020.1.7.184" Version="0.128">
+  <NugetDependency Id="Hmr7kILdlvPMagkfyf51Iz" Location="VL.CoreLib" Version="2020.1.7" />
   <Patch Id="HaulhrPXkyCPeLW2mKcS3k">
     <Canvas Id="KNuoeWiZ9dzNZrycJV80K9" DefaultCategory="Main" BordersChecked="false" CanvasType="FullCategory" />
     <!--
@@ -89,6 +89,8 @@
                 <Choice Kind="TypeFlag" Name="Float32" />
               </p:TypeAnnotation>
             </Pin>
+            <Pin Id="JNguRaRMlQjNHWUKeDo4lq" Name="Seek Time" Kind="InputPin" />
+            <Pin Id="LU0GF4bvudUMSAR24RVy8e" Name="Do Seek" Kind="InputPin" />
             <Pin Id="NtsHqQ3Rd9fLwiBHu6IJ5g" Name="Volume" Kind="InputPin" DefaultValue="0.5">
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
                 <Choice Kind="TypeFlag" Name="Float32" />
@@ -108,7 +110,7 @@
             <Pin Id="AJM47OGxetNLB58Huc07gJ" Name="Sample Rate" Kind="OutputPin" />
             <Pin Id="Q3zYwprVPyLNGlV98T0ugm" Name="Uncompressed Format" Kind="OutputPin" />
           </Node>
-          <Pad Id="AFhtajWa9EyOHDJs1skNrf" Comment="Play" Bounds="288,144,35,35" ShowValueBox="true" isIOBox="true" Value="True">
+          <Pad Id="AFhtajWa9EyOHDJs1skNrf" Comment="Play" Bounds="288,144,35,35" ShowValueBox="true" isIOBox="true" Value="False">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Boolean" />
             </p:TypeAnnotation>
@@ -135,11 +137,12 @@
               <Choice Kind="TypeFlag" Name="Boolean" />
             </p:TypeAnnotation>
           </Pad>
-          <Node Bounds="138,366,34,19" Id="EvojhyLMlkrMxpXfgHSE3j">
-            <p:NodeReference LastCategoryFullName="Audio.Sink" LastSymbolSource="VL.Audio.vl">
+          <Node Bounds="138,388,34,19" Id="EvojhyLMlkrMxpXfgHSE3j">
+            <p:NodeReference LastCategoryFullName="Audio.Analysis" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="Gist" />
             </p:NodeReference>
+            <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
             <Pin Id="R25hB8we3lnP5p1NmEvCMZ" Name="Audio In" Kind="InputPin" PinGroupName="InputGroup">
               <p:TypeAnnotation>
                 <Choice Kind="TypeFlag" Name="AudioSignal" />
@@ -194,7 +197,7 @@
             </p:ValueBoxSettings>
           </Pad>
           <Node Bounds="385,558,112,26" Id="GCkfXm0nh2gPAHHdulRxBW">
-            <p:NodeReference LastCategoryFullName="Audio.Sink.Gist" LastSymbolSource="VL.Audio.vl">
+            <p:NodeReference LastCategoryFullName="Audio.Analysis.Gist" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="OperationCallFlag" Name="GetZeroCrossingRate" />
             </p:NodeReference>
@@ -210,7 +213,7 @@
             </p:ValueBoxSettings>
           </Pad>
           <Node Bounds="608,558,107,26" Id="VpXNEEG070LPhq9FbDUj5T">
-            <p:NodeReference LastCategoryFullName="Audio.Sink.Gist" LastSymbolSource="VL.Audio.vl">
+            <p:NodeReference LastCategoryFullName="Audio.Analysis.Gist" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="OperationCallFlag" Name="GetSpectralCentroid" />
             </p:NodeReference>
@@ -226,7 +229,7 @@
             </p:ValueBoxSettings>
           </Pad>
           <Node Bounds="773,558,92,26" Id="CFXn41Ghfz5NE81J01ryip">
-            <p:NodeReference LastCategoryFullName="Audio.Sink.Gist" LastSymbolSource="VL.Audio.vl">
+            <p:NodeReference LastCategoryFullName="Audio.Analysis.Gist" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="OperationCallFlag" Name="GetSpectralCrest" />
             </p:NodeReference>
@@ -242,7 +245,7 @@
             </p:ValueBoxSettings>
           </Pad>
           <Node Bounds="938,558,105,26" Id="UP74gf6zX80OPgxq6pYXOO">
-            <p:NodeReference LastCategoryFullName="Audio.Sink.Gist" LastSymbolSource="VL.Audio.vl">
+            <p:NodeReference LastCategoryFullName="Audio.Analysis.Gist" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="OperationCallFlag" Name="GetSpectralFlatness" />
             </p:NodeReference>
@@ -258,7 +261,7 @@
             </p:ValueBoxSettings>
           </Pad>
           <Node Bounds="138,335,24,19" Id="GCR2VnXQdfHMQQ6dofPkxh">
-            <p:NodeReference LastCategoryFullName="Audio.Operator" LastSymbolSource="VL.Audio.vl">
+            <p:NodeReference LastCategoryFullName="Audio.Utils" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="+ (Spectral)" />
             </p:NodeReference>
@@ -266,7 +269,7 @@
             <Pin Id="QJkF2daswQJPp4IhOtwhoS" Name="Output" Kind="OutputPin" />
           </Node>
           <Node Bounds="1170,558,109,26" Id="TlJTKtUSFZSLe7n3H3AwBR">
-            <p:NodeReference LastCategoryFullName="Audio.Sink.Gist" LastSymbolSource="VL.Audio.vl">
+            <p:NodeReference LastCategoryFullName="Audio.Analysis.Gist" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="OperationCallFlag" Name="GetEnergyDifference" />
             </p:NodeReference>
@@ -282,7 +285,7 @@
             </p:ValueBoxSettings>
           </Pad>
           <Node Bounds="1335,558,115,26" Id="FRnJTilcliJPpMVRtvX0XT">
-            <p:NodeReference LastCategoryFullName="Audio.Sink.Gist" LastSymbolSource="VL.Audio.vl">
+            <p:NodeReference LastCategoryFullName="Audio.Analysis.Gist" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="OperationCallFlag" Name="GetSpectralDifference" />
             </p:NodeReference>
@@ -298,7 +301,7 @@
             </p:ValueBoxSettings>
           </Pad>
           <Node Bounds="1515,558,135,26" Id="NPRa7eUuhMFLodR5DtMt8Z">
-            <p:NodeReference LastCategoryFullName="Audio.Sink.Gist" LastSymbolSource="VL.Audio.vl">
+            <p:NodeReference LastCategoryFullName="Audio.Analysis.Gist" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="OperationCallFlag" Name="GetSpectralDifferenceHWR" />
             </p:NodeReference>
@@ -314,7 +317,7 @@
             </p:ValueBoxSettings>
           </Pad>
           <Node Bounds="1710,558,135,26" Id="SgO1asgfbmlQLo7QN9acVW">
-            <p:NodeReference LastCategoryFullName="Audio.Sink.Gist" LastSymbolSource="VL.Audio.vl">
+            <p:NodeReference LastCategoryFullName="Audio.Analysis.Gist" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="OperationCallFlag" Name="GetHighFrequencyContent" />
             </p:NodeReference>
@@ -330,7 +333,7 @@
             </p:ValueBoxSettings>
           </Pad>
           <Node Bounds="2002,558,68,26" Id="ScTd53Le4cHQUsvgSHRxSf">
-            <p:NodeReference LastCategoryFullName="Audio.Sink.Gist" LastSymbolSource="VL.Audio.vl">
+            <p:NodeReference LastCategoryFullName="Audio.Analysis.Gist" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="OperationCallFlag" Name="GetPitchYin" />
             </p:NodeReference>
@@ -405,6 +408,6 @@
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="AOu5YShvTlxO1vA9BHtmEC" Location="VL.Skia" Version="2019.1.0-0944-g55db11b013" />
+  <NugetDependency Id="AOu5YShvTlxO1vA9BHtmEC" Location="VL.Skia" Version="2020.1.7" />
   <NugetDependency Id="RFGyRrGfUbfP2xiT2T539W" Location="VL.Audio" Version="0.0.0.0" />
 </Document>
