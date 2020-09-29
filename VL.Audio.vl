@@ -8,7 +8,7 @@
     ************************ AudioEngine ************************
 
 -->
-      <Node Name="AudioEngine" Bounds="222,222" Id="KuVlAdkS707LcgTmpwbm2r" Summary="Configures the audio engine" Remarks="Only one instance of this node must exist!">
+      <Node Name="AudioEngine" Bounds="238,303" Id="KuVlAdkS707LcgTmpwbm2r" Summary="Configures the audio engine" Remarks="Only one instance of this node must exist!">
         <p:NodeReference>
           <Choice Kind="ContainerDefinition" Name="Process" />
           <FullNameCategoryReference ID="Primitive" />
@@ -561,7 +561,7 @@
           <Link Id="IhFOEalKxkIMssYpLVlW55" Ids="SgvjsE7FZNvLNGFZ5xdbki,SQQikvX9WJXQQHi6xHjmak" />
         </Patch>
       </Node>
-      <Canvas Id="MbtacXaCYZtNEqN6Ps0QTL" Name="Sink" Position="221,483">
+      <Canvas Id="MbtacXaCYZtNEqN6Ps0QTL" Name="Sink" Position="237,564">
         <!--
 
     ************************ AudioOut ************************
@@ -1031,7 +1031,7 @@
           </Patch>
         </Node>
       </Canvas>
-      <Canvas Id="TdfYOgYhMQ5LF73viafJkp" Name="Source" Position="221,294">
+      <Canvas Id="TdfYOgYhMQ5LF73viafJkp" Name="Source" Position="237,375">
         <!--
 
     ************************ AudioIn ************************
@@ -2780,7 +2780,7 @@
           </Patch>
         </Node>
       </Canvas>
-      <Canvas Id="KZsTRHdKpVtLGRymmbQ42w" Name="Filter" Position="221,357">
+      <Canvas Id="KZsTRHdKpVtLGRymmbQ42w" Name="Filter" Position="237,438">
         <!--
 
     ************************ Filter ************************
@@ -3187,7 +3187,7 @@
           </Patch>
         </Node>
       </Canvas>
-      <Canvas Id="JMZiBLAOkRuOOA3OqqTrQe" Name="Internal" Position="433,222">
+      <Canvas Id="JMZiBLAOkRuOOA3OqqTrQe" Name="Internal" Position="449,303">
         <!--
 
     ************************ OutputGroupMaker ************************
@@ -4133,7 +4133,7 @@
           </Patch>
         </Node>
       </Canvas>
-      <Canvas Id="PgSRoe0zKPdOBMBeBkbhMx" Name="Utils" Position="221,546">
+      <Canvas Id="PgSRoe0zKPdOBMBeBkbhMx" Name="Utils" Position="237,627">
         <!--
 
     ************************ + (Spectral) ************************
@@ -9949,7 +9949,7 @@
           </Node>
         </Canvas>
       </Canvas>
-      <Canvas Id="CzUCcdHx9xsOIJIU8nsq4Q" Name="Analysis" Position="221,420">
+      <Canvas Id="CzUCcdHx9xsOIJIU8nsq4Q" Name="Analysis" Position="237,501">
         <!--
 
     ************************ Meter ************************
@@ -14312,7 +14312,7 @@
           </Patch>
         </Node>
       </Canvas>
-      <Pad Id="KvmZqShOjiiLIgIFkwZ0F7" Bounds="425,370,324,69" ShowValueBox="true" isIOBox="true" Value="todo&#xD;&#xA;- handle audioengine singleton/disposal correctly&#xD;&#xA;- Stereo/Matrix Mixer">
+      <Pad Id="KvmZqShOjiiLIgIFkwZ0F7" Bounds="441,451,324,69" ShowValueBox="true" isIOBox="true" Value="todo&#xD;&#xA;- handle audioengine singleton/disposal correctly&#xD;&#xA;- Stereo/Matrix Mixer">
         <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
           <Choice Kind="TypeFlag" Name="String" />
         </p:TypeAnnotation>
@@ -14321,7 +14321,7 @@
           <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
         </p:ValueBoxSettings>
       </Pad>
-      <Canvas Id="NYaeeHZOcU7O30OIL6o0u6" Name="Enums" Position="434,322" CanvasType="Group">
+      <Canvas Id="NYaeeHZOcU7O30OIL6o0u6" Name="Enums" Position="450,403" CanvasType="Group">
         <!--
 
     ************************ WaveFormSelection ************************
@@ -14449,7 +14449,7 @@
           </Patch>
         </Node>
       </Canvas>
-      <Canvas Id="PEE9sa2LSwZODZ9NW2UQX5" Name="Advanced" Position="434,272">
+      <Canvas Id="PEE9sa2LSwZODZ9NW2UQX5" Name="Advanced" Position="450,353">
         <!--
 
     ************************ AsioInputDevice ************************
@@ -14517,13 +14517,24 @@
         <FullNameCategoryReference ID="Primitive" />
       </p:NodeReference>
       <Patch Id="Ac8xqUlgqwxMLrHMUkdrgg">
-        <Canvas Id="TlXFlhD8AFiOFyZv15S2Te" CanvasType="Group" />
-        <Patch Id="CvoGaz2EPG8OrXq55GzLPn" Name="Create" />
+        <Canvas Id="TlXFlhD8AFiOFyZv15S2Te" CanvasType="Group">
+          <Node Bounds="367,123,47,19" Id="JrVDiFmUk0EM2IIeQbiW7N">
+            <p:NodeReference LastCategoryFullName="VVVV.Audio.AudioService" LastSymbolSource="VVVV.Audio.Core.dll">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="OperationCallFlag" Name="Engine" />
+            </p:NodeReference>
+            <Pin Id="ATkv91zQOVqLNz6ezMT9es" Name="Engine" Kind="OutputPin" />
+          </Node>
+          <Pad Id="TD8p0edLdKwMdbpyFbkHRl" SlotId="Eu5TjHUDUBtMozDrY6y0hG" Bounds="370,171" />
+        </Canvas>
+        <Patch Id="CvoGaz2EPG8OrXq55GzLPn" Name="Create" ParticipatingElements="JrVDiFmUk0EM2IIeQbiW7N" />
         <Patch Id="Up7k51Y6FtFMukhrstg1kl" Name="Update" />
         <ProcessDefinition Id="B2wP2vn2YY2NONBEVKl3dJ">
           <Fragment Id="KVh8vM22kLlM9EhT5DqETt" Patch="CvoGaz2EPG8OrXq55GzLPn" Enabled="true" />
           <Fragment Id="NfO0elUmloTMjKLjP2ZRxG" Patch="Up7k51Y6FtFMukhrstg1kl" Enabled="true" />
         </ProcessDefinition>
+        <Slot Id="Eu5TjHUDUBtMozDrY6y0hG" Name="Engine" />
+        <Link Id="HIMrLLQp4cPLGGQf8QWaAB" Ids="ATkv91zQOVqLNz6ezMT9es,TD8p0edLdKwMdbpyFbkHRl" />
       </Patch>
     </Node>
   </Patch>
@@ -14534,4 +14545,5 @@
   <PlatformDependency Id="CkJA1f0OymiO6gudVd1ITl" Location="./src/bin/Debug/netstandard2.0/VL.Audio.dll" />
   <PlatformDependency Id="DFaKWyZVOYdN1lf3fAX7cX" Location="./lib/VVVV.Audio.Gist.dll" />
   <NugetDependency Id="QNWJq49B8fGPFd4ZgJ3YOk" Location="VL.Lang" Version="2020.2.0" />
+  <NugetDependency Id="HAtNcxYlDjCQRhqXVEgb23" Location="VL.HDE" Version="2020.2.0" />
 </Document>

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="D7IBwO2zC8qQJwplUikxnZ" LanguageVersion="2020.1.7.184" Version="0.128">
-  <NugetDependency Id="Hmr7kILdlvPMagkfyf51Iz" Location="VL.CoreLib" Version="2020.1.7" />
+<Document xmlns:p="property" Id="D7IBwO2zC8qQJwplUikxnZ" LanguageVersion="2020.2.0.269" Version="0.128">
+  <NugetDependency Id="Hmr7kILdlvPMagkfyf51Iz" Location="VL.CoreLib" Version="2020.2.0" />
   <Patch Id="HaulhrPXkyCPeLW2mKcS3k">
     <Canvas Id="KNuoeWiZ9dzNZrycJV80K9" DefaultCategory="Main" BordersChecked="false" CanvasType="FullCategory" />
     <!--
@@ -94,7 +94,7 @@
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="VUaJ56xl0ASOOn56jwsugd" Bounds="75,144,320,120" ShowValueBox="true" isIOBox="true" Value="The AudioEngine node is essentially a singleton, meaning you should always only have one instance of it active!&#xD;&#xA;&#xD;&#xA;In case you have multiple active, it is not defined, the setting of which instance will be the active ones.">
+          <Pad Id="VUaJ56xl0ASOOn56jwsugd" Bounds="45,144,320,120" ShowValueBox="true" isIOBox="true" Value="The AudioEngine node is essentially a singleton, meaning you should always only have one instance of it active!&#xD;&#xA;&#xD;&#xA;In case you have multiple active, it is not defined, the setting of which instance will be the active ones.">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -103,7 +103,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="N3GWBV0fbYfNkEQ9irbRUM" Bounds="78,498,78,26" ShowValueBox="true" isIOBox="true" Value="Sources">
+          <Pad Id="N3GWBV0fbYfNkEQ9irbRUM" Bounds="48,498,78,26" ShowValueBox="true" isIOBox="true" Value="Sources">
             <p:TypeAnnotation>
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -112,7 +112,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Node Bounds="100,520,52,19" Id="LbMj9kIFnIlMVAZFn5x21L">
+          <Node Bounds="70,520,52,19" Id="LbMj9kIFnIlMVAZFn5x21L">
             <p:NodeReference LastCategoryFullName="Audio.Source" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="Category" Name="Audio" />
@@ -121,7 +121,7 @@
             </p:NodeReference>
             <Pin Id="DntPRCJXk3MOzGOtUcXozL" Name="Output" Kind="OutputPin" />
           </Node>
-          <Node Bounds="164,520,165,19" Id="PZfcgw7cOFCP1Rhjivi83e">
+          <Node Bounds="137,520,165,19" Id="PZfcgw7cOFCP1Rhjivi83e">
             <p:NodeReference LastCategoryFullName="Audio.Source" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="Category" Name="Audio" />
@@ -145,7 +145,7 @@
             <Pin Id="U5AScOTN1WbPg0wJNFQj1H" Name="Sample Rate" Kind="OutputPin" />
             <Pin Id="NFyQMTZVkA0NqdPD0cXi3T" Name="Uncompressed Format" Kind="OutputPin" />
           </Node>
-          <Node Bounds="576,520,145,19" Id="Gqb09J5bZpYPTkIb4FucjV">
+          <Node Bounds="657,520,145,19" Id="Gqb09J5bZpYPTkIb4FucjV">
             <p:NodeReference LastCategoryFullName="Audio.Source" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="Category" Name="Audio" />
@@ -162,7 +162,7 @@
             <Pin Id="E4OGz9hGEygMLGFOqveGml" Name="Gain" Kind="InputPin" />
             <Pin Id="LfyWlKuQsZkPBeRLe4tsV9" Name="Output" Kind="OutputPin" />
           </Node>
-          <Node Bounds="733,520,35,19" Id="U6bchCAgtrwOJLj6MU8FX8">
+          <Node Bounds="817,520,35,19" Id="U6bchCAgtrwOJLj6MU8FX8">
             <p:NodeReference LastCategoryFullName="Audio.Source" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="Category" Name="Audio" />
@@ -181,7 +181,7 @@
             </Pin>
             <Pin Id="HbrBJj2MeekOmp08XWAWax" Name="Output" Kind="OutputPin" />
           </Node>
-          <Node Bounds="341,520,41,19" Id="TfRfUmBXSxGMArT4uS12KK">
+          <Node Bounds="317,520,145,19" Id="TfRfUmBXSxGMArT4uS12KK">
             <p:NodeReference LastCategoryFullName="Audio.Source" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="Category" Name="Audio" />
@@ -198,7 +198,7 @@
             <Pin Id="Q8cxyEGOIHMNskDO6XG3YQ" Name="Max" Kind="InputPin" />
             <Pin Id="TyhdKwSt8ryMjlTzVeTbg6" Name="Output" Kind="OutputPin" />
           </Node>
-          <Node Bounds="394,520,85,19" Id="LChOmre33IwLzQax7IPuIq">
+          <Node Bounds="477,520,85,19" Id="LChOmre33IwLzQax7IPuIq">
             <p:NodeReference LastCategoryFullName="Audio.Source" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="Category" Name="Audio" />
@@ -212,7 +212,7 @@
             <Pin Id="LvBSRHZwam7PGCEght7yaY" Name="File Name" Kind="InputPin" />
             <Pin Id="Cf1GlqjQCSvNacNpXvdyq2" Name="Output" Kind="OutputPin" />
           </Node>
-          <Node Bounds="780,520,64,19" Id="UsBozwF3b34NSJXU5uE1Il">
+          <Node Bounds="867,520,64,19" Id="UsBozwF3b34NSJXU5uE1Il">
             <p:NodeReference LastCategoryFullName="Audio.Source" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="Category" Name="Audio" />
@@ -224,7 +224,7 @@
             <Pin Id="A6vA6Led1mmMH8grsHIPnY" Name="Window Function" Kind="InputPin" />
             <Pin Id="LiC8YTNV8niM4rCdyvsGzs" Name="Output" Kind="OutputPin" />
           </Node>
-          <Node Bounds="100,618,39,19" Id="Nth6rW67cAOOYbPtgw0X7A">
+          <Node Bounds="70,618,39,19" Id="Nth6rW67cAOOYbPtgw0X7A">
             <p:NodeReference LastCategoryFullName="Audio.Filter" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="Category" Name="Audio" />
@@ -233,7 +233,7 @@
             </p:NodeReference>
             <Pin Id="Ts7CTBvMN9YNbzt0HRHYSF" Name="Output" Kind="OutputPin" />
           </Node>
-          <Pad Id="H0Gi1UxF2DRNf8rNTahady" Bounds="78,597,78,26" ShowValueBox="true" isIOBox="true" Value="Filters">
+          <Pad Id="H0Gi1UxF2DRNf8rNTahady" Bounds="48,597,78,26" ShowValueBox="true" isIOBox="true" Value="Filters">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -242,7 +242,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="L0XTKcAMcTXQP7GKPhOI1T" Bounds="78,855,78,26" ShowValueBox="true" isIOBox="true" Value="Sinks">
+          <Pad Id="L0XTKcAMcTXQP7GKPhOI1T" Bounds="48,855,78,26" ShowValueBox="true" isIOBox="true" Value="Sinks">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -251,7 +251,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="FxBglCgbJc5NzlayfOidpj" Bounds="78,685,78,26" ShowValueBox="true" isIOBox="true" Value="Analysis">
+          <Pad Id="FxBglCgbJc5NzlayfOidpj" Bounds="48,685,78,26" ShowValueBox="true" isIOBox="true" Value="Analysis">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -260,7 +260,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Node Bounds="170,618,28,19" Id="CgNqQ959kPRLaTAuJbzvAu">
+          <Node Bounds="140,618,28,19" Id="CgNqQ959kPRLaTAuJbzvAu">
             <p:NodeReference LastCategoryFullName="Audio.Filter" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="Category" Name="Audio" />
@@ -279,7 +279,7 @@
             </Pin>
             <Pin Id="UrlDdIbPdP4PwNVcmnhVmu" Name="Output" Kind="OutputPin" />
           </Node>
-          <Node Bounds="229,618,85,19" Id="UhC7IyIY6ihPvzY3QUWNRu">
+          <Node Bounds="199,618,85,19" Id="UhC7IyIY6ihPvzY3QUWNRu">
             <p:NodeReference LastCategoryFullName="Audio.Filter" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="Category" Name="Audio" />
@@ -297,7 +297,7 @@
             <Pin Id="BjnEWD73Xw0OepWwdIq0G8" Name="Destination Rate is Engine Rate" Kind="InputPin" />
             <Pin Id="OxsLL1euifoLcZX6WPPZqL" Name="Output" Kind="OutputPin" />
           </Node>
-          <Node Bounds="345,618,71,19" Id="NmDJdXwlqD1Nfya33NveFA">
+          <Node Bounds="315,618,71,19" Id="NmDJdXwlqD1Nfya33NveFA">
             <p:NodeReference LastCategoryFullName="Audio.Filter" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="Category" Name="Audio" />
@@ -321,7 +321,7 @@
             </Pin>
             <Pin Id="G4fhffgNsbbNdw8494TUzn" Name="Output" Kind="OutputPin" />
           </Node>
-          <Node Bounds="100,708,85,19" Id="P5wOA8k0wFtMqlOU2X7PFx">
+          <Node Bounds="70,708,85,19" Id="P5wOA8k0wFtMqlOU2X7PFx">
             <p:NodeReference LastCategoryFullName="Audio.Analysis" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="Category" Name="Audio" />
@@ -335,7 +335,7 @@
             <Pin Id="F5G9gemrVdgP79nl6xNS4H" Name="db Range" Kind="InputPin" />
             <Pin Id="MOEGuE5Xg5gMst0qcIGQzG" Name="Output" Kind="OutputPin" />
           </Node>
-          <Node Bounds="224,708,34,19" Id="MOJjUUFiKo0NspyKozF2qo">
+          <Node Bounds="194,708,34,19" Id="MOJjUUFiKo0NspyKozF2qo">
             <p:NodeReference LastCategoryFullName="Audio.Analysis" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="Category" Name="Audio" />
@@ -345,7 +345,7 @@
             <Pin Id="HTssPfvZ1F0MvxbZbjxW16" Name="Audio In" Kind="InputPin" />
             <Pin Id="HeNTB90xAOOME6jh8pv5AB" Name="Output" Kind="StateOutputPin" />
           </Node>
-          <Node Bounds="297,708,42,19" Id="DVBxxie3RFgNBMEDlOAnq7">
+          <Node Bounds="267,708,42,19" Id="DVBxxie3RFgNBMEDlOAnq7">
             <p:NodeReference LastCategoryFullName="Audio.Analysis" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="Category" Name="Audio" />
@@ -356,7 +356,7 @@
             <Pin Id="FtwsMxyuHntO3FyQe2Qkt4" Name="Level" Kind="OutputPin" />
             <Pin Id="MZnRvUqtPdGLpb7cvwDDOo" Name="Level dBs" Kind="OutputPin" />
           </Node>
-          <Node Bounds="179,877,35,19" Id="MVj9tKjTXcOQFMydl6XCUR">
+          <Node Bounds="149,877,35,19" Id="MVj9tKjTXcOQFMydl6XCUR">
             <p:NodeReference LastCategoryFullName="Audio.Sink" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="Category" Name="Audio" />
@@ -366,7 +366,7 @@
             <Pin Id="GcUlsK9GHyzLpX21ZEJppG" Name="Input" Kind="InputPin" />
             <Pin Id="H8XpUMUTOehNVHDX3snR0M" Name="Result" Kind="OutputPin" />
           </Node>
-          <Node Bounds="100,877,60,19" Id="HB5ueLTSYhpPbN17Yxdpk6">
+          <Node Bounds="70,877,60,19" Id="HB5ueLTSYhpPbN17Yxdpk6">
             <p:NodeReference LastCategoryFullName="Audio.Sink" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="Category" Name="Audio" />
@@ -376,7 +376,7 @@
             <Pin Id="QSfMkx04n7HO1kHTWo9asy" Name="Input" Kind="InputPin" />
             <Pin Id="NBo4JAZ8hDSNoiM7t0Uv1C" Name="Channel Offset" Kind="InputPin" />
           </Node>
-          <Node Bounds="235,877,59,19" Id="P3ujWutRjFFNEJQgcigLZd">
+          <Node Bounds="205,877,59,19" Id="P3ujWutRjFFNEJQgcigLZd">
             <p:NodeReference LastCategoryFullName="Audio.Sink" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="Category" Name="Audio" />
@@ -387,7 +387,7 @@
             <Pin Id="LJKLJIsLEpnLPhLqIe1MHX" Name="Size" Kind="InputPin" />
             <Pin Id="SQltwVKU9vXP2GaKsg1bZn" Name="Result" Kind="OutputPin" />
           </Node>
-          <Pad Id="TyMofOU9lu3QV0ERtXbBdC" Bounds="78,769,99,26" ShowValueBox="true" isIOBox="true" Value="Operators">
+          <Pad Id="TyMofOU9lu3QV0ERtXbBdC" Bounds="48,769,99,26" ShowValueBox="true" isIOBox="true" Value="Operators">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -396,7 +396,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Node Bounds="100,791,25,19" Id="UnUU3cezgVxOYD5ULClnZu">
+          <Node Bounds="70,791,25,19" Id="UnUU3cezgVxOYD5ULClnZu">
             <p:NodeReference LastCategoryFullName="Audio.Utils" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="Category" Name="Audio" />
@@ -407,7 +407,7 @@
             <Pin Id="UY3tXdwahIKQIvi81G8qCM" Name="Input 2" Kind="InputPin" />
             <Pin Id="VJdlwTvGPE5MdzZinILIpo" Name="Output" Kind="OutputPin" />
           </Node>
-          <Node Bounds="135,791,22,19" Id="OOCsoIT445tLOpM2WGO5GZ">
+          <Node Bounds="105,791,22,19" Id="OOCsoIT445tLOpM2WGO5GZ">
             <p:NodeReference LastCategoryFullName="Audio.Utils" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="Category" Name="Audio" />
@@ -417,7 +417,7 @@
             <Pin Id="BwUr0CfFakjNijSJxeKqZi" Name="Input" Kind="InputPin" />
             <Pin Id="Jl07RIFVoiBLMHqxOaB7QG" Name="Output" Kind="OutputPin" />
           </Node>
-          <Node Bounds="196,791,25,19" Id="Kc2h1NYIGoiPg90UEr2LaF">
+          <Node Bounds="166,791,25,19" Id="Kc2h1NYIGoiPg90UEr2LaF">
             <p:NodeReference LastCategoryFullName="Audio.Utils" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="Category" Name="Audio" />
@@ -428,7 +428,7 @@
             <Pin Id="OUnNWZxR6c0Qbt91kGszd4" Name="Input 2" Kind="InputPin" />
             <Pin Id="FSTgxJYeJeqO9BYii08spl" Name="Output" Kind="OutputPin" />
           </Node>
-          <Node Bounds="230,791,21,19" Id="EwrtbCjgIYuN3HDFDnCSFr">
+          <Node Bounds="200,791,21,19" Id="EwrtbCjgIYuN3HDFDnCSFr">
             <p:NodeReference LastCategoryFullName="Audio.Utils" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="Category" Name="Audio" />
@@ -438,7 +438,7 @@
             <Pin Id="AttB4ccVV5VQOnBsjNjqKo" Name="Input" Kind="InputPin" />
             <Pin Id="EEM0c78MdDWPlKxVWFxO0B" Name="Output" Kind="OutputPin" />
           </Node>
-          <Node Bounds="290,791,25,19" Id="AI0DW0lIb7CN0fCKUCIOjk">
+          <Node Bounds="260,791,25,19" Id="AI0DW0lIb7CN0fCKUCIOjk">
             <p:NodeReference LastCategoryFullName="Audio.Utils" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="Category" Name="Audio" />
@@ -449,7 +449,7 @@
             <Pin Id="Uf1p3HalXEWM7GCU6seHAw" Name="Input 2" Kind="InputPin" />
             <Pin Id="QE3OAhsME5oNBons5uIAmp" Name="Output" Kind="OutputPin" />
           </Node>
-          <Node Bounds="324,791,24,19" Id="B1GqJC0hJ9fLwhP3k6MPPA">
+          <Node Bounds="294,791,24,19" Id="B1GqJC0hJ9fLwhP3k6MPPA">
             <p:NodeReference LastCategoryFullName="Audio.Utils" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="Category" Name="Audio" />
@@ -459,7 +459,7 @@
             <Pin Id="RQddhHdDk2EMg5GbuBvaXw" Name="Input" Kind="InputPin" />
             <Pin Id="OEm92tZ2cbTNQLDesLgkG0" Name="Output" Kind="OutputPin" />
           </Node>
-          <Node Bounds="498,520,65,19" Id="VKX3oZXO2ttMPmePjnesDe">
+          <Node Bounds="577,520,65,19" Id="VKX3oZXO2ttMPmePjnesDe">
             <p:NodeReference LastCategoryFullName="Audio.Source" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="IFFT" />
@@ -490,6 +490,6 @@
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="AOu5YShvTlxO1vA9BHtmEC" Location="VL.Skia" Version="2020.1.7" />
+  <NugetDependency Id="AOu5YShvTlxO1vA9BHtmEC" Location="VL.Skia" Version="2020.2.0" />
   <NugetDependency Id="RFGyRrGfUbfP2xiT2T539W" Location="VL.Audio" Version="0.0.0.0" />
 </Document>
