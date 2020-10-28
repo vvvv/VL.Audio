@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="VuxCFYvJKE9LZOnAcVycvD" LanguageVersion="2020.2.0.269" Version="0.128">
-  <NugetDependency Id="NrtwmMKDemaOAGHoKxrmNR" Location="VL.CoreLib" Version="2020.2.0" />
+<Document xmlns:p="property" Id="VuxCFYvJKE9LZOnAcVycvD" LanguageVersion="2020.2.2.281" Version="0.128">
+  <NugetDependency Id="NrtwmMKDemaOAGHoKxrmNR" Location="VL.CoreLib" Version="2020.2.2" />
   <Patch Id="Mj1seFpSbg5MtaCXVBGhJf">
     <Canvas Id="ClqUpgLjNRdQbB5ajAF1ry" DefaultCategory="Audio" CanvasType="FullCategory">
       <!--
@@ -6962,51 +6962,6 @@
               <Link Id="SmAQ1o4SMcYMhTvDM122Eb" Ids="She04XCZYBxO45KuT7fuKE,VZvpnEZuK2sLcOwwCj7b8z" />
               <Link Id="OM1iXPyXTj9PGL0ngzkUA5" Ids="VZ0tidahhPuOwuqPD4g9uY,QIdZg7xFc5GOdSbTqWPcyr" />
               <Link Id="MUcffwKDs00Qa3d5SQzgPs" Ids="Th7w2IphE2aLqPCYsQZ7Ng,SIuCNFMfzEeM6ea0A40CLC" />
-            </Patch>
-          </Node>
-          <!--
-
-    ************************ Combination ************************
-
--->
-          <Node Name="Combination" Bounds="1424,2404,543,449" Id="PNV5Dll8pKlNFGfF924A0C">
-            <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="builtin">
-              <Choice Kind="OperationDefinition" Name="Operation" />
-            </p:NodeReference>
-            <Patch Id="BWK31RSsnmRMQzr4KSv1WT">
-              <Node Bounds="1466,2462,474,340" Id="NYTR0Cd2ZWxPzhMMkARG5B">
-                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.dll">
-                  <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
-                  <Choice Kind="ApplicationRegion" Name="Script" />
-                  <CategoryReference Kind="Category" Name="Primitive" />
-                </p:NodeReference>
-                <Patch Id="V37V9C5ejjpM1U562nU22g" ManuallySortedPins="true">
-                  <Patch Id="J43rWGao2cMMi6jGBziCXS" Name="Update" ManuallySortedPins="true" />
-                  <Pad Id="IIN2MKipF0KPGtnYJrc3el" Bounds="1482,2490,439,300" ShowValueBox="true" isIOBox="true" Value="using System;&#xD;&#xA;public static long Script(long N, long K)&#xD;&#xA;{&#xD;&#xA;   // This function gets the total number of unique combinations based upon N and K.&#xD;&#xA;   // N is the total number of items.&#xD;&#xA;   // K is the size of the group.&#xD;&#xA;   // Total number of unique combinations = N! / ( K! (N - K)! ).&#xD;&#xA;   // This function is less efficient, but is more likely to not overflow when N and K are large.&#xD;&#xA;   // Taken from:  http://blog.plover.com/math/choose.html&#xD;&#xA;   //&#xD;&#xA;   long r = 1;&#xD;&#xA;   long d;&#xD;&#xA;   if (K &gt; N) return 0;&#xD;&#xA;   for (d = 1; d &lt;= K; d++)&#xD;&#xA;   {&#xD;&#xA;      r *= N--;&#xD;&#xA;      r /= d;&#xD;&#xA;   }&#xD;&#xA;   return r;&#xD;&#xA;}">
-                    <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-                      <Choice Kind="TypeFlag" Name="String" />
-                    </p:TypeAnnotation>
-                    <p:ValueBoxSettings>
-                      <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
-                    </p:ValueBoxSettings>
-                  </Pad>
-                </Patch>
-                <Pin Id="UC328Z1uISNPOD8rRLfzRS" Name="N" Kind="InputPin" />
-                <Pin Id="He7R4GFtSzBOHkURyOT4du" Name="K" Kind="InputPin" />
-                <Pin Id="OuzXFKC0s4HO2SCaIhEKbE" Name="Output" Kind="OutputPin" />
-              </Node>
-              <ControlPoint Id="JsFI6CovmJ5MCZpfs1VkQx" Bounds="1470,2433" />
-              <Link Id="Lh60TPxkzTWOXNcoNLen1E" Ids="JsFI6CovmJ5MCZpfs1VkQx,UC328Z1uISNPOD8rRLfzRS" />
-              <Pin Id="I5c3dZOk6EBLKTb7njfM7X" Name="N" Kind="InputPin" Bounds="1355,2184" />
-              <Link Id="Jaf1sDX2O2bO8cW5tX9Dzc" Ids="I5c3dZOk6EBLKTb7njfM7X,JsFI6CovmJ5MCZpfs1VkQx" IsHidden="true" />
-              <ControlPoint Id="B0jVDKLJAs4MmW758x1GVB" Bounds="1937,2422" />
-              <Link Id="BCaZ1UNA4qmNidfFn5fWNn" Ids="B0jVDKLJAs4MmW758x1GVB,He7R4GFtSzBOHkURyOT4du" />
-              <Pin Id="VtYGU2a6G6aNL23hUi5Gqy" Name="K" Kind="InputPin" Bounds="1681,2180" />
-              <Link Id="GE2Evr6GZtmPHd6E7A0CLi" Ids="VtYGU2a6G6aNL23hUi5Gqy,B0jVDKLJAs4MmW758x1GVB" IsHidden="true" />
-              <ControlPoint Id="CvB2IO6dx37Pqf9WTIfQK8" Bounds="1467,2836" />
-              <Link Id="AtWkpreTqCCQJU9E4zcOuy" Ids="OuzXFKC0s4HO2SCaIhEKbE,CvB2IO6dx37Pqf9WTIfQK8" />
-              <Pin Id="J1MJAxrHdg2P4OoII6L0jg" Name="Output" Kind="OutputPin" Bounds="1355,2465" />
-              <Link Id="CG3CQX0bt13OCWowO7NHWg" Ids="CvB2IO6dx37Pqf9WTIfQK8,J1MJAxrHdg2P4OoII6L0jg" IsHidden="true" />
             </Patch>
           </Node>
           <!--
@@ -14538,12 +14493,12 @@
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="GWSxhZDR3pvQCvdEUxXjvq" Location="VL.Skia" Version="2020.2.0" />
+  <NugetDependency Id="GWSxhZDR3pvQCvdEUxXjvq" Location="VL.Skia" Version="2020.2.2" />
   <PlatformDependency Id="Dj0atvcxpMoOlrPcn461dj" Location="./lib/VVVV.Audio.Core.dll" />
   <PlatformDependency Id="MxuMdrQzBYnQOapMWbxxPG" Location="./lib/VVVV.Audio.Signals.dll" />
   <PlatformDependency Id="DRUgkVLqO21PdHBX5vfYNV" Location="./lib/NAudio.dll" />
   <PlatformDependency Id="CkJA1f0OymiO6gudVd1ITl" Location="./src/bin/Debug/netstandard2.0/VL.Audio.dll" />
   <PlatformDependency Id="DFaKWyZVOYdN1lf3fAX7cX" Location="./lib/VVVV.Audio.Gist.dll" />
-  <NugetDependency Id="QNWJq49B8fGPFd4ZgJ3YOk" Location="VL.Lang" Version="2020.2.0" />
-  <NugetDependency Id="HAtNcxYlDjCQRhqXVEgb23" Location="VL.HDE" Version="2020.2.0" />
+  <NugetDependency Id="QNWJq49B8fGPFd4ZgJ3YOk" Location="VL.Lang" Version="2020.2.2" />
+  <NugetDependency Id="HAtNcxYlDjCQRhqXVEgb23" Location="VL.HDE" Version="2020.2.2" />
 </Document>
