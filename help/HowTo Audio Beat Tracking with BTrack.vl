@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document xmlns:p="property" Id="NRFj6c0qwQ6LxUAc4mUrt8" LanguageVersion="2020.2.4.333" Version="0.128">
+  <NugetDependency Id="Hmr7kILdlvPMagkfyf51Iz" Location="VL.CoreLib" Version="2020.2.4" />
+  <Patch Id="HaulhrPXkyCPeLW2mKcS3k">
+    <Canvas Id="KNuoeWiZ9dzNZrycJV80K9" DefaultCategory="Main" BordersChecked="false" CanvasType="FullCategory" />
+    <!--
+
+    ************************ Application ************************
+
+-->
+    <Node Name="Application" Bounds="100,100" Id="HxjL4vVCGyzPIknG3sV8h5">
+      <p:NodeReference>
+        <Choice Kind="ContainerDefinition" Name="Process" />
+        <FullNameCategoryReference ID="Primitive" />
+      </p:NodeReference>
+      <Patch Id="AFt6082b9iLOjGTv1MbRl0">
+        <Canvas Id="JS6RdkEeqU0MfrOyWUQHlK" CanvasType="Group">
+          <Node Bounds="606,202,225,19" Id="J4hK9SAnUl0P911tGX9wEm">
+            <p:NodeReference LastCategoryFullName="Audio" LastSymbolSource="VL.Audio.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="AudioEngine" />
+            </p:NodeReference>
+            <Pin Id="F4UnCTeEjFfP6nSk7psx38" Name="Driver" Kind="InputPin" />
+            <Pin Id="E9xJgDqZKuGPM7MbR8ujcf" Name="Sample Rate" Kind="InputPin" />
+            <Pin Id="OAFU3pOC85YPaWEHVvNmEm" Name="Desired Input Channels" Kind="InputPin" />
+            <Pin Id="TEmILbpNfd8PQdoOQ5tYPq" Name="Desired Output Channels" Kind="InputPin" />
+            <Pin Id="GBq6esfa6FPOYVrE8yb2WY" Name="Show Control Panel" Kind="InputPin" />
+            <Pin Id="LFkWt9bbGXpPlpD67EotTX" Name="BPM" Kind="InputPin" />
+            <Pin Id="LRmzqLIiC6qOUMbizxbEyH" Name="Loop" Kind="InputPin" />
+            <Pin Id="Hi6iP2ogfJWOSxPhheY63M" Name="Loop Start Beat" Kind="InputPin" />
+            <Pin Id="N3QV4lwGoD5MMCnLFtGn07" Name="Loop End Beat" Kind="InputPin" />
+            <Pin Id="DrZOCJpqU7QP2tcN2QlD3o" Name="Seek Beat" Kind="InputPin" />
+            <Pin Id="TIa0QQwxguxLJwLc3Ow27x" Name="Do Seek" Kind="InputPin" />
+            <Pin Id="UPIRfQGzyB6PXRDLDVndB9" Name="Play" Kind="InputPin" />
+            <Pin Id="PHBdHVCbE7GLSytrWRQuCM" Name="Time" Kind="OutputPin" />
+            <Pin Id="P9Cm71yY6YXQDqMEzadzBM" Name="Beat" Kind="OutputPin" />
+            <Pin Id="QOb0ocu1FezPhOa9r2jQwn" Name="Driver Input Channels" Kind="OutputPin" />
+            <Pin Id="R2roofYyj4XO7mlNY24AXV" Name="Driver Output Channels" Kind="OutputPin" />
+            <Pin Id="E5RVTAnz5RtQUt5fMSPe9e" Name="Open Input Channels" Kind="OutputPin" />
+            <Pin Id="VqfNdhK3U7pN1lzoKo1mX6" Name="Open Output Channels" Kind="OutputPin" />
+            <Pin Id="KRq0o34QsOMOXopPXrg1ZG" Name="Buffer Size" Kind="OutputPin" />
+          </Node>
+          <Node Bounds="157,300,60,19" Id="Nuop8cIAGwTOWfLCrRRuny">
+            <p:NodeReference LastCategoryFullName="Audio.Sink" LastSymbolSource="VL.Audio.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="AudioOut" />
+            </p:NodeReference>
+            <Pin Id="N7otD8PaHBSL5ydm7Sr4uS" Name="Input" Kind="InputPin" />
+            <Pin Id="UuybLHh9euhOYkIzJUJEin" Name="Channel Offset" Kind="InputPin" />
+          </Node>
+          <Node Bounds="138,208,145,19" Id="CK5E6GsX3jjM3tNG2DfbKe">
+            <p:NodeReference LastCategoryFullName="Audio.Source" LastSymbolSource="VL.Audio.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="AudioPlayer" />
+            </p:NodeReference>
+            <Pin Id="A5KHOQ1lmWzLo2GsAKRvdx" Name="Filename" Kind="InputPin" DefaultValue="">
+              <p:TypeAnnotation LastCategoryFullName="IO" LastSymbolSource="CoreLibBasics.vl">
+                <Choice Kind="TypeFlag" Name="Path" />
+              </p:TypeAnnotation>
+            </Pin>
+            <Pin Id="GfSDmUAyGuUN4gKtz1GeUq" Name="Loop" Kind="InputPin" />
+            <Pin Id="CHRv5UXPB6FLhCHk7IMt1h" Name="Loop Start Time" Kind="InputPin" DefaultValue="0">
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                <Choice Kind="TypeFlag" Name="Float32" />
+              </p:TypeAnnotation>
+            </Pin>
+            <Pin Id="EiT3lCuHhXNMV3uZMGA8ko" Name="Loop End Time" Kind="InputPin" />
+            <Pin Id="JNguRaRMlQjNHWUKeDo4lq" Name="Seek Time" Kind="InputPin" />
+            <Pin Id="LU0GF4bvudUMSAR24RVy8e" Name="Do Seek" Kind="InputPin" />
+            <Pin Id="NtsHqQ3Rd9fLwiBHu6IJ5g" Name="Volume" Kind="InputPin" DefaultValue="0.5">
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                <Choice Kind="TypeFlag" Name="Float32" />
+              </p:TypeAnnotation>
+            </Pin>
+            <Pin Id="VJpTBqpgDVXM0cA2bIPBQT" Name="Speed" Kind="InputPin" />
+            <Pin Id="GicMl0rxeQGO4bNJw0v4fJ" Name="Play" Kind="InputPin" />
+            <Pin Id="QtYy2zj3g2XNEytfPVsjQm" Name="Output" Kind="OutputPin" />
+            <Pin Id="SOj6YRjC47XM0xZ89HwXG4" Name="Duration" Kind="OutputPin" />
+            <Pin Id="DWH1ToKNpuOOZcux3Yvizb" Name="Position" Kind="OutputPin" />
+            <Pin Id="NeMEnyfN2aVOgjbBPMJkJF" Name="Can Seek" Kind="OutputPin" />
+            <Pin Id="BSfmocvz10COWnMG2v2UbT" Name="Channels" Kind="OutputPin" />
+            <Pin Id="AJM47OGxetNLB58Huc07gJ" Name="Sample Rate" Kind="OutputPin" />
+            <Pin Id="Q3zYwprVPyLNGlV98T0ugm" Name="Uncompressed Format" Kind="OutputPin" />
+          </Node>
+          <Pad Id="AFhtajWa9EyOHDJs1skNrf" Comment="Play" Bounds="301,143,63,58" ShowValueBox="true" isIOBox="true" Value="False">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="Boolean" />
+            </p:TypeAnnotation>
+          </Pad>
+          <Pad Id="RHV4VrWuXAbQAmJtKkIgLD" Comment="Duration" Bounds="168,260,35,15" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="SJROLY8WjxNQASDBrp8ns1" Comment="Position" Bounds="272,260,35,15" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="NMJRZjWHll1PRlmf7GcTBn" Comment="Driver" Bounds="608,166,170,15" ShowValueBox="true" isIOBox="true" Value="ASIO4ALL v2">
+            <p:TypeAnnotation LastCategoryFullName="Audio" LastSymbolSource="VL.Audio.vl">
+              <Choice Kind="TypeFlag" Name="AsioInputDevice" />
+            </p:TypeAnnotation>
+          </Pad>
+          <Pad Id="RyluhTTNf2XQEd6UtmN1tH" Comment="Loop" Bounds="160,141,35,35" ShowValueBox="true" isIOBox="true" Value="True">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="Boolean" />
+            </p:TypeAnnotation>
+          </Pad>
+          <Pad Id="NczlzSnIpakPDKwbNJDlUn" Comment="Filename" Bounds="139,90,317,10" ShowValueBox="true" isIOBox="true" Value="vvvv.mp3">
+            <p:TypeAnnotation LastCategoryFullName="IO" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="Path" />
+            </p:TypeAnnotation>
+          </Pad>
+          <Pad Id="D9ZWSGaJHdIP9qfBhFVMHP" Comment="Play" Bounds="862,169,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="Boolean" />
+            </p:TypeAnnotation>
+          </Pad>
+          <Node Bounds="138,350,24,19" Id="GCR2VnXQdfHMQQ6dofPkxh">
+            <p:NodeReference LastCategoryFullName="Audio.Utils" LastSymbolSource="VL.Audio.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="+ (Spectral)" />
+            </p:NodeReference>
+            <Pin Id="B1r034yb4JuPE1nLxpzgeI" Name="Input" Kind="InputPin" />
+            <Pin Id="QJkF2daswQJPp4IhOtwhoS" Name="Output" Kind="OutputPin" />
+          </Node>
+          <Pad Id="H3n7vFTa9eNLzbOvtKBD4m" Bounds="134,28,545,36" ShowValueBox="true" isIOBox="true" Value="https://adamstark.co.uk/project/btrack-a-real-time-beat-tracker/">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">12</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Link</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="BS3c895RE9POx8Ar94Mj6O" Bounds="134,-7,524,28" ShowValueBox="true" isIOBox="true" Value="Find more informations about the beat tracking algorithm here: ">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">12</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Node Bounds="138,550,532,19" Id="Djjpw7rahwnOE7Cb9dj9n5">
+            <p:NodeReference LastCategoryFullName="Audio.Analysis" LastSymbolSource="VL.Audio.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="BTrack" />
+            </p:NodeReference>
+            <Pin Id="IFwfG38sJjvMjN2E8tfap1" Name="Audio In" Kind="InputPin" />
+            <Pin Id="CsTUrwrioZ8QIwC5zMynIk" Name="Tempo BPM" Kind="InputPin" />
+            <Pin Id="OdltFUzAhuvMDdN7YhQQas" Name="Alpha" Kind="InputPin" />
+            <Pin Id="Aj5obJU4TYRLWgRt2sVTqt" Name="Fixed Tempo" Kind="InputPin" />
+            <Pin Id="Sg8MDUuI8vTM6IrVENDBsC" Name="Fixed BPM" Kind="InputPin" />
+            <Pin Id="CNSDZvxY0NeN4XynihknQ5" Name="Beat" Kind="OutputPin" />
+            <Pin Id="E7a16TfGE9NO3SBtZRsDOG" Name="BPM" Kind="OutputPin" />
+          </Node>
+          <Pad Id="Mf4845Y8TnRLhHVmehHwSD" Comment="BPM" Bounds="667,611,76,33" ShowValueBox="true" isIOBox="true">
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">11</p:fontsize>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="TUR5N20cgOAOPGRtmiA4Uj" Comment="Beat" Bounds="140,610,109,120" ShowValueBox="true" isIOBox="true" Value="False">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="Boolean" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="Bj4JJoEqflmOJHQu9tAf4X" Comment="Sample Rate" Bounds="627,88,64,15" ShowValueBox="true" isIOBox="true" Value="44100">
+            <p:TypeAnnotation LastCategoryFullName="Audio" LastSymbolSource="VL.Audio.vl">
+              <Choice Kind="TypeFlag" Name="AudioSampleRate" />
+            </p:TypeAnnotation>
+          </Pad>
+          <Pad Id="KkUYf6DdhlFNHuncJM6TID" Bounds="629,113,265,19" ShowValueBox="true" isIOBox="true" Value="Important: BTrack only supports 44100 Hz!">
+            <p:TypeAnnotation>
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="IBQ8VSp7v5FNRQicQcZSx9" Bounds="829,274,243,54" ShowValueBox="true" isIOBox="true" Value="BufferSize of 512 samples seems to work most accurate. Change your Audio Settings accordingly.">
+            <p:TypeAnnotation>
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="HF8HeNWuGYKLuUbTkLLObM" Comment="Buffer Size" Bounds="829,252,35,15" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="P7p1ndtPG2iO7csdazcpt2" Bounds="134,-116,562,96" ShowValueBox="true" isIOBox="true" Value="BTrack is a realtime audio beat tracker for music. It will try to follow, adjust and predict the next beat and output it as a bang. &#xD;&#xA;&#xD;&#xA;Note: It will output only BPM-values between 80 and 160.">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">11</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="O10UIArp7cxPZIswTyuDfL" Bounds="665,656,193,77" ShowValueBox="true" isIOBox="true" Value="Don't take this BPM value too seriously. BTrack outputs a value that is quantized to about 2-3 BPM.">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="LUl25EQXtnWQTFKQjOuG9D" Bounds="579,402,196,58" ShowValueBox="true" isIOBox="true" Value="Setting 'Fixed Tempo' to true forces the algorithm to stay around the 'Fixed BPM' value.">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="RgVldYoSc2YNIsDd6JM2OP" Bounds="208,402,122,36" ShowValueBox="true" isIOBox="true" Value="Initialize a tempo manually.">
+            <p:TypeAnnotation>
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="UlrgdoWo4IdLHW6OqvrANj" Bounds="341,402,231,81" ShowValueBox="true" isIOBox="true" Value="Alpha is the rate how quickly the detection function will adjust. Lower values means faster adjustments. &#xD;&#xA;0.9 is recommended by Adam Stark.">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="FIim84lPA7eLqo317JtbJl" Comment="Tempo BPM" Bounds="208,445,41,15" ShowValueBox="true" isIOBox="true" Value="120">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="Float32" />
+            </p:TypeAnnotation>
+          </Pad>
+          <Pad Id="NEyjfr6yRt1O5qgpe3YtxT" Comment="Alpha" Bounds="341,489,35,15" ShowValueBox="true" isIOBox="true" Value="0.9">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="Float32" />
+            </p:TypeAnnotation>
+          </Pad>
+          <Pad Id="PfsHkc9XTo3NliVMsZ6eZb" Comment="Fixed Tempo" Bounds="579,467,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="Boolean" />
+            </p:TypeAnnotation>
+          </Pad>
+          <Pad Id="P9km3RdbjyJPRyTG4BdGgD" Comment="Fixed BPM" Bounds="667,494,41,15" ShowValueBox="true" isIOBox="true" Value="120">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="Float32" />
+            </p:TypeAnnotation>
+          </Pad>
+        </Canvas>
+        <Patch Id="H7AXqgMBO7VM7Hjz3LIVIi" Name="Create" />
+        <Patch Id="SAUdaIhMZdzNMFreYk25vB" Name="Update" />
+        <ProcessDefinition Id="AxlYZHLjpftNAmMMibl0bX">
+          <Fragment Id="SlBfNxva2foPzAmQuH3Wo8" Patch="H7AXqgMBO7VM7Hjz3LIVIi" Enabled="true" />
+          <Fragment Id="BekbCOGyP96Ogno4zU8XVR" Patch="SAUdaIhMZdzNMFreYk25vB" Enabled="true" />
+        </ProcessDefinition>
+        <Link Id="N9x8u3e6QmrNu0Ywt7YrQF" Ids="AFhtajWa9EyOHDJs1skNrf,GicMl0rxeQGO4bNJw0v4fJ" />
+        <Link Id="EH0ylwi4QSOLbtZr4QQzLJ" Ids="SOj6YRjC47XM0xZ89HwXG4,RHV4VrWuXAbQAmJtKkIgLD" />
+        <Link Id="K9wVXXAzqkeN3NRoaIqDUc" Ids="DWH1ToKNpuOOZcux3Yvizb,SJROLY8WjxNQASDBrp8ns1" />
+        <Link Id="LuYSdkHbIX7NVSTZSaDrW0" Ids="NMJRZjWHll1PRlmf7GcTBn,F4UnCTeEjFfP6nSk7psx38" />
+        <Link Id="IF1NPoTxpoOMhqtEv66uEq" Ids="RyluhTTNf2XQEd6UtmN1tH,GfSDmUAyGuUN4gKtz1GeUq" />
+        <Link Id="DPFAWaUGdKWOqjoYncac4E" Ids="NczlzSnIpakPDKwbNJDlUn,A5KHOQ1lmWzLo2GsAKRvdx" />
+        <Link Id="K4hG5dkHYRmO1ipFF09QHB" Ids="QtYy2zj3g2XNEytfPVsjQm,N7otD8PaHBSL5ydm7Sr4uS" />
+        <Link Id="AfleA9qrIKYQTMaab8f1Ol" Ids="D9ZWSGaJHdIP9qfBhFVMHP,UPIRfQGzyB6PXRDLDVndB9" />
+        <Link Id="Vvw2n78teEcL7HZz5hmQNK" Ids="QtYy2zj3g2XNEytfPVsjQm,B1r034yb4JuPE1nLxpzgeI" />
+        <Link Id="GaCzpeels1NMJ7Nua5dvuF" Ids="QJkF2daswQJPp4IhOtwhoS,IFwfG38sJjvMjN2E8tfap1" />
+        <Link Id="DKP2cOGRwBsQAnyuLiW7xC" Ids="E7a16TfGE9NO3SBtZRsDOG,Mf4845Y8TnRLhHVmehHwSD" />
+        <Link Id="LH0ZtHSgkwbLaZDiIUKhbH" Ids="CNSDZvxY0NeN4XynihknQ5,TUR5N20cgOAOPGRtmiA4Uj" />
+        <Link Id="Lu24TKBGmqpMFMNwiVx0zl" Ids="Bj4JJoEqflmOJHQu9tAf4X,E9xJgDqZKuGPM7MbR8ujcf" />
+        <Link Id="TkL4jB8iCcjLIQUGjTr7M8" Ids="KRq0o34QsOMOXopPXrg1ZG,HF8HeNWuGYKLuUbTkLLObM" />
+        <Link Id="TxnGV4Wg9f4PgUIAJ0vkaR" Ids="FIim84lPA7eLqo317JtbJl,CsTUrwrioZ8QIwC5zMynIk" />
+        <Link Id="OKEpuwmrEh2LnlpIJawT2e" Ids="NEyjfr6yRt1O5qgpe3YtxT,OdltFUzAhuvMDdN7YhQQas" />
+        <Link Id="TriVhkKYrGENao8OwaJiZ9" Ids="PfsHkc9XTo3NliVMsZ6eZb,Aj5obJU4TYRLWgRt2sVTqt" />
+        <Link Id="PkuDGQ39nZPMRMtki5BAB8" Ids="P9km3RdbjyJPRyTG4BdGgD,Sg8MDUuI8vTM6IrVENDBsC" />
+      </Patch>
+    </Node>
+  </Patch>
+  <NugetDependency Id="AOu5YShvTlxO1vA9BHtmEC" Location="VL.Skia" Version="2020.2.4" />
+  <NugetDependency Id="RFGyRrGfUbfP2xiT2T539W" Location="VL.Audio" Version="0.0.0.0" />
+</Document>
