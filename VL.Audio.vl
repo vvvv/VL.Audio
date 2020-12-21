@@ -4159,58 +4159,6 @@
             <ProcessDefinition Id="BLiNX4XAsYUQNH7txEeYAT" IsHidden="true" />
           </Patch>
         </Node>
-        <!--
-
-    ************************ UseSomethingFromDLLToCopyTheDLLToTheOutputHACK ************************
-
--->
-        <Node Name="UseSomethingFromDLLToCopyTheDLLToTheOutputHACK" Bounds="205,819" Id="SSmzahm04ofNnCXyfBCmqd">
-          <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="builtin">
-            <Choice Kind="ContainerDefinition" Name="Process" />
-          </p:NodeReference>
-          <Patch Id="H6NAbN2r4uXOXkGlmhBcrM">
-            <Canvas Id="JQBZHFlmyPcLklTmb2J1aJ" CanvasType="Group">
-              <Node Bounds="328,365" Id="MJ4enoHOp9kOkPiNLyffpu">
-                <p:NodeReference LastCategoryFullName="VVVV.Utils.VMath.VMath" LastSymbolSource="VVVV.Utils.dll">
-                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <AssemblyReference ID="VVVV.Utils.dll" />
-                  <CategoryReference Kind="AssemblyCategory" Name="VVVV" />
-                  <CategoryReference Kind="AssemblyCategory" Name="Utils" />
-                  <CategoryReference Kind="AssemblyCategory" Name="VMath" />
-                  <Choice Kind="OperationCallFlag" Name="Pi" />
-                </p:NodeReference>
-                <Pin Id="As9y5pgzdypOfZh4YNA2Yd" Name="Pi" Kind="OutputPin" />
-              </Node>
-              <Node Bounds="496,360,65,26" Id="EeNLL11WQoYOCUVolfmDmp">
-                <p:NodeReference LastCategoryFullName="VL.Lib.VAudio.StereoSample" LastSymbolSource="VVVV.Audio.VL.dll">
-                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <AssemblyReference ID="VVVV.Audio.VL.dll" />
-                  <CategoryReference Kind="AssemblyCategory" Name="VL" />
-                  <CategoryReference Kind="AssemblyCategory" Name="Lib" />
-                  <CategoryReference Kind="AssemblyCategory" Name="VAudio" />
-                  <CategoryReference Kind="AssemblyCategory" Name="StereoSample" />
-                  <Choice Kind="OperationCallFlag" Name="Create" />
-                </p:NodeReference>
-                <Pin Id="SSRbUOBRVsCODzxFEZODRO" Name="Left" Kind="InputPin" />
-                <Pin Id="EVjvCc1Xu7qP05ROYfPopU" Name="Right" Kind="InputPin" />
-                <Pin Id="SUbN4j8xqRiPyIxrXyHtfc" Name="Output" Kind="StateOutputPin" />
-              </Node>
-              <Overlay Id="KHMdrPtomHVQPPUws7POvU" Name="VVVV.Utils" Bounds="276,313,142,127" />
-              <Overlay Id="MYO0wmjIxqjMwaD8CRYU31" Name="VVVV.Audio.VL" Bounds="451,308,178,131" />
-            </Canvas>
-            <Patch Id="SDXyr3vy7ptPLx99dCleXK" Name="Create" />
-            <Patch Id="Medq8qXkdTlPElmIE09djG" Name="Update" />
-            <!--
-
-    ************************  ************************
-
--->
-            <ProcessDefinition Id="RkEk7i5i9FjMTqQJl1PIQF">
-              <Fragment Id="HTnfIcK8v9ALUxpgP9L4wO" Patch="SDXyr3vy7ptPLx99dCleXK" Enabled="true" />
-              <Fragment Id="IwEx8gWbEVYLyY6dSpJUWL" Patch="Medq8qXkdTlPElmIE09djG" Enabled="true" />
-            </ProcessDefinition>
-          </Patch>
-        </Node>
       </Canvas>
       <Canvas Id="PgSRoe0zKPdOBMBeBkbhMx" Name="Utils" Position="237,627">
         <!--
@@ -13986,6 +13934,428 @@
           </Patch>
         </Node>
       </Canvas>
+      <Canvas Id="G2p1yxev1AnNpAtIP6zPlE" Name="Experimental" Position="455,615">
+        <!--
+
+    ************************ AudioBuffer (Stereo) ************************
+
+-->
+        <Node Name="AudioBuffer (Stereo)" Bounds="370,323" Id="EbgIxInKxAiLixWwPTXuJc">
+          <p:NodeReference>
+            <Choice Kind="ForwardDefinition" Name="Forward" />
+            <FullNameCategoryReference ID="Primitive" />
+          </p:NodeReference>
+          <p:TypeAnnotation LastCategoryFullName="VL.Lib.VAudio" LastSymbolSource="VVVV.Audio.VL.dll">
+            <Choice Kind="TypeFlag" Name="AudioBufferStereo" />
+          </p:TypeAnnotation>
+          <Patch Id="BrSkg9K3F1SPOjvRqdT10N">
+            <Canvas Id="Vte0VhqRL5aPO7F8W5l2wP" CanvasType="Group">
+              <!--
+
+    ************************ PrepareBuffer ************************
+
+-->
+              <Node Name="PrepareBuffer" Bounds="416,207,100,50" Id="VyerE5kt7yEOub3Td5mAmn">
+                <p:NodeReference>
+                  <Choice Kind="OperationDefinition" Name="Operation" />
+                  <FullNameCategoryReference ID="Primitive" />
+                </p:NodeReference>
+                <Patch Id="Vhb4dQVvUozOYhMhUcEqRU" Name=" (Hidden)">
+                  <Node Bounds="416,207,10,10" AutoConnect="true" Id="ObbCQOS7Yq5QJJ7rIPQ2vh">
+                    <p:NodeReference LastCategoryFullName="VL.Lib.VAudio.AudioBufferStereo" LastSymbolSource="VVVV.Audio.VL.dll">
+                      <Choice Kind="OperationNode" Name="PrepareBuffer" />
+                      <FullNameCategoryReference ID="VL.Lib.VAudio.AudioBufferStereo" />
+                    </p:NodeReference>
+                    <Pin Id="PcWY1q2xkDePj644zpyY7n" Name="Input" Kind="StateInputPin" />
+                    <Pin Id="Uchq860P5L0OmMURRKjuCh" Name="Left" Kind="InputPin" />
+                    <Pin Id="FfXEu0rDcqRMfpXwUOdv4N" Name="Right" Kind="InputPin" />
+                    <Pin Id="CHCGV6XjA5dLpGOyM5sqS9" Name="Start Time" Kind="InputPin" />
+                    <Pin Id="NsR7zYQwy4qOgw04IoVOAd" Name="Output" Kind="StateOutputPin" />
+                  </Node>
+                  <Pin Id="FjsCdbMPZoFO9DN4JQ32Wt" Name="Input" Kind="InputPin" />
+                  <Pin Id="OvYkhGsEGlXPwzZYMXV0So" Name="Left" Kind="InputPin" />
+                  <Pin Id="O74D6RDQ5HnOiNvSZhpDUO" Name="Right" Kind="InputPin" />
+                  <Pin Id="B915JTPypxCPjEbRGxcnad" Name="Start Time" Kind="InputPin" />
+                  <Pin Id="AK4v6zTBdIdNnBrp5Id2QG" Name="Output" Kind="OutputPin" />
+                </Patch>
+              </Node>
+            </Canvas>
+            <ProcessDefinition Id="CT7C8mox6uJNyltCJaxrlh" IsHidden="true">
+              <Fragment Id="TrqdRYRsl65LyRro0Qj4Bk" Patch="VyerE5kt7yEOub3Td5mAmn" />
+            </ProcessDefinition>
+          </Patch>
+        </Node>
+        <!--
+
+    ************************ AudioBufferLoop ************************
+
+-->
+        <Node Name="AudioBufferLoop" Bounds="373,383" Id="CppBrfOHhsYNi0E6lGh3o7">
+          <p:NodeReference>
+            <Choice Kind="ForwardDefinition" Name="Forward" />
+            <FullNameCategoryReference ID="Primitive" />
+          </p:NodeReference>
+          <p:TypeAnnotation LastCategoryFullName="VL.Lib.VAudio" LastSymbolSource="VVVV.Audio.VL.dll">
+            <Choice Kind="TypeFlag" Name="AudioBufferLoop`2" />
+          </p:TypeAnnotation>
+          <Patch Id="Q732CYIfGZcORrGYL9j9nW">
+            <Canvas Id="VlceTbv0GvbLEvgsHdfBMY" CanvasType="Group">
+              <!--
+
+    ************************ Create ************************
+
+-->
+              <Node Name="Create" Bounds="351,165,100,50" Id="B5s8oP8kBaxObXyA3kGvdE">
+                <p:NodeReference>
+                  <Choice Kind="OperationDefinition" Name="Operation" />
+                  <FullNameCategoryReference ID="Primitive" />
+                </p:NodeReference>
+                <Patch Id="LGhmaqa67mXL5RDA5ZrsBw" IsGeneric="true">
+                  <Node Bounds="351,165,10,10" AutoConnect="true" Id="CRWSN2hJtJgPQ6HsIOBQzv">
+                    <p:NodeReference LastCategoryFullName="VL.Lib.VAudio.AudioBufferLoop`2" LastSymbolSource="VVVV.Audio.VL.dll">
+                      <Choice Kind="OperationNode" Name="Create" />
+                      <FullNameCategoryReference ID="VL.Lib.VAudio.AudioBufferLoop`2" />
+                    </p:NodeReference>
+                    <Pin Id="AnHgPw7YFCHN1G5W1nmwBJ" Name="Output" Kind="StateOutputPin" />
+                  </Node>
+                  <Pin Id="RiflyTdKbwUPS8B3cO0i81" Name="Output" Kind="OutputPin" />
+                </Patch>
+              </Node>
+              <!--
+
+    ************************ Update ************************
+
+-->
+              <Node Name="Update" Bounds="562,133,129,80" Id="Ui6mtQpk1sZN5sEx6hWnir">
+                <p:NodeReference>
+                  <Choice Kind="OperationDefinition" Name="Operation" />
+                  <FullNameCategoryReference ID="Primitive" />
+                </p:NodeReference>
+                <Patch Id="Pn4WFLjOeVSMO6TUN1Btlh" IsGeneric="true">
+                  <Node Bounds="574,164,105,22" AutoConnect="true" Id="LsCPM2Wgi4PLyrhgomUS4V">
+                    <p:NodeReference LastCategoryFullName="VL.Lib.VAudio.AudioBufferLoop`2" LastSymbolSource="VVVV.Audio.VL.dll">
+                      <Choice Kind="OperationNode" Name="Update" />
+                      <FullNameCategoryReference ID="VL.Lib.VAudio.AudioBufferLoop`2" />
+                    </p:NodeReference>
+                    <Pin Id="KSQ8fPZWACLLUaC5w1ibLo" Name="Input (this)" Kind="StateInputPin" />
+                    <Pin Id="CcyfOpunzcoPKUo0avhnCr" Name="Buffer" Kind="InputPin" />
+                    <Pin Id="JBnQqinmsZHMIfbSYkVoSb" Name="Input" Kind="InputPin" />
+                    <Pin Id="MwmIgtcj3J6PODJ2vbjAJY" Name="Reset" Kind="InputPin" />
+                    <Pin Id="FswJXeJzLffLSLocFRCMKf" Name="Create" Kind="InputPin" />
+                    <Pin Id="PKqPF7fLOZDOY97C9ALMJq" Name="Update" Kind="InputPin" />
+                    <Pin Id="KuCBiHiy4TkMXsKUGfHBMQ" Name="Output" Kind="StateOutputPin" />
+                    <Pin Id="NeD1sCCSmtBN6nAKrGvHoV" Name="Result" Kind="OutputPin" />
+                  </Node>
+                  <Pin Id="Lt7KTrEJjSILcbUpP1fs0u" Name="Input (this)" Kind="InputPin" />
+                  <Pin Id="DpAR9i3DaELNdYyFkfb4B5" Name="Buffer" Kind="InputPin" />
+                  <Pin Id="VCpwYrtrd4qMTsK7zZ53oe" Name="Input" Kind="InputPin" />
+                  <Pin Id="PQRlPtE9kHVLQQRuW3UYvi" Name="Reset" Kind="InputPin" />
+                  <Pin Id="EuEYPFxSNanPNDh5h9RGHN" Name="Create" Kind="InputPin" />
+                  <Pin Id="TVz2vWvrQzZNty3chESLGQ" Name="Update" Kind="InputPin" />
+                  <Pin Id="SbCWJNP4tsjLHMvvJeNGKU" Name="Output" Kind="OutputPin" />
+                  <Pin Id="TrV8YqMk7MTNIhuRVuWMAs" Name="Result" Kind="OutputPin" />
+                </Patch>
+              </Node>
+            </Canvas>
+            <ProcessDefinition Id="J4p52HADPtXON0uviapRGs">
+              <Fragment Id="K0lO7qDm6caN1wi8EpSwPg" Patch="B5s8oP8kBaxObXyA3kGvdE" Enabled="true" />
+              <Fragment Id="OyAY5dkxSG3QJ14qbgPVkr" Patch="Ui6mtQpk1sZN5sEx6hWnir" Enabled="true" />
+            </ProcessDefinition>
+          </Patch>
+        </Node>
+        <!--
+
+    ************************ AudioSignalRegion ************************
+
+-->
+        <Node Name="AudioSignalRegion" Bounds="374,443" Id="GRs6fd6M61uL06WpgXskih">
+          <p:NodeReference>
+            <Choice Kind="ForwardDefinition" Name="Forward" />
+            <FullNameCategoryReference ID="Primitive" />
+          </p:NodeReference>
+          <p:TypeAnnotation LastCategoryFullName="VL.Lib.VAudio" LastSymbolSource="VVVV.Audio.VL.dll">
+            <Choice Kind="TypeFlag" Name="AudioSignalRegion`3" />
+          </p:TypeAnnotation>
+          <Patch Id="JvoFSCyQgF4PkML7yWo2G7">
+            <Canvas Id="PjlNZIAd336QUihXIgQU31" CanvasType="Group">
+              <!--
+
+    ************************ Create ************************
+
+-->
+              <Node Name="Create" Bounds="347,199,100,50" Id="V3ZE4JV2TvhO0BxYnz7WDY">
+                <p:NodeReference>
+                  <Choice Kind="OperationDefinition" Name="Operation" />
+                  <FullNameCategoryReference ID="Primitive" />
+                </p:NodeReference>
+                <Patch Id="EYARsviJSvkQJdXVWPzUi4" IsGeneric="true">
+                  <Node Bounds="347,199,10,10" AutoConnect="true" Id="NuohY1lLnwsLojZ8xshrA6">
+                    <p:NodeReference LastCategoryFullName="VL.Lib.VAudio.AudioSignalRegion`3" LastSymbolSource="VVVV.Audio.VL.dll">
+                      <Choice Kind="OperationNode" Name="Create" />
+                      <FullNameCategoryReference ID="VL.Lib.VAudio.AudioSignalRegion`3" />
+                    </p:NodeReference>
+                    <Pin Id="LEkuBpYqZbOP7mTtCqBRBO" Name="Output" Kind="StateOutputPin" />
+                  </Node>
+                  <Pin Id="FBR5GcTE4HpPEBfWXnTEJB" Name="Output" Kind="OutputPin" />
+                </Patch>
+              </Node>
+              <!--
+
+    ************************ Update ************************
+
+-->
+              <Node Name="Update" Bounds="541,161,129,85" Id="EF7Np3nuwCsMAXsQTstvOv">
+                <p:NodeReference>
+                  <Choice Kind="OperationDefinition" Name="Operation" />
+                  <FullNameCategoryReference ID="Primitive" />
+                </p:NodeReference>
+                <Patch Id="K3mTZlKPrNpPS9kl1aiQBF" IsGeneric="true">
+                  <Node Bounds="553,196,105,13" AutoConnect="true" Id="S0TDwhgbTrHP1t3CkJhcuM">
+                    <p:NodeReference LastCategoryFullName="VL.Lib.VAudio.AudioSignalRegion`3" LastSymbolSource="VVVV.Audio.VL.dll">
+                      <Choice Kind="OperationNode" Name="Update" />
+                      <FullNameCategoryReference ID="VL.Lib.VAudio.AudioSignalRegion`3" />
+                    </p:NodeReference>
+                    <Pin Id="BRLAAoxgDyKNe8osKoDOQ2" Name="Input (this)" Kind="StateInputPin" />
+                    <Pin Id="S3KJ47onl25Nu2pR07Iy3W" Name="Stereo Input" Kind="InputPin" />
+                    <Pin Id="QRiO6hwSGiqM2RUCV4pE5M" Name="Input" Kind="InputPin" />
+                    <Pin Id="LwPbqYxd9NKL6GoiWRdRVC" Name="Reset" Kind="InputPin" />
+                    <Pin Id="FU4g5eWkMFaNhiHfj9Zawf" Name="Create" Kind="InputPin" />
+                    <Pin Id="DhO7bWeIL5xP0AvoZJ5nLk" Name="Update" Kind="InputPin" />
+                    <Pin Id="UhW0hqrjl6MODJ7eOJo58o" Name="Output" Kind="StateOutputPin" />
+                    <Pin Id="RyJPPYlmxpzLvkZEto8O0x" Name="Result" Kind="OutputPin" />
+                    <Pin Id="N6h5UFef0bjODHDtsph3Zf" Name="On Buffer Processed" Kind="OutputPin" />
+                    <Pin Id="B2e7Ma3Kzx6NVpQPwoNjxe" Name="Time" Kind="OutputPin" />
+                  </Node>
+                  <Pin Id="MBwkkt6rUBNNZC6c5JUYWf" Name="Input (this)" Kind="InputPin" />
+                  <Pin Id="BZ1gDGzWiBCNEaH6RviJ8b" Name="Stereo Input" Kind="InputPin" />
+                  <Pin Id="R2oXNMEE1lhQYRsa4uBgZV" Name="Input" Kind="InputPin" />
+                  <Pin Id="HvrftBeiDT2OT6WuwghG2p" Name="Reset" Kind="InputPin" />
+                  <Pin Id="Uj4oNqF7wMgP312Adqkwrb" Name="Create" Kind="InputPin" />
+                  <Pin Id="HEqerZTEeZUQP8Au4RNHhE" Name="Update" Kind="InputPin" />
+                  <Pin Id="NQlACZgA0AXOsFX75kecoY" Name="Output" Kind="OutputPin" />
+                  <Pin Id="ND0TtcLaN9rOw1HfZtUNE7" Name="Result" Kind="OutputPin" />
+                  <Pin Id="DBoBor4CmAaNjFjlRygSeR" Name="On Buffer Processed" Kind="OutputPin" />
+                  <Pin Id="Tcd3AegG5YIN29OnrxqHAk" Name="Time" Kind="OutputPin" />
+                </Patch>
+              </Node>
+            </Canvas>
+            <ProcessDefinition Id="FcgSXV15MeqP5DV8P4cnFJ">
+              <Fragment Id="PXcAdgsz6IFMDQo7XAd0CZ" Patch="V3ZE4JV2TvhO0BxYnz7WDY" Enabled="true" />
+              <Fragment Id="DwGcuvM3IrQP3CCTgJfX9i" Patch="EF7Np3nuwCsMAXsQTstvOv" Enabled="true" />
+            </ProcessDefinition>
+          </Patch>
+        </Node>
+        <!--
+
+    ************************ StereoSample ************************
+
+-->
+        <Node Name="StereoSample" Bounds="375,266" Id="N9UK3FcLPziLetogbNbQyR">
+          <p:NodeReference>
+            <Choice Kind="ForwardRecordDefinition" Name="Immutable Forward" />
+            <FullNameCategoryReference ID="Primitive" />
+          </p:NodeReference>
+          <p:TypeAnnotation LastCategoryFullName="VL.Lib.VAudio" LastSymbolSource="VVVV.Audio.VL.dll">
+            <Choice Kind="TypeFlag" Name="StereoSample" />
+          </p:TypeAnnotation>
+          <Patch Id="BQhYIoh1pmMPl0griRl9Dj">
+            <Canvas Id="AuXOgiwLa7qM4nNHvpW3ZO" CanvasType="Group" />
+            <ProcessDefinition Id="JEyDl094B5sNOuIPRzRovS" IsHidden="true" />
+          </Patch>
+        </Node>
+        <!--
+
+    ************************ AudioBuffer (Multi) ************************
+
+-->
+        <Node Name="AudioBuffer (Multi)" Bounds="624,322" Id="EIACfenROEsL5o1TTun0sX">
+          <p:NodeReference>
+            <Choice Kind="ForwardDefinition" Name="Forward" />
+            <FullNameCategoryReference ID="Primitive" />
+          </p:NodeReference>
+          <p:TypeAnnotation LastCategoryFullName="VL.Lib.VAudio" LastSymbolSource="VVVV.Audio.VL.dll">
+            <Choice Kind="TypeFlag" Name="AudioBufferMulti" />
+          </p:TypeAnnotation>
+          <Patch Id="AR8fxHV8ILvLxFpxNZMHOv">
+            <Canvas Id="CD7cd6uXtrIQQLNyLCc6DD" BordersChecked="false" CanvasType="Group" />
+            <ProcessDefinition Id="VRSvH7SXSoJLxUzsdtFYoV" IsHidden="true" />
+          </Patch>
+        </Node>
+        <!--
+
+    ************************ AudioBufferLoopMulti ************************
+
+-->
+        <Node Name="AudioBufferLoopMulti" Bounds="633,386" Id="SjQzxTRxfw8NDbQw2HMF5v">
+          <p:NodeReference>
+            <Choice Kind="ForwardDefinition" Name="Forward" />
+            <FullNameCategoryReference ID="Primitive" />
+          </p:NodeReference>
+          <p:TypeAnnotation LastCategoryFullName="VL.Lib.VAudio" LastSymbolSource="VVVV.Audio.VL.dll">
+            <Choice Kind="TypeFlag" Name="AudioBufferLoopMulti`2" />
+          </p:TypeAnnotation>
+          <Patch Id="NVREOQdRPyoOv2IJtv6E1V">
+            <Canvas Id="Ro7EV9vBVacMc5qazUTpcw" CanvasType="Group">
+              <!--
+
+    ************************ Create ************************
+
+-->
+              <Node Name="Create" Bounds="398,181,100,50" Id="N2a8FRnBwtfQERpX49Lfib">
+                <p:NodeReference>
+                  <Choice Kind="OperationDefinition" Name="Operation" />
+                  <FullNameCategoryReference ID="Primitive" />
+                </p:NodeReference>
+                <p:HideCategory p:Type="Boolean">false</p:HideCategory>
+                <Patch Id="NUEaX8830hzNwSRUoXqqYN" IsGeneric="true">
+                  <Node Bounds="398,181,10,10" AutoConnect="true" Id="NdBj9DeYFPUNcOFtcQlwbf">
+                    <p:NodeReference LastCategoryFullName="VL.Lib.VAudio.AudioBufferLoopMulti`2" LastSymbolSource="VVVV.Audio.VL.dll">
+                      <Choice Kind="OperationNode" Name="Create" />
+                      <FullNameCategoryReference ID="VL.Lib.VAudio.AudioBufferLoopMulti`2" />
+                    </p:NodeReference>
+                    <Pin Id="GgV0OAlU263NUC5IQ8Iftl" Name="Output" Kind="StateOutputPin" />
+                  </Node>
+                  <Pin Id="AuKtUpKDRIpOlfLRxNDINs" Name="Output" Kind="OutputPin" />
+                </Patch>
+              </Node>
+              <!--
+
+    ************************ Update ************************
+
+-->
+              <Node Name="Update" Bounds="627,180,100,50" Id="VtKF8kGOlsfOejDF6MVp1N">
+                <p:NodeReference>
+                  <Choice Kind="OperationDefinition" Name="Operation" />
+                  <FullNameCategoryReference ID="Primitive" />
+                </p:NodeReference>
+                <p:HideCategory p:Type="Boolean">false</p:HideCategory>
+                <Patch Id="Vc62Ix4Rl9VL8pvPfjXmeC" IsGeneric="true">
+                  <Node Bounds="627,180,10,10" AutoConnect="true" Id="GAHr2gP9dwmPGizQ3bcwug">
+                    <p:NodeReference LastCategoryFullName="VL.Lib.VAudio.AudioBufferLoopMulti`2" LastSymbolSource="VVVV.Audio.VL.dll">
+                      <Choice Kind="OperationNode" Name="Update" />
+                      <FullNameCategoryReference ID="VL.Lib.VAudio.AudioBufferLoopMulti`2" />
+                    </p:NodeReference>
+                    <Pin Id="MweVvKPx2dALFDbhM5tbXj" Name="Input (this)" Kind="StateInputPin" />
+                    <Pin Id="HcwYtqq3p8yOPm9rAdUZ7P" Name="Buffer" Kind="InputPin" />
+                    <Pin Id="QDvcTWbdnQIMQdH3LM1c6N" Name="Input" Kind="InputPin" />
+                    <Pin Id="B6FShQcMguEPqO09OUG9YM" Name="Reset" Kind="InputPin" />
+                    <Pin Id="NjY3wVkFVEHOkeTNn94P2I" Name="Create" Kind="InputPin" />
+                    <Pin Id="KN9ny8Iuc2uLDjBWtIB6oU" Name="Update" Kind="InputPin" />
+                    <Pin Id="TkAR03LZ19kMhogI9evycG" Name="Output" Kind="StateOutputPin" />
+                    <Pin Id="PS05sKxpJdSPEg5rKOB8ij" Name="Result" Kind="OutputPin" />
+                  </Node>
+                  <Pin Id="SEueVkdfLe5O43osCZLCKR" Name="Input (this)" Kind="InputPin" />
+                  <Pin Id="QH4skM0FOzjP2ukBpCrPt1" Name="Buffer" Kind="InputPin" />
+                  <Pin Id="RH1UatpSqgCPUf7GIqvkhz" Name="Input" Kind="InputPin" />
+                  <Pin Id="NfzSxCoLfKxMcy8lBsEyxQ" Name="Reset" Kind="InputPin" />
+                  <Pin Id="RRZ8A6gUQcfOpk7dTGWuPO" Name="Create" Kind="InputPin" />
+                  <Pin Id="UQLOTkh80tgOIV3Wt8wjAX" Name="Update" Kind="InputPin" />
+                  <Pin Id="BGpAHJs26XeOfQZDnqmFEv" Name="Output" Kind="OutputPin" />
+                  <Pin Id="GwtYh2tHMYpOncIaTZqwAG" Name="Result" Kind="OutputPin" />
+                </Patch>
+              </Node>
+            </Canvas>
+            <ProcessDefinition Id="PPIJkdj4rmRMhd2IPhkxMt">
+              <Fragment Id="TFVx3cm2jqmLUEHGV0Hm7U" Patch="N2a8FRnBwtfQERpX49Lfib" Enabled="true" />
+              <Fragment Id="HCO9E2gGciLPNIsctaQDlI" Patch="VtKF8kGOlsfOejDF6MVp1N" Enabled="true" />
+            </ProcessDefinition>
+          </Patch>
+        </Node>
+        <!--
+
+    ************************ AudioSignalGeneratorRegion ************************
+
+-->
+        <Node Name="AudioSignalGeneratorRegion" Bounds="631,448" Id="F9nI5IdmGmaN6KwgrwnX6d">
+          <p:NodeReference>
+            <Choice Kind="ForwardDefinition" Name="Forward" />
+            <FullNameCategoryReference ID="Primitive" />
+          </p:NodeReference>
+          <p:TypeAnnotation LastCategoryFullName="VL.Lib.VAudio" LastSymbolSource="VVVV.Audio.VL.dll">
+            <Choice Kind="TypeFlag" Name="AudioSignalGeneratorRegion`3" />
+          </p:TypeAnnotation>
+          <Patch Id="Dt3AG6xfSbkNm4w2OfuvrW">
+            <Canvas Id="Ljjoh3RJqKKNszGgZekxrx" CanvasType="Group">
+              <!--
+
+    ************************ Create ************************
+
+-->
+              <Node Name="Create" Bounds="318,184,100,50" Id="SD8DySP2z7wMPryPap7jZr">
+                <p:NodeReference>
+                  <Choice Kind="OperationDefinition" Name="Operation" />
+                  <FullNameCategoryReference ID="Primitive" />
+                </p:NodeReference>
+                <p:HideCategory p:Type="Boolean">false</p:HideCategory>
+                <Patch Id="VW83Uhww8zhO0fz6uzQlsV" IsGeneric="true">
+                  <Node Bounds="318,184,10,10" AutoConnect="true" Id="RlubEGyHYd0PGPyBM8msIz">
+                    <p:NodeReference LastCategoryFullName="VL.Lib.VAudio.AudioSignalGeneratorRegion`3" LastSymbolSource="VVVV.Audio.VL.dll">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <FullNameCategoryReference ID="VL.Lib.VAudio.AudioSignalGeneratorRegion`3" />
+                      <Choice Kind="OperationCallFlag" Name="Create" />
+                    </p:NodeReference>
+                    <Pin Id="PIwrjndnSEROPZX9u4Y43o" Name="Channel Count" Kind="InputPin" />
+                    <Pin Id="LxaRNGb9PiDOZXRCuXmOnN" Name="Output" Kind="StateOutputPin" />
+                  </Node>
+                  <Pin Id="KuaoQQNg7z0PwNzErwEGPv" Name="Channel Count" Kind="InputPin" />
+                  <Pin Id="Pj5GDxqlwSWO8mnN5HpVdC" Name="Output" Kind="OutputPin" />
+                </Patch>
+              </Node>
+              <!--
+
+    ************************ Update ************************
+
+-->
+              <Node Name="Update" Bounds="571,148,112,82" Id="Hl8BHwEspGRP66dungpeeQ">
+                <p:NodeReference>
+                  <Choice Kind="OperationDefinition" Name="Operation" />
+                  <FullNameCategoryReference ID="Primitive" />
+                </p:NodeReference>
+                <p:HideCategory p:Type="Boolean">false</p:HideCategory>
+                <Patch Id="AsHb7v1ydG9N0htMboDo5U" IsGeneric="true">
+                  <Node Bounds="583,180,85,19" AutoConnect="true" Id="Q9QEO5RKb0iQHrqxRlX268">
+                    <p:NodeReference LastCategoryFullName="VL.Lib.VAudio.AudioSignalGeneratorRegion`3" LastSymbolSource="VVVV.Audio.VL.dll">
+                      <Choice Kind="OperationNode" Name="Update" />
+                      <FullNameCategoryReference ID="VL.Lib.VAudio.AudioSignalGeneratorRegion`3" />
+                    </p:NodeReference>
+                    <Pin Id="S4EyAv9c9FVPUPmovDNVxq" Name="Input (this)" Kind="StateInputPin" />
+                    <Pin Id="PolL0R9EA2qPncAwlsp4Kk" Name="Input" Kind="InputPin" />
+                    <Pin Id="PTx2IBjtZycOkzDHwUuwqV" Name="Reset" Kind="InputPin" />
+                    <Pin Id="LnI9VENkhHoOuTM9eiVQyF" Name="Create" Kind="InputPin" />
+                    <Pin Id="HIZMx5BQ3wXNka5QcMG7rX" Name="Update" Kind="InputPin" />
+                    <Pin Id="Ng4YOBwdxhUQHUIwkooYhl" Name="Output" Kind="StateOutputPin" />
+                    <Pin Id="M3IGUaXgWDFMd3A3FECLe3" Name="Result" Kind="OutputPin" />
+                    <Pin Id="V1myh96BjbBQEqaybQG391" Name="On Buffer Processed" Kind="OutputPin" />
+                    <Pin Id="Los3PB9RUW8NuyrEd6U5sy" Name="Time" Kind="OutputPin" />
+                  </Node>
+                  <Pin Id="Gty92RK88kDL3Lp1u2Gfu1" Name="Input (this)" Kind="InputPin" />
+                  <Pin Id="S9QocMkmbqhL25VsGgS44x" Name="Input" Kind="InputPin" />
+                  <Pin Id="VAsIZppgn5zLXGB4FMJEa0" Name="Reset" Kind="InputPin" />
+                  <Pin Id="LcvOkS9sRTyQXKixL4AqFu" Name="Create" Kind="InputPin" />
+                  <Pin Id="AzZFRBgDdJeOpKAoG1YwR3" Name="Update" Kind="InputPin" />
+                  <Pin Id="OMV5cckZvx4PICO9ZZFBMb" Name="Output" Kind="OutputPin" />
+                  <Pin Id="Fr3vKUOAmeTMP33hZwCrLj" Name="Result" Kind="OutputPin" />
+                  <Pin Id="Hm1eYSh3k0IN9INR1HlmoM" Name="On Buffer Processed" Kind="OutputPin" />
+                  <Pin Id="VN1WIXm75HRQRpxrgDBaKs" Name="Time" Kind="OutputPin" />
+                </Patch>
+              </Node>
+            </Canvas>
+            <ProcessDefinition Id="LNUhRdHu9RdO4eqj51MOLD">
+              <Fragment Id="VcYCJASs1BzOAHZ1cUoWyy" Patch="SD8DySP2z7wMPryPap7jZr" Enabled="true" />
+              <Fragment Id="HPRwSCtLYdqOwID2w5m5KO" Patch="Hl8BHwEspGRP66dungpeeQ" Enabled="true" />
+            </ProcessDefinition>
+          </Patch>
+        </Node>
+      </Canvas>
+      <Pad Id="NoaHvu678xqPBpDjpGsGQv" Bounds="449,548,185,19" ShowValueBox="true" isIOBox="true" Value="Buffer and Sample region">
+        <p:TypeAnnotation>
+          <Choice Kind="TypeFlag" Name="String" />
+        </p:TypeAnnotation>
+        <p:ValueBoxSettings>
+          <p:fontsize p:Type="Int32">9</p:fontsize>
+          <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+        </p:ValueBoxSettings>
+      </Pad>
     </Canvas>
     <!--
 
@@ -14027,5 +14397,4 @@
   <NugetDependency Id="QNWJq49B8fGPFd4ZgJ3YOk" Location="VL.Lang" Version="2020.3.0-0122-g7013fd66e0" />
   <NugetDependency Id="HAtNcxYlDjCQRhqXVEgb23" Location="VL.HDE" Version="2020.3.0-0122-g7013fd66e0" />
   <PlatformDependency Id="JXXSxj4l6VKN8Y5tktUqkD" Location="./lib/netstandard2.0/VVVV.Audio.VL.dll" />
-  <PlatformDependency Id="MMMEYQjKlT7NtWTW3L4hop" Location="./lib/netstandard2.0/VVVV.Utils.dll" />
 </Document>
