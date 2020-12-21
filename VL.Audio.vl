@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="VuxCFYvJKE9LZOnAcVycvD" LanguageVersion="2020.3.0.124" Version="0.128">
+<Document xmlns:p="property" Id="HTX4axw4uH5NDghqAqpe1F" LanguageVersion="2020.3.0.122" Version="0.128">
   <NugetDependency Id="NrtwmMKDemaOAGHoKxrmNR" Location="VL.CoreLib" Version="2020.3.0-0122-g7013fd66e0" />
   <Patch Id="Mj1seFpSbg5MtaCXVBGhJf">
     <Canvas Id="ClqUpgLjNRdQbB5ajAF1ry" DefaultCategory="Audio" CanvasType="FullCategory">
@@ -4157,6 +4157,58 @@
           <Patch Id="S5N2zqhDXF9OCKV4qgs8e9">
             <Canvas Id="Rex15eeqlZXMYHlcuPfaK8" BordersChecked="false" CanvasType="Group" />
             <ProcessDefinition Id="BLiNX4XAsYUQNH7txEeYAT" IsHidden="true" />
+          </Patch>
+        </Node>
+        <!--
+
+    ************************ UseSomethingFromDLLToCopyTheDLLToTheOutputHACK ************************
+
+-->
+        <Node Name="UseSomethingFromDLLToCopyTheDLLToTheOutputHACK" Bounds="205,819" Id="SSmzahm04ofNnCXyfBCmqd">
+          <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="builtin">
+            <Choice Kind="ContainerDefinition" Name="Process" />
+          </p:NodeReference>
+          <Patch Id="H6NAbN2r4uXOXkGlmhBcrM">
+            <Canvas Id="JQBZHFlmyPcLklTmb2J1aJ" CanvasType="Group">
+              <Node Bounds="328,365" Id="MJ4enoHOp9kOkPiNLyffpu">
+                <p:NodeReference LastCategoryFullName="VVVV.Utils.VMath.VMath" LastSymbolSource="VVVV.Utils.dll">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <AssemblyReference ID="VVVV.Utils.dll" />
+                  <CategoryReference Kind="AssemblyCategory" Name="VVVV" />
+                  <CategoryReference Kind="AssemblyCategory" Name="Utils" />
+                  <CategoryReference Kind="AssemblyCategory" Name="VMath" />
+                  <Choice Kind="OperationCallFlag" Name="Pi" />
+                </p:NodeReference>
+                <Pin Id="As9y5pgzdypOfZh4YNA2Yd" Name="Pi" Kind="OutputPin" />
+              </Node>
+              <Node Bounds="496,360,65,26" Id="EeNLL11WQoYOCUVolfmDmp">
+                <p:NodeReference LastCategoryFullName="VL.Lib.VAudio.StereoSample" LastSymbolSource="VVVV.Audio.VL.dll">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <AssemblyReference ID="VVVV.Audio.VL.dll" />
+                  <CategoryReference Kind="AssemblyCategory" Name="VL" />
+                  <CategoryReference Kind="AssemblyCategory" Name="Lib" />
+                  <CategoryReference Kind="AssemblyCategory" Name="VAudio" />
+                  <CategoryReference Kind="AssemblyCategory" Name="StereoSample" />
+                  <Choice Kind="OperationCallFlag" Name="Create" />
+                </p:NodeReference>
+                <Pin Id="SSRbUOBRVsCODzxFEZODRO" Name="Left" Kind="InputPin" />
+                <Pin Id="EVjvCc1Xu7qP05ROYfPopU" Name="Right" Kind="InputPin" />
+                <Pin Id="SUbN4j8xqRiPyIxrXyHtfc" Name="Output" Kind="StateOutputPin" />
+              </Node>
+              <Overlay Id="KHMdrPtomHVQPPUws7POvU" Name="VVVV.Utils" Bounds="276,313,142,127" />
+              <Overlay Id="MYO0wmjIxqjMwaD8CRYU31" Name="VVVV.Audio.VL" Bounds="451,308,178,131" />
+            </Canvas>
+            <Patch Id="SDXyr3vy7ptPLx99dCleXK" Name="Create" />
+            <Patch Id="Medq8qXkdTlPElmIE09djG" Name="Update" />
+            <!--
+
+    ************************  ************************
+
+-->
+            <ProcessDefinition Id="RkEk7i5i9FjMTqQJl1PIQF">
+              <Fragment Id="HTnfIcK8v9ALUxpgP9L4wO" Patch="SDXyr3vy7ptPLx99dCleXK" Enabled="true" />
+              <Fragment Id="IwEx8gWbEVYLyY6dSpJUWL" Patch="Medq8qXkdTlPElmIE09djG" Enabled="true" />
+            </ProcessDefinition>
           </Patch>
         </Node>
       </Canvas>
