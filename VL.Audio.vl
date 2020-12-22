@@ -398,6 +398,13 @@
             <ControlPoint Id="Dgz2mtXy6TAPnPalO4Nm8b" Bounds="554,1047" />
             <ControlPoint Id="EWxDILcRzNAPmMWAROzNOi" Bounds="323,240" />
             <Pad Id="DZBrK5su7l8OT29nkQIaQ5" Bounds="-61,204" />
+            <Node Bounds="18,991,16,19" Id="CXj6vERpfPhQJIMLOwznqy">
+              <p:NodeReference LastCategoryFullName="Audio" LastSymbolSource="VL.Audio.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="ProcessAppFlag" Name="DllHACK" />
+              </p:NodeReference>
+              <Pin Id="KDOWijDO63vOntNMhIApda" Name="Update" Kind="ApplyPin" />
+            </Node>
           </Canvas>
           <Patch Id="EYPw05jZfOfPkEqKDlMPpv" Name="Create" ParticipatingElements="CD4Qsx5BXfEN8bHpc1vE99" />
           <Patch Id="DGCULFc9hX9MZzP7mk3AGw" Name="Update" ManuallySortedPins="true">
@@ -1609,6 +1616,7 @@
             <Patch Id="OBpDRgjoQy2Ols9YT0PwIK" Name="Create" ParticipatingElements="NdO5epxF3GzNeJDJvK3FB9" />
             <Patch Id="StpgghGOI7GQAoLuAo2iEz" Name="Update" ManuallySortedPins="true">
               <Pin Id="FiPXYmIYHTNMCMehPUSTsC" Name="Filename" Kind="InputPin" Bounds="282,222" />
+              <Pin Id="I4bxknq0nlQPFPDmtxrUN5" Name="Play" Kind="InputPin" Bounds="328,575" />
               <Pin Id="HxPgowUiGxdLqwZ6pbSZyB" Name="Loop" Kind="InputPin" Bounds="341,700" />
               <Pin Id="VaZygLiqGPeQBQpvBRaaQF" Name="Loop Start Time" Kind="InputPin" Bounds="295,629">
                 <p:TypeAnnotation>
@@ -1641,7 +1649,6 @@
                   <Choice Kind="TypeFlag" Name="Float32" />
                 </p:TypeAnnotation>
               </Pin>
-              <Pin Id="I4bxknq0nlQPFPDmtxrUN5" Name="Play" Kind="InputPin" Bounds="328,575" />
               <Pin Id="VcTiIVfOSlkMKqHCn3c1dq" Name="Output" Kind="OutputPin" Bounds="16,280" />
               <Pin Id="AzonagDFn0ENwm2zWUuSDZ" Name="Duration" Kind="OutputPin" Bounds="590,638" />
               <Pin Id="KBUIKM8kTFrMrvYidtsGHb" Name="Position" Kind="OutputPin" Bounds="466,589" />
@@ -4199,6 +4206,15 @@
                 </p:TypeAnnotation>
               </Pad>
               <Pad Id="L40X0COJtwdPkPioVmEz4e" Comment="" Bounds="300,552,35,15" ShowValueBox="true" isIOBox="true" />
+              <Pad Id="EPF4LVUGUcALqm3e5mY0Q7" Bounds="261,341,471,28" ShowValueBox="true" isIOBox="true" Value="This is only here to use a function from the VVVV.Utils.dll to get it exported">
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="TypeFlag" Name="String" />
+                </p:TypeAnnotation>
+                <p:ValueBoxSettings>
+                  <p:fontsize p:Type="Int32">9</p:fontsize>
+                  <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+                </p:ValueBoxSettings>
+              </Pad>
             </Canvas>
             <Patch Id="RMhPf91vC4zMY8HnfnbWHe" Name="Create" />
             <Patch Id="Nq1ovX8eHayMeYKuogf3oU" Name="Update" />
