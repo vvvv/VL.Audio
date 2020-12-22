@@ -4159,6 +4159,63 @@
             <ProcessDefinition Id="BLiNX4XAsYUQNH7txEeYAT" IsHidden="true" />
           </Patch>
         </Node>
+        <!--
+
+    ************************ DllHACK ************************
+
+-->
+        <Node Name="DllHACK" Bounds="256,659" Id="LYw2jWqw6BAQcBR4v9M4Z2">
+          <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="builtin">
+            <Choice Kind="ContainerDefinition" Name="Process" />
+          </p:NodeReference>
+          <Patch Id="Mv6vws0gDlHP22DFQ3D5jI">
+            <Canvas Id="GU9GotmcAvEQYJHsAeIR3k" CanvasType="Group">
+              <Node Bounds="292,476" Id="VFxohQjeBgJLBY7e8Anep4">
+                <p:NodeReference LastCategoryFullName="VVVV.Utils.VMath.VMath" LastSymbolSource="VVVV.Utils.dll">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <AssemblyReference ID="VVVV.Utils.dll" />
+                  <CategoryReference Kind="AssemblyCategory" Name="VVVV" />
+                  <CategoryReference Kind="AssemblyCategory" Name="Utils" />
+                  <CategoryReference Kind="AssemblyCategory" Name="VMath" />
+                  <Choice Kind="OperationCallFlag" Name="Dist" />
+                  <PinReference Kind="InputPin" Name="P 1">
+                    <p:DataTypeReference p:Type="TypeReference" LastCategoryFullName="System" LastSymbolSource="mscorlib.dll">
+                      <Choice Kind="TypeFlag" Name="Double" />
+                    </p:DataTypeReference>
+                  </PinReference>
+                </p:NodeReference>
+                <Pin Id="Fvg2UIdKcBVPnsS7OM9VG7" Name="P 1" Kind="InputPin" />
+                <Pin Id="LmTb8oIcAlsLf78cOzHq3f" Name="P 2" Kind="InputPin" />
+                <Pin Id="Kic46Xf7cVJPUX3XciiOLP" Name="Output" Kind="OutputPin" />
+              </Node>
+              <Pad Id="NVw85bJVErKM4qTuHjg2Ur" Comment="P 1" Bounds="282,419,35,15" ShowValueBox="true" isIOBox="true" Value="0">
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="TypeFlag" Name="Float64" />
+                </p:TypeAnnotation>
+              </Pad>
+              <Pad Id="CrAaqzO3i7oL4o2ZQp4VYp" Comment="P 2" Bounds="378,434,35,15" ShowValueBox="true" isIOBox="true" Value="0">
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="TypeFlag" Name="Float64" />
+                </p:TypeAnnotation>
+              </Pad>
+              <Pad Id="L40X0COJtwdPkPioVmEz4e" Comment="" Bounds="300,552,35,15" ShowValueBox="true" isIOBox="true" />
+            </Canvas>
+            <Patch Id="RMhPf91vC4zMY8HnfnbWHe" Name="Create" />
+            <Patch Id="Nq1ovX8eHayMeYKuogf3oU" Name="Update" />
+            <!--
+
+    ************************  ************************
+
+-->
+            <ProcessDefinition Id="GsVkMowKYRZONkZ5gzbwO5">
+              <Fragment Id="UBcKdP8AwWQPjLJsOwxizv" Patch="RMhPf91vC4zMY8HnfnbWHe" Enabled="true" />
+              <Fragment Id="TyhaBhk0Y6bQFcKrxaiOYc" Patch="Nq1ovX8eHayMeYKuogf3oU" Enabled="true" />
+            </ProcessDefinition>
+            <Link Id="S50c7RO8huGNWwpuD3LkVn" Ids="NVw85bJVErKM4qTuHjg2Ur,Fvg2UIdKcBVPnsS7OM9VG7" />
+            <Link Id="HXRlkDKQBpUNwcWWXpbBRS" Ids="CrAaqzO3i7oL4o2ZQp4VYp,LmTb8oIcAlsLf78cOzHq3f" />
+            <Link Id="GqIDNZRC1P4MMGBe1EMI47" Ids="Kic46Xf7cVJPUX3XciiOLP,L40X0COJtwdPkPioVmEz4e" />
+          </Patch>
+        </Node>
       </Canvas>
       <Canvas Id="PgSRoe0zKPdOBMBeBkbhMx" Name="Utils" Position="237,627">
         <!--
@@ -14397,4 +14454,5 @@
   <NugetDependency Id="QNWJq49B8fGPFd4ZgJ3YOk" Location="VL.Lang" Version="2020.3.0-0122-g7013fd66e0" />
   <NugetDependency Id="HAtNcxYlDjCQRhqXVEgb23" Location="VL.HDE" Version="2020.3.0-0122-g7013fd66e0" />
   <PlatformDependency Id="JXXSxj4l6VKN8Y5tktUqkD" Location="./lib/netstandard2.0/VVVV.Audio.VL.dll" />
+  <PlatformDependency Id="SkYSWB2m31HLQZi24hFhVe" Location="./lib/netstandard2.0/VVVV.Utils.dll" />
 </Document>
