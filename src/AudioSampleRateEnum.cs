@@ -43,7 +43,6 @@ namespace VL.Naudio
     {
         protected override IObservable<object> GetEntriesChangedObservable()
         {
-            //TODO: Engine.DriverChanged
             return AudioEngine.Instance.DriverSettingsChanged;
         }
 
