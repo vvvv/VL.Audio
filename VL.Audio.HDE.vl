@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="S3BYXYbBcOQLrAesdzH6KE" LanguageVersion="2020.1.7.184" Version="0.128">
-  <NugetDependency Id="BfQ9BqV8poEPnZWKYQROv0" Location="VL.CoreLib" Version="2020.1.7" />
+<Document xmlns:p="property" Id="S3BYXYbBcOQLrAesdzH6KE" LanguageVersion="2021.4.2.691" Version="0.128">
+  <NugetDependency Id="BfQ9BqV8poEPnZWKYQROv0" Location="VL.CoreLib" Version="2021.4.2" />
   <Patch Id="DYRuwp4ufPyNyKtULooXvw">
     <Canvas Id="QYFOXjrMgATQTcpBMDj2hQ" DefaultCategory="Audio.HDE" CanvasType="FullCategory">
       <!--
@@ -32,17 +32,9 @@
               <Pin Id="OJBxTRtCUZPPWkJuNDlESP" Name="Margin" Kind="InputPin" />
               <Pin Id="KODpCNNKM6yPVK8nU88fuI" Name="Padding" Kind="InputPin" />
               <Pin Id="Fl6MwOuzrt0MxMfdUFMWim" Name="Background Paint" Kind="InputPin" />
-              <Pin Id="GUFw0vWzwjeQAdyX7ILsdp" Name="Background Enabled" Kind="InputPin">
-                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-                  <Choice Kind="TypeFlag" Name="Boolean" />
-                </p:TypeAnnotation>
-              </Pin>
+              <Pin Id="GUFw0vWzwjeQAdyX7ILsdp" Name="Background Enabled" Kind="InputPin" />
               <Pin Id="TnjAVbDK68YOTmHwkshDuE" Name="Stroke Paint" Kind="InputPin" />
-              <Pin Id="Kxu1WdsLK7NNiroFuDBbwZ" Name="Stroke Enabled" Kind="InputPin">
-                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-                  <Choice Kind="TypeFlag" Name="Boolean" />
-                </p:TypeAnnotation>
-              </Pin>
+              <Pin Id="Kxu1WdsLK7NNiroFuDBbwZ" Name="Stroke Enabled" Kind="InputPin" />
               <Pin Id="CNf99ZXPRakN63wcpqHi20" Name="Clip Enabled" Kind="InputPin" />
               <Pin Id="FDDBXR2VsLOLyf1nVVilTk" Name="Output" Kind="StateOutputPin" />
             </Node>
@@ -60,11 +52,7 @@
                 </CategoryReference>
               </p:NodeReference>
               <Pin Id="GPOpuNcgbLUOx8hG0SVU7i" Name="Input" Kind="InputPin" />
-              <Pin Id="ABFjzvsmBmiLnyfdeLMojh" Name="Value" Kind="InputPin">
-                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-                  <Choice Kind="TypeFlag" Name="Float32" />
-                </p:TypeAnnotation>
-              </Pin>
+              <Pin Id="ABFjzvsmBmiLnyfdeLMojh" Name="Value" Kind="InputPin" />
               <Pin Id="FnDLc4SY3jTPiqQTIWsehC" Name="Output" Kind="OutputPin" />
             </Node>
             <Node Bounds="460,334,74,19" Id="PqNnSjYvbhvQMLghCwohKZ">
@@ -230,7 +218,7 @@
               <Pin Id="I9uTvIy9iqYNX1Oyfy7ZgR" Name="Output" Kind="OutputPin" />
             </Node>
             <Node Bounds="463,663,223,126" Id="FJOJUqqMNXIOZvHNxxQyQn">
-              <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.dll">
                 <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
                 <Choice Kind="ApplicationStatefulRegion" Name="ForEach" />
                 <CategoryReference Kind="Category" Name="Primitive" />
@@ -313,35 +301,18 @@
               </p:NodeReference>
               <Pin Id="Qo0UFC8nvxoM7JUpyEpmGw" Name="Center" Kind="InputPin" />
               <Pin Id="TM7A2tjj63QLLMLLp56L51" Name="Width" Kind="InputPin" />
+              <Pin Id="KlSZrgXxxFmMCZOf08YQ3r" Name="Alignment" Kind="InputPin" />
               <Pin Id="BT8sHKeQkP3OM3vSQLTmAI" Name="Phase" Kind="InputPin" />
               <Pin Id="E3t0TObUzmyMIW18ElPKGU" Name="Count" Kind="InputPin" />
               <Pin Id="PeuSl7oWjU0MHU8b27fk6m" Name="Output" Kind="OutputPin" />
-            </Node>
-            <Node Bounds="613,536,33,19" Id="Ph9lR9aC34mMj1fD3yOY1K">
-              <p:NodeReference LastCategoryFullName="Collections.Sequence" LastSymbolSource="VL.Collections.vl">
-                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                <Choice Kind="OperationCallFlag" Name="Min" />
-                <FullNameCategoryReference ID="Collections.Sequence" />
-              </p:NodeReference>
-              <Pin Id="RCpDsGAEtlAPjedFSDycnA" Name="Input" Kind="InputPin" />
-              <Pin Id="IF7pr3GYUMIO8gEchqCCwL" Name="Result" Kind="OutputPin" />
-            </Node>
-            <Node Bounds="663,539,33,19" Id="JKKzMqYElU5O29d0mXNBmw">
-              <p:NodeReference LastCategoryFullName="Collections.Sequence" LastSymbolSource="VL.Collections.vl">
-                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                <FullNameCategoryReference ID="Collections.Sequence" />
-                <Choice Kind="OperationCallFlag" Name="Max" />
-              </p:NodeReference>
-              <Pin Id="MgNxxYQg5TRNCsAqoxqpbs" Name="Input" Kind="InputPin" />
-              <Pin Id="Q2SBw9ikocCOglLZkDZy4p" Name="Result" Kind="OutputPin" />
             </Node>
             <Node Bounds="610,622,44,19" Id="TZtCEPpIgJkMvn6uAck2FH">
               <p:NodeReference LastCategoryFullName="Math.Ranges.Range" LastSymbolSource="CoreLibBasics.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="Range (Join)" />
               </p:NodeReference>
-              <Pin Id="Bv6rQLkwAzLPBO454eUsJE" Name="From" Kind="InputPin" />
-              <Pin Id="BAJyfM7JMzWLABgEFeECzV" Name="To" Kind="InputPin" />
+              <Pin Id="Bv6rQLkwAzLPBO454eUsJE" Name="From" Kind="InputPin" DefaultValue="-1.5" />
+              <Pin Id="BAJyfM7JMzWLABgEFeECzV" Name="To" Kind="InputPin" DefaultValue="1.5" />
               <Pin Id="OuxJtY5LiTzPBzixW1JsfC" Name="Output" Kind="StateOutputPin" />
             </Node>
             <Node Bounds="677,620,44,19" Id="P1lrN8UbMOLOnuXKmdeGOv">
@@ -419,16 +390,12 @@
           <Link Id="JbEGwwy3tZeNXLD2Zn8aH5" Ids="PeuSl7oWjU0MHU8b27fk6m,QWBNW5aKwaSLfMTnYufp5W" />
           <Link Id="ARbA6atMgdVLRE7yJ5RYFX" Ids="QWBNW5aKwaSLfMTnYufp5W,TBv1MRZRUfKQBoyCUqdXmZ" />
           <Link Id="P3NeSSIyE6AQUqW5fpLZMk" Ids="QQBQOJwzgUuL2xOxpORSlv,Qo0UFC8nvxoM7JUpyEpmGw" />
-          <Link Id="JYuBYeBzyqaP4BRRRksC7m" Ids="S3uIfGrqkmgQTtveOF4uGo,RCpDsGAEtlAPjedFSDycnA" />
-          <Link Id="R0aWXfe99KQN5lDDCg1zzd" Ids="S3uIfGrqkmgQTtveOF4uGo,MgNxxYQg5TRNCsAqoxqpbs" />
-          <Link Id="Q8SZKZhTqurOXZsLJfUSMG" Ids="IF7pr3GYUMIO8gEchqCCwL,Bv6rQLkwAzLPBO454eUsJE" />
-          <Link Id="TQE7hXf1OtALWe3xxSSiZg" Ids="Q2SBw9ikocCOglLZkDZy4p,BAJyfM7JMzWLABgEFeECzV" />
-          <Link Id="IbKVrFA9vslN3yRtVhGdgE" Ids="OuxJtY5LiTzPBzixW1JsfC,CStGTjGBnpCMsFNi8Hu5ti" />
           <Link Id="R1kRzbQ3z27NbWmArLiGWr" Ids="F6kqjwymRaCNB6OGtMxyM6,Vj0irzzEeaPOza1OdlwvXH" />
           <Link Id="KQj7NLOkZ40LpMnwHeNss8" Ids="VuCMtagqnABLfzS43OC2nz,Q7WFDC1CGUTMK1x7LAniEJ" />
           <Link Id="RhPl6NrxhJTPUWPbCJLdpB" Ids="NHiU8bHdCllP9d7yIGoGjB,Cef38vrgExGPzaL4EkVsMn" />
           <Link Id="MBM4QKFCUtPQOov2SEOf6u" Ids="PhzXgu1f9qJNY5YTaIRxNA,ONtOwHzLhcAOCRy5dGn4xI" />
           <Link Id="DzWDw9WMMNSLVjqrAKtKH8" Ids="Kr7VWIyWIb0QGH0HBDiQ5u,IJ5k5veqt8gP9k41h8oXJd" />
+          <Link Id="Pg2A3frQJEWNgr3hZnmAyk" Ids="OuxJtY5LiTzPBzixW1JsfC,CStGTjGBnpCMsFNi8Hu5ti" />
         </Patch>
       </Node>
       <!--
@@ -484,7 +451,7 @@
             <Pin Id="LQxbmSzaGAVNGh0AtXM7Hy" Name="Result" Kind="OutputPin" />
           </Patch>
           <Slot Id="G6N9BdHoBQOLs0jjXygIei" Name="Value">
-            <p:TypeAnnotation>
+            <p:TypeAnnotation p:Type="TypeReference">
               <Choice Kind="TypeFlag" Name="AudioSignal" />
             </p:TypeAnnotation>
           </Slot>
@@ -512,7 +479,7 @@
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="PplJ8M06DDYNWsWk2Slfxl" Location="VL.Skia" Version="2020.1.7" />
-  <NugetDependency Id="Vx0IDKk0ZwjLq5dkCVhG5Z" Location="VL.HDE" Version="2020.1.7" />
-  <DocumentDependency Id="Sm1TqsTkVFsProAmpQaAlM" Location="./VL.Audio.vl" IsFriend="true"/>
+  <NugetDependency Id="PplJ8M06DDYNWsWk2Slfxl" Location="VL.Skia" Version="2021.4.2" />
+  <NugetDependency Id="Vx0IDKk0ZwjLq5dkCVhG5Z" Location="VL.HDE" Version="2021.4.2" />
+  <DocumentDependency Id="Sm1TqsTkVFsProAmpQaAlM" Location="./VL.Audio.vl" IsFriend="true" />
 </Document>
