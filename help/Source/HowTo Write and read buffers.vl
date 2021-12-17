@@ -98,9 +98,9 @@
             </p:TypeAnnotation>
           </Pad>
           <Node Bounds="354,566,145,19" Id="RGiawqLnN08MDMOAATNtVc">
-            <p:NodeReference LastCategoryFullName="Audio" LastSymbolSource="VL.Audio.vl">
+            <p:NodeReference>
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-              <Choice Kind="ProcessAppFlag" Name="BufferWriter" />
+              <Choice Kind="ProcessAppFlag" Name="BufferRecorder" />
             </p:NodeReference>
             <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
             <Pin Id="GM8emtZfmiBOUyinpqmRQy" Name="Buffer" Kind="InputPin" />
@@ -132,9 +132,9 @@
             </p:ValueBoxSettings>
           </Pad>
           <Node Bounds="627,569,85,19" Id="IGSTt0Yf8SyOhAY2KSWgDX">
-            <p:NodeReference LastCategoryFullName="Audio.Filter" LastSymbolSource="VL.Audio.vl">
+            <p:NodeReference>
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-              <Choice Kind="ProcessAppFlag" Name="BufferReader" />
+              <Choice Kind="ProcessAppFlag" Name="BufferPlayer" />
             </p:NodeReference>
             <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
             <Pin Id="IyTmTwmiOhGLeLASHYV2qi" Name="Buffer" Kind="InputPin" />
@@ -194,6 +194,9 @@
             <Pin Id="FtqXR9vvv1XLySE6WqaYxm" Name="Length" Kind="InputPin" />
             <Pin Id="Nlh7XpQh8qPMgxkBVxNTHs" Name="Clear" Kind="InputPin" />
             <Pin Id="LUlc4O25HFkO6qXIPdqcJj" Name="Preview Size" Kind="InputPin" />
+            <Pin Id="Nanl5PQZsvWOEC3tY2EmZv" Name="Filename" Kind="InputPin" />
+            <Pin Id="Ec9tDBlB4tfPU4YIPaw0SQ" Name="Save" Kind="InputPin" />
+            <Pin Id="BStVutRgrRIO1QlDBmXsFs" Name="Source Provider" Kind="InputPin" />
             <Pin Id="ObGjw14alyLM5Vimm23mov" Name="Output" Kind="OutputPin" />
             <Pin Id="Ahy5yaKQLmLNVOtPNnqXSB" Name="Preview" Kind="OutputPin" />
           </Node>
@@ -217,6 +220,23 @@
           </Pad>
           <Pad Id="RE4IEb9Yx9OMK5XMDq6PzS" Comment="Current Position" Bounds="356,610,50,15" ShowValueBox="true" isIOBox="true" />
           <Pad Id="GDISrgIiUsaNAX5QVKnrrG" Comment="Current Position" Bounds="709,608,44,15" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="R892LtQFeosM6lKUbtmsbi" Comment="Save" Bounds="777,271,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+            <p:TypeAnnotation>
+              <Choice Kind="TypeFlag" Name="Boolean" />
+              <FullNameCategoryReference ID="Primitive" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Node Bounds="53,511,60,19" Id="MZjUt9IZ0AmPkq3AHpwnu7">
+            <p:NodeReference LastCategoryFullName="Audio.Sink" LastSymbolSource="VL.Audio.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="AudioOut" />
+            </p:NodeReference>
+            <Pin Id="QfEwCqlCGXgOWbTfxvIeJ0" Name="Input" Kind="InputPin" />
+            <Pin Id="SW4YOIFKwtoME3Gg8IVTUC" Name="Channel Offset" Kind="InputPin" />
+          </Node>
         </Canvas>
         <Patch Id="H7AXqgMBO7VM7Hjz3LIVIi" Name="Create" />
         <Patch Id="SAUdaIhMZdzNMFreYk25vB" Name="Update" />
@@ -247,6 +267,8 @@
         <Link Id="J8ZWhEVBxvaNYwm2DSNlH8" Ids="C9ZxFfrQjXcMSpnJnDbJTU,GDISrgIiUsaNAX5QVKnrrG" />
         <Link Id="Sn93UCMOWN3PPNERXHmI62" Ids="ObGjw14alyLM5Vimm23mov,GM8emtZfmiBOUyinpqmRQy" />
         <Link Id="KKxiN8NESa8Py9wNVBrrrA" Ids="ObGjw14alyLM5Vimm23mov,IyTmTwmiOhGLeLASHYV2qi" />
+        <Link Id="EGqFjcvxbbvQKtEgecV17J" Ids="R892LtQFeosM6lKUbtmsbi,Ec9tDBlB4tfPU4YIPaw0SQ" />
+        <Link Id="H1npqSxZ6R7Px6poyxLwvH" Ids="MDACPNosa8ULhlXj0n8cq5,QfEwCqlCGXgOWbTfxvIeJ0" />
       </Patch>
     </Node>
   </Patch>
