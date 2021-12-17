@@ -7,6 +7,7 @@ using VL.Core;
 using VL.Lib.Collections;
 using System.Reactive.Linq;
 using VVVV.Audio;
+using VL.Lib.Basics.Resources;
 
 namespace VL.Audio
 {
@@ -136,7 +137,8 @@ namespace VL.Audio
 
             public IVLNode CreateInstance(NodeContext context)
             {
-                return new AudioSignalNode(this, context);
+                var engineHandle = context.Factory.CreateService<IResourceProvider<GlobalEngine>>(context).GetHandle();
+                return new AudioSignalNode(this, engineHandle, context);
             }
 
             public bool OpenEditor()
@@ -167,6 +169,7 @@ namespace VL.Audio
         class AudioSignalNode : VLObject, IVLNode
         {
             AudioSignal FSignalInstance;
+            IResourceHandle<GlobalEngine> FEngineHandle;
 
             class MyPin : IVLPin
             {
@@ -177,10 +180,11 @@ namespace VL.Audio
 
             readonly NodeDescription description;
 
-            public AudioSignalNode(NodeDescription description, NodeContext nodeContext) : base(nodeContext)
+            public AudioSignalNode(NodeDescription description, IResourceHandle<GlobalEngine> engineHandle, NodeContext nodeContext) : base(nodeContext)
             {
                 this.description = description;
                 FSignalInstance = (AudioSignal)Activator.CreateInstance(description.Signal);
+                FEngineHandle = engineHandle;
 
                 foreach (var input in description.Inputs)
                     FInputsMap.Add(input.Name, new MyPin() { Name = input.Name, Type = input.Type, Value = input.DefaultValue });
@@ -230,6 +234,7 @@ namespace VL.Audio
             public void Dispose()
             {
                 FSignalInstance.Dispose();
+                FEngineHandle.Dispose();
             }
         }
     }

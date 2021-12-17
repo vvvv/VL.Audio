@@ -5,7 +5,7 @@ using VL.Lib.Collections;
 using NAudio.Wave;
 using VVVV.Audio;
 
-namespace VL.Naudio
+namespace VL.Audio
 {
     public enum AudioSampleRateEnum
     {

@@ -4,7 +4,7 @@ using VL.Lib;
 using VL.Lib.Collections;
 using NAudio.Wave;
 
-namespace VL.Naudio
+namespace VL.Audio
 {
     [Serializable]
     public class AsioInputDevice : DynamicEnumBase<AsioInputDevice, AsioInputDeviceDefinition>

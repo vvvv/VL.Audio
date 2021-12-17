@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="NmaxJaRDzlKLHYjqsUP0Jr" Authors="vvvv group" LicenseUrl="https://www.gnu.org/licenses/lgpl.html" ProjectUrl="http://vvvv.org/" LanguageVersion="2020.3.0.122" Version="0.128">
-  <NugetDependency Id="RKFCmk1Lg5EP3I4IQegLTw" Location="VL.CoreLib" Version="2020.3.0-0122-g7013fd66e0" />
+<Document xmlns:p="property" Id="NmaxJaRDzlKLHYjqsUP0Jr" Authors="vvvv group" LicenseUrl="https://www.gnu.org/licenses/lgpl.html" ProjectUrl="http://vvvv.org/" LanguageVersion="2021.4.2.691" Version="0.128">
+  <NugetDependency Id="RKFCmk1Lg5EP3I4IQegLTw" Location="VL.CoreLib" Version="2021.4.2" />
   <Patch Id="Th8hpfHvBF4Lk6VOwDCc9D">
     <Canvas Id="NtZT52Xp5qNOXK0fF2H7kv" DefaultCategory="Main" CanvasType="FullCategory">
       <!--
@@ -13,38 +13,6 @@
           <Choice Kind="ClassDefinition" Name="Class" />
         </p:NodeReference>
         <Patch Id="CzjSvRY5dvXQDxmAOA8mZj">
-          <Patch Id="ESJZDDS0I02LAWDOx9RJVV" Name="Create">
-            <Pin Id="DhQ3Pz63c6BN8UTu0wlcCA" Name="Channel Count" Kind="InputPin" />
-          </Patch>
-          <Patch Id="OkqGvJfa3PDOppp4PFQghD" Name="Update">
-            <Pin Id="E7K2YIwxB00MKFPD3gtrHt" Name="LFO Period" Kind="InputPin" Bounds="547,140">
-              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
-                <Choice Kind="TypeFlag" Name="Float32" />
-              </p:TypeAnnotation>
-            </Pin>
-            <Pin Id="AMZ2GOnDmOuLwJm8H7QN82" Name="Volume" Kind="InputPin" Bounds="497,147">
-              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
-                <Choice Kind="TypeFlag" Name="Float32" />
-              </p:TypeAnnotation>
-            </Pin>
-            <Pin Id="AMUSHsdbPLtMb5bfTwvbik" Name="Output" Kind="OutputPin" Bounds="264,0" />
-            <Pin Id="Ekc7PErIIUkLJLP1IeahHa" Name="Processing Duration" Kind="OutputPin" Bounds="529,650">
-              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
-                <Choice Kind="TypeFlag" Name="Float64" />
-              </p:TypeAnnotation>
-            </Pin>
-            <Pin Id="QUNOh55KbB4OKdbGTZRmPr" Name="Samples" Kind="OutputPin" Bounds="363,436">
-              <p:TypeAnnotation LastCategoryFullName="Collections" LastSymbolSource="VL.CoreLib.vl">
-                <Choice Kind="TypeFlag" Name="Spread" />
-                <FullNameCategoryReference ID="Collections" />
-                <p:TypeArguments>
-                  <TypeReference>
-                    <Choice Kind="TypeFlag" Name="Float32" />
-                  </TypeReference>
-                </p:TypeArguments>
-              </p:TypeAnnotation>
-            </Pin>
-          </Patch>
           <Canvas Id="C4yd3S6BFv9NWqJ2WO3OFi" CanvasType="Group">
             <ControlPoint Id="Q2B2S9WoHp2PSa5DSWd1vP" Bounds="289,620" />
             <Pad Id="SIhZbmv3eZOPU3KcJupDby" Comment="Time" Bounds="641,593,45,19" ShowValueBox="true" isIOBox="true">
@@ -196,6 +164,38 @@
           <Link Id="LQgV2aFtqk6NniQfUVWrC7" Ids="DaXByoSua2aMnHPST6qHfM,BmqZSYqYLqQNO9SEcHLryZ" />
           <Link Id="VMnBKNEjqdSQUpYL8IwTrL" Ids="Q5QuHvMfQ3MMoPEWWhu4fg,DaXByoSua2aMnHPST6qHfM" />
           <Link Id="McvGg3FrGVDMxjxts6OWy1" Ids="DhQ3Pz63c6BN8UTu0wlcCA,Q5QuHvMfQ3MMoPEWWhu4fg" IsHidden="true" />
+          <Patch Id="ESJZDDS0I02LAWDOx9RJVV" Name="Create">
+            <Pin Id="DhQ3Pz63c6BN8UTu0wlcCA" Name="Channel Count" Kind="InputPin" />
+          </Patch>
+          <Patch Id="OkqGvJfa3PDOppp4PFQghD" Name="Update">
+            <Pin Id="E7K2YIwxB00MKFPD3gtrHt" Name="LFO Period" Kind="InputPin" Bounds="547,140">
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                <Choice Kind="TypeFlag" Name="Float32" />
+              </p:TypeAnnotation>
+            </Pin>
+            <Pin Id="AMZ2GOnDmOuLwJm8H7QN82" Name="Volume" Kind="InputPin" Bounds="497,147">
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                <Choice Kind="TypeFlag" Name="Float32" />
+              </p:TypeAnnotation>
+            </Pin>
+            <Pin Id="AMUSHsdbPLtMb5bfTwvbik" Name="Output" Kind="OutputPin" Bounds="264,0" />
+            <Pin Id="Ekc7PErIIUkLJLP1IeahHa" Name="Processing Duration" Kind="OutputPin" Bounds="529,650">
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                <Choice Kind="TypeFlag" Name="Float64" />
+              </p:TypeAnnotation>
+            </Pin>
+            <Pin Id="QUNOh55KbB4OKdbGTZRmPr" Name="Samples" Kind="OutputPin" Bounds="363,436">
+              <p:TypeAnnotation LastCategoryFullName="Collections" LastSymbolSource="VL.Collections.vl">
+                <Choice Kind="TypeFlag" Name="Spread" />
+                <FullNameCategoryReference ID="Collections" />
+                <p:TypeArguments>
+                  <TypeReference>
+                    <Choice Kind="TypeFlag" Name="Float32" />
+                  </TypeReference>
+                </p:TypeArguments>
+              </p:TypeAnnotation>
+            </Pin>
+          </Patch>
         </Patch>
       </Node>
       <!--
@@ -946,31 +946,12 @@
               </p:TypeAnnotation>
             </Pad>
           </Canvas>
-          <Patch Id="S0wcbV4SFElMV35lpj2GSj" Name="Create" ParticipatingElements="G7yt0x7waiMLDnBAZFbUWo">
-            <Pin Id="AttjWFOoKlpO7Y8FjtRR4C" Name="Builder" Kind="InputPin" />
-            <Pin Id="TP2N1AfWlLMP56QhIdJQCJ" Name="Params" Kind="InputPin" />
-          </Patch>
-          <Patch Id="BO0E5hsMXzYPcT3mOCfu7s" Name="AddSample">
-            <Pin Id="LnfKo1Bf4tIMZZNSIr7ZBk" Name="Sample" Kind="InputPin" Bounds="432,162">
-              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
-                <Choice Kind="TypeFlag" Name="Float32" />
-              </p:TypeAnnotation>
-            </Pin>
-          </Patch>
           <ProcessDefinition Id="RDjMS21b22eQZoZhZRLkSk" IsHidden="true">
             <Fragment Id="TlTEmcNvbfBNnZ4blzIWtj" Patch="S0wcbV4SFElMV35lpj2GSj" Enabled="true" />
             <Fragment Id="FaM8J8WpgpIN5PILfQnnDZ" Patch="BO0E5hsMXzYPcT3mOCfu7s" Enabled="true" />
             <Fragment Id="PWCIxIsuZBaL8VVXYLdRUa" Patch="CMPROCKGmWmNU4PXrYIZIl" Enabled="true" />
             <Fragment Id="HZ876XIeYNNPr6E9wB3Z9j" Patch="AV5ZxLbSxAHMFmq4vF7Nkq" Enabled="true" />
           </ProcessDefinition>
-          <Patch Id="CMPROCKGmWmNU4PXrYIZIl" Name="GetData">
-            <Pin Id="Vcd2lTT6FMQMn9mBuyY4nS" Name="Duration" Kind="OutputPin" />
-            <Pin Id="VtcMoRzlssIOGJLWaOpBRP" Name="Samples" Kind="OutputPin" />
-          </Patch>
-          <Patch Id="AV5ZxLbSxAHMFmq4vF7Nkq" Name="GetParams">
-            <Pin Id="M3olrLjJayCLbT6thWYcml" Name="LFO Period" Kind="OutputPin" />
-            <Pin Id="DAxGOB9Ltb5QdE8PSvnR4G" Name="Volume" Kind="OutputPin" />
-          </Patch>
           <Slot Id="Jegs6pBRvGzO9SPXZ2XUl4" Name="Samples" />
           <Slot Id="UBajJeTOv5BLAKBpDOKEpt" Name="Params" />
           <Slot Id="TkdSiVJ07nhNZ1ojobFbzK" Name="Creation Time" />
@@ -998,6 +979,25 @@
           <Link Id="AfmlDfL0X7rOa1iyiO33fr" Ids="Q4j25YPMRAuNS75Cd20LGA,UyLu132V1uyLBEk5dDwvAI" />
           <Link Id="MaO50lRW4VQQD8VR79wups" Ids="D7VKGF0VcN2LvTJCDujfFm,BnlgX1n8jlRLFPtHTRGpNV" />
           <Link Id="FbASrrLzOGgMF5h1lPkcKJ" Ids="CwQfmBNfeEhLyCdruK2nTD,VwEN0LgIkcUNmVzmO4H9f7" />
+          <Patch Id="S0wcbV4SFElMV35lpj2GSj" Name="Create" ParticipatingElements="G7yt0x7waiMLDnBAZFbUWo">
+            <Pin Id="AttjWFOoKlpO7Y8FjtRR4C" Name="Builder" Kind="InputPin" />
+            <Pin Id="TP2N1AfWlLMP56QhIdJQCJ" Name="Params" Kind="InputPin" />
+          </Patch>
+          <Patch Id="BO0E5hsMXzYPcT3mOCfu7s" Name="AddSample">
+            <Pin Id="LnfKo1Bf4tIMZZNSIr7ZBk" Name="Sample" Kind="InputPin" Bounds="432,162">
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                <Choice Kind="TypeFlag" Name="Float32" />
+              </p:TypeAnnotation>
+            </Pin>
+          </Patch>
+          <Patch Id="CMPROCKGmWmNU4PXrYIZIl" Name="GetData">
+            <Pin Id="Vcd2lTT6FMQMn9mBuyY4nS" Name="Duration" Kind="OutputPin" />
+            <Pin Id="VtcMoRzlssIOGJLWaOpBRP" Name="Samples" Kind="OutputPin" />
+          </Patch>
+          <Patch Id="AV5ZxLbSxAHMFmq4vF7Nkq" Name="GetParams">
+            <Pin Id="M3olrLjJayCLbT6thWYcml" Name="LFO Period" Kind="OutputPin" />
+            <Pin Id="DAxGOB9Ltb5QdE8PSvnR4G" Name="Volume" Kind="OutputPin" />
+          </Patch>
         </Patch>
       </Node>
       <Pad Id="LlMep0CsxIMLmOWViQrqT5" Bounds="165,263" ShowValueBox="true" isIOBox="true" Value="class to do the audio processing">
@@ -1297,49 +1297,6 @@
             </p:TypeAnnotation>
           </Pad>
           <Pad Id="N3tXtPTtmELNMe141JDj7T" Comment="Processing Duration" Bounds="315,387,35,15" ShowValueBox="true" isIOBox="true" />
-          <Node Bounds="613,390,225,19" Id="Dweo7o6xDq1OvrMIYsPMUF">
-            <p:NodeReference LastCategoryFullName="Audio" LastSymbolSource="VL.Audio.vl">
-              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-              <Choice Kind="ProcessAppFlag" Name="AudioEngine" />
-            </p:NodeReference>
-            <Pin Id="CRYCnTmCjUwMuwEuzAMIZx" Name="Driver" Kind="InputPin" />
-            <Pin Id="QLsjjpuF9jCQEcmDTwdYtH" Name="Sample Rate" Kind="InputPin" />
-            <Pin Id="AiYwxN4KFu9OVaaLCoTfXO" Name="Desired Input Channels" Kind="InputPin" />
-            <Pin Id="Uf4P8R4pK33NuwQnMgfive" Name="Desired Output Channels" Kind="InputPin" />
-            <Pin Id="HwDfNjvUQJqNLxx6jlzvbP" Name="Show Control Panel" Kind="InputPin" />
-            <Pin Id="VXJ6rH3tXxnPJS8yqd0BMU" Name="BPM" Kind="InputPin" />
-            <Pin Id="VLZYC1koUtwNF6vUvIjSV9" Name="Loop" Kind="InputPin" />
-            <Pin Id="IN48y6K7yGKLKEYlXzaGN9" Name="Loop Start Beat" Kind="InputPin" />
-            <Pin Id="GUrhEEpfN3pNofvI8Xq1BD" Name="Loop End Beat" Kind="InputPin" />
-            <Pin Id="P4gHGpAUkvQLpAtQDvzLFt" Name="Seek Beat" Kind="InputPin" />
-            <Pin Id="EtqO5SsB0LbNEQUBtpmzcJ" Name="Do Seek" Kind="InputPin" />
-            <Pin Id="HAd42rzTvkjOsNDO3mvPeN" Name="Play" Kind="InputPin" />
-            <Pin Id="C0DduKWhjCnLG8svTojzGD" Name="Time" Kind="OutputPin" />
-            <Pin Id="PJDv98cHKijQV2pjR3nn2M" Name="Beat" Kind="OutputPin" />
-            <Pin Id="NP6stRvkqoEPYqTrydHzpZ" Name="Driver Input Channels" Kind="OutputPin" />
-            <Pin Id="SuMe0nUrvKWOVj0rJYus7O" Name="Driver Output Channels" Kind="OutputPin" />
-            <Pin Id="EUoGhOmg4bAQQnTEmciGdd" Name="Open Input Channels" Kind="OutputPin" />
-            <Pin Id="FkJ4WxTArARMtlpssHtPnQ" Name="Open Output Channels" Kind="OutputPin" />
-            <Pin Id="P98AnY06YXkMfpZ6enwX7K" Name="Buffer Size" Kind="OutputPin" />
-          </Node>
-          <Pad Id="Q51iDqaOf6XOtdXhDvUhKP" Comment="Play" Bounds="850,315,35,35" ShowValueBox="true" isIOBox="true" Value="True">
-            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-              <Choice Kind="TypeFlag" Name="Boolean" />
-            </p:TypeAnnotation>
-            <p:ValueBoxSettings>
-              <p:buttonmode p:Type="String">Toggle</p:buttonmode>
-            </p:ValueBoxSettings>
-          </Pad>
-          <Pad Id="T4Gman8uVthLNacZCo7KTM" Comment="Driver" Bounds="614,277,202,15" ShowValueBox="true" isIOBox="true" Value="ASIO4ALL v2">
-            <p:TypeAnnotation LastCategoryFullName="Audio" LastSymbolSource="VL.Audio.vl">
-              <Choice Kind="TypeFlag" Name="AsioInputDevice" />
-            </p:TypeAnnotation>
-          </Pad>
-          <Pad Id="MjgppWVxrssO7vkbl3J5UE" Comment="Sample Rate" Bounds="635,323,64,15" ShowValueBox="true" isIOBox="true" Value="44100">
-            <p:TypeAnnotation LastCategoryFullName="Audio" LastSymbolSource="VL.Audio.vl">
-              <Choice Kind="TypeFlag" Name="AudioSampleRate" />
-            </p:TypeAnnotation>
-          </Pad>
           <Pad Id="K45nhUh2TSELIAHkJcplYT" Bounds="406,338,131,19" ShowValueBox="true" isIOBox="true" Value="&lt;- look inside">
             <p:TypeAnnotation>
               <Choice Kind="TypeFlag" Name="String" />
@@ -1395,6 +1352,7 @@
                 <Choice Kind="TypeFlag" Name="Float32" />
               </p:TypeAnnotation>
             </Pin>
+            <Pin Id="UQ0UaoTo1MeOQ8HrWzZTSO" Name="Alignment" Kind="InputPin" />
             <Pin Id="Qehcj5SEG8JLs2Tx51eDsQ" Name="Phase" Kind="InputPin" />
             <Pin Id="DDafzbk0D83L4Nve6KsNnh" Name="Count" Kind="InputPin" />
             <Pin Id="RlUfINNlaaKPJiNN1QBF7t" Name="Output" Kind="OutputPin" />
@@ -1488,9 +1446,6 @@
         <Link Id="Kr8HsjJzUktPTSUcvpiaus" Ids="QkgHddONzxKLiF83GSrJMM,Ra8Wfh5jKtiM0uqb1yY5qD" />
         <Link Id="CqQeVDPUt7XQTckAoDnt1k" Ids="Hh3YaEwBnkAMQ0PHEMSnjO,N1zZPR2VuwdN9TNIMoSDpy" />
         <Link Id="CcB8EKkZifKNDQJ5uuCLqX" Ids="S7M24MQvEhuNze0y3vY0mc,N3tXtPTtmELNMe141JDj7T" />
-        <Link Id="B5BcKlYtigAQLryWrSbmt7" Ids="Q51iDqaOf6XOtdXhDvUhKP,HAd42rzTvkjOsNDO3mvPeN" />
-        <Link Id="P5VThh7Z7HfL7OhkNnuzJW" Ids="T4Gman8uVthLNacZCo7KTM,CRYCnTmCjUwMuwEuzAMIZx" />
-        <Link Id="IpYv5AVNFSqLYneZbUCFXq" Ids="MjgppWVxrssO7vkbl3J5UE,QLsjjpuF9jCQEcmDTwdYtH" />
         <Link Id="MSQ8EdYlW6nPEbJjkCaKda" Ids="JlvafJHtJ7wN73PaGinvrc,J2qvAzaciklNbJbxkByane" />
         <Link Id="A8Df0VwQgSHLTMqfUFjvpp" Ids="NuyVZohZbcNLNZm75jaavE,AAo7pma4e5eLpxGvmxPcRx" />
         <Link Id="QKv7AcDNw0jNF21maIyExy" Ids="NuyVZohZbcNLNZm75jaavE,ERKpzVqJL2JMX5E2zhcw3i" />
@@ -1506,6 +1461,6 @@
       </Patch>
     </Node>
   </Patch>
-  <DocumentDependency Id="SYdcXLHHXNuPZe2mmLD0wy" Location="../VL.Audio.vl" />
-  <NugetDependency Id="SXmZ1HXFU44QKIWu82oWvu" Location="VL.Skia" Version="2020.3.0-0122-g7013fd66e0" />
+  <NugetDependency Id="SXmZ1HXFU44QKIWu82oWvu" Location="VL.Skia" Version="2021.4.2" />
+  <NugetDependency Id="F3Mjkmv0k8fNqUJEtUL4KX" Location="VL.Audio" Version="0.0.0.0" />
 </Document>
