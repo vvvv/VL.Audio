@@ -12,7 +12,7 @@ namespace VL.Audio
         protected override void RegisterServices(IVLFactory factory)
         {
             factory.RegisterNodeFactory(nodeFactory);
-            factory.RegisterService<NodeContext, IResourceProvider<GlobalEngine>>(n => ResourceProvider.NewPooledPerApp(n, () => new GlobalEngine()));
+            factory.RegisterService<NodeContext, IResourceProvider<GlobalEngine>>(n => ResourceProvider.NewPooledSystemWide("VL.Audio", _ => new GlobalEngine()));
         }
 
         static IVLNodeDescriptionFactory nodeFactory = new NodeFactory();
