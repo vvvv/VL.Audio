@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="D7IBwO2zC8qQJwplUikxnZ" LanguageVersion="2021.4.2.691" Version="0.128">
-  <NugetDependency Id="Hmr7kILdlvPMagkfyf51Iz" Location="VL.CoreLib" Version="2021.4.2" />
+<Document xmlns:p="property" Id="D7IBwO2zC8qQJwplUikxnZ" LanguageVersion="2021.4.4.747" Version="0.128">
+  <NugetDependency Id="Hmr7kILdlvPMagkfyf51Iz" Location="VL.CoreLib" Version="2021.4.4" />
   <Patch Id="HaulhrPXkyCPeLW2mKcS3k">
     <Canvas Id="KNuoeWiZ9dzNZrycJV80K9" DefaultCategory="Main" BordersChecked="false" CanvasType="FullCategory" />
     <!--
@@ -26,22 +26,23 @@
             <Pin Id="OAFU3pOC85YPaWEHVvNmEm" Name="Desired Input Channels" Kind="InputPin" />
             <Pin Id="TEmILbpNfd8PQdoOQ5tYPq" Name="Desired Output Channels" Kind="InputPin" />
             <Pin Id="GBq6esfa6FPOYVrE8yb2WY" Name="Show Control Panel" Kind="InputPin" />
-            <Pin Id="KARQPl9kzsALLlnr27w7Hj" Name="Tempo" Kind="InputPin" />
+            <Pin Id="TgLXxHc3wXGNWSh2U82guU" Name="BPM" Kind="InputPin" />
             <Pin Id="LRmzqLIiC6qOUMbizxbEyH" Name="Loop" Kind="InputPin" />
             <Pin Id="Hi6iP2ogfJWOSxPhheY63M" Name="Loop Start Beat" Kind="InputPin" />
             <Pin Id="N3QV4lwGoD5MMCnLFtGn07" Name="Loop End Beat" Kind="InputPin" />
             <Pin Id="DrZOCJpqU7QP2tcN2QlD3o" Name="Seek Beat" Kind="InputPin" />
             <Pin Id="TIa0QQwxguxLJwLc3Ow27x" Name="Do Seek" Kind="InputPin" />
             <Pin Id="UPIRfQGzyB6PXRDLDVndB9" Name="Play" Kind="InputPin" />
+            <Pin Id="A3TNmTaY25aQFELyPMb9GC" Name="Selected Driver" Kind="OutputPin" />
+            <Pin Id="KRq0o34QsOMOXopPXrg1ZG" Name="Buffer Size" Kind="OutputPin" />
+            <Pin Id="QOb0ocu1FezPhOa9r2jQwn" Name="Available Input Channels" Kind="OutputPin" />
+            <Pin Id="E5RVTAnz5RtQUt5fMSPe9e" Name="Open Input Channels" Kind="OutputPin" />
+            <Pin Id="R2roofYyj4XO7mlNY24AXV" Name="Available Output Channels" Kind="OutputPin" />
+            <Pin Id="VqfNdhK3U7pN1lzoKo1mX6" Name="Open Output Channels" Kind="OutputPin" />
             <Pin Id="PHBdHVCbE7GLSytrWRQuCM" Name="Time" Kind="OutputPin" />
             <Pin Id="P9Cm71yY6YXQDqMEzadzBM" Name="Beat" Kind="OutputPin" />
-            <Pin Id="QOb0ocu1FezPhOa9r2jQwn" Name="Driver Input Channels" Kind="OutputPin" />
-            <Pin Id="R2roofYyj4XO7mlNY24AXV" Name="Driver Output Channels" Kind="OutputPin" />
-            <Pin Id="E5RVTAnz5RtQUt5fMSPe9e" Name="Open Input Channels" Kind="OutputPin" />
-            <Pin Id="VqfNdhK3U7pN1lzoKo1mX6" Name="Open Output Channels" Kind="OutputPin" />
-            <Pin Id="KRq0o34QsOMOXopPXrg1ZG" Name="Buffer Size" Kind="OutputPin" />
           </Node>
-          <Pad Id="NMJRZjWHll1PRlmf7GcTBn" Comment="Driver" Bounds="533,87,149,15" ShowValueBox="true" isIOBox="true" Value="ASIO4ALL v2">
+          <Pad Id="NMJRZjWHll1PRlmf7GcTBn" Comment="Driver" Bounds="533,87,149,15" ShowValueBox="true" isIOBox="true" Value="Default">
             <p:TypeAnnotation LastCategoryFullName="Audio" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="TypeFlag" Name="AsioInputDevice" />
             </p:TypeAnnotation>
@@ -66,10 +67,10 @@
               <Choice Kind="TypeFlag" Name="Boolean" />
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="TO67xuW4scpLTPRuDdaMuk" Comment="Buffer Size" Bounds="810,290,35,15" ShowValueBox="true" isIOBox="true" />
-          <Pad Id="SKUP2TPWnHYPDJ79yi8frq" Comment="Driver Input Channels" Bounds="625,312,35,15" ShowValueBox="true" isIOBox="true" />
-          <Pad Id="JAU3LotFVAOLjI5RJxFTCq" Comment="Driver Output Channels" Bounds="671,346,35,15" ShowValueBox="true" isIOBox="true" />
-          <Pad Id="Kc198mRtnZ1N1k57qgxrZH" Comment="Time" Bounds="533,310,41,15" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="TO67xuW4scpLTPRuDdaMuk" Comment="Buffer Size" Bounds="573,317,35,15" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="SKUP2TPWnHYPDJ79yi8frq" Comment="Available Input Channels" Bounds="612,357,35,15" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="JAU3LotFVAOLjI5RJxFTCq" Comment="Available Output Channels" Bounds="691,413,35,15" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="Kc198mRtnZ1N1k57qgxrZH" Comment="Time" Bounds="770,290,41,15" ShowValueBox="true" isIOBox="true" />
           <Pad Id="PiFg6nYEN6KOHkwUwaVF3H" Comment="Show Control Panel" Bounds="634,194,35,35" ShowValueBox="true" isIOBox="true" Value="False">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Boolean" />
@@ -491,6 +492,9 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
+          <Pad Id="UtQsCP8XWNdL7IeE5eNNvK" Comment="Selected Driver" Bounds="533,299,66,15" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="L0sBxOmLVkyMywnm33Vfxz" Comment="Open Input Channels" Bounds="652,376,35,15" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="AqC1wiQ5DsVQPJ38cIlgAY" Comment="Open Output Channels" Bounds="731,432,35,15" ShowValueBox="true" isIOBox="true" />
         </Canvas>
         <Patch Id="H7AXqgMBO7VM7Hjz3LIVIi" Name="Create" />
         <Patch Id="SAUdaIhMZdzNMFreYk25vB" Name="Update" />
@@ -508,9 +512,12 @@
         <Link Id="Hcv1rpBVt1xMYb1ONySOP8" Ids="R2roofYyj4XO7mlNY24AXV,JAU3LotFVAOLjI5RJxFTCq" />
         <Link Id="NkMAsYPlsX7LM9YxmITwmT" Ids="PHBdHVCbE7GLSytrWRQuCM,Kc198mRtnZ1N1k57qgxrZH" />
         <Link Id="IBI7KgVtWhLNW2nm2SHG0j" Ids="PiFg6nYEN6KOHkwUwaVF3H,GBq6esfa6FPOYVrE8yb2WY" />
+        <Link Id="Uia0JB0D0qGMPeBzAPMJeq" Ids="A3TNmTaY25aQFELyPMb9GC,UtQsCP8XWNdL7IeE5eNNvK" />
+        <Link Id="FY4tbwCUQNkMZkRWlH2WDs" Ids="E5RVTAnz5RtQUt5fMSPe9e,L0sBxOmLVkyMywnm33Vfxz" />
+        <Link Id="K497Tnz1YMVPjWokyW67sJ" Ids="VqfNdhK3U7pN1lzoKo1mX6,AqC1wiQ5DsVQPJ38cIlgAY" />
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="AOu5YShvTlxO1vA9BHtmEC" Location="VL.Skia" Version="2021.4.2" />
+  <NugetDependency Id="AOu5YShvTlxO1vA9BHtmEC" Location="VL.Skia" Version="2021.4.4" />
   <NugetDependency Id="RFGyRrGfUbfP2xiT2T539W" Location="VL.Audio" Version="0.0.0.0" />
 </Document>
