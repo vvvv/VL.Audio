@@ -774,13 +774,13 @@
                 <Pin Id="UIbmpGHlZImNrusVMl7S2o" Name="Do Seek" Kind="InputPin" />
                 <Pin Id="V8e1u30nNo5OSWT45a7VMO" Name="Play" Kind="InputPin" />
                 <Pin Id="EY99ge9q2NGMcFij8dKGP1" Name="Selected Driver" Kind="OutputPin" />
+                <Pin Id="Eo1u04Krxd5PT4bVoSHVet" Name="Buffer Size" Kind="OutputPin" />
+                <Pin Id="Qyn9W4B5ajlO6VDj1ZUMF9" Name="Available Input Channels" Kind="OutputPin" />
+                <Pin Id="DuOMUrSq0xxMHq9sIHv6NK" Name="Open Input Channels" Kind="OutputPin" />
+                <Pin Id="RFZBVvuswp6NRV6ei2sm4g" Name="Available Output Channels" Kind="OutputPin" />
+                <Pin Id="JwTZru6J14EL7NmF9hJLKi" Name="Open Output Channels" Kind="OutputPin" />
                 <Pin Id="J0l0RKQIa6POyuxuST92aO" Name="Time" Kind="OutputPin" />
                 <Pin Id="Ctp3CsXjAekOrnr6p8eV0B" Name="Beat" Kind="OutputPin" />
-                <Pin Id="A9GYmvhExUbLzbnNkK66Gf" Name="Driver Input Channels" Kind="OutputPin" />
-                <Pin Id="GdOBm5AngdUNmeo3qHA0He" Name="Driver Output Channels" Kind="OutputPin" />
-                <Pin Id="DuOMUrSq0xxMHq9sIHv6NK" Name="Open Input Channels" Kind="OutputPin" />
-                <Pin Id="JwTZru6J14EL7NmF9hJLKi" Name="Open Output Channels" Kind="OutputPin" />
-                <Pin Id="Eo1u04Krxd5PT4bVoSHVet" Name="Buffer Size" Kind="OutputPin" />
               </Node>
               <Pad Id="L07WBkH4sRPPIl4JBLE8nS" Comment="Sample Rate" Bounds="451,603,64,15" ShowValueBox="true" isIOBox="true" Value="48000">
                 <p:TypeAnnotation LastCategoryFullName="Audio" LastSymbolSource="VL.Audio.vl">
@@ -982,7 +982,7 @@
                 <Pin Id="NNQEmcFbfBWLlX3C7ZmeMB" Name="Value" Kind="InputPin" />
                 <Pin Id="MHekhqPZEMiOymYTLy8EF1" Name="Output" Kind="StateOutputPin" />
               </Node>
-              <Pad Id="OeKJqJWXyQfNSqd2BlD0In" Comment="Play" Bounds="714,575,35,35" ShowValueBox="true" isIOBox="true" Value="True">
+              <Pad Id="OeKJqJWXyQfNSqd2BlD0In" Comment="Play" Bounds="679,597,35,35" ShowValueBox="true" isIOBox="true" Value="True">
                 <p:TypeAnnotation>
                   <Choice Kind="TypeFlag" Name="Boolean" />
                   <FullNameCategoryReference ID="Primitive" />
@@ -991,7 +991,7 @@
                   <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
                 </p:ValueBoxSettings>
               </Pad>
-              <Pad Id="OQNuLiZ5izgN3RUdyW5p0J" Comment="Show Control Panel" Bounds="718,523,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+              <Pad Id="OQNuLiZ5izgN3RUdyW5p0J" Comment="Show Control Panel" Bounds="683,545,35,35" ShowValueBox="true" isIOBox="true" Value="False">
                 <p:TypeAnnotation>
                   <Choice Kind="TypeFlag" Name="Boolean" />
                   <FullNameCategoryReference ID="Primitive" />
@@ -1093,7 +1093,7 @@
             <Pin Id="KZk6RTNYSAIPRkORUKFVjM" Name="Input 2" Kind="InputPin" />
             <Pin Id="B206ajYVXUiPxBQOBXKwiu" Name="Output" Kind="OutputPin" />
           </Node>
-          <Pad Id="FdsiKaBrgwzNypnyQImWus" Comment="" Bounds="993,-101,108,15" ShowValueBox="true" isIOBox="true" Value="VL.Audio.Settings.xml">
+          <Pad Id="FdsiKaBrgwzNypnyQImWus" Comment="" Bounds="993,-101,143,13" ShowValueBox="true" isIOBox="true" Value="VL.Audio.Configuration.xml">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -1367,9 +1367,7 @@
         <Link Id="PpnzlDnvWS4LddYrWdw8tP" Ids="DunUFgDGGpDOmBcLdXEfID,MrbIghVlF2SP0wGgPqV1hS" />
         <Link Id="KKKcYLejIHKMcQvQMwVfDP" Ids="Vaewf9RTpQxNAwXRQJC1BW,FpmeSkCFKRGLSbjWzaqLQE" />
         <Link Id="ObajJojWUPYO4tdmx4PtXY" Ids="Eo1u04Krxd5PT4bVoSHVet,MeVBzM4v1PEMhgXwmUkwAc" />
-        <Link Id="O9krWK5iMgcNUOCIjGRKSD" Ids="A9GYmvhExUbLzbnNkK66Gf,FbHKSYR1KduOqa8qk53aOT" />
         <Link Id="SaKN7TZHJk5MrflZR77fIw" Ids="DuOMUrSq0xxMHq9sIHv6NK,O8V03HdUsvkOeEmiLivUXs" />
-        <Link Id="H3ZxDvOtnP5PKZ63KLxYg9" Ids="GdOBm5AngdUNmeo3qHA0He,P8hNbeHtt53Oc2qEttLGF4" />
         <Link Id="G9esc66ePCcQaXh5yh9jiy" Ids="JwTZru6J14EL7NmF9hJLKi,JE1FJBlCSluPdoGmdIPdES" />
         <Link Id="PzZ72eYBwkYMIGcA7GwDJy" Ids="DvkuStVFwGLP6Jn6722VMt,UbBWeoZQgRVLyk2beKfkax" />
         <Link Id="AIC7grAiBqMMlilq7TZBuL" Ids="B5bqwJl0qU6MdU47ZkJUEB,OWW7tu0BMP4MQKXuV9YiiT" />
@@ -1467,6 +1465,8 @@
         <Link Id="CvRzcZ5v61RMEBe5k0vlRD" Ids="DNnt2B7H557PMbwnhpalXe,R2AdbnWQ0FIPfENiYMU1qb" />
         <Link Id="QH5vnqC31dKPMlDThEtM6L" Ids="E8AuQxfMnJHPVYnKOwrUln,QFxbPC19ulyOAiQitF1Kb3" />
         <Link Id="TbnpS86mRtpNbKi64bRbXP" Ids="SsJQOUtxOTxNtvd6V5yBKr,D9aH6ZvUKxVOENQFODkiNC" />
+        <Link Id="BlyWDutqiudORzZrnxUngr" Ids="RFZBVvuswp6NRV6ei2sm4g,P8hNbeHtt53Oc2qEttLGF4" />
+        <Link Id="CVe6JOnx0txMGqOMP6Olvi" Ids="Qyn9W4B5ajlO6VDj1ZUMF9,FbHKSYR1KduOqa8qk53aOT" />
       </Patch>
     </Node>
   </Patch>
