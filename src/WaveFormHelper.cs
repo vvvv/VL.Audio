@@ -52,6 +52,7 @@ namespace VL.Audio
                     {
                         maxValue = Math.Max(maxValue, Math.Abs(buffer[i + channel]));
                     }
+
                     if (toMono)
                     {
                         outputBuffers[0][slice] = Math.Max(maxValue, outputBuffers[0][slice]);
