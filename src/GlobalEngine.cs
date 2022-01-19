@@ -69,7 +69,9 @@ namespace VL.Audio
                     var sampleRates = AudioSampleRateDefinition.Instance.Entries.ToList();
                     if (sampleRates.Contains(selectedSamplerate.ToString()))
                     {
-                        Engine.ChangeDriverSettings(selectedDriver, selectedSamplerate, selectedInputCount, 0, selectedOutputCount, 0);
+                        selectedInputCount = Math.Min(Engine.AsioOut.DriverInputChannelCount, selectedInputCount);
+                        selectedOutputCount = Math.Min(Engine.AsioOut.DriverOutputChannelCount, selectedOutputCount);
+                        Engine.ChangeDriverSettings(selectedSamplerate, selectedInputCount, selectedOutputCount);
                         Engine.Play = true;
                     }
                 }
