@@ -13,71 +13,106 @@ namespace VL.Audio
     public class GlobalEngine: IDisposable
     {
         const string defaultEntry = "Default";
-        const string settingsFile = "VL.Audio.Settings.xml";
+        const string configFile = "VL.Audio.Configuration.xml";
 
         public AudioEngine Engine { get; private set; }
+
+        string FConfigFile;
+        public string ConfigurationFile => FConfigFile;
 
         public GlobalEngine()
         {
             Engine = AudioService.Engine;
+            FConfigFile = Path.Combine(VLSession.Instance.UserAppDataFolder, configFile);
 
-            var inputDevice = AsioInputDeviceDefinition.Instance;
-            if (inputDevice.Entries.Count > 1) //"Default" entry is always there!
+            if (AsioInputDeviceDefinition.Instance.Entries.Count > 1) //"Default" entry is always there!
             {
-                //define some absolut baseline defaults for when there is no settings file yet
-                var selectedDriver = defaultEntry;
-                var selectedSamplerate = 48000;
-                var selectedInputCount = 2;
-                var selectedOutputCount = 2;
-
-                //check settings file for selected driver and settings
-                var settingspath = Path.Combine(VLSession.Instance.UserAppDataFolder, settingsFile);
-                if (File.Exists(settingspath))
-                {
-                    var doc = new XmlDocument();
-                    doc.Load(settingspath);
-
-                    var node = doc.DocumentElement.SelectSingleNode("/Settings/Driver");
-                    if (node != null)
-                        selectedDriver = node.InnerText;
-
-                    node = doc.DocumentElement.SelectSingleNode("/Settings/SampleRate");
-                    if (node != null)
-                        int.TryParse(node.InnerText, out selectedSamplerate);
-
-                    node = doc.DocumentElement.SelectSingleNode("/Settings/Inputs");
-                    if (node != null)
-                        int.TryParse(node.InnerText, out selectedInputCount);
-
-                    node = doc.DocumentElement.SelectSingleNode("/Settings/Outputs");
-                    if (node != null)
-                        int.TryParse(node.InnerText, out selectedOutputCount);
-                }
-
-                //make sure selected driver is currently available
-                if (!inputDevice.Entries.Contains(selectedDriver))
-                    selectedDriver = defaultEntry;
-
-                //if "Default" is selected, make an actual choice
-                if (selectedDriver == defaultEntry)
-                    selectedDriver = inputDevice.GetDefaultDriver();
-
-                try
-                {
-                    Engine.ChangeDriver(selectedDriver, 0, 0);
-
-                    var sampleRates = AudioSampleRateDefinition.Instance.Entries.ToList();
-                    if (sampleRates.Contains(selectedSamplerate.ToString()))
-                    {
-                        selectedInputCount = Math.Min(Engine.AsioOut.DriverInputChannelCount, selectedInputCount);
-                        selectedOutputCount = Math.Min(Engine.AsioOut.DriverOutputChannelCount, selectedOutputCount);
-                        Engine.ChangeDriverSettings(selectedSamplerate, selectedInputCount, selectedOutputCount);
-                        Engine.Play = true;
-                    }
-                }
-                finally
-                { }
+                LoadConfiguration(FConfigFile);
             }
+        }
+
+        public void LoadConfiguration(string configurationFile)
+        {
+            //define some absolut baseline defaults for when there is no settings file yet
+            var selectedDriver = defaultEntry;
+            var selectedSamplerate = 48000;
+            var selectedInputCount = 2;
+            var selectedOutputCount = 2;
+            var selectedBPM = 120f;
+            var selectedLoop = false;
+            var selectedLoopStartBeat = 0f;
+            var selectedLoopEndBeat = 0f;
+
+            //check settings file for selected driver and settings
+            if (File.Exists(configurationFile))
+            {
+                var doc = new XmlDocument();
+                doc.Load(configurationFile);
+
+                var node = doc.DocumentElement.SelectSingleNode("/Settings/Driver/Name");
+                if (node != null)
+                    selectedDriver = node.InnerText;
+
+                node = doc.DocumentElement.SelectSingleNode("/Settings/Driver/SampleRate");
+                if (node != null)
+                    int.TryParse(node.InnerText, out selectedSamplerate);
+
+                node = doc.DocumentElement.SelectSingleNode("/Settings/Driver/Inputs");
+                if (node != null)
+                    int.TryParse(node.InnerText, out selectedInputCount);
+
+                node = doc.DocumentElement.SelectSingleNode("/Settings/Driver/Outputs");
+                if (node != null)
+                    int.TryParse(node.InnerText, out selectedOutputCount);
+
+                node = doc.DocumentElement.SelectSingleNode("/Settings/Timing/BPM");
+                if (node != null)
+                    float.TryParse(node.InnerText, out selectedBPM);
+
+                node = doc.DocumentElement.SelectSingleNode("/Settings/Timing/Loop");
+                if (node != null)
+                    bool.TryParse(node.InnerText, out selectedLoop);
+
+                node = doc.DocumentElement.SelectSingleNode("/Settings/Timing/LoopStartBeat");
+                if (node != null)
+                    float.TryParse(node.InnerText, out selectedLoopStartBeat);
+
+                node = doc.DocumentElement.SelectSingleNode("/Settings/Timing/LoopEndBeat");
+                if (node != null)
+                    float.TryParse(node.InnerText, out selectedLoopEndBeat);
+            }
+
+            var drivers = AsioInputDeviceDefinition.Instance;
+
+            //make sure selected driver is currently available
+            if (!drivers.Entries.Contains(selectedDriver))
+                selectedDriver = defaultEntry;
+
+            //if "Default" is selected, make an actual choice
+            if (selectedDriver == defaultEntry)
+                selectedDriver = drivers.GetDefaultDriver();
+
+            try
+            {
+                Engine.PreviewDriver(selectedDriver);
+
+                var sampleRates = AudioSampleRateDefinition.Instance.Entries.ToList();
+                if (sampleRates.Contains(selectedSamplerate.ToString()))
+                {
+                    selectedInputCount = Math.Min(Engine.AsioOut.DriverInputChannelCount, selectedInputCount);
+                    selectedOutputCount = Math.Min(Engine.AsioOut.DriverOutputChannelCount, selectedOutputCount);
+                    Engine.ChangeDriverSettings(selectedDriver, selectedSamplerate, selectedInputCount, 0, selectedOutputCount, 0);
+
+                    Engine.Timer.BPM = selectedBPM;
+                    Engine.Timer.Loop = selectedLoop;
+                    Engine.Timer.LoopStartBeat = selectedLoopStartBeat;
+                    Engine.Timer.LoopEndBeat = selectedLoopEndBeat;
+
+                    Engine.Play = true;
+                }
+            }
+            finally
+            { }
         }
 
         public void Dispose()
