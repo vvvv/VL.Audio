@@ -62,6 +62,38 @@ namespace VL.Audio
             }
         }
 
+        public static void GenerateWaveForm(CancellationToken ct, float[] inputBuffer, int sampleRate, bool loop, float startTime, float endTime, int peakCount, float minValue, out float[] outputBuffer)
+        {
+            long samples = inputBuffer.LongLength;
+            long startSample = 0;
+            if (loop)
+            {
+                startSample = (long)(startTime * sampleRate);
+                samples = (long)((endTime - startTime) * sampleRate);
+            }
+            var localSpreadCount = (int)Math.Min(peakCount, samples);
+            outputBuffer = new float[localSpreadCount];
+
+            int blockSize = (int)(samples / localSpreadCount);
+            float maxValue;
+            var samplesLeftToRead = samples;
+            var totalSamplesRead = startSample;
+            for (int slice = 0; slice < localSpreadCount; slice++)
+            {
+                //read one block
+                samplesLeftToRead -= blockSize;
+                var samplesRead = samplesLeftToRead >= 0 ? blockSize : blockSize + samplesLeftToRead;
+                //do the max
+                maxValue = minValue;
+                for (int i = 0; i < samplesRead; i ++)
+                    maxValue = Math.Max(maxValue, Math.Abs(inputBuffer[totalSamplesRead + i]));
+                totalSamplesRead += blockSize;
+
+                outputBuffer[slice] = maxValue;
+                ct.ThrowIfCancellationRequested();
+            }
+        }
+
         public static void ReadBuffer(CancellationToken ct, AudioFileReaderVVVV audiofile, out float[][] outputBuffers)
         {
             var channels = audiofile.WaveFormat.Channels;
