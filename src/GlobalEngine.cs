@@ -38,7 +38,7 @@ namespace VL.Audio
             var selectedSamplerate = 48000;
             var selectedInputCount = 2;
             var selectedOutputCount = 2;
-            var selectedBPM = 120f;
+            var selectedTempo = 120f;
             var selectedLoop = false;
             var selectedLoopStartBeat = 0f;
             var selectedLoopEndBeat = 0f;
@@ -65,9 +65,9 @@ namespace VL.Audio
                 if (node != null)
                     int.TryParse(node.InnerText, out selectedOutputCount);
 
-                node = doc.DocumentElement.SelectSingleNode("/Settings/Timing/BPM");
+                node = doc.DocumentElement.SelectSingleNode("/Settings/Timing/Tempo");
                 if (node != null)
-                    float.TryParse(node.InnerText, out selectedBPM);
+                    float.TryParse(node.InnerText, out selectedTempo);
 
                 node = doc.DocumentElement.SelectSingleNode("/Settings/Timing/Loop");
                 if (node != null)
@@ -103,7 +103,7 @@ namespace VL.Audio
                     selectedOutputCount = Math.Min(Engine.AsioOut.DriverOutputChannelCount, selectedOutputCount);
                     Engine.ChangeDriverSettings(selectedDriver, selectedSamplerate, selectedInputCount, 0, selectedOutputCount, 0);
 
-                    Engine.Timer.BPM = selectedBPM;
+                    Engine.Timer.BPM = selectedTempo;
                     Engine.Timer.Loop = selectedLoop;
                     Engine.Timer.LoopStartBeat = selectedLoopStartBeat;
                     Engine.Timer.LoopEndBeat = selectedLoopEndBeat;

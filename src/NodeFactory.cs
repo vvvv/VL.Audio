@@ -30,7 +30,7 @@ namespace VL.Audio
             //sources
             builder.Add(new NodeDescription(this, typeof(ADSRSignal), "ADSR", "Source", "Generates an ADSR envelope in 0..1 range", "", "envelope"));
             builder.Add(new NodeDescription(this, typeof(GranulatorSignal), "Granulator", "Source", "Reads grains from an audio file", "", "synthesis"));
-            builder.Add(new NodeDescription(this, typeof(OscSignal), "OSC", "Source", "Creates an audio wave", "", "synthesis sine triangle square sawtooth wave"));
+            builder.Add(new NodeDescription(this, typeof(OscSignal), "OSC", "Source", "Creates an audio wave", "", "synthesis sine triangle square sawtooth wave noise oscillator"));
             builder.Add(new NodeDescription(this, typeof(ValueToAudioSignal), "V2A", "Source", "Converts a value into a static audio signal", "", ""));
             builder.Add(new NodeDescription(this, typeof(IFFTSignal), "IFFT2 (Internal)", "Source", "Creates an audio signal from spectrum data", "", "additive synthesis"));
             builder.Add(new NodeDescription(this, typeof(ValueSequenceSignal), "ValueSequence2 (Internal)", "Source", "Generates a sequence of values which are played back in the audio thread", "", "sequencer clip loop"));
