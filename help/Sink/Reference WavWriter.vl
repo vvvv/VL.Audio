@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="M6zDtP7qKQBNIqOpZf9jKo" LanguageVersion="2021.4.4.747" Version="0.128">
-  <NugetDependency Id="TLm27rLgDRMOfshTd8FG5S" Location="VL.CoreLib" Version="2021.4.4" />
+<Document xmlns:p="property" Id="M6zDtP7qKQBNIqOpZf9jKo" LanguageVersion="2021.4.5.764" Version="0.128">
+  <NugetDependency Id="TLm27rLgDRMOfshTd8FG5S" Location="VL.CoreLib" Version="2021.4.5" />
   <Patch Id="ET5A39rC3G1LQ2XPOFRcj7">
     <Canvas Id="UeizUXMvVlOQaGOJsgEosP" DefaultCategory="Main" BordersChecked="false" CanvasType="FullCategory" />
     <!--
@@ -37,27 +37,17 @@
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="MRyBH3wwMdtP5vDyDyohOZ" Comment="Filename" Bounds="279,371,140,15" ShowValueBox="true" isIOBox="true" Value="test3.wav">
+          <Pad Id="MRyBH3wwMdtP5vDyDyohOZ" Comment="Filename" Bounds="279,371,140,15" ShowValueBox="true" isIOBox="true" Value="c:\temp\fooq.wav">
             <p:TypeAnnotation LastCategoryFullName="IO" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Path" />
             </p:TypeAnnotation>
           </Pad>
-          <Node Bounds="135,303,52,19" Id="QazKVJgi0aVNlHlccXdUJt">
+          <Node Bounds="153,368,52,19" Id="QazKVJgi0aVNlHlccXdUJt">
             <p:NodeReference LastCategoryFullName="Audio.Source" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="AudioIn" />
             </p:NodeReference>
             <Pin Id="H6ClgF5vg06LU4b1sjt4Mp" Name="Output" Kind="OutputPin" />
-          </Node>
-          <Node Bounds="135,346,80,19" Id="HCxLqoBvwYnNpxoKIAUFzf">
-            <p:NodeReference LastCategoryFullName="Collections.Sequence" LastSymbolSource="VL.Collections.vl">
-              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-              <Choice Kind="OperationCallFlag" Name="FirstOrDefault" />
-            </p:NodeReference>
-            <Pin Id="JOH5Y6KcVMJOtVQaoV9GvW" Name="Input" Kind="StateInputPin" />
-            <Pin Id="AWyWFXkJyI5PMuoL8P2VWq" Name="Default Value" Kind="InputPin" />
-            <Pin Id="UwYhf0iuKjxNoxKPWRlClZ" Name="Output" Kind="StateOutputPin" />
-            <Pin Id="CrIDi4XJiGoPX5dd9KvdpI" Name="Result" Kind="OutputPin" />
           </Node>
           <Pad Id="QX0Z888xlnFPl181SuNsUS" Comment="Pause" Bounds="311,402,35,35" ShowValueBox="true" isIOBox="true" Value="False">
             <p:TypeAnnotation>
@@ -87,6 +77,16 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
+          <Node Bounds="153,405" Id="ICKQNY1VMRNLvqj8avfm36">
+            <p:NodeReference LastCategoryFullName="Collections.Sequence" LastSymbolSource="VL.Collections.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="OperationCallFlag" Name="FirstOrDefault" />
+            </p:NodeReference>
+            <Pin Id="CynWdVJbFHmN2rmHNGoFAA" Name="Input" Kind="StateInputPin" />
+            <Pin Id="HpmmaOeVA7CQHz8snXXv4p" Name="Default Value" Kind="InputPin" />
+            <Pin Id="H7tLJEw7brOOjaIBc9PXbA" Name="Output" Kind="StateOutputPin" />
+            <Pin Id="V33kumtjFC8OOyiQakXSrp" Name="Result" Kind="OutputPin" />
+          </Node>
         </Canvas>
         <Patch Id="Iql6YoywPFuM2FmfXQ3aiG" Name="Create" />
         <Patch Id="GfZ2HETUHimLlqHKatlsLL" Name="Update" />
@@ -95,14 +95,14 @@
           <Fragment Id="UTu6W201LsiPmViwtZBkoZ" Patch="GfZ2HETUHimLlqHKatlsLL" Enabled="true" />
         </ProcessDefinition>
         <Link Id="CutbGUFzK9gPoS2PeOFFnX" Ids="EEHOardNdJcN7leVo84Dey,QWnWdaJxHRDOC4IZBH5dty" />
-        <Link Id="JqfEctH34NoQVTVjn3HBuJ" Ids="H6ClgF5vg06LU4b1sjt4Mp,JOH5Y6KcVMJOtVQaoV9GvW" />
         <Link Id="KHm0zwWa76GMnaxzG5f1I3" Ids="QX0Z888xlnFPl181SuNsUS,AqY9zHEgGa9POkuPIwvSMm" />
         <Link Id="ApHNPmBy47fLdOVIm7kpgQ" Ids="EVeCLkcQjZnP3TrZZ0nL83,KcPfGGh3o1zLYYNsacltm8" />
         <Link Id="MbfNTfNzSvANxrLc5qMptE" Ids="MRyBH3wwMdtP5vDyDyohOZ,LpKddOLJvZRLuAlH5pevJ3" />
-        <Link Id="Juv28f0fuRELh4bG1ZtxBd" Ids="CrIDi4XJiGoPX5dd9KvdpI,NdC5LRUdVnLOD9oM9KZ2Nn" />
+        <Link Id="Id4TYgIokEEM0s5F1tRtan" Ids="H6ClgF5vg06LU4b1sjt4Mp,CynWdVJbFHmN2rmHNGoFAA" />
+        <Link Id="VaByh127bXhLyysn0uGOSN" Ids="V33kumtjFC8OOyiQakXSrp,NdC5LRUdVnLOD9oM9KZ2Nn" />
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="HvzMQdtRhliMLXQhNAF7T1" Location="VL.CoreLib" Version="2021.4.4" />
+  <NugetDependency Id="HvzMQdtRhliMLXQhNAF7T1" Location="VL.CoreLib" Version="2021.4.5" />
   <NugetDependency Id="Lyjw8dV97GgOuX1bgTxjOd" Location="VL.Audio" Version="0.0.0.0" />
 </Document>
