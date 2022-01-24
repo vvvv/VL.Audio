@@ -4,7 +4,7 @@ name: push_nuget
 on:
   push:
     branches:
-      - master
+      - main
     paths-ignore:
       - README.md
 
@@ -22,7 +22,7 @@ jobs:
       uses: nuget/setup-nuget@v1
       
     - name: Publish VL Nuget
-      uses: vvvv/PublishVLNuget@1.0.29
+      uses: vvvv/PublishVLNuget@1.0.40
       with:
         csproj: src\VL.Audio.csproj
         nuspec: deployment\VL.Audio.nuspec
