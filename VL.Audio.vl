@@ -2427,6 +2427,58 @@
             </Patch>
           </Patch>
         </Node>
+        <!--
+
+    ************************ Granulator ************************
+
+-->
+        <Node Name="Granulator" Bounds="187,554" Id="Cpm8695zjcjOQfjcTcuvCe" Summary="Reads grains from an audio file" Tags="granular,synthesis">
+          <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="builtin">
+            <Choice Kind="ContainerDefinition" Name="Process" />
+          </p:NodeReference>
+          <Patch Id="RXS6YRy97ufNH83Sk8vrCJ">
+            <Canvas Id="MmNLa4oRd1MPPmgFsxaRfb" CanvasType="Group">
+              <Node Bounds="305,315" AutoConnect="true" Id="TNYPazZ6JHRNVPtPQuNWKJ">
+                <p:NodeReference LastCategoryFullName="Audio.Source" LastSymbolSource="VL.Audio-Factory">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="ProcessNode" Name="Granulator2" />
+                </p:NodeReference>
+                <Pin Id="HWfKiQqRJ8AP4DZ9hGvtfz" Name="Start" Kind="InputPin" />
+                <Pin Id="PRwyx82GERwMN1M3l1NL2g" Name="Length" Kind="InputPin" />
+                <Pin Id="BZv55DqqyYCL5F488Z8oh3" Name="Frequency" Kind="InputPin" />
+                <Pin Id="AAbFlDODJIRMochKhdc71u" Name="Start Randomization" Kind="InputPin" />
+                <Pin Id="CmJiIbCq5xdOsf2TDAL75Y" Name="File Name" Kind="InputPin" />
+                <Pin Id="LrsxmpouZEDNF8BgSqQplR" Name="Output" Kind="OutputPin" />
+              </Node>
+              <Node Bounds="394,279,55,19" Id="U8nCf9d80F5PTVfiziG0p2">
+                <p:NodeReference LastCategoryFullName="IO.Path" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <CategoryReference Kind="RecordType" Name="Path" />
+                  <Choice Kind="OperationCallFlag" Name="ToString" />
+                </p:NodeReference>
+                <Pin Id="PVFnz0RRK5MPeCvMkC303r" Name="Input" Kind="StateInputPin" />
+                <Pin Id="G2n0cnnIJLjNIs0DYOgC7Q" Name="Result" Kind="OutputPin" />
+              </Node>
+              <ControlPoint Id="NAfpZKhyjf5PZ4Yao7vtyD" Bounds="397,247" />
+            </Canvas>
+            <ProcessDefinition Id="KZNckG6W1NYOLtI2A2Memd">
+              <Fragment Id="LzPF3IJi0XsNFzexY0AAlQ" Patch="PA27PXhIxNvQWGuCmVjpzY" Enabled="true" />
+              <Fragment Id="NYt677R338nMXiZ1463rVU" Patch="D2k0ysQwx98LaFGQsBofTM" Enabled="true" />
+            </ProcessDefinition>
+            <Link Id="RkBS8w5CLjeNRDQtNeDSwQ" Ids="G2n0cnnIJLjNIs0DYOgC7Q,CmJiIbCq5xdOsf2TDAL75Y" />
+            <Link Id="QdYrhiye8nyQQAL95XvZ72" Ids="NAfpZKhyjf5PZ4Yao7vtyD,PVFnz0RRK5MPeCvMkC303r" />
+            <Link Id="KwgkkLTuVCdNfhixobSjqn" Ids="J5urHoPLjs6NpE5T3ub3QM,NAfpZKhyjf5PZ4Yao7vtyD" IsHidden="true" />
+            <Patch Id="PA27PXhIxNvQWGuCmVjpzY" Name="Create" />
+            <Patch Id="D2k0ysQwx98LaFGQsBofTM" Name="Update">
+              <Pin Id="NcBqreqXnHXLRA3LhyM7yD" Name="Start" Kind="InputPin" />
+              <Pin Id="L9wqkM32Jo5MhTk6tCREJc" Name="Length" Kind="InputPin" />
+              <Pin Id="BiBP3rpkGkoLcQOIMYS0zK" Name="Frequency" Kind="InputPin" />
+              <Pin Id="PZG2E7wKDMLOMujr5UpbpY" Name="Start Randomization" Kind="InputPin" />
+              <Pin Id="J5urHoPLjs6NpE5T3ub3QM" Name="Filename" Kind="InputPin" Bounds="410,224" />
+              <Pin Id="A8axfeKFsbPMY4bWzLPYzt" Name="Output" Kind="OutputPin" />
+            </Patch>
+          </Patch>
+        </Node>
       </Canvas>
       <Canvas Id="CzUCcdHx9xsOIJIU8nsq4Q" Name="Analysis" Position="148,414">
         <!--

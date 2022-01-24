@@ -29,9 +29,9 @@ namespace VL.Audio
             var builder = ImmutableArray.CreateBuilder<IVLNodeDescription>();
             //sources
             builder.Add(new NodeDescription(this, typeof(ADSRSignal), "ADSR", "Source", "Generates an ADSR envelope in 0..1 range", "", "envelope"));
-            builder.Add(new NodeDescription(this, typeof(GranulatorSignal), "Granulator", "Source", "Reads grains from an audio file", "", "granular synthesis"));
             builder.Add(new NodeDescription(this, typeof(OscSignal), "OSC", "Source", "Creates an audio wave", "", "oscillator synthesis sine triangle square sawtooth wave noise"));
             builder.Add(new NodeDescription(this, typeof(ValueToAudioSignal), "V2A", "Source", "Converts a value into a static audio signal", "", ""));
+            builder.Add(new NodeDescription(this, typeof(GranulatorSignal), "Granulator2 (Internal)", "Source", "Reads grains from an audio file", "", "granular synthesis"));
             builder.Add(new NodeDescription(this, typeof(IFFTSignal), "IFFT2 (Internal)", "Source", "Creates an audio signal from spectrum data", "", "additive synthesis inverse"));
             builder.Add(new NodeDescription(this, typeof(ValueSequenceSignal), "ValueSequence2 (Internal)", "Source", "Generates a sequence of values which are played back as an audio signal", "", "sequencer clip loop"));
 
