@@ -79,8 +79,8 @@ namespace VL.Audio
                     foreach (var input in signal.InParams)
                         inputs.Add(new PinDescription(input.Name, DoubleToSingleT(input.GetValueType()), DoubleToSingleV(input.GetDefaultValue()), ""));
 
-                    if (category == "Filter")
-                        inputs.Add(new PinDescription("Apply", typeof(bool), true, ""));
+                    //if (category == "Filter")
+                    //    inputs.Add(new PinDescription("Apply", typeof(bool), true, ""));
 
                     outputs.Add(new PinDescription("Output", typeof(AudioSignal), null, ""));
 
@@ -209,8 +209,8 @@ namespace VL.Audio
             public void Update()
             {
                 var apply = true;
-                if (FInputsMap.TryGetValue("Apply", out var pin))
-                    apply = (bool)pin.Value;
+                //if (FInputsMap.TryGetValue("Apply", out var pin))
+                //    apply = (bool)pin.Value;
 
                 if (apply)
                 {

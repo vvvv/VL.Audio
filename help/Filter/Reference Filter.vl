@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="Qzj0cwp3rDOLYY62LqpEsD" LanguageVersion="2021.4.2.691" Version="0.128">
-  <NugetDependency Id="TLm27rLgDRMOfshTd8FG5S" Location="VL.CoreLib" Version="2021.4.2" />
+<Document xmlns:p="property" Id="Qzj0cwp3rDOLYY62LqpEsD" LanguageVersion="2021.4.5.764" Version="0.128">
+  <NugetDependency Id="TLm27rLgDRMOfshTd8FG5S" Location="VL.CoreLib" Version="2021.4.5" />
   <Patch Id="ET5A39rC3G1LQ2XPOFRcj7">
     <Canvas Id="UeizUXMvVlOQaGOJsgEosP" DefaultCategory="Main" BordersChecked="false" CanvasType="FullCategory" />
     <!--
@@ -21,7 +21,6 @@
               <Choice Kind="ProcessAppFlag" Name="AudioPlayer" />
             </p:NodeReference>
             <Pin Id="HQqWtoQFjfiOAcgMT4ptbt" Name="Filename" Kind="InputPin" />
-            <Pin Id="F1elm1WLjBdOlrQKBp7d9S" Name="Play" Kind="InputPin" />
             <Pin Id="MB7wvuSYQn4LDF9NwOO1Q6" Name="Loop" Kind="InputPin" DefaultValue="True" />
             <Pin Id="MtNwFYOyQalNlPYGFBUEiP" Name="Loop Start Time" Kind="InputPin" />
             <Pin Id="U2h0Zlar5CFLVyjISdwAx1" Name="Loop End Time" Kind="InputPin" />
@@ -29,6 +28,7 @@
             <Pin Id="Ql4lwf1N6P1PpPAEvWABKc" Name="Do Seek" Kind="InputPin" />
             <Pin Id="PT1jrJxfHMIPwxzd9XS7IN" Name="Volume" Kind="InputPin" />
             <Pin Id="TwBK7udyhrfQEovJDuBjOS" Name="Speed" Kind="InputPin" />
+            <Pin Id="F1elm1WLjBdOlrQKBp7d9S" Name="Play" Kind="InputPin" />
             <Pin Id="UO8IfKkhvUDLncHruQLUGB" Name="Output" Kind="OutputPin" />
             <Pin Id="VVQK0WKEZAjLFqnBQIsRvP" Name="Duration" Kind="OutputPin" />
             <Pin Id="NNA0yehunFTMB1Jt5Yqygr" Name="Position" Kind="OutputPin" />
@@ -49,6 +49,8 @@
               <CategoryReference Kind="Category" Name="Primitive" />
             </p:NodeReference>
             <Pin Id="IYPIhpq1RUVLQsXz6akhhn" Name="Break" Kind="OutputPin" />
+            <ControlPoint Id="BPYW9VnPddvOX741R59LNS" Bounds="207,608" Alignment="Top" />
+            <ControlPoint Id="OY2pieYDUJkLARA9uvcrMu" Bounds="207,681" Alignment="Bottom" />
             <Patch Id="JpWSap0gJOYLaTfCVGab2D" ManuallySortedPins="true">
               <Patch Id="BCMhXQGa8vqNeWKdlVw4z2" Name="Create" ManuallySortedPins="true" />
               <Patch Id="OWVbcrZfVVqLrxbXtvdshd" Name="Update" ManuallySortedPins="true" />
@@ -68,12 +70,9 @@
                 <Pin Id="GNN3oMkRLN9MGrbfuY0jwC" Name="Pole Count" Kind="InputPin" />
                 <Pin Id="R0OuKTXQs3vLEnALwgzAYW" Name="Filter Algorithm" Kind="InputPin" />
                 <Pin Id="KTk2YOeMtYAM6ZRlqWDVRH" Name="Filter Type" Kind="InputPin" />
-                <Pin Id="OXf4OWEo7njLNrf4xSah8e" Name="Apply" Kind="InputPin" DefaultValue="True" />
                 <Pin Id="Kj7YpS4fzgvLAQRE2iok1d" Name="Output" Kind="OutputPin" />
               </Node>
             </Patch>
-            <ControlPoint Id="BPYW9VnPddvOX741R59LNS" Bounds="207,608" Alignment="Top" />
-            <ControlPoint Id="OY2pieYDUJkLARA9uvcrMu" Bounds="207,681" Alignment="Bottom" />
           </Node>
           <Node Bounds="205,733,60,19" Id="IarIOKFuf8lP8TYSAmqMtV">
             <p:NodeReference LastCategoryFullName="Audio.Sink" LastSymbolSource="VL.Audio.vl">
@@ -133,15 +132,6 @@
               <Choice Kind="TypeFlag" Name="AnalogModelingFilterType" />
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="RdyAC146fyhQCo4lmZRnvM" Comment="Apply" Bounds="424,632,35,35" ShowValueBox="true" isIOBox="true" Value="True">
-            <p:TypeAnnotation>
-              <Choice Kind="TypeFlag" Name="Boolean" />
-              <FullNameCategoryReference ID="Primitive" />
-            </p:TypeAnnotation>
-            <p:ValueBoxSettings>
-              <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
-            </p:ValueBoxSettings>
-          </Pad>
           <Pad Id="PqqMkVz6M7TMv3kemaCikH" Bounds="539,428,348,59" ShowValueBox="true" isIOBox="true" Value="Cutoff Offset is added on top of Frequency input?&#xD;&#xA;Resonance Offset is added on top of Resonance input?&#xD;&#xA;">
             <p:TypeAnnotation>
               <Choice Kind="TypeFlag" Name="String" />
@@ -176,7 +166,6 @@
         <Link Id="JFWueSVDqM8ORu7y2ytupB" Ids="NNA0yehunFTMB1Jt5Yqygr,J3ApEGEcxOHOgDDCO6RHlQ" />
         <Link Id="SpvQXnVrdpRNW8Gq4OBa4a" Ids="Kj7YpS4fzgvLAQRE2iok1d,OY2pieYDUJkLARA9uvcrMu" />
         <Link Id="R1Qbj3PFQcdLHua2yaftgV" Ids="Q7aH5nSu9XzLO3Vbm5vyTz,HBsT9ueik1KPiq6K7jmKG0" />
-        <Link Id="Uic1NbMhjwDONsN9Rw2t9w" Ids="RdyAC146fyhQCo4lmZRnvM,OXf4OWEo7njLNrf4xSah8e" />
         <Link Id="U8C4eljnmcXNhO2ICplMpd" Ids="Jg5GszzHcZ5P1EFeGnk6Lq,P2cu6uBjIadQS4c12ZNnLh" />
         <Link Id="OYny1AXxwWQMsSw5WT5viy" Ids="OBajI94SLBMPAKSd9VvwXI,GNN3oMkRLN9MGrbfuY0jwC" />
         <Link Id="GGFK1p5dN7ANdE0uMgYHBj" Ids="U81D5fd3zzjOxM1VchKoi4,R0OuKTXQs3vLEnALwgzAYW" />
@@ -185,6 +174,6 @@
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="HvzMQdtRhliMLXQhNAF7T1" Location="VL.CoreLib" Version="2021.4.2" />
+  <NugetDependency Id="HvzMQdtRhliMLXQhNAF7T1" Location="VL.CoreLib" Version="2021.4.5" />
   <NugetDependency Id="Lyjw8dV97GgOuX1bgTxjOd" Location="VL.Audio" Version="0.0.0.0" />
 </Document>

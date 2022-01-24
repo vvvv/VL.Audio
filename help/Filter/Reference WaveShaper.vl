@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="Qzj0cwp3rDOLYY62LqpEsD" LanguageVersion="2021.4.2.691" Version="0.128">
-  <NugetDependency Id="TLm27rLgDRMOfshTd8FG5S" Location="VL.CoreLib" Version="2021.4.2" />
+<Document xmlns:p="property" Id="GTYkr8MZXG6PqEBZlpmKjC" LanguageVersion="2021.4.5.764" Version="0.128">
+  <NugetDependency Id="TLm27rLgDRMOfshTd8FG5S" Location="VL.CoreLib" Version="2021.4.5" />
   <Patch Id="ET5A39rC3G1LQ2XPOFRcj7">
     <Canvas Id="UeizUXMvVlOQaGOJsgEosP" DefaultCategory="Main" BordersChecked="false" CanvasType="FullCategory" />
     <!--
@@ -21,7 +21,6 @@
               <Choice Kind="ProcessAppFlag" Name="AudioPlayer" />
             </p:NodeReference>
             <Pin Id="HQqWtoQFjfiOAcgMT4ptbt" Name="Filename" Kind="InputPin" />
-            <Pin Id="F1elm1WLjBdOlrQKBp7d9S" Name="Play" Kind="InputPin" />
             <Pin Id="MB7wvuSYQn4LDF9NwOO1Q6" Name="Loop" Kind="InputPin" DefaultValue="True" />
             <Pin Id="MtNwFYOyQalNlPYGFBUEiP" Name="Loop Start Time" Kind="InputPin" />
             <Pin Id="U2h0Zlar5CFLVyjISdwAx1" Name="Loop End Time" Kind="InputPin" />
@@ -29,6 +28,7 @@
             <Pin Id="Ql4lwf1N6P1PpPAEvWABKc" Name="Do Seek" Kind="InputPin" />
             <Pin Id="PT1jrJxfHMIPwxzd9XS7IN" Name="Volume" Kind="InputPin" />
             <Pin Id="TwBK7udyhrfQEovJDuBjOS" Name="Speed" Kind="InputPin" />
+            <Pin Id="F1elm1WLjBdOlrQKBp7d9S" Name="Play" Kind="InputPin" />
             <Pin Id="UO8IfKkhvUDLncHruQLUGB" Name="Output" Kind="OutputPin" />
             <Pin Id="VVQK0WKEZAjLFqnBQIsRvP" Name="Duration" Kind="OutputPin" />
             <Pin Id="NNA0yehunFTMB1Jt5Yqygr" Name="Position" Kind="OutputPin" />
@@ -65,7 +65,6 @@
                 <Pin Id="SilMTykVrSsP0SGQG9mSU6" Name="Input" Kind="InputPin" />
                 <Pin Id="P5j2jIjUY8QO9qpB9CD2rH" Name="Distortion" Kind="InputPin" />
                 <Pin Id="MeYtJfhSkNyPCe5OkwnNJc" Name="Curve" Kind="InputPin" />
-                <Pin Id="OXf4OWEo7njLNrf4xSah8e" Name="Apply" Kind="InputPin" />
                 <Pin Id="Kj7YpS4fzgvLAQRE2iok1d" Name="Output" Kind="OutputPin" />
               </Node>
             </Patch>
@@ -98,15 +97,6 @@
               <Choice Kind="TypeFlag" Name="WaveShaperCurve" />
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="KFTv4AxalpFLRWwm3F9bkg" Comment="Apply" Bounds="314,504,35,35" ShowValueBox="true" isIOBox="true" Value="True">
-            <p:TypeAnnotation>
-              <Choice Kind="TypeFlag" Name="Boolean" />
-              <FullNameCategoryReference ID="Primitive" />
-            </p:TypeAnnotation>
-            <p:ValueBoxSettings>
-              <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
-            </p:ValueBoxSettings>
-          </Pad>
         </Canvas>
         <Patch Id="Iql6YoywPFuM2FmfXQ3aiG" Name="Create" />
         <Patch Id="GfZ2HETUHimLlqHKatlsLL" Name="Update" />
@@ -123,10 +113,9 @@
         <Link Id="SpvQXnVrdpRNW8Gq4OBa4a" Ids="Kj7YpS4fzgvLAQRE2iok1d,OY2pieYDUJkLARA9uvcrMu" />
         <Link Id="Qte8E3UqzSOO5f0lNYPFM8" Ids="C8Q9zykcvdlQPmenyDg3uN,P5j2jIjUY8QO9qpB9CD2rH" />
         <Link Id="FoO3IeaB8MfMDsMvC549UM" Ids="Jqr0yzaw9xzP6Dt9Msjtdn,MeYtJfhSkNyPCe5OkwnNJc" />
-        <Link Id="NH3AC2R8CR0LZ6lhI2wvXV" Ids="KFTv4AxalpFLRWwm3F9bkg,OXf4OWEo7njLNrf4xSah8e" />
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="HvzMQdtRhliMLXQhNAF7T1" Location="VL.CoreLib" Version="2021.4.2" />
+  <NugetDependency Id="HvzMQdtRhliMLXQhNAF7T1" Location="VL.CoreLib" Version="2021.4.5" />
   <NugetDependency Id="Lyjw8dV97GgOuX1bgTxjOd" Location="VL.Audio" Version="0.0.0.0" />
 </Document>
