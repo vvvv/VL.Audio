@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="RckyMa2RP3mPQ0ttObPClA" LanguageVersion="2021.4.2.691" Version="0.128">
-  <NugetDependency Id="IlUqfwe6HR2L9rkYbIdX10" Location="VL.CoreLib" Version="2021.4.2" />
+<Document xmlns:p="property" Id="RckyMa2RP3mPQ0ttObPClA" LanguageVersion="2021.4.5.764" Version="0.128">
+  <NugetDependency Id="IlUqfwe6HR2L9rkYbIdX10" Location="VL.CoreLib" Version="2021.4.5" />
   <Patch Id="GyDr543O1TcOUDqifVBonO">
     <Canvas Id="NGVH3wHg5wPO46ApuQGiwK" DefaultCategory="Main" BordersChecked="false" CanvasType="FullCategory" />
     <!--
@@ -237,6 +237,34 @@
               <Choice Kind="TypeFlag" Name="Integer32" />
             </p:TypeAnnotation>
           </Pad>
+          <Node Bounds="46,490,60,19" Id="SDiWHtKbQEgN66Qagek8bZ">
+            <p:NodeReference LastCategoryFullName="Audio.Sink" LastSymbolSource="VL.Audio.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="AudioOut" />
+            </p:NodeReference>
+            <Pin Id="EGKU7hdzZ59M1FMmhNru3q" Name="Input" Kind="InputPin" />
+            <Pin Id="VsrZP7Q78uzLytUyWzlpfv" Name="Channel Offset" Kind="InputPin" />
+          </Node>
+          <Pad Id="IY88FhCpk0tLFU5YWe2Vtx" Comment="Window Function" Bounds="444,281,105,15" ShowValueBox="true" isIOBox="true" Value="Block">
+            <p:TypeAnnotation LastCategoryFullName="Audio" LastSymbolSource="VL.Audio.vl">
+              <Choice Kind="TypeFlag" Name="WindowFunction" />
+            </p:TypeAnnotation>
+          </Pad>
+          <Pad Id="OXuqdb3ea7vQKn9NrvrAnR" Comment="Buffer Size" Bounds="467,317,35,15" ShowValueBox="true" isIOBox="true" Value="512">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="Integer32" />
+            </p:TypeAnnotation>
+          </Pad>
+          <Pad Id="KWb570t0jLgQLf6b6RPOao" Comment="db Range" Bounds="487,338,35,15" ShowValueBox="true" isIOBox="true" Value="60">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="Float32" />
+            </p:TypeAnnotation>
+          </Pad>
+          <Pad Id="H573wQc495MLkDXXu6U47g" Comment="Smoothing" Bounds="421,243,35,15" ShowValueBox="true" isIOBox="true" Value="0">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="Float32" />
+            </p:TypeAnnotation>
+          </Pad>
         </Canvas>
         <Patch Id="BZfyHIn50AMOhy8qYm4OJJ" Name="Create" />
         <Patch Id="SKJMq4OWRupPBKu5KHiGNr" Name="Update" />
@@ -268,9 +296,14 @@
         <Link Id="L7BqCH20iNyMi35sgsd5d8" Ids="OoaNToXVw3wL3amlUs4r87,Ek4hOkUZUUrLPjc5GfMeDQ" />
         <Link Id="KTYCd6XvpjvQWhrQdAUSle" Ids="OoaNToXVw3wL3amlUs4r87,RzuBOEWpbiDNruEMPQv1pK" />
         <Link Id="PGNormQde4sMI96Y3KzhYG" Ids="EVzxxwlQLndMP9grFBHoLE,Bb833f6c461POQdhkVhQ2U" />
+        <Link Id="Of1SJgGarX9OIulfAEM8UG" Ids="O8mJMCMYSPlMVF5szryXJ5,EGKU7hdzZ59M1FMmhNru3q" />
+        <Link Id="FgE1uEKYWGWPKkkEI5aPsm" Ids="IY88FhCpk0tLFU5YWe2Vtx,AYMJhQgr0IjO64tEe3nnWw" />
+        <Link Id="RWwTWmGEyUuPxtVbgP3oXu" Ids="OXuqdb3ea7vQKn9NrvrAnR,OQ2t8zlxdUZNPRB28ro1ev" />
+        <Link Id="JAGGI5hRWjTMSLxVxbi9Ai" Ids="KWb570t0jLgQLf6b6RPOao,GJPboSyOY1aOSuaHPU5VQJ" />
+        <Link Id="TyDHp6YlRVbOGiVSHZQ8E1" Ids="H573wQc495MLkDXXu6U47g,NBDN4qyMj4tLuJBjwMEuEd" />
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="Lv6fAP4LMmWP2ovZCiIeTO" Location="VL.Skia" Version="2021.4.2" />
+  <NugetDependency Id="Lv6fAP4LMmWP2ovZCiIeTO" Location="VL.Skia" Version="2021.4.5" />
   <NugetDependency Id="Encrxf37rREOTYwNeB8Dwi" Location="VL.Audio" Version="0.0.0.0" />
 </Document>
