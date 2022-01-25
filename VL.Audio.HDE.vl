@@ -1305,8 +1305,8 @@
                 <ControlPoint Id="RJrNKaNpLodL4DVQUyma2A" Bounds="319,1065" Alignment="Top" />
               </Node>
               <Pad Id="DunUFgDGGpDOmBcLdXEfID" Comment="Driver" Bounds="334,928,98,14" ShowValueBox="true" isIOBox="true" Value="ASIO4ALL v2">
-                <p:TypeAnnotation LastCategoryFullName="Audio" LastSymbolSource="VL.Audio.vl">
-                  <Choice Kind="TypeFlag" Name="AsioInputDevice" />
+                <p:TypeAnnotation>
+                  <Choice Kind="TypeFlag" Name="AudioDevice" />
                 </p:TypeAnnotation>
               </Pad>
               <Node Bounds="890,1434,1113,335" Id="B3GbCYP2SkCL3XcL8oFEky">
@@ -1631,11 +1631,11 @@
                   <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
                 </p:ValueBoxSettings>
               </Pad>
-              <Node Bounds="332,881,74,26" Id="JT00u3ScRVJOdCISRumBGt">
-                <p:NodeReference LastCategoryFullName="Audio.AsioInputDevice" LastSymbolSource="VL.Audio.vl">
+              <Node Bounds="331,871,74,26" Id="JT00u3ScRVJOdCISRumBGt">
+                <p:NodeReference LastCategoryFullName="Audio.AudioDevice" LastSymbolSource="VL.Audio.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <CategoryReference Kind="ClassType" Name="AsioInputDevice" />
                   <Choice Kind="OperationCallFlag" Name="Create" />
+                  <CategoryReference Kind="ClassType" Name="AudioDevice" NeedsToBeDirectParent="true" />
                 </p:NodeReference>
                 <Pin Id="Mp1wiH9rUUBMFvjDChILXs" Name="Value" Kind="InputPin" />
                 <Pin Id="QW4qSVUBV1GM7F8Ui7kx6Q" Name="Output" Kind="StateOutputPin" />
@@ -1649,7 +1649,7 @@
                 <Pin Id="NNQEmcFbfBWLlX3C7ZmeMB" Name="Value" Kind="InputPin" />
                 <Pin Id="MHekhqPZEMiOymYTLy8EF1" Name="Output" Kind="StateOutputPin" />
               </Node>
-              <Pad Id="OeKJqJWXyQfNSqd2BlD0In" Comment="Enabled" Bounds="687,954,35,35" ShowValueBox="true" isIOBox="true" Value="True">
+              <Pad Id="OeKJqJWXyQfNSqd2BlD0In" Comment="Enabled" Bounds="764,901,35,35" ShowValueBox="true" isIOBox="true" Value="True">
                 <p:TypeAnnotation>
                   <Choice Kind="TypeFlag" Name="Boolean" />
                   <FullNameCategoryReference ID="Primitive" />
@@ -1658,7 +1658,7 @@
                   <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
                 </p:ValueBoxSettings>
               </Pad>
-              <Pad Id="OQNuLiZ5izgN3RUdyW5p0J" Comment="Show Control Panel" Bounds="691,902,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+              <Pad Id="OQNuLiZ5izgN3RUdyW5p0J" Comment="Show Control Panel" Bounds="692,869,35,35" ShowValueBox="true" isIOBox="true" Value="False">
                 <p:TypeAnnotation>
                   <Choice Kind="TypeFlag" Name="Boolean" />
                   <FullNameCategoryReference ID="Primitive" />
@@ -1683,7 +1683,7 @@
                   <Choice Kind="TypeFlag" Name="String" />
                 </p:TypeAnnotation>
               </Pad>
-              <Node Bounds="391,1003,105,19" Id="HdJovDVCn16MWw8cXahxpO">
+              <Node Bounds="355,975,323,19" Id="HdJovDVCn16MWw8cXahxpO">
                 <p:NodeReference LastCategoryFullName="Audio" LastSymbolSource="VL.Audio.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                   <Choice Kind="ProcessAppFlag" Name="DriverSettings" />
@@ -1701,7 +1701,7 @@
                 <Pin Id="Nkib2LC9cxaOg4xAxu1pZk" Name="Available Output Channels" Kind="OutputPin" />
                 <Pin Id="SmH3Uf4A426NtS4QgFTu5x" Name="Open Output Channels" Kind="OutputPin" />
               </Node>
-              <Node Bounds="351,535,55,19" Id="F2ks2JGgQueNYo0YpVI8qy">
+              <Node Bounds="477,554,55,19" Id="F2ks2JGgQueNYo0YpVI8qy">
                 <p:NodeReference LastCategoryFullName="System.Conversion" LastSymbolSource="CoreLibBasics.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                   <Choice Kind="OperationCallFlag" Name="ToString" />
@@ -1727,7 +1727,7 @@
                 <Pin Id="QsFLAliLZmEPv65sNpNMAW" Name="Output" Kind="StateOutputPin" />
                 <Pin Id="SGSrk78HBnlK9v32WFeq82" Name="Settings" Kind="OutputPin" />
               </Node>
-              <Node Bounds="267,485,90,26" Id="LGxNVtDu4rWOqBl8Irjqeq">
+              <Node Bounds="393,504,90,26" Id="LGxNVtDu4rWOqBl8Irjqeq">
                 <p:NodeReference LastCategoryFullName="VVVV.Audio.AudioEngineSettings" LastSymbolSource="VVVV.Audio.Core.dll">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                   <CategoryReference Kind="AssemblyCategory" Name="AudioEngineSettings" />
@@ -1737,46 +1737,7 @@
                 <Pin Id="Od2wLNajTJpPM48eb6xGeP" Name="Output" Kind="StateOutputPin" />
                 <Pin Id="M5igv8FTnoCPmh5b3T4dvR" Name="Sample Rate" Kind="OutputPin" />
               </Node>
-              <Node Bounds="211,533,61,26" Id="FeGU4Wy2o1gLMmWUbN02j5">
-                <p:NodeReference LastCategoryFullName="VVVV.Audio.AudioEngine" LastSymbolSource="VVVV.Audio.Core.dll">
-                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <CategoryReference Kind="AssemblyCategory" Name="AudioEngine" />
-                  <Choice Kind="OperationCallFlag" Name="AsioOut" />
-                </p:NodeReference>
-                <Pin Id="Ui5LvUmfQowMMk01cLYnfI" Name="Input" Kind="StateInputPin" />
-                <Pin Id="GtM0IunQ2h9N6Tyqck6OE7" Name="Output" Kind="StateOutputPin" />
-                <Pin Id="FTrN7HphC7JQcVi6DsQXSE" Name="Asio Out" Kind="OutputPin" />
-              </Node>
-              <Node Bounds="267,579,70,26" Id="QlwW7FbrkZ2OdVFzyKrWM9">
-                <p:NodeReference LastCategoryFullName="NAudio.Wave.AsioOut" LastSymbolSource="NAudio.Asio.dll">
-                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <CategoryReference Kind="AssemblyCategory" Name="AsioOut" />
-                  <Choice Kind="OperationCallFlag" Name="DriverName" />
-                </p:NodeReference>
-                <Pin Id="LHMQrBPRQ5uQIghqILg4W5" Name="Input" Kind="StateInputPin" />
-                <Pin Id="PFVA21MqDH9QY6BkrweC8e" Name="Output" Kind="StateOutputPin" />
-                <Pin Id="JL0mLuSctqvQG0yA1KmZWT" Name="Driver Name" Kind="OutputPin" />
-              </Node>
-              <Node Bounds="267,619,129,26" Id="A0kbG5IdlZoLSbzjhqyKmU">
-                <p:NodeReference LastCategoryFullName="NAudio.Wave.AsioOut" LastSymbolSource="NAudio.Asio.dll">
-                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <CategoryReference Kind="AssemblyCategory" Name="AsioOut" />
-                  <Choice Kind="OperationCallFlag" Name="NumberOfInputChannels" />
-                </p:NodeReference>
-                <Pin Id="SMjydIVFevJMd5bR0Kfkix" Name="Input" Kind="StateInputPin" />
-                <Pin Id="C0vDbHfkGEOPJBklfpZsw2" Name="Output" Kind="StateOutputPin" />
-                <Pin Id="DLrz8jxEgsKMoilZazD7d0" Name="Number Of Input Channels" Kind="OutputPin" />
-              </Node>
-              <Node Bounds="267,660,137,26" Id="BmXGXTl36KALzsyYNPA2bE">
-                <p:NodeReference LastCategoryFullName="NAudio.Wave.AsioOut" LastSymbolSource="NAudio.Asio.dll">
-                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <Choice Kind="OperationCallFlag" Name="NumberOfOutputChannels" />
-                </p:NodeReference>
-                <Pin Id="MjZEcDaUtctM1Sb89WJxwC" Name="Input" Kind="StateInputPin" />
-                <Pin Id="Tl17HvR73YDM59YFaQYTtq" Name="Output" Kind="StateOutputPin" />
-                <Pin Id="RSMtdYPw7qGPJZI7jGBA5w" Name="Number Of Output Channels" Kind="OutputPin" />
-              </Node>
-              <Node Bounds="860,524,95,26" Id="V7Z1hdUzFmyLwvr4WyGQj9">
+              <Node Bounds="858,510,95,26" Id="V7Z1hdUzFmyLwvr4WyGQj9">
                 <p:NodeReference LastCategoryFullName="VL.Audio.GlobalEngine" LastSymbolSource="VL.Audio.dll">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                   <Choice Kind="OperationCallFlag" Name="ConfigurationFile" />
@@ -1856,6 +1817,36 @@
                 </p:NodeReference>
                 <Pin Id="D5fBofX2HDXMbbocdkhsXN" Name="Simulate" Kind="InputPin" />
                 <Pin Id="HSUWsQKQxzRNkMA6ybSvo0" Name="Output" Kind="OutputPin" />
+              </Node>
+              <Node Bounds="213,498,104,26" Id="OBtPHO67IL0Ns410as1GES">
+                <p:NodeReference LastCategoryFullName="VVVV.Audio.AudioEngine" LastSymbolSource="VVVV.Audio.Core.dll">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <CategoryReference Kind="AssemblyCategory" Name="AudioEngine" />
+                  <Choice Kind="OperationCallFlag" Name="CurrentDriverName" />
+                </p:NodeReference>
+                <Pin Id="HXxzrPB9ldoQZWEZa8q25o" Name="Input" Kind="StateInputPin" />
+                <Pin Id="B66xu8U3BJJP4O0NB5vRRN" Name="Output" Kind="StateOutputPin" />
+                <Pin Id="Ltk3vSxDLdYLxuuuP9ZxQz" Name="Current Driver Name" Kind="OutputPin" />
+              </Node>
+              <Node Bounds="215,546,151,26" Id="UgWGsG9NS7PPNW8wN2KoT1">
+                <p:NodeReference LastCategoryFullName="VVVV.Audio.AudioEngine" LastSymbolSource="VVVV.Audio.Core.dll">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <CategoryReference Kind="AssemblyCategory" Name="AudioEngine" />
+                  <Choice Kind="OperationCallFlag" Name="CurrentDesiredInputChannels" />
+                </p:NodeReference>
+                <Pin Id="QahMmIYESprN3oH87xt67z" Name="Input" Kind="StateInputPin" />
+                <Pin Id="AJizKDe4UJKMJTjghZBW95" Name="Output" Kind="StateOutputPin" />
+                <Pin Id="T0JV4l0JVIsMAwQ8DHlgrg" Name="Current Desired Input Channels" Kind="OutputPin" />
+              </Node>
+              <Node Bounds="215,605,159,26" Id="Dm6rwwvodv9MweNMavEe2F">
+                <p:NodeReference LastCategoryFullName="VVVV.Audio.AudioEngine" LastSymbolSource="VVVV.Audio.Core.dll">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <CategoryReference Kind="AssemblyCategory" Name="AudioEngine" />
+                  <Choice Kind="OperationCallFlag" Name="CurrentDesiredOutputChannels" />
+                </p:NodeReference>
+                <Pin Id="RoEj4xbuvk2P8QB4PN9KjL" Name="Input" Kind="StateInputPin" />
+                <Pin Id="Jjzj1wLb7TtOQycakn04Jy" Name="Output" Kind="StateOutputPin" />
+                <Pin Id="EDkkkbMssnfQVx952bfmAy" Name="Current Desired Output Channels" Kind="OutputPin" />
               </Node>
             </Patch>
           </Node>
@@ -2083,7 +2074,7 @@
         <Link Id="G8bFKA8qUvsNJbZ1s5vUon" Ids="CfVWZ4hdX8BPj9xMI08jR6,L9fd3oHlRnRLZ0mrsPiOry" />
         <Slot Id="S2HWMMhrDpbNFjPTwZWJcp" Name="ASIODrivers">
           <p:TypeAnnotation p:Type="TypeReference">
-            <Choice Kind="TypeFlag" Name="AsioInputDevice" />
+            <Choice Kind="TypeFlag" Name="AudioDevice" />
           </p:TypeAnnotation>
         </Slot>
         <Link Id="BNcWv6Kr60EMB3KcxTMzNp" Ids="OeWkQDPNnOaNmmCXspI2p7,NbYeaNZmtibPZJXCmqIACJ" />
@@ -2108,24 +2099,16 @@
         <Link Id="FtanXHBrZkVMW7Grsxe49S" Ids="QAMdxL5VUTZQX5A0VeuqN1,MeVBzM4v1PEMhgXwmUkwAc" />
         <Link Id="H5FULaeZTWVPUGZ2gcLsmb" Ids="SmH3Uf4A426NtS4QgFTu5x,RXHIZs4uvLMK9zJDiSaDd7" />
         <Link Id="SjFDQl23rVAMipnujFtCOZ" Ids="Jp7siobkXkfLKEQbD5qcnE,EJSk2RNbVfZL4frbBTrMUV" />
-        <Link Id="TkTWgevQkIfLVXIp2OD53u" Ids="JL0mLuSctqvQG0yA1KmZWT,Mp1wiH9rUUBMFvjDChILXs" />
         <Link Id="TJEvs2syCR2MJZCHXwG8G4" Ids="M5igv8FTnoCPmh5b3T4dvR,SSqdjsrkJDdPdZTqrxwUFR" />
         <Link Id="TNaQTgG3V8FO600sb314XS" Ids="LMAUVkP4LyVMW4dSdPNrpj,NNQEmcFbfBWLlX3C7ZmeMB" />
-        <Link Id="DN9O1ken3MdL1lGhDs9wXL" Ids="DLrz8jxEgsKMoilZazD7d0,ODVRPSnFnSIOfYKqWXzKp8" />
-        <Link Id="GaZ2rFWUp0mQBrTzFjPlj5" Ids="RSMtdYPw7qGPJZI7jGBA5w,GlZl0RgxgcvPFpoWp4IxfA" />
         <Link Id="Psh57SG65gQMXa9ZL6iERa" Ids="FnZXm7rYG4XLAPMKZtsX7L,PwlDL0iLnp1O2vuQURT3Z7" />
         <Link Id="T9vN1dd3ni1L3rjY777CMS" Ids="SGSrk78HBnlK9v32WFeq82,KNn8knBZ9H9O1NtAzGkXQK" />
-        <Link Id="JlzjK3mlDkmNQlZjeY2KHE" Ids="QsFLAliLZmEPv65sNpNMAW,Ui5LvUmfQowMMk01cLYnfI" />
-        <Link Id="OG41EOgk1UBOhEKTo8JBjA" Ids="FTrN7HphC7JQcVi6DsQXSE,LHMQrBPRQ5uQIghqILg4W5" />
-        <Link Id="LpXL724y7YUM853L3xTPeX" Ids="PFVA21MqDH9QY6BkrweC8e,SMjydIVFevJMd5bR0Kfkix" />
-        <Link Id="QJFfHXH7XtQOvOiFpwAtE2" Ids="C0vDbHfkGEOPJBklfpZsw2,MjZEcDaUtctM1Sb89WJxwC" />
         <Link Id="EtrbDw2fI3xPYicLiZZmHn" Ids="MHekhqPZEMiOymYTLy8EF1,AuN53LIHpvcLvbXTeONmPu" />
         <Link Id="GFo6luG5N91MAEH36Fhorc" Ids="MHekhqPZEMiOymYTLy8EF1,D6jHs2nhYwkOy8fW4DlaiT" />
         <Link Id="JtD6ezoTOITNtVlfDRjXqr" Ids="MHekhqPZEMiOymYTLy8EF1,H0QHGnG384ENp1SQlaw22N" />
         <Link Id="QYdkEYRWwEsPU7L6T06PsU" Ids="IsYQiQLXB88QQ6yYXmqdaQ,LmdUnTrOETEPYzgdusRK50" />
         <Link Id="UPUAbMK34VrP6bJZWm6Zum" Ids="UzyxGiH5n23N5wZADGuu4V,MjL4QmJ0iW9MeRwRuF6ch6" />
         <Link Id="NNKZHWW1gbGOOJRIDspvS1" Ids="OywZchXPRfsOqHxkt4oOfe,Cqf1Orcb5cNLREXmpp1rTo" />
-        <Link Id="O9aADHJcJOtNXJuT7vB2Gn" Ids="GtM0IunQ2h9N6Tyqck6OE7,MfAEMAlY9cBPFMSWFmIbM9" />
         <Link Id="ROI6FPXLqEqM5jqEPGYzKI" Ids="QpZaNEVnxwKQIHfEAM64NF,T7Tdf3KXMcAPRso60qKG8c" />
         <Link Id="VXbtyecvX3WMvM642fI1Gg" Ids="RXtM8U6dzBFO73LrdkarIL,Kzwu0e19MewQHIiRaPTZBe" />
         <Link Id="IK86PK0G7HVPtnvlLZcZ3k" Ids="K0BbHbg9BiPMTPleR5VNK5,Lz8oRTuBotFMfUVooEVgj9" />
@@ -2155,6 +2138,13 @@
         <Link Id="J5mEbOq3alCPMZujOfNs6O" Ids="Su2JzHzPHpgNbPCtDncLew,KL7TjGpMPihMBN9wwxmrre" />
         <Link Id="Ck1OHK0KOnuM8GH2wHBeay" Ids="JkbRqiZl9VPQXK4kiuoOZr,BMEjuFpQRS7QUCVtXDpJja" />
         <Link Id="QWDw7KWMtEXO5T2XNjfmWK" Ids="HSUWsQKQxzRNkMA6ybSvo0,IQ6WtRCzedmLoeWGAJECSb" />
+        <Link Id="Ln3Ehe6puj7QDkbfgYPveU" Ids="QsFLAliLZmEPv65sNpNMAW,HXxzrPB9ldoQZWEZa8q25o" />
+        <Link Id="KFt4yB9b7QjPdcgygkoyQr" Ids="Ltk3vSxDLdYLxuuuP9ZxQz,Mp1wiH9rUUBMFvjDChILXs" />
+        <Link Id="Fup4DDaihLqMOgo8pFar8j" Ids="B66xu8U3BJJP4O0NB5vRRN,QahMmIYESprN3oH87xt67z" />
+        <Link Id="CYzI8rkAhH1ObiuHP69Q7t" Ids="T0JV4l0JVIsMAwQ8DHlgrg,ODVRPSnFnSIOfYKqWXzKp8" />
+        <Link Id="E18DLSUi8hjQK2qyfdKP02" Ids="AJizKDe4UJKMJTjghZBW95,RoEj4xbuvk2P8QB4PN9KjL" />
+        <Link Id="UHt4Sz1phnvOwAIVQXwzSa" Ids="EDkkkbMssnfQVx952bfmAy,GlZl0RgxgcvPFpoWp4IxfA" />
+        <Link Id="BwWaQVdRoEOOEWYm3rSZkY" Ids="Jjzj1wLb7TtOQycakn04Jy,MfAEMAlY9cBPFMSWFmIbM9" />
       </Patch>
     </Node>
   </Patch>

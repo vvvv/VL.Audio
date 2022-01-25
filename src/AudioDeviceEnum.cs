@@ -57,7 +57,7 @@ namespace VL.Audio
         public string GetDefaultDriver()
         {
             var inputDevice = Instance;
-            var defaultName = "ASIO4ALL";
+            var defaultName = AudioEngine.WasapiPrefix + AudioEngine.WasapiSystemDevice;
             if (AudioService.OutputDrivers.Count > 0)
                 defaultName = AudioService.OutputDrivers[AudioService.OutputDriversDefaultIndex];
 
