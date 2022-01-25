@@ -56,7 +56,7 @@ namespace VL.Audio
                     samplingRates.Add(((int)item).ToString(), (int)item);
 
             //if (samplingRates.None())
-            //    samplingRates["44100"] = 44100;
+            //    samplingRates["48000"] = 48000;
 
             return samplingRates;
         }

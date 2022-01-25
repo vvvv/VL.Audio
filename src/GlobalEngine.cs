@@ -106,9 +106,14 @@ namespace VL.Audio
 
             try
             {
-                Engine.PreviewDriver(selectedDriver);
+                Engine.PreviewDriver(selectedDriver, wasapiInput);
 
                 var sampleRates = AudioSampleRateDefinition.Instance.Entries.ToList();
+                
+                // select one and only sample rate for wasapi
+                if (sampleRates.Count == 1 && int.TryParse(sampleRates[0], out var rate))
+                    selectedSamplerate = rate;
+
                 if (sampleRates.Contains(selectedSamplerate.ToString()))
                 {
                     Engine.GetSupportedChannels(out var inputChannels, out var outputChannles);
