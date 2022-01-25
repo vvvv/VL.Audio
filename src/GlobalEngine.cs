@@ -25,7 +25,7 @@ namespace VL.Audio
             Engine = AudioService.Engine;
             FConfigFile = Path.Combine(VLSession.Instance.UserAppDataFolder, configFile);
 
-            if (AsioInputDeviceDefinition.Instance.Entries.Count > 1) //"Default" entry is always there!
+            if (AudioDeviceDefinition.Instance.Entries.Count > 1) //"Default" entry is always there!
             {
                 LoadConfiguration(FConfigFile);
             }
@@ -35,6 +35,7 @@ namespace VL.Audio
         {
             //define some absolut baseline defaults for when there is no settings file yet
             var selectedDriver = defaultEntry;
+            var wasapiInput = defaultEntry;
             var selectedSamplerate = 48000;
             var selectedInputCount = 2;
             var selectedOutputCount = 2;
@@ -52,6 +53,10 @@ namespace VL.Audio
                 var node = doc.DocumentElement.SelectSingleNode("/Settings/Driver/Name");
                 if (node != null)
                     selectedDriver = node.InnerText;
+
+                node = doc.DocumentElement.SelectSingleNode("/Settings/WasapiInput/Name");
+                if (node != null)
+                    wasapiInput = node.InnerText;
 
                 node = doc.DocumentElement.SelectSingleNode("/Settings/Driver/SampleRate");
                 if (node != null)
@@ -82,15 +87,22 @@ namespace VL.Audio
                     float.TryParse(node.InnerText, out selectedLoopEndBeat);
             }
 
-            var drivers = AsioInputDeviceDefinition.Instance;
+            var drivers = AudioDeviceDefinition.Instance;
+            var wasapiInputs = WasapiInputDeviceDefinition.Instance;
 
             //make sure selected driver is currently available
             if (!drivers.Entries.Contains(selectedDriver))
                 selectedDriver = defaultEntry;
 
+            if (!wasapiInputs.Entries.Contains(wasapiInput))
+                wasapiInput = defaultEntry;
+
             //if "Default" is selected, make an actual choice
             if (selectedDriver == defaultEntry)
                 selectedDriver = drivers.GetDefaultDriver();
+
+            if (wasapiInput == defaultEntry)
+                wasapiInput = wasapiInputs.GetDefaultDriver();
 
             try
             {
@@ -99,16 +111,17 @@ namespace VL.Audio
                 var sampleRates = AudioSampleRateDefinition.Instance.Entries.ToList();
                 if (sampleRates.Contains(selectedSamplerate.ToString()))
                 {
-                    selectedInputCount = Math.Min(Engine.AsioOut.DriverInputChannelCount, selectedInputCount);
-                    selectedOutputCount = Math.Min(Engine.AsioOut.DriverOutputChannelCount, selectedOutputCount);
-                    Engine.ChangeDriverSettings(selectedDriver, selectedSamplerate, selectedInputCount, 0, selectedOutputCount, 0);
+                    Engine.GetSupportedChannels(out var inputChannels, out var outputChannles);
+                    selectedInputCount = Math.Min(inputChannels, selectedInputCount);
+                    selectedOutputCount = Math.Min(outputChannles, selectedOutputCount);
+                    Engine.ChangeDriverSettings(selectedDriver, wasapiInput, selectedSamplerate, selectedInputCount, 0, selectedOutputCount, 0);
 
                     Engine.Timer.BPM = selectedTempo;
                     Engine.Timer.Loop = selectedLoop;
                     Engine.Timer.LoopStartBeat = selectedLoopStartBeat;
                     Engine.Timer.LoopEndBeat = selectedLoopEndBeat;
 
-                    Engine.Play = true;
+                    Engine.Play = true; // should depend on application runtime state?
                 }
             }
             finally

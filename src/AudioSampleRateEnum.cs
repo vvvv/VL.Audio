@@ -44,7 +44,7 @@ namespace VL.Audio
         protected override IObservable<object> GetEntriesChangedObservable()
         {
             //TODO: Engine.DriverChanged
-            return AudioEngine.Instance.DriverSettingsChanged;
+            return AudioService.Engine.DriverSettingsChanged;
         }
 
         protected override IReadOnlyDictionary<string, object> GetEntries()
@@ -52,7 +52,7 @@ namespace VL.Audio
             var samplingRates = new Dictionary<string, object>();
 
             foreach (var item in Enum.GetValues(typeof(AudioSampleRateEnum)))
-                if (AudioEngine.Instance?.AsioOut?.IsSampleRateSupported((int)item) ?? false)
+                if (AudioService.Engine?.IsSampleRateSupported((int)item) ?? false)
                     samplingRates.Add(((int)item).ToString(), (int)item);
 
             //if (samplingRates.None())
