@@ -34,11 +34,6 @@
             <Pin Id="R2roofYyj4XO7mlNY24AXV" Name="Available Output Channels" Kind="OutputPin" />
             <Pin Id="VqfNdhK3U7pN1lzoKo1mX6" Name="Open Output Channels" Kind="OutputPin" />
           </Node>
-          <Pad Id="NMJRZjWHll1PRlmf7GcTBn" Comment="Driver" Bounds="502,587,149,15" ShowValueBox="true" isIOBox="true" Value="Default">
-            <p:TypeAnnotation LastCategoryFullName="Audio" LastSymbolSource="VL.Audio.vl">
-              <Choice Kind="TypeFlag" Name="AsioInputDevice" />
-            </p:TypeAnnotation>
-          </Pad>
           <Pad Id="H8TqwyTPYOGLAno15yPL5L" Comment="Sample Rate" Bounds="522,610,64,15" ShowValueBox="true" isIOBox="true" Value="48000">
             <p:TypeAnnotation LastCategoryFullName="Audio" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="TypeFlag" Name="AudioSampleRate" />
@@ -54,7 +49,7 @@
               <Choice Kind="TypeFlag" Name="Integer32" />
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="TLDCgBfScCdNnJ3ofKADgU" Comment="Enabled" Bounds="738,696,35,35" ShowValueBox="true" isIOBox="true" Value="True">
+          <Pad Id="TLDCgBfScCdNnJ3ofKADgU" Comment="Enabled" Bounds="646,734,35,35" ShowValueBox="true" isIOBox="true" Value="True">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Boolean" />
             </p:TypeAnnotation>
@@ -119,7 +114,7 @@
             <Pin Id="OYSuEhCc4aDP1NkjbT8DgE" Name="Can Seek" Kind="OutputPin" />
             <Pin Id="BvkDWT9aq1iL2G7qu58KRG" Name="Channels" Kind="OutputPin" />
             <Pin Id="U5AScOTN1WbPg0wJNFQj1H" Name="Sample Rate" Kind="OutputPin" />
-            <Pin Id="NFyQMTZVkA0NqdPD0cXi3T" Name="Uncompressed Format" Kind="OutputPin" />
+            <Pin Id="FP2DrG6U6gYM3aAOUo1w5S" Name="Original Format" Kind="OutputPin" />
           </Node>
           <Node Bounds="744,101,145,19" Id="Gqb09J5bZpYPTkIb4FucjV">
             <p:NodeReference LastCategoryFullName="Audio.Source" LastSymbolSource="VL.Audio.vl">
@@ -178,7 +173,7 @@
             <Pin Id="FmQk87K2g2qLSEg1tgdL8E" Name="Length" Kind="InputPin" />
             <Pin Id="D4qYPd6bY54MN2aOR5BSsO" Name="Frequency" Kind="InputPin" />
             <Pin Id="EIHXGnw1u6IPJmDd5yv90Q" Name="Start Randomization" Kind="InputPin" />
-            <Pin Id="LvBSRHZwam7PGCEght7yaY" Name="File Name" Kind="InputPin" />
+            <Pin Id="UEpydf8zfiELi3ilSf9Fux" Name="Filename" Kind="InputPin" />
             <Pin Id="Cf1GlqjQCSvNacNpXvdyq2" Name="Output" Kind="OutputPin" />
           </Node>
           <Node Bounds="548,131,64,19" Id="UsBozwF3b34NSJXU5uE1Il">
@@ -555,6 +550,7 @@
             <Pin Id="ED04GWlAV9eLwVOaNfFheL" Name="Input" Kind="InputPin" />
             <Pin Id="UGhsr28MzQ2LUx6a0QUHil" Name="Output Channel Count" Kind="InputPin" />
             <Pin Id="DihYOEgpJJ6OJxZ58rH6d8" Name="Gain Matrix" Kind="InputPin" />
+            <Pin Id="MFtPGqCTuVyNGtWYpv1uz9" Name="Force" Kind="InputPin" />
             <Pin Id="IrEeO4QIBxeMjvOoTLlzjX" Name="Output" Kind="OutputPin" />
             <Pin Id="Nw4xP3EImqdLky7M8p73sa" Name="Output 2" Kind="OutputPin" />
           </Node>
@@ -648,6 +644,20 @@
             <Pin Id="Sp8tv5tOIfhLPrBVuCiT4b" Name="Configuration File" Kind="InputPin" />
             <Pin Id="GCv93tefoRGOUhhj8zHS5H" Name="Reload" Kind="InputPin" />
           </Node>
+          <Pad Id="RltxghlpJPhL0utXOOH4kr" Comment="Driver" Bounds="502,582,223,12" ShowValueBox="true" isIOBox="true" Value="Default">
+            <p:TypeAnnotation LastCategoryFullName="Audio" LastSymbolSource="VL.Audio.vl">
+              <Choice Kind="TypeFlag" Name="AudioDevice" />
+            </p:TypeAnnotation>
+          </Pad>
+          <Pad Id="QUBpyCYzwUGLCOv9NLrpSb" Bounds="815,581,124,124" ShowValueBox="true" isIOBox="true" Value="&lt; The &quot;Default&quot; entry means that if there is any ASIO driver, take that, otherwise take the WASAPI default">
+            <p:TypeAnnotation>
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
         </Canvas>
         <Patch Id="H7AXqgMBO7VM7Hjz3LIVIi" Name="Create" />
         <Patch Id="SAUdaIhMZdzNMFreYk25vB" Name="Update" />
@@ -655,7 +665,6 @@
           <Fragment Id="SlBfNxva2foPzAmQuH3Wo8" Patch="H7AXqgMBO7VM7Hjz3LIVIi" Enabled="true" />
           <Fragment Id="BekbCOGyP96Ogno4zU8XVR" Patch="SAUdaIhMZdzNMFreYk25vB" Enabled="true" />
         </ProcessDefinition>
-        <Link Id="LuYSdkHbIX7NVSTZSaDrW0" Ids="NMJRZjWHll1PRlmf7GcTBn,F4UnCTeEjFfP6nSk7psx38" />
         <Link Id="TLbH2mR2ACkPDrn4CWGzOJ" Ids="H8TqwyTPYOGLAno15yPL5L,E9xJgDqZKuGPM7MbR8ujcf" />
         <Link Id="EhYwfBFSZCOQW0ck4KMDhr" Ids="Cgwsj0lyxGQQLhhmuj9DXr,OAFU3pOC85YPaWEHVvNmEm" />
         <Link Id="NpgoQC6Dda6Ln7AOZaFhFw" Ids="Run1yHAD4aPPb9h6xXATdy,TEmILbpNfd8PQdoOQ5tYPq" />
@@ -667,6 +676,7 @@
         <Link Id="FY4tbwCUQNkMZkRWlH2WDs" Ids="E5RVTAnz5RtQUt5fMSPe9e,L0sBxOmLVkyMywnm33Vfxz" />
         <Link Id="K497Tnz1YMVPjWokyW67sJ" Ids="VqfNdhK3U7pN1lzoKo1mX6,AqC1wiQ5DsVQPJ38cIlgAY" />
         <Link Id="OEcM1LCfpXCQMCZwDHU7Tw" Ids="TLDCgBfScCdNnJ3ofKADgU,Fd4L96C85bgQLYlgwwb4yo" />
+        <Link Id="RFyWjZrYSnALcv7GJgtHhf" Ids="RltxghlpJPhL0utXOOH4kr,F4UnCTeEjFfP6nSk7psx38" />
       </Patch>
     </Node>
   </Patch>

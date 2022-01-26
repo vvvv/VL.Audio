@@ -11,6 +11,7 @@ namespace VL.Audio
     [Serializable]
     public class AudioDevice : DynamicEnumBase<AudioDevice, AudioDeviceDefinition>
     {
+        public const string DefaultEntry = "Default";
         public AudioDevice(string value) : base(value)
         {
         }
@@ -19,14 +20,12 @@ namespace VL.Audio
         public static AudioDevice CreateDefault()
         {
             //use method of base class if nothing special required
-            return CreateDefaultBase("DefaultASIO");
+            return CreateDefaultBase(DefaultEntry);
         }
     }
 
     public class AudioDeviceDefinition : DynamicEnumDefinitionBase<AudioDeviceDefinition>
     {
-        const string defaultEntry = "DefaultASIO";
-
         protected override IObservable<object> GetEntriesChangedObservable()
         {
             return HardwareChangedEvents.HardwareChanged;
@@ -37,7 +36,7 @@ namespace VL.Audio
             var driverNames = new Dictionary<string, object>();
 
             // Add a default entry which makes it up to the system to select a device
-            driverNames[defaultEntry] = null;
+            driverNames[AudioDevice.DefaultEntry] = null;
 
             if (AudioService.OutputDrivers.Count > 0)
             {
@@ -49,7 +48,7 @@ namespace VL.Audio
                 }
             }
             else
-                driverNames["No Audio Device Found! -> Check Your Drivers. See https://thegraybook.vvvv.org/reference/libraries/audio.html for options!"] = null; 
+                driverNames["No Audio Device Found!"] = null; 
 
             return driverNames;
         }
@@ -57,11 +56,16 @@ namespace VL.Audio
         public string GetDefaultDriver()
         {
             var inputDevice = Instance;
-            var defaultName = AudioEngine.WasapiPrefix + AudioEngine.WasapiSystemDevice;
-            if (AudioService.OutputDrivers.Count > 0)
-                defaultName = AudioService.OutputDrivers[AudioService.OutputDriversDefaultIndex];
 
-            return inputDevice.Entries.FirstOrDefault(e => e.StartsWith(AudioEngine.ASIOPrefix)) ?? inputDevice.Entries.First(e => e != defaultEntry);
+            //order of selection
+            //prefer any asio device
+            var defaultName = inputDevice.Entries.FirstOrDefault(e => e.StartsWith(AudioEngine.ASIOPrefix));
+
+            //prefer system default WASAPI
+            if (defaultName == null)
+                defaultName = inputDevice.Entries.FirstOrDefault(e => e == AudioEngine.WasapiPrefix + AudioEngine.WasapiSystemDevice);
+
+            return defaultName;
         }
     }
 
