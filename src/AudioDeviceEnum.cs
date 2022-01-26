@@ -19,13 +19,13 @@ namespace VL.Audio
         public static AudioDevice CreateDefault()
         {
             //use method of base class if nothing special required
-            return CreateDefaultBase("Default");
+            return CreateDefaultBase("DefaultASIO");
         }
     }
 
     public class AudioDeviceDefinition : DynamicEnumDefinitionBase<AudioDeviceDefinition>
     {
-        const string defaultEntry = "Default";
+        const string defaultEntry = "DefaultASIO";
 
         protected override IObservable<object> GetEntriesChangedObservable()
         {
@@ -61,7 +61,7 @@ namespace VL.Audio
             if (AudioService.OutputDrivers.Count > 0)
                 defaultName = AudioService.OutputDrivers[AudioService.OutputDriversDefaultIndex];
 
-            return inputDevice.Entries.FirstOrDefault(e => e.StartsWith(defaultName)) ?? inputDevice.Entries.First(e => e != defaultEntry);
+            return inputDevice.Entries.FirstOrDefault(e => e.StartsWith(AudioEngine.ASIOPrefix)) ?? inputDevice.Entries.First(e => e != defaultEntry);
         }
     }
 

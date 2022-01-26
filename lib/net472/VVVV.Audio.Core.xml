@@ -321,11 +321,6 @@
             Simple wrapper around a float array
             </summary>
         </member>
-        <member name="F:VVVV.Audio.CircularBuffer.BufferFilled">
-            <summary>
-            Occurs when the internal buffer was filled completely, e.g. write position has wrapped around.
-            </summary>
-        </member>
         <member name="M:VVVV.Audio.CircularBuffer.Write(System.Single[],System.Int32,System.Int32)">
             <summary>
             Writes new data after the latest ones
@@ -337,15 +332,6 @@
         <member name="M:VVVV.Audio.CircularBuffer.Read(System.Single[],System.Int32,System.Int32)">
             <summary>
             Starts reading right after the last write position, which is the oldest value
-            </summary>
-            <param name="data"></param>
-            <param name="offset"></param>
-            <param name="count"></param>
-        </member>
-        <member name="M:VVVV.Audio.CircularBuffer.ReadFromLastPosition(System.Single[],System.Int32,System.Int32)">
-            <summary>
-            Starts reading where the last Read call left off, but will not read further than the most recent sample.
-            Will pad with 0 if there are not enough samples available.
             </summary>
             <param name="data"></param>
             <param name="offset"></param>
@@ -369,7 +355,7 @@
         </member>
         <member name="T:VVVV.Audio.CircularPullBuffer">
             <summary>
-            A circular buffer implementation
+            A very basic circular buffer implementation
             </summary>
         </member>
         <member name="M:VVVV.Audio.CircularPullBuffer.#ctor(System.Int32)">
@@ -427,6 +413,57 @@
             Advances the buffer, discarding bytes
             </summary>
             <param name="count">Bytes to advance</param>
+        </member>
+        <member name="T:VVVV.Audio.CircularBufferWasapi">
+            <summary>
+            Simple wrapper around a float array
+            </summary>
+        </member>
+        <member name="F:VVVV.Audio.CircularBufferWasapi.BufferFilled">
+            <summary>
+            Occurs when the internal buffer was filled completely, e.g. write position has wrapped around.
+            </summary>
+        </member>
+        <member name="M:VVVV.Audio.CircularBufferWasapi.Write(System.Single[],System.Int32,System.Int32)">
+            <summary>
+            Writes new data after the latest ones
+            </summary>
+            <param name="data"></param>
+            <param name="offset"></param>
+            <param name="count"></param>
+        </member>
+        <member name="M:VVVV.Audio.CircularBufferWasapi.Read(System.Single[],System.Int32,System.Int32)">
+            <summary>
+            Starts reading right after the last write position, which is the oldest value
+            </summary>
+            <param name="data"></param>
+            <param name="offset"></param>
+            <param name="count"></param>
+        </member>
+        <member name="M:VVVV.Audio.CircularBufferWasapi.ReadFromLastPosition(System.Single[],System.Int32,System.Int32)">
+            <summary>
+            Starts reading where the last Read call left off, but will not read further than the most recent sample.
+            Will pad with 0 if there are not enough samples available.
+            </summary>
+            <param name="data"></param>
+            <param name="offset"></param>
+            <param name="count"></param>
+        </member>
+        <member name="M:VVVV.Audio.CircularBufferWasapi.ReadDouble(System.Double[],System.Int32,System.Int32)">
+            <summary>
+            Starts reading right after the last write position, which is the oldest value
+            </summary>
+            <param name="data"></param>
+            <param name="offset"></param>
+            <param name="count"></param>
+        </member>
+        <member name="M:VVVV.Audio.CircularBufferWasapi.ReadDoubleWindowed(System.Double[],System.Double[],System.Int32,System.Int32)">
+            <summary>
+            Starts reading right after the last write position, which is the oldest value
+            </summary>
+            <param name="data"></param>
+            <param name="offset"></param>
+            <param name="count"></param>
         </member>
         <!-- Badly formed XML comment ignored for member "M:VVVV.Audio.Utils.MathUtils.Clamp(System.Int32,System.Int32,System.Int32)" -->
         <member name="M:VVVV.Audio.Utils.MathUtils.Clamp(System.Single,System.Single,System.Single)">
