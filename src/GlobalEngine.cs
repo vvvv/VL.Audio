@@ -38,7 +38,9 @@ namespace VL.Audio
             var wasapiInput = defaultEntry;
             var selectedSamplerate = 48000;
             var selectedInputCount = 2;
+            var selectedInputOffset = 0;
             var selectedOutputCount = 2;
+            var selectedOutputOffset = 0;
             var selectedTempo = 120f;
             var selectedLoop = false;
             var selectedLoopStartBeat = 0f;
@@ -62,13 +64,21 @@ namespace VL.Audio
                 if (node != null)
                     int.TryParse(node.InnerText, out selectedSamplerate);
 
-                node = doc.DocumentElement.SelectSingleNode("/Settings/Driver/Inputs");
+                node = doc.DocumentElement.SelectSingleNode("/Settings/Driver/InputCount");
                 if (node != null)
                     int.TryParse(node.InnerText, out selectedInputCount);
 
-                node = doc.DocumentElement.SelectSingleNode("/Settings/Driver/Outputs");
+                node = doc.DocumentElement.SelectSingleNode("/Settings/Driver/InputOffset");
+                if (node != null)
+                    int.TryParse(node.InnerText, out selectedInputOffset);
+
+                node = doc.DocumentElement.SelectSingleNode("/Settings/Driver/OutputCount");
                 if (node != null)
                     int.TryParse(node.InnerText, out selectedOutputCount);
+
+                node = doc.DocumentElement.SelectSingleNode("/Settings/Driver/OutputOffset");
+                if (node != null)
+                    int.TryParse(node.InnerText, out selectedOutputOffset);
 
                 node = doc.DocumentElement.SelectSingleNode("/Settings/Timing/Tempo");
                 if (node != null)
@@ -116,10 +126,10 @@ namespace VL.Audio
 
                 if (sampleRates.Contains(selectedSamplerate.ToString()))
                 {
-                    Engine.GetSupportedChannels(out var inputChannels, out var outputChannles);
-                    selectedInputCount = Math.Min(inputChannels, selectedInputCount);
-                    selectedOutputCount = Math.Min(outputChannles, selectedOutputCount);
-                    Engine.ChangeDriverSettings(selectedDriver, wasapiInput, selectedSamplerate, selectedInputCount, 0, selectedOutputCount, 0);
+                    Engine.GetSupportedChannels(out var inputChannelCount, out var outputChannelCount);
+                    selectedInputCount = Math.Min(inputChannelCount, selectedInputOffset + selectedInputCount);
+                    selectedOutputCount = Math.Min(outputChannelCount, selectedOutputOffset + selectedOutputCount);
+                    Engine.ChangeDriverSettings(selectedDriver, wasapiInput, selectedSamplerate, selectedInputCount, selectedInputOffset, selectedOutputCount, selectedOutputOffset);
 
                     Engine.Timer.BPM = selectedTempo;
                     Engine.Timer.Loop = selectedLoop;
