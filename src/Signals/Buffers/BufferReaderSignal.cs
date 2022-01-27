@@ -18,18 +18,20 @@ namespace VL.Audio
 
         protected override void FillBuffer(float[] buffer, int offset, int count)
         {
-            if (DoRead) {
+            if (DoRead)
+            {
                 if (ReadPosition >= FBufferSize)
                     ReadPosition %= FBufferSize;
                 var copyCount = Math.Min(FBufferSize - ReadPosition, count);
                 Array.Copy(FBuffer, ReadPosition, buffer, 0, copyCount);
                 if (copyCount < count)//copy rest from front
-                 {
+                {
                     Array.Copy(FBuffer, 0, buffer, copyCount, count - copyCount);
                 }
                 ReadPosition += count;
             }
-            else {
+            else
+            {
                 buffer.ReadSilence(offset, count);
             }
         }

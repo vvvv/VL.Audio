@@ -77,7 +77,7 @@ namespace VL.Audio
                         var index = (int)Math.Floor(FIndex);
                         
                         outBuff[n + offset] = lut[index];
-                        FIndex = (FIndex + Delta);
+                        FIndex = FIndex + Delta;
                         i++;
                     }
                 }

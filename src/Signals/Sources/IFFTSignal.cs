@@ -13,7 +13,7 @@ namespace VL.Audio
 {
     public class IFFTPullBuffer : CircularPullBuffer
     {
-        public IFFTPullBuffer(SigParam<double[]> fftDataReal, SigParam<double[]> fftDataImag, int size, WindowFunction window)
+        public IFFTPullBuffer(SigParam<float[]> fftDataReal, SigParam<float[]> fftDataImag, int size, WindowFunction window)
             : base(size)
         {
             FFFTDataReal = fftDataReal;
@@ -25,8 +25,8 @@ namespace VL.Audio
             PullCount = size;
         }
 
-        readonly SigParam<double[]> FFFTDataReal;
-        readonly SigParam<double[]> FFFTDataImag;
+        readonly SigParam<float[]> FFFTDataReal;
+        readonly SigParam<float[]> FFFTDataImag;
         readonly double[] RealImagData;
         readonly double[] Window;
         public readonly WindowFunction WindowFunc;
@@ -92,8 +92,8 @@ namespace VL.Audio
     /// </summary>
     public class IFFTSignal : AudioSignal
     {
-        SigParam<double[]> FFTDataReal = new SigParam<double[]>("FFT Data Real");
-        SigParam<double[]> FFTDataImag = new SigParam<double[]>("FFT Data Imaginary");
+        SigParam<float[]> FFTDataReal = new SigParam<float[]>("FFT Data Real");
+        SigParam<float[]> FFTDataImag = new SigParam<float[]>("FFT Data Imaginary");
         SigParam<WindowFunction> FWindowFunc = new SigParam<WindowFunction>("Window Function");
         SigParam<double> FGain = new SigParam<double>("Gain", 0.5);
         SigParam<int> BufferSize = new SigParam<int>("IFFT Buffer Size", true);

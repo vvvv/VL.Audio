@@ -1,7 +1,4 @@
-﻿#region usings
-using System;
-#endregion
-
+﻿
 namespace VL.Audio
 {
     public class AudioToValueSignal : SinkSignal
@@ -11,7 +8,7 @@ namespace VL.Audio
             InputSignal.Value = input;
         }
         
-        public double Value;
+        public float Value;
 
         protected override void FillBuffer(float[] buffer, int offset, int count)
         {

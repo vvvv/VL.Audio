@@ -1,8 +1,7 @@
-﻿#region usings
-using System;
+﻿
 using System.Collections.Generic;
 using NAudio.Utils;
-#endregion
+
 namespace VL.Audio
 {
     public abstract class AudioSignalOperator : AudioSignal
@@ -11,9 +10,9 @@ namespace VL.Audio
         {
         }
 
-        private IList<AudioSignal> FInputs;
+        private IReadOnlyList<AudioSignal> FInputs;
 
-        public IList<AudioSignal> Inputs
+        public IReadOnlyList<AudioSignal> Inputs
         {
             get
             {

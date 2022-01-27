@@ -89,7 +89,7 @@ namespace VL.Audio
                 FNextValueTime = nextTime;
         }
 
-        public double Position 
+        public float Position 
         {
             get;
             protected set;
@@ -119,7 +119,7 @@ namespace VL.Audio
                     if(!FIsBang)
                         buffer[i] = FCurrentValue;
                     
-                    Position = clipTime;
+                    Position = (float)clipTime;
                     
                     //inc counter
                     FCurrentSampleIndex++;
@@ -137,7 +137,7 @@ namespace VL.Audio
         SigParamDiff<bool> IsBang = new SigParamDiff<bool>("Is Bang");
         
         //output
-        SigParam<double> Position = new SigParam<double>("Position", true);
+        SigParam<float> Position = new SigParam<float>("Position", true);
         
         public ValueSequenceSignal()
         {

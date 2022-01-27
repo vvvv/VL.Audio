@@ -5,7 +5,7 @@ namespace VL.Audio
 {
     public class MatrixMixerSignal : MultiChannelInputSignal
     {
-        public IList<float> GainMatrix
+        public IReadOnlyList<float> GainMatrix
         {
             get;
             set;

@@ -26,7 +26,7 @@ namespace VL.Audio
         SigParamAudio Frequency = new SigParamAudio("Frequency");
         SigParamDiff<float> FrequencyOffset = new SigParamDiff<float>("Frequency Offset", 440);
         SigParam<WaveFormSelection> WaveForm = new SigParam<WaveFormSelection>("Waveform");
-        SigParamDiff<double> Slope = new SigParamDiff<double>("Symmetry", 0.5f);
+        SigParamDiff<float> Slope = new SigParamDiff<float>("Symmetry", 0.5f);
         SigParam<AntiAliasingAlgorithm> AntiAliasingMethod = new SigParam<AntiAliasingAlgorithm>("Anti-Aliasing Method", AntiAliasingAlgorithm.PolyBLEP);
         SigParamAudio FMInput = new SigParamAudio("FM");
         SigParam<float> FMLevel = new SigParam<float>("FM Level");
@@ -36,7 +36,7 @@ namespace VL.Audio
         {
             //get param change events
             FrequencyOffset.ValueChanged = CalcFrequencyConsts;
-            Slope.ValueChanged = CalcTriangleCoefficients;
+            Slope.ValueChanged = v => CalcTriangleCoefficients(v);
         }
         
         protected override void Engine_SampleRateChanged(object sender, EventArgs e)
@@ -224,7 +224,7 @@ namespace VL.Audio
         private void OscEPTR(float[] buffer, int count)
         {
             bool sync = false;
-            var slope = Slope.Value;
+            double slope = Slope.Value;
             
             var t2 = 2*T;
             switch (WaveForm.Value)
@@ -253,7 +253,7 @@ namespace VL.Audio
                     for (int i = 0; i < count; i++)
                     {
                         CalcFrequencyConsts(FreqBuffer[i] + FrequencyOffset.Value);
-                        CalcTriangleCoefficients(Slope.Value);
+                        CalcTriangleCoefficients(slope);
                         double sample;
 
                         if (slope >= 0.99f) // rising saw
@@ -430,7 +430,7 @@ namespace VL.Audio
         {
 
             var t2 = 2*T;
-            var slope = MathUtils.Clamp(Slope.Value, 0.01, 0.99);
+            double slope = MathUtils.Clamp(Slope.Value, 0.01, 0.99);
             switch (WaveForm.Value)
             {
                 case WaveFormSelection.Sine:
@@ -528,7 +528,7 @@ namespace VL.Audio
         {
 
             var t2 = 2*T;
-            var slope = MathUtils.Clamp(Slope.Value, 0.01, 0.99);
+            double slope = MathUtils.Clamp(Slope.Value, 0.01, 0.99);
             switch (WaveForm.Value)
             {
                 case WaveFormSelection.Sine:

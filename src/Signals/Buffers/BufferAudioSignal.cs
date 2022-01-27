@@ -10,24 +10,28 @@
             FBufferKey = bufferKey;
             AudioService.BufferStorage.BufferSet += BufferStorage_BufferSet;
             AudioService.BufferStorage.BufferRemoved += BufferStorage_BufferRemoved;
-            if (AudioService.BufferStorage.ContainsKey(FBufferKey)) {
+            if (AudioService.BufferStorage.ContainsKey(FBufferKey))
+            {
                 SetBuffer(AudioService.BufferStorage[FBufferKey]);
             }
-            else {
+            else
+            {
                 SetBuffer(new float[AudioService.Engine.Settings.BufferSize]);
             }
         }
 
         void BufferStorage_BufferRemoved(object sender, BufferEventArgs e)
         {
-            if (e.BufferName == FBufferKey) {
+            if (e.BufferName == FBufferKey)
+            {
                 SetBuffer(new float[AudioService.Engine.Settings.BufferSize]);
             }
         }
 
         void BufferStorage_BufferSet(object sender, BufferEventArgs e)
         {
-            if (e.BufferName == FBufferKey) {
+            if (e.BufferName == FBufferKey)
+            {
                 SetBuffer(e.Buffer);
             }
         }
@@ -40,12 +44,16 @@
 
         protected string FBufferKey;
 
-        public string BufferKey {
-            get {
+        public string BufferKey
+        {
+            get
+            {
                 return FBufferKey;
             }
-            set {
-                if (FBufferKey != value) {
+            set
+            {
+                if (FBufferKey != value)
+                {
                     FBufferKey = value;
                     SetBuffer(AudioService.BufferStorage[FBufferKey]);
                 }

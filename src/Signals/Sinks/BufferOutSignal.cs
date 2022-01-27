@@ -1,6 +1,7 @@
-﻿#region usings
+﻿
 using System;
-#endregion
+using System.Collections.Generic;
+
 namespace VL.Audio
 {
     
@@ -14,18 +15,21 @@ namespace VL.Audio
             Buffer.BufferFilled = BufferFilled;
         }
         
-        public float[] BufferOut = new float[1];
+        public float[] bufferOut = new float[1];
+
+        public IReadOnlyList<float> BufferOut => bufferOut;
+
 
         void BufferFilled(float[] buffer)
         {
             //copy the values from the circular buffer into the output array
-            Array.Copy(buffer, 0, BufferOut, 0, Math.Min(BufferOut.Length, buffer.Length));
+            Array.Copy(buffer, 0, bufferOut, 0, Math.Min(bufferOut.Length, buffer.Length));
         }
         
         protected override void FillBuffer(float[] buffer, int offset, int count)
         {
-            if(BufferOut.Length != Buffer.Size)
-                BufferOut = new float[Buffer.Size];
+            if(bufferOut.Length != Buffer.Size)
+                bufferOut = new float[Buffer.Size];
             
             if (InputSignal.Value != null) 
             {

@@ -13,26 +13,32 @@ namespace VL.Audio
 
         public void OpenFile(string filename)
         {
-            if (FAudioFile != null) {
+            if (FAudioFile != null)
+            {
                 FAudioFile.Dispose();
                 FAudioFile = null;
             }
-            if (!string.IsNullOrEmpty(filename) && File.Exists(filename)) {
+            if (!string.IsNullOrEmpty(filename) && File.Exists(filename))
+            {
                 FAudioFile = new AudioFileReaderVVVV(filename);
                 SetOutputCount(FAudioFile.WaveFormat.Channels);
             }
-            else {
+            else
+            {
                 SetOutputCount(0);
             }
         }
 
         int FSpreadCount;
 
-        public int SpreadCount {
-            get {
+        public int SpreadCount
+        {
+            get
+            {
                 return FSpreadCount;
             }
-            set {
+            set
+            {
                 FSpreadCount = value;
             }
         }
@@ -70,44 +76,44 @@ namespace VL.Audio
             var channels = FAudioFile.WaveFormat.Channels;
             long samples = (long)Math.Round(FAudioFile.TotalTime.TotalSeconds * FAudioFile.WaveFormat.SampleRate);
             long startSample = 0;
-            if (Loop) 
+            if (Loop)
             {
                 startSample = (long)(StartTime * FAudioFile.WaveFormat.SampleRate);
                 samples = (long)((EndTime - StartTime) * FAudioFile.WaveFormat.SampleRate);
             }
             var localSpreadCount = (int)Math.Min(SpreadCount, samples);
             WaveFormSpread.Clear();
-            if (ToMono) 
+            if (ToMono)
             {
                 WaveFormSpread.Add(new List<double>(localSpreadCount));
             }
-            else 
+            else
             {
-                for (int i = 0; i < channels; i++) 
+                for (int i = 0; i < channels; i++)
                 {
                     WaveFormSpread.Add(new List<double>(localSpreadCount));
                 }
             }
-            
+
             int blockSize = (int)(samples / localSpreadCount);
             FAudioFile.Position = startSample * channels * 4;
             var bufferSize = blockSize * channels;
             var buffer = new float[bufferSize];
             var maxValue = 0.0f;
             var outputBuffers = WaveFormSpread;
-            for (int slice = 0; slice < localSpreadCount; slice++) 
+            for (int slice = 0; slice < localSpreadCount; slice++)
             {
                 //read one interleaved block
                 var samplesRead = FAudioFile.Read(buffer, 0, bufferSize);
                 //split into channels and do the max
-                for (int channel = 0; channel < channels; channel++) 
+                for (int channel = 0; channel < channels; channel++)
                 {
                     maxValue = MinValue;
                     for (int i = 0; i < samplesRead; i += channels)
                     {
                         maxValue = Math.Max(maxValue, Math.Abs(buffer[i + channel]));
                     }
-                    if (ToMono) 
+                    if (ToMono)
                     {
                         outputBuffers[0][slice] = Math.Max(maxValue, outputBuffers[0][slice]);
                     }
@@ -126,15 +132,19 @@ namespace VL.Audio
 
         private void CancelCurrentTask()
         {
-            if (FCtsSource != null) {
+            if (FCtsSource != null)
+            {
                 FCtsSource.Cancel();
-                try {
+                try
+                {
                     FCurrentTask.Wait();
                 }
-                catch (Exception) {
+                catch (Exception)
+                {
                     // Ignore
                 }
-                finally {
+                finally
+                {
                     FCtsSource = null;
                     FCurrentTask.Dispose();
                 }

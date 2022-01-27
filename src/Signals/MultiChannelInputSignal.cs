@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-
 namespace VL.Audio
 {
     public class MultiChannelInputSignal : MultiChannelSignal
@@ -11,12 +10,16 @@ namespace VL.Audio
 		/// <summary>
 		/// The input signal
 		/// </summary>
-		public IReadOnlyList<AudioSignal> Input {
-			get {
+		public IReadOnlyList<AudioSignal> Input 
+		{
+			get 
+			{
 				return FInput;
 			}
-			set {
-				if (FInput != value) {
+			set 
+			{
+				if (FInput != value) 
+				{
 					FInput = value;
 					InputWasSet(value);
 				}

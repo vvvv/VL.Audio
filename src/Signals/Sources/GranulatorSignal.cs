@@ -189,10 +189,10 @@ namespace VL.Audio
 
     public class GranulatorSignal : AudioSignal
     {
-        SigParam<double> Start = new SigParam<double>("Start");
-        SigParam<double> Length = new SigParam<double>("Length");
-        SigParam<double> Freq = new SigParam<double>("Frequency");
-        SigParam<double> StartRandomization = new SigParam<double>("Start Randomization");
+        SigParam<float> Start = new SigParam<float>("Start");
+        SigParam<float> Length = new SigParam<float>("Length");
+        SigParam<float> Freq = new SigParam<float>("Frequency");
+        SigParam<float> StartRandomization = new SigParam<float>("Start Randomization");
 
         SigParamDiff<string> FileName = new SigParamDiff<string>("File Name");
 
