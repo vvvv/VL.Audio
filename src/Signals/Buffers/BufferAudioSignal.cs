@@ -1,16 +1,10 @@
-﻿#region usings
-using System;
-using System.Linq;
-#endregion
-namespace VVVV.Audio
+﻿namespace VL.Audio
 {
     /// <summary>
     /// Base class for nodes which work with buffers
     /// </summary>
     public abstract class BufferAudioSignal : AudioSignalInput
     {
-        
-        
         public BufferAudioSignal(string bufferKey)
         {
             FBufferKey = bufferKey;

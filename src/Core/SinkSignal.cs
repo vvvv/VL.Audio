@@ -4,7 +4,7 @@ using System.Linq;
 using NAudio.Utils;
 #endregion usings
 
-namespace VVVV.Audio
+namespace VL.Audio
 {
     /// <summary>
     /// Interface which the audio engine will call for each buffer when registered

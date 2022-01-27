@@ -1,10 +1,10 @@
-﻿#region usings
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using VVVV.PluginInterfaces.V2;
-#endregion
-namespace VVVV.Audio
+
+
+namespace VL.Audio
 {
     public class MultiChannelInputSignal : MultiChannelSignal
     {

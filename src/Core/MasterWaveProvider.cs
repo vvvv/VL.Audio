@@ -7,7 +7,7 @@ using NAudio.Utils;
 
 #endregion usings
 
-namespace VVVV.Audio
+namespace VL.Audio
 {
     /// <summary>
     /// A combination of audio signal and the driver output channel number

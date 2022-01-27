@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using VVVV.Audio;
 
-namespace VL.Audio
+namespace VL.Audio.Utils
 {
     public static class Helpers
     {

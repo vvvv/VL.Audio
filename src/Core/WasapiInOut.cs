@@ -7,7 +7,7 @@ using NAudio.CoreAudioApi;
 
 #endregion usings
 
-namespace VVVV.Audio
+namespace VL.Audio
 {
     public class WasapiInOut : IDisposable
     {

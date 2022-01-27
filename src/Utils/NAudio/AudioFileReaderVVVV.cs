@@ -3,7 +3,7 @@ using NAudio.Wave;
 using NAudio.Wave.Compression;
 using NAudio.Wave.SampleProviders;
 
-namespace VVVV.Audio
+namespace VL.Audio
 {
     /// <summary>
     /// AudioFileReader simplifies opening an audio file in NAudio

@@ -11,7 +11,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace VVVV.Audio
+namespace VL.Audio
 {
     /// <summary>
     /// Selects the resampler resolution

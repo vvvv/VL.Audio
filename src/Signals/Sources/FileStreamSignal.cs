@@ -3,7 +3,7 @@ using System;
 using System.IO;
 using NAudio.Utils;
 #endregion
-namespace VVVV.Audio
+namespace VL.Audio
 {
     public class FileStreamSignal : MultiChannelSignal
     {

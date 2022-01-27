@@ -1,4 +1,4 @@
-﻿#region usings
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +9,7 @@ using NAudio.CoreAudioApi;
 using System.Reactive.Subjects;
 using System.Diagnostics;
 
-
-#endregion usings
-
-namespace VVVV.Audio
+namespace VL.Audio
 {
     public class AudioEngine
     {

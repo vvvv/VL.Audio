@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using VL.Lib.Animation;
 using VL.Lib.Collections;
-using VL.Lib.VAudio;
 
-namespace VVVV.Audio.Signals
+namespace VL.Audio
 {
     internal class SilenceSignal : AudioSignal
     {

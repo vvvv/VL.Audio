@@ -2,7 +2,7 @@
 using System;
 using System.Linq;
 #endregion
-namespace VVVV.Audio
+namespace VL.Audio
 {
     public class BufferReaderSignal : BufferAudioSignal
     {

@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using NAudio.Utils;
 #endregion
-namespace VVVV.Audio
+namespace VL.Audio
 {
     public class BufferWriterSignal : BufferAudioSignal, IAudioSink
     {

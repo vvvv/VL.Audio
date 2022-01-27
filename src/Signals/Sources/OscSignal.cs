@@ -1,10 +1,8 @@
-﻿#region usings
-using System;
+﻿using System;
 using System.Collections.Generic;
-using VVVV.PluginInterfaces.V2;
-using VVVV.Audio.Utils;
-#endregion
-namespace VVVV.Audio
+using VL.Audio.Utils;
+
+namespace VL.Audio
 {
     public enum WaveFormSelection
     {
@@ -595,23 +593,40 @@ namespace VVVV.Audio
     
     public class MultiSineSignal : AudioSignal
     {
-        public MultiSineSignal(ISpread<float> frequency, ISpread<float> gain)
+        public MultiSineSignal(List<float> frequency, List<float> gain)
         {
             Frequencies = frequency;
             Gains = gain;
-            Phases = new Spread<float>();
+            Phases = new List<float>();
         }
         
-        public ISpread<float> Frequencies;
-        public ISpread<float> Gains;
+        public List<float> Frequencies;
+        public List<float> Gains;
         private readonly float TwoPi = (float)(Math.PI * 2);
-        private ISpread<float> Phases;
+        private List<float> Phases;
+
+        void ResizePhases(int count)
+        {
+            if (Phases.Count == count)
+                return;
+
+            if (Phases.Count < count)
+            {
+                while (Phases.Count < count)
+                    Phases.Add(0f);
+            }
+            else
+            {
+                while (Phases.Count > count)
+                    Phases.RemoveAt(Phases.Count - 1);
+            }
+        }
         
         protected override void FillBuffer(float[] buffer, int offset, int count)
         {
 //            PerfCounter.Start("MultiSine");
-            var spreadMax = Frequencies.CombineWith(Gains);
-            Phases.Resize(spreadMax, () => default(float), f => f = 0);
+            var spreadMax = Math.Max(Frequencies.Count, Gains.Count);
+            ResizePhases(spreadMax);
             for (int slice = 0; slice < spreadMax; slice++)
             {
                 var increment = TwoPi*Frequencies[slice]/SampleRate;

@@ -7,9 +7,9 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
-using VVVV.Audio.Utils;
+using VL.Audio.Utils;
 
-namespace VVVV.Audio
+namespace VL.Audio
 {
     public enum AnalogModelingFilterAlgorithm
     {

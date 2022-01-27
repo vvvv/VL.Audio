@@ -4,7 +4,7 @@ using NAudio.Wave;
 
 #endregion usings
 
-namespace VVVV.Audio
+namespace VL.Audio
 {
     /// <summary>
     /// Buffered WaveProvider taking source data from WaveIn

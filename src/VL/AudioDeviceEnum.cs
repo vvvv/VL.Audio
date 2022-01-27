@@ -4,7 +4,6 @@ using VL.Lib;
 using VL.Lib.Collections;
 using NAudio.Wave;
 using System.Linq;
-using VVVV.Audio;
 
 namespace VL.Audio
 {

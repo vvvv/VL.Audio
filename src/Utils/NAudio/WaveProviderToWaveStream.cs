@@ -1,7 +1,7 @@
 ﻿using System;
 using NAudio.Wave;
 
-namespace VVVV.Audio
+namespace VL.Audio
 {
 
     public class WaveProviderToWaveStream : WaveStream

@@ -9,7 +9,7 @@
 using System;
 using System.Linq;
 
-namespace VVVV.Audio
+namespace VL.Audio
 {
     public class ValueSequence
     {

@@ -4,7 +4,7 @@ using System;
 
 #endregion usings
 
-namespace VVVV.Audio
+namespace VL.Audio
 {
     public class AudioEngineSettings
     {

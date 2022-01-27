@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using VL.Core;
 using VL.Lib.Animation;
 
-namespace VL.Lib.VAudio
+namespace VL.Audio
 {
     public struct StereoSample
     {

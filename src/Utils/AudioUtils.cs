@@ -9,7 +9,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace VVVV.Audio
+namespace VL.Audio
 {
     public enum WindowFunction
     {

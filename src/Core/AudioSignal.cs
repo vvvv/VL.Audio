@@ -1,14 +1,11 @@
-﻿#region usings
+﻿
 using System;
-
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using NAudio.Wave;
-using VVVV.Audio;
-#endregion usings
 
-namespace VVVV.Audio
+namespace VL.Audio
 {
     /// <summary>
     /// Interface which provides buffer copy of the output.

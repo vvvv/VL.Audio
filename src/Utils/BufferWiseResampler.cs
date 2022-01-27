@@ -8,7 +8,7 @@
 
 
 using System;
-namespace VVVV.Audio
+namespace VL.Audio
 {
     public class BufferWiseResampler
     {

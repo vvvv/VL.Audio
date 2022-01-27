@@ -1,9 +1,7 @@
-﻿#region usings
-using System;
-using VVVV.Audio.Utils;
+﻿using System;
+using VL.Audio.Utils;
 
-#endregion
-namespace VVVV.Audio
+namespace VL.Audio
 {
     public class ADSRSignal : AudioSignal
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using static System.Math;
 
-namespace VVVV.Audio.Utils
+namespace VL.Audio.Utils
 {
     public sealed class MathUtils
     {

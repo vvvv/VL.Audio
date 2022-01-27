@@ -9,7 +9,7 @@
 using System;
 using Lomont;
 
-namespace VVVV.Audio
+namespace VL.Audio
 {
     public class IFFTPullBuffer : CircularPullBuffer
     {

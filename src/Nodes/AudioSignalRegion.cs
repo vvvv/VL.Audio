@@ -5,10 +5,8 @@ using System.Reactive.Subjects;
 using VL.Core;
 using VL.Lib.Animation;
 using VL.Lib.Collections;
-using VVVV.Audio;
-using VVVV.Audio.Signals;
 
-namespace VL.Lib.VAudio
+namespace VL.Audio
 {
     public class AudioSignalRegion<TState, TIn, TOut> : IDisposable
        where TState : class

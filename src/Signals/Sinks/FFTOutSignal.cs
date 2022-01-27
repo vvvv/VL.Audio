@@ -2,7 +2,7 @@
 using System;
 using Lomont;
 #endregion
-namespace VVVV.Audio
+namespace VL.Audio
 {
     public enum FFTWindowFunction
     {

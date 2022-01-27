@@ -8,7 +8,7 @@ using System.Linq;
 
 #endregion usings
 
-namespace VVVV.Audio
+namespace VL.Audio
 {
     /// <summary>
     /// Static and naive access to the AudioEngine

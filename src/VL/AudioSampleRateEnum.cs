@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using VL.Lib;
 using VL.Lib.Collections;
 using NAudio.Wave;
-using VVVV.Audio;
 
 namespace VL.Audio
 {

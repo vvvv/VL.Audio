@@ -12,7 +12,7 @@ using System.Diagnostics;
 using NAudio.Wave;
 using NAudio;
 
-namespace VVVV.Audio
+namespace VL.Audio
 {
     
     /// <summary>

@@ -3,7 +3,7 @@ using System;
 using NAudio.Wave;
 using NAudio.Wave.SampleProviders;
 #endregion
-namespace VVVV.Audio
+namespace VL.Audio
 {
     public class WaveRecorderSignal : SinkSignal
     {

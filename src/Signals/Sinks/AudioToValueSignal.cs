@@ -2,7 +2,7 @@
 using System;
 #endregion
 
-namespace VVVV.Audio
+namespace VL.Audio
 {
     public class AudioToValueSignal : SinkSignal
     {

@@ -5,7 +5,7 @@ using NAudio.Utils;
 using System.Collections.Generic;
 #endregion
 
-namespace VVVV.Audio
+namespace VL.Audio
 {
     internal class RefCounted<T>
     {

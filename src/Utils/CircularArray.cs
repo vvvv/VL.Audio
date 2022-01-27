@@ -10,7 +10,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace VVVV.Audio
+namespace VL.Audio
 {
     class CircularArray<T> : IEnumerator<T>
     {

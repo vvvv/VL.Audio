@@ -6,9 +6,9 @@
  * 
  */
 using System;
-using VVVV.Audio.Utils;
+using VL.Audio.Utils;
 
-namespace VVVV.Audio
+namespace VL.Audio
 {
     /// <summary>
     /// Description of ValueToAudioSignal.

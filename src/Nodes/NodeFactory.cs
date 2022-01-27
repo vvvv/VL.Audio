@@ -6,7 +6,6 @@ using System.Linq;
 using VL.Core;
 using VL.Lib.Collections;
 using System.Reactive.Linq;
-using VVVV.Audio;
 using VL.Lib.Basics.Resources;
 
 namespace VL.Audio

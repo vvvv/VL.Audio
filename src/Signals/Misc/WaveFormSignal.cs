@@ -1,12 +1,11 @@
-﻿#region usings
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using VVVV.PluginInterfaces.V2;
-#endregion
-namespace VVVV.Audio
+
+namespace VL.Audio
 {
     public class WaveFormSignal : MultiChannelSignal
     {
@@ -38,7 +37,7 @@ namespace VVVV.Audio
             }
         }
 
-        public Spread<ISpread<double>> WaveFormSpread = new Spread<ISpread<double>>();
+        public List<List<double>> WaveFormSpread = new List<List<double>>();
 
         float[] FFileBuffer = new float[1];
 
@@ -77,17 +76,16 @@ namespace VVVV.Audio
                 samples = (long)((EndTime - StartTime) * FAudioFile.WaveFormat.SampleRate);
             }
             var localSpreadCount = (int)Math.Min(SpreadCount, samples);
+            WaveFormSpread.Clear();
             if (ToMono) 
             {
-                WaveFormSpread.SliceCount = 1;
-                WaveFormSpread[0] = new Spread<double>(localSpreadCount);
+                WaveFormSpread.Add(new List<double>(localSpreadCount));
             }
             else 
             {
-                WaveFormSpread.SliceCount = channels;
                 for (int i = 0; i < channels; i++) 
                 {
-                    WaveFormSpread[i] = new Spread<double>(localSpreadCount);
+                    WaveFormSpread.Add(new List<double>(localSpreadCount));
                 }
             }
             
@@ -96,7 +94,7 @@ namespace VVVV.Audio
             var bufferSize = blockSize * channels;
             var buffer = new float[bufferSize];
             var maxValue = 0.0f;
-            var outputBuffers = WaveFormSpread.Select(s => s.Stream.Buffer).ToArray();
+            var outputBuffers = WaveFormSpread;
             for (int slice = 0; slice < localSpreadCount; slice++) 
             {
                 //read one interleaved block

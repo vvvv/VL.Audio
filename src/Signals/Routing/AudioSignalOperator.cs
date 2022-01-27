@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using NAudio.Utils;
 #endregion
-namespace VVVV.Audio
+namespace VL.Audio
 {
     public abstract class AudioSignalOperator : AudioSignal
     {
