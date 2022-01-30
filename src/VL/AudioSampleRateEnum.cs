@@ -58,6 +58,7 @@ namespace VL.Audio
             }
             catch
             {
+                //Realtek ASIO drivers seem to fail getting samplerates, but 48000 still works
                 if (samplingRates.None())
                     samplingRates.Add("48000", 48000);
             }
