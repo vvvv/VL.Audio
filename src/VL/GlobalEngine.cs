@@ -115,9 +115,21 @@ namespace VL.Audio
 
             try
             {
-                Engine.PreviewDriver(selectedDriver, wasapiInput);
-
-                var sampleRates = AudioSampleRateDefinition.Instance.Entries.ToList();
+                List<string> sampleRates;
+                try
+                {
+                    Engine.PreviewDriver(selectedDriver, wasapiInput);
+                    sampleRates = AudioSampleRateDefinition.Instance.Entries.ToList();
+                }
+                catch
+                { 
+                    //Realtek ASIO drivers seem to fail getting samplerates, but 48000 still works
+                }
+                finally
+                {
+                    sampleRates = new List<string>();
+                    sampleRates.Add("48000");
+                }
                 
                 // select one and only sample rate for wasapi
                 if (sampleRates.Count == 1 && int.TryParse(sampleRates[0], out var rate))
@@ -138,7 +150,7 @@ namespace VL.Audio
                     Engine.Play = true; // should depend on application runtime state?
                 }
             }
-            finally
+            catch
             { }
         }
 
