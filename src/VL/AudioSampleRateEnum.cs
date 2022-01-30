@@ -50,12 +50,17 @@ namespace VL.Audio
         {
             var samplingRates = new Dictionary<string, object>();
 
-            foreach (var item in Enum.GetValues(typeof(AudioSampleRateEnum)))
-                if (AudioService.Engine?.IsSampleRateSupported((int)item) ?? false)
-                    samplingRates.Add(((int)item).ToString(), (int)item);
-
-            //if (samplingRates.None())
-            //    samplingRates["48000"] = 48000;
+            try
+            {
+                foreach (var item in Enum.GetValues(typeof(AudioSampleRateEnum)))
+                    if (AudioService.Engine?.IsSampleRateSupported((int)item) ?? false)
+                        samplingRates.Add(((int)item).ToString(), (int)item);
+            }
+            catch
+            {
+                if (samplingRates.None())
+                    samplingRates.Add("48000", 48000);
+            }
 
             return samplingRates;
         }
