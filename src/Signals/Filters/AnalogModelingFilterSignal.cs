@@ -27,7 +27,7 @@ namespace VL.Audio
     public class AnalogModelingFilterSignal : AudioSignal
     {
         SigParamAudio Input = new SigParamAudio("Input");
-        SigParamAudio Frequency = new SigParamAudio("Frequency");
+        SigParamAudio Frequency = new SigParamAudio("Cutoff");
         SigParamAudio Resonance = new SigParamAudio("Resonance");
         SigParamDiff<float> FrequencyOffset = new SigParamDiff<float>("Cutoff Offset");
         SigParamDiff<float> ResonanceOffset = new SigParamDiff<float>("Resonance Offset");

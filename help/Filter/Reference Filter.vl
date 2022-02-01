@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="Qzj0cwp3rDOLYY62LqpEsD" LanguageVersion="2021.4.5.764" Version="0.128">
-  <NugetDependency Id="TLm27rLgDRMOfshTd8FG5S" Location="VL.CoreLib" Version="2021.4.5" />
+<Document xmlns:p="property" Id="Qzj0cwp3rDOLYY62LqpEsD" LanguageVersion="2021.4.6.835" Version="0.128">
+  <NugetDependency Id="TLm27rLgDRMOfshTd8FG5S" Location="VL.CoreLib" Version="2021.4.6" />
   <Patch Id="ET5A39rC3G1LQ2XPOFRcj7">
     <Canvas Id="UeizUXMvVlOQaGOJsgEosP" DefaultCategory="Main" BordersChecked="false" CanvasType="FullCategory" />
     <!--
@@ -35,9 +35,9 @@
             <Pin Id="EHfh1F8mv9dPdtN89FBtKZ" Name="Can Seek" Kind="OutputPin" />
             <Pin Id="J8SY5HIlDWyOmRkochkjOQ" Name="Channels" Kind="OutputPin" />
             <Pin Id="R3aquqDaIjTM3xN4URQINs" Name="Sample Rate" Kind="OutputPin" />
-            <Pin Id="OveSPhbKxGML06uVvWrZUj" Name="Uncompressed Format" Kind="OutputPin" />
+            <Pin Id="SyxBO2F0yrpMxQw0UYmRKr" Name="Original Format" Kind="OutputPin" />
           </Node>
-          <Pad Id="AHz4oEomI3IObTl1sQMfgN" Comment="Filename" Bounds="207,295,140,15" ShowValueBox="true" isIOBox="true" Value="..\vvvv.mp3">
+          <Pad Id="AHz4oEomI3IObTl1sQMfgN" Comment="Filename" Bounds="206,295,140,15" ShowValueBox="true" isIOBox="true" Value="..\vvvv.mp3">
             <p:TypeAnnotation LastCategoryFullName="IO" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Path" />
             </p:TypeAnnotation>
@@ -55,15 +55,15 @@
               <Patch Id="BCMhXQGa8vqNeWKdlVw4z2" Name="Create" ManuallySortedPins="true" />
               <Patch Id="OWVbcrZfVVqLrxbXtvdshd" Name="Update" ManuallySortedPins="true" />
               <Patch Id="TCqLjnSjXWrM4OSwV0g3sF" Name="Dispose" ManuallySortedPins="true" />
-              <Node Bounds="205,645,165,19" Id="Pn6kaviZHuXO3RAp6pjQeI">
+              <Node Bounds="205,645,96,19" Id="Pn6kaviZHuXO3RAp6pjQeI">
                 <p:NodeReference LastCategoryFullName="Audio.Filter" LastSymbolSource="VL.Audio-Factory">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                   <Choice Kind="ProcessAppFlag" Name="Filter" />
                   <CategoryReference Kind="Category" Name="Filter" NeedsToBeDirectParent="true" />
                 </p:NodeReference>
-                <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">Low</p:HelpFocus>
+                <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
                 <Pin Id="SilMTykVrSsP0SGQG9mSU6" Name="Input" Kind="InputPin" />
-                <Pin Id="AJL70oCsRXsPRKE3mHEi3L" Name="Frequency" Kind="InputPin" />
+                <Pin Id="NkUxNEx5KTFNlVNDKMS966" Name="Cutoff" Kind="InputPin" />
                 <Pin Id="JQJc3tlunj3LQTI7YvvYqb" Name="Resonance" Kind="InputPin" />
                 <Pin Id="HBsT9ueik1KPiq6K7jmKG0" Name="Cutoff Offset" Kind="InputPin" />
                 <Pin Id="P2cu6uBjIadQS4c12ZNnLh" Name="Resonance Offset" Kind="InputPin" />
@@ -92,7 +92,7 @@
             </p:ValueBoxSettings>
           </Pad>
           <Pad Id="J3ApEGEcxOHOgDDCO6RHlQ" Comment="Position" Bounds="259,385,35,15" ShowValueBox="true" isIOBox="true" />
-          <Node Bounds="234,431,145,19" Id="TPwEIbBZOdkPL36m5Tg470">
+          <Node Bounds="225,415,145,19" Id="TPwEIbBZOdkPL36m5Tg470">
             <p:NodeReference LastCategoryFullName="Audio.Source" LastSymbolSource="VL.Audio-Factory">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessNode" Name="OSC" />
@@ -107,22 +107,22 @@
             <Pin Id="UUYGisShIQrLxHYrtNfU79" Name="Gain" Kind="InputPin" />
             <Pin Id="FeJn8vm8JUvO50OlPnHKMd" Name="Output" Kind="OutputPin" />
           </Node>
-          <Pad Id="Q7aH5nSu9XzLO3Vbm5vyTz" Comment="Cutoff Offset" Bounds="271,474,35,15" ShowValueBox="true" isIOBox="true" Value="0">
+          <Pad Id="Q7aH5nSu9XzLO3Vbm5vyTz" Comment="Cutoff Offset" Bounds="267,474,35,15" ShowValueBox="true" isIOBox="true" Value="0">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Float32" />
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="Jg5GszzHcZ5P1EFeGnk6Lq" Comment="Resonance Offset" Bounds="289,502,35,15" ShowValueBox="true" isIOBox="true" Value="0">
+          <Pad Id="Jg5GszzHcZ5P1EFeGnk6Lq" Comment="Resonance Offset" Bounds="287,494,35,15" ShowValueBox="true" isIOBox="true" Value="0">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Float32" />
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="OBajI94SLBMPAKSd9VvwXI" Comment="Pole Count" Bounds="309,526,35,15" ShowValueBox="true" isIOBox="true" Value="4">
+          <Pad Id="OBajI94SLBMPAKSd9VvwXI" Comment="Pole Count" Bounds="307,526,35,15" ShowValueBox="true" isIOBox="true" Value="4">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Integer32" />
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="U81D5fd3zzjOxM1VchKoi4" Comment="Filter Algorithm" Bounds="329,549,105,15" ShowValueBox="true" isIOBox="true" Value="MoogLadder">
+          <Pad Id="U81D5fd3zzjOxM1VchKoi4" Comment="Filter Algorithm" Bounds="327,549,105,15" ShowValueBox="true" isIOBox="true" Value="MoogLadder">
             <p:TypeAnnotation LastCategoryFullName="Audio" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="TypeFlag" Name="AnalogModelingFilterAlgorithm" />
             </p:TypeAnnotation>
@@ -132,7 +132,7 @@
               <Choice Kind="TypeFlag" Name="AnalogModelingFilterType" />
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="PqqMkVz6M7TMv3kemaCikH" Bounds="539,428,348,59" ShowValueBox="true" isIOBox="true" Value="Cutoff Offset is added on top of Frequency input?&#xD;&#xA;Resonance Offset is added on top of Resonance input?&#xD;&#xA;">
+          <Pad Id="PqqMkVz6M7TMv3kemaCikH" Bounds="446,471,337,43" ShowValueBox="true" isIOBox="true" Value="Cutoff Offset is added on top of the Cutoff input&#xD;&#xA;Resonance Offset is added on top of Resonance input&#xD;&#xA;">
             <p:TypeAnnotation>
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -141,16 +141,6 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Node Bounds="464,427" Id="Gb1CKvF2O9PQcsvDWt2WRx">
-            <p:NodeReference LastCategoryFullName="Audio.Utils" LastSymbolSource="VL.Audio.vl">
-              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-              <Choice Kind="ProcessAppFlag" Name="Lin2Freq" />
-            </p:NodeReference>
-            <Pin Id="IUk1Boydx8EM6uTPCk1lQH" Name="Input" Kind="InputPin" DefaultValue="1" />
-            <Pin Id="AJQJtZaxBfPQHov2YHTv41" Name="Center" Kind="InputPin" />
-            <Pin Id="QcC6hPYChD7MtWIwevJalP" Name="Output" Kind="OutputPin" />
-            <Pin Id="L06cTyfZuo9N6C80T0ZkiX" Name="Output Normalized" Kind="OutputPin" />
-          </Node>
         </Canvas>
         <Patch Id="Iql6YoywPFuM2FmfXQ3aiG" Name="Create" />
         <Patch Id="GfZ2HETUHimLlqHKatlsLL" Name="Update" />
@@ -170,10 +160,10 @@
         <Link Id="OYny1AXxwWQMsSw5WT5viy" Ids="OBajI94SLBMPAKSd9VvwXI,GNN3oMkRLN9MGrbfuY0jwC" />
         <Link Id="GGFK1p5dN7ANdE0uMgYHBj" Ids="U81D5fd3zzjOxM1VchKoi4,R0OuKTXQs3vLEnALwgzAYW" />
         <Link Id="OQEUjrDP96yOq70iqGV8kK" Ids="R3KmGw3jUQ8OQC7hd3xvkA,KTk2YOeMtYAM6ZRlqWDVRH" />
-        <Link Id="UlOXNAoFf4qOw4S3zrIQBL" Ids="QcC6hPYChD7MtWIwevJalP,Q7aH5nSu9XzLO3Vbm5vyTz" />
+        <Link Id="HsIfryCIoodPKiZWnnYPL1" Ids="FeJn8vm8JUvO50OlPnHKMd,NkUxNEx5KTFNlVNDKMS966" />
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="HvzMQdtRhliMLXQhNAF7T1" Location="VL.CoreLib" Version="2021.4.5" />
+  <NugetDependency Id="HvzMQdtRhliMLXQhNAF7T1" Location="VL.CoreLib" Version="2021.4.6" />
   <NugetDependency Id="Lyjw8dV97GgOuX1bgTxjOd" Location="VL.Audio" Version="0.0.0.0" />
 </Document>
