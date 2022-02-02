@@ -1,5 +1,7 @@
 ﻿
 using System;
+using System.Runtime.CompilerServices;
+using System.Threading;
 
 namespace VL.Audio
 {
@@ -11,8 +13,12 @@ namespace VL.Audio
         //constructor
         public WaveTableSignal()
         {
-            LUT = new float[1024];
+            tempLUT = new float[1024];
+            playingLUT = new float[1024];
             LUTBuffer = new float[1024];
+            FIndex = 1024;
+            newTableAvailable = true;
+            newTableCount = true;
         }
 
         double FFrequency;
@@ -29,25 +35,29 @@ namespace VL.Audio
             }
         }
 
-        private float Delta;
-
         private double FIndex;
 
-        private float[] LUT;
+        private float[] tempLUT;
+        private float[] playingLUT;
 
-        public float[] LUTBuffer 
+        public float[] LUTBuffer
         {
             get;
             set;
         }
 
-        //should be called from outside when new data present in the LUTBuffer
+        bool newTableAvailable;
+        bool newTableCount;
+        int tableCount;
+        double tableDelta;
+
+        // should be called from outside when new data present in the LUTBuffer
         public void SwapBuffers()
         {
-            var tmp = LUT;
-            LUT = LUTBuffer;
+            var tmp = tempLUT;
+            tempLUT = LUTBuffer;
 
-            //reuse old LUT if same size
+            // reuse old temp LUT if same size
             if (LUTBuffer.Length == tmp.Length)
             {
                 LUTBuffer = tmp;
@@ -55,32 +65,42 @@ namespace VL.Audio
             else
             {
                 LUTBuffer = new float[LUTBuffer.Length];
+                newTableCount = true;
             }
+
+            newTableAvailable = true;
         }
 
-        int i = 0;
-
         protected unsafe override void FillBuffer(float[] buffer, int offset, int count)
-        {
-            //capture LUT
-            var lutData = LUT;
-            var luts = lutData.Length;
-            var Delta = (float)(FFrequency * luts / WaveFormat.SampleRate);
-            fixed (float* lut = lutData) 
+        {         
+            for (int n = 0; n < count; n++)
             {
-                fixed (float* outBuff = buffer) 
+                if (FIndex >= tableCount)
                 {
-                    for (int n = 0; n < count; n++) 
-                    {
-                        if (FIndex >= luts) FIndex = 0;
+                    FIndex = 0;
 
-                        var index = (int)Math.Floor(FIndex);
+                    if (newTableCount)
+                    {
+                        tableCount = tempLUT.Length;
+                        tableDelta = (double)tableCount / WaveFormat.SampleRate;
                         
-                        outBuff[n + offset] = lut[index];
-                        FIndex = FIndex + Delta;
-                        i++;
+                        if (tableCount > 0)
+                            playingLUT = new float[tableCount];
+
+                        newTableCount = false;
+                    }
+
+                    if (newTableAvailable && tableCount > 0)
+                    {
+                        Array.Copy(tempLUT, playingLUT, tableCount);
+                        newTableAvailable = false;
                     }
                 }
+
+                var index = (int)Math.Floor(FIndex);
+                buffer[n + offset] = playingLUT[index];
+
+                FIndex += FFrequency * tableDelta;
             }
         }
     }
