@@ -30,8 +30,8 @@ namespace VL.Audio
 
     public class AudioBufferStereo
     {
-        private float[] FLeft;
-        private float[] FRight;
+        public float[] Left;
+        public float[] Right;
         internal int Size;
         internal int SampleRate;
         internal Time StartTime;
@@ -45,34 +45,34 @@ namespace VL.Audio
 
         public void PrepareBuffer(float[] left, float[] right, Time startTime)
         {
-            FLeft = left;
-            FRight = right;
+            Left = left;
+            Right = right;
             StartTime = startTime;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void SetLeftRight(int index, float left, float right)
         {
-            FLeft[index] = left;
-            FRight[index] = right;
+            Left[index] = left;
+            Right[index] = right;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void SetStereoSample(int index, StereoSample sample)
         {
-            FLeft[index] = sample.Left;
-            FRight[index] = sample.Right;
+            Left[index] = sample.Left;
+            Right[index] = sample.Right;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public StereoSample GetStereoSample(int index)
         {
-            return new StereoSample(FLeft[index], FRight[index]);
+            return new StereoSample(Left[index], Right[index]);
         }
 
         public AudioBufferStereo Clone()
         {
-            return new AudioBufferStereo() { FLeft = (float[])this.FLeft.Clone(), FRight = (float[])this.FRight.Clone() };
+            return new AudioBufferStereo() { Left = (float[])this.Left.Clone(), Right = (float[])this.Right.Clone() };
         }
     }
 

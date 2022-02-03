@@ -13,21 +13,14 @@ namespace VL.Audio
 {
     public class ValueSequence
     {
-        float[] FTimes;
-        float[] FValues;
+        readonly float[] FTimes;
+        readonly float[] FValues;
         readonly double FLength;
-        int FCount;
-        bool FIsBang;
-        
-        public int Count
-        {
-            get
-            {
-                return FCount;
-            }
-        }
-        
-        AudioEngine FEngine;
+        readonly int FCount;
+        readonly bool FIsBang;
+        readonly AudioEngine FEngine;
+        public int Count => FCount;
+
         public ValueSequence(float[] times, float[] values, double length, bool isBang, AudioEngine engine)
         {
             FTimes = times;
@@ -36,7 +29,7 @@ namespace VL.Audio
             FValues = new float[FCount];
             FIsBang = isBang;
             
-            for(int i=0; i<FCount; i++)
+            for (int i=0; i<FCount; i++)
             {
                 FValues[i] = values[i%values.Length];
             }
