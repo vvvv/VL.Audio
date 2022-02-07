@@ -6,29 +6,20 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <OutputPath>..\lib\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <OutputPath>..\lib\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FftSharp" Version="1.1.4" />
     <PackageReference Include="NAudio" Version="2.0.1" />
     <PackageReference Include="System.Management" Version="4.6.0" />
     <PackageReference Include="VL.Core" Version="2021.4.0" />
     <PackageReference Include="VL.Lang" Version="2021.4.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="VVVV.Audio.Core">
-      <HintPath>..\lib\net472\VVVV.Audio.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="VVVV.Audio.Signals">
-      <HintPath>..\lib\net472\VVVV.Audio.Signals.dll</HintPath>
-    </Reference>
-    <Reference Include="VVVV.Audio.VL">
-      <HintPath>..\lib\net472\VVVV.Audio.VL.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 </Project>

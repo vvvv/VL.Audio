@@ -65,7 +65,7 @@
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="VUaJ56xl0ASOOn56jwsugd" Bounds="50,266,354,549" ShowValueBox="true" isIOBox="true" Value="If you have any ASIO driver installed, vvvv will try to use it with default settings and you should already be able to use audio nodes without any further configuration.&#xD;&#xA;&#xD;&#xA;To make changes to the default settings, there are two ways to choose and configure a driver:&#xD;&#xA;&#xD;&#xA;1) Globally&#xD;&#xA;- Using the Extension: VL.Audio Configuration&#xD;&#xA;- Choose a driver and configure it&#xD;&#xA;- These settings will be saved in your AppData\vvvv\gamma\VL.Audio.Configuration.xml&#xD;&#xA;- This configuration is global to all your patches&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;2) Locally&#xD;&#xA;- This option is needed for exporting!&#xD;&#xA;- Use the DriverSettings node for configuration&#xD;&#xA;- The DriverSettings node is a singleton, meaning you should always only have one instance of it active! &#xD;&#xA;- In case you have multiple active, it is not defined, the settings of which instance will be the active ones!&#xD;&#xA;&#xD;&#xA;Also note that global and local configurations conflict with each other. Make sure to use only either of the two options!&#xD;&#xA;">
+          <Pad Id="VUaJ56xl0ASOOn56jwsugd" Bounds="50,371,365,527" ShowValueBox="true" isIOBox="true" Value="If you have any ASIO driver installed, vvvv will try to use it with default settings and you should already be able to use audio nodes without any further configuration.&#xD;&#xA;&#xD;&#xA;To make changes to the default settings, there are two ways to choose and configure a driver:&#xD;&#xA;&#xD;&#xA;1) Globally&#xD;&#xA;- Using the Extension: VL.Audio Configuration&#xD;&#xA;- Choose a driver and configure it&#xD;&#xA;- These settings will be saved in your AppData\vvvv\gamma\VL.Audio.Configuration.xml&#xD;&#xA;- This configuration is global to all your patches&#xD;&#xA;- Modifying the .xml manually requires a restart of vvvv for the changes to take effect.&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;2) Locally&#xD;&#xA;- This option is needed for exporting!&#xD;&#xA;- Use the DriverSettings node for configuration&#xD;&#xA;- The DriverSettings node is a singleton, meaning you  must always only have one instance of it active! &#xD;&#xA;- In case you have multiple active, it is not defined, the settings of which instance will be the active ones!&#xD;&#xA;&#xD;&#xA;Also note that global and local configurations conflict with each other. Make sure to use only either of the two options!">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -417,9 +417,9 @@
               <Choice Kind="ProcessAppFlag" Name="ValueSequence" />
             </p:NodeReference>
             <Pin Id="PDtOj4VLACYLEKnOynYh0H" Name="Length" Kind="InputPin" />
-            <Pin Id="EqLGKqAptbXQaezPuIrXFW" Name="Is Bang" Kind="InputPin" />
             <Pin Id="RZwDAqi3KavMwRWPQKlobS" Name="Positions" Kind="InputPin" />
             <Pin Id="VoGFKSBurucL4AangQDWXg" Name="Values" Kind="InputPin" />
+            <Pin Id="EqLGKqAptbXQaezPuIrXFW" Name="Is Bang" Kind="InputPin" />
             <Pin Id="Q3wJ1xgdHzhLAifn3193wc" Name="Output" Kind="OutputPin" />
             <Pin Id="L2EJr4NlfcgLXLBDQtqrtg" Name="Position" Kind="OutputPin" />
           </Node>
@@ -478,7 +478,7 @@
           <Pad Id="UtQsCP8XWNdL7IeE5eNNvK" Comment="Selected Driver" Bounds="502,799,66,15" ShowValueBox="true" isIOBox="true" />
           <Pad Id="L0sBxOmLVkyMywnm33Vfxz" Comment="Open Input Channels" Bounds="542,872,35,15" ShowValueBox="true" isIOBox="true" />
           <Pad Id="AqC1wiQ5DsVQPJ38cIlgAY" Comment="Open Output Channels" Bounds="582,928,35,15" ShowValueBox="true" isIOBox="true" />
-          <Pad Id="P3vOnE9Gc5wLVuTbIcaCrO" Bounds="50,234,184,25" ShowValueBox="true" isIOBox="true" Value="Driver Configuration">
+          <Pad Id="P3vOnE9Gc5wLVuTbIcaCrO" Bounds="50,339,184,25" ShowValueBox="true" isIOBox="true" Value="Driver Configuration">
             <p:TypeAnnotation>
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -487,7 +487,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="PdX5PI9UnNRPX6G3U4pVae" Bounds="50,117,320,80" ShowValueBox="true" isIOBox="true" Value="VL.Audio requires an ASIO driver to be installed. If your audio device doesn't come with a dedicated ASIO driver, you can get a generic one. For different options, see: ">
+          <Pad Id="PdX5PI9UnNRPX6G3U4pVae" Bounds="50,117,339,170" ShowValueBox="true" isIOBox="true" Value="If you have any ASIO driver installed, it will be used by default. Otherwise the system default WASAPI driver will be used. &#xD;&#xA;&#xD;&#xA;As of now, audio input is only available when using an ASIO driver!&#xD;&#xA;&#xD;&#xA;If your sound card doesn't ship with an ASIO driver, try a generic one, see:">
             <p:TypeAnnotation>
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -496,7 +496,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="LLxfdgwNCxCNqbUgFZhRIl" Bounds="50,197,367,19" ShowValueBox="true" isIOBox="true" Value="https://thegraybook.vvvv.org/reference/libraries/audio.html">
+          <Pad Id="LLxfdgwNCxCNqbUgFZhRIl" Bounds="50,287,367,19" ShowValueBox="true" isIOBox="true" Value="https://thegraybook.vvvv.org/reference/libraries/audio.html">
             <p:TypeAnnotation>
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -505,7 +505,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Link</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="H98kzSMoSQZOXBYO8lxuZL" Bounds="50,80,220,25" ShowValueBox="true" isIOBox="true" Value="Requirement: ASIO Driver">
+          <Pad Id="H98kzSMoSQZOXBYO8lxuZL" Bounds="50,80,220,25" ShowValueBox="true" isIOBox="true" Value="Audio drivers">
             <p:TypeAnnotation>
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -529,7 +529,7 @@
             <Pin Id="NHsxNYqK47QO9e3HWlh7cI" Name="Duration" Kind="OutputPin" />
             <Pin Id="RoEb3o5QAYjNL1118IKIeJ" Name="Channels" Kind="OutputPin" />
             <Pin Id="Omv8BW9WVeUMU1qRZwN0vy" Name="Sample Rate" Kind="OutputPin" />
-            <Pin Id="Bqq6Fd7zyHQLjMZDVdhzmv" Name="Uncompressed Format" Kind="OutputPin" />
+            <Pin Id="PK6mq4kJkykQR6kxKvJYLR" Name="Original Format" Kind="OutputPin" />
           </Node>
           <Node Bounds="729,526,70,19" Id="UoxKbkTk1I1MTOkDZytm2h">
             <p:NodeReference LastCategoryFullName="Audio.Utils" LastSymbolSource="VL.Audio.vl">
@@ -552,7 +552,6 @@
             <Pin Id="DihYOEgpJJ6OJxZ58rH6d8" Name="Gain Matrix" Kind="InputPin" />
             <Pin Id="MFtPGqCTuVyNGtWYpv1uz9" Name="Force" Kind="InputPin" />
             <Pin Id="IrEeO4QIBxeMjvOoTLlzjX" Name="Output" Kind="OutputPin" />
-            <Pin Id="Nw4xP3EImqdLky7M8p73sa" Name="Output 2" Kind="OutputPin" />
           </Node>
           <Pad Id="NUZRrzZ6CXKLkQeDStIYay" Bounds="475,383,99,26" ShowValueBox="true" isIOBox="true" Value="Buffer">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
@@ -655,6 +654,24 @@
             </p:TypeAnnotation>
             <p:ValueBoxSettings>
               <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="ToKp740AJ0MQXQy76dBgUz" Bounds="5,167,42,79" ShowValueBox="true" isIOBox="true" Value="! ">
+            <p:TypeAnnotation>
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">40</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="PbLenJ5yuH2PPm9PqbCmcA" Bounds="380,163,42,82" ShowValueBox="true" isIOBox="true" Value="! ">
+            <p:TypeAnnotation>
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">40</p:fontsize>
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>

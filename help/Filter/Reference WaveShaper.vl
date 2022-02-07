@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="GTYkr8MZXG6PqEBZlpmKjC" LanguageVersion="2021.4.5.764" Version="0.128">
-  <NugetDependency Id="TLm27rLgDRMOfshTd8FG5S" Location="VL.CoreLib" Version="2021.4.5" />
+<Document xmlns:p="property" Id="GTYkr8MZXG6PqEBZlpmKjC" LanguageVersion="2021.4.6.835" Version="0.128">
+  <NugetDependency Id="TLm27rLgDRMOfshTd8FG5S" Location="VL.CoreLib" Version="2021.4.6" />
   <Patch Id="ET5A39rC3G1LQ2XPOFRcj7">
     <Canvas Id="UeizUXMvVlOQaGOJsgEosP" DefaultCategory="Main" BordersChecked="false" CanvasType="FullCategory" />
     <!--
@@ -35,14 +35,14 @@
             <Pin Id="EHfh1F8mv9dPdtN89FBtKZ" Name="Can Seek" Kind="OutputPin" />
             <Pin Id="J8SY5HIlDWyOmRkochkjOQ" Name="Channels" Kind="OutputPin" />
             <Pin Id="R3aquqDaIjTM3xN4URQINs" Name="Sample Rate" Kind="OutputPin" />
-            <Pin Id="OveSPhbKxGML06uVvWrZUj" Name="Uncompressed Format" Kind="OutputPin" />
+            <Pin Id="KgoK6s4QjwaLbb7clQtL8x" Name="Original Format" Kind="OutputPin" />
           </Node>
           <Pad Id="AHz4oEomI3IObTl1sQMfgN" Comment="Filename" Bounds="207,295,140,15" ShowValueBox="true" isIOBox="true" Value="..\vvvv.mp3">
             <p:TypeAnnotation LastCategoryFullName="IO" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Path" />
             </p:TypeAnnotation>
           </Pad>
-          <Node Bounds="193,522,95,71" Id="Q7m6c9hrwisMRVS3BhS3W1">
+          <Node Bounds="193,522,95,72" Id="Q7m6c9hrwisMRVS3BhS3W1">
             <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.dll">
               <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
               <Choice Kind="ApplicationStatefulRegion" Name="ForEach" />
@@ -55,13 +55,13 @@
               <Patch Id="BCMhXQGa8vqNeWKdlVw4z2" Name="Create" ManuallySortedPins="true" />
               <Patch Id="OWVbcrZfVVqLrxbXtvdshd" Name="Update" ManuallySortedPins="true" />
               <Patch Id="TCqLjnSjXWrM4OSwV0g3sF" Name="Dispose" ManuallySortedPins="true" />
-              <Node Bounds="205,551,71,19" Id="Pn6kaviZHuXO3RAp6pjQeI">
+              <Node Bounds="205,548,71,19" Id="Pn6kaviZHuXO3RAp6pjQeI">
                 <p:NodeReference LastCategoryFullName="Audio.Filter" LastSymbolSource="VL.Audio-Factory">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                   <CategoryReference Kind="Category" Name="Filter" NeedsToBeDirectParent="true" />
                   <Choice Kind="ProcessNode" Name="WaveShaper" />
                 </p:NodeReference>
-                <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">Low</p:HelpFocus>
+                <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
                 <Pin Id="SilMTykVrSsP0SGQG9mSU6" Name="Input" Kind="InputPin" />
                 <Pin Id="P5j2jIjUY8QO9qpB9CD2rH" Name="Distortion" Kind="InputPin" />
                 <Pin Id="MeYtJfhSkNyPCe5OkwnNJc" Name="Curve" Kind="InputPin" />
@@ -106,16 +106,16 @@
         </ProcessDefinition>
         <Link Id="AE9DvveLPluNHeOolRMiSW" Ids="AHz4oEomI3IObTl1sQMfgN,HQqWtoQFjfiOAcgMT4ptbt" />
         <Link Id="LbHtu34vF17Ouu0vae7AVl" Ids="UO8IfKkhvUDLncHruQLUGB,BPYW9VnPddvOX741R59LNS" />
-        <Link Id="LIwZhw0fDNKPyyuiOLm9az" Ids="BPYW9VnPddvOX741R59LNS,SilMTykVrSsP0SGQG9mSU6" />
         <Link Id="JZOCKY31EUWMMWHB0RycDW" Ids="OY2pieYDUJkLARA9uvcrMu,D3RkI6Ldpp1MfgTJ2iRzVn" />
         <Link Id="MagqN67HpyOQKLFX0A6yrU" Ids="UqCn2n6JAcNNfTkHxlaBsr,F1elm1WLjBdOlrQKBp7d9S" />
         <Link Id="JFWueSVDqM8ORu7y2ytupB" Ids="NNA0yehunFTMB1Jt5Yqygr,J3ApEGEcxOHOgDDCO6RHlQ" />
         <Link Id="SpvQXnVrdpRNW8Gq4OBa4a" Ids="Kj7YpS4fzgvLAQRE2iok1d,OY2pieYDUJkLARA9uvcrMu" />
         <Link Id="Qte8E3UqzSOO5f0lNYPFM8" Ids="C8Q9zykcvdlQPmenyDg3uN,P5j2jIjUY8QO9qpB9CD2rH" />
         <Link Id="FoO3IeaB8MfMDsMvC549UM" Ids="Jqr0yzaw9xzP6Dt9Msjtdn,MeYtJfhSkNyPCe5OkwnNJc" />
+        <Link Id="Nf5nqRrvuOTLNGCUuObV81" Ids="BPYW9VnPddvOX741R59LNS,SilMTykVrSsP0SGQG9mSU6" />
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="HvzMQdtRhliMLXQhNAF7T1" Location="VL.CoreLib" Version="2021.4.5" />
+  <NugetDependency Id="HvzMQdtRhliMLXQhNAF7T1" Location="VL.CoreLib" Version="2021.4.6" />
   <NugetDependency Id="Lyjw8dV97GgOuX1bgTxjOd" Location="VL.Audio" Version="0.0.0.0" />
 </Document>
