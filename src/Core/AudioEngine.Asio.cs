@@ -55,10 +55,10 @@ namespace VL.Audio
                 this.AsioDevice.InitRecordAndPlayback(MasterWaveProvider, inputChannels, sampleRate);
 
                 //register for recording
-                FRecordBuffers = new float[AsioDevice.DriverInputChannelCount][];
-                for (int i = 0; i < FRecordBuffers.Length; i++)
+                recordingBuffers = new float[AsioDevice.DriverInputChannelCount][];
+                for (int i = 0; i < recordingBuffers.Length; i++)
                 {
-                    FRecordBuffers[i] = new float[512];
+                    recordingBuffers[i] = new float[512];
                 }
                 this.AsioDevice.AudioAvailable += AsioAudioAvailable;
 
@@ -88,18 +88,16 @@ namespace VL.Audio
                 return;
                 
             //create buffers if neccessary
-            if (FRecordBuffers[0].Length != e.SamplesPerBuffer)
+            if (recordingBuffers[0].Length != e.SamplesPerBuffer)
             {
-                for (int i = 0; i < FRecordBuffers.Length; i++)
+                for (int i = 0; i < recordingBuffers.Length; i++)
                 {
-                    FRecordBuffers[i] = new float[e.SamplesPerBuffer];
+                    recordingBuffers[i] = new float[e.SamplesPerBuffer];
                 }
             }
             
             //fill and convert buffers
-            GetInputBuffersAsio(FRecordBuffers, e);
-
-            SamplesCounter += e.SamplesPerBuffer;
+            GetInputBuffersAsio(recordingBuffers, e);
         }
 
         void AsioOut_DriverResetRequest(object sender, EventArgs e)
@@ -112,7 +110,7 @@ namespace VL.Audio
         /// Converts all the recorded audio into a buffer of 32 bit floating point samples
         /// </summary>
         /// <samples>The samples as 32 bit floating point, interleaved</samples>
-        public int GetInputBuffersAsio(float[][] samples, AsioAudioAvailableEventArgs e)
+        static int GetInputBuffersAsio(float[][] samples, AsioAudioAvailableEventArgs e)
         {
             int channels = e.InputBuffers.Length;
             unsafe
@@ -123,7 +121,7 @@ namespace VL.Audio
                     {
                         for (int n = 0; n < e.SamplesPerBuffer; n++)
                         {
-                            samples[ch][n] = *((int*)e.InputBuffers[ch] + n) / (float)Int32.MaxValue;
+                            samples[ch][n] = *((int*)e.InputBuffers[ch] + n) / (float)int.MaxValue;
                         }
                     }
                 }
@@ -133,7 +131,7 @@ namespace VL.Audio
                     {
                         for (int n = 0; n < e.SamplesPerBuffer; n++)
                         {
-                            samples[ch][n] = *((short*)e.InputBuffers[ch] + n) / (float)Int16.MaxValue;
+                            samples[ch][n] = *((short*)e.InputBuffers[ch] + n) / (float)short.MaxValue;
                         }
                     }
                 }

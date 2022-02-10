@@ -1,8 +1,4 @@
-﻿#region usings
-using System;
-
-
-#endregion usings
+﻿using System;
 
 namespace VL.Audio
 {
@@ -43,7 +39,7 @@ namespace VL.Audio
             
             set
             {
-                if(FSampleRate != value)
+                if (FSampleRate != value)
                 {
                     FSampleRate = value;
                     OnSampleRateChanged();

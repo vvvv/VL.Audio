@@ -31,6 +31,11 @@ namespace VL.Audio
         public int CurrentDesiredInputChannels = 2;
         public int CurrentDesiredOutputChannels = 2;
 
+        /// <summary>
+        /// The buffer number that is requested, can be used by signals to check whether the current buffer was filled already.
+        /// </summary>
+        public ulong BufferNumber;
+
         internal AudioEngine()
         {
             Settings = new AudioEngineSettings { SampleRate = 44100, BufferSize = 512 };
@@ -42,6 +47,26 @@ namespace VL.Audio
         private void OnStartedReading(int samples)
         {
             Settings.BufferSize = samples;
+            
+            //copy wasapi input buffer into recording buffer of correct size
+            if (RecordingRequestedStack.Count > 0 && WasapiDevice != null)
+            {
+                var channels = WasapiDevice.Input.WaveFormat.Channels;
+
+                //create buffers if neccessary
+                if (recordingBuffers[0].Length < samples)
+                {
+                    for (int i = 0; i < channels; i++)
+                    {
+                        recordingBuffers[i] = new float[samples];
+                    }
+                }
+
+                for (int i = 0; i < channels; i++)
+                {
+                    wasapiInputBuffers[i].ReadFromLastPosition(recordingBuffers[i], 0, samples);
+                }
+            }
         }
 
         public AudioEngineSettings Settings
@@ -50,22 +75,11 @@ namespace VL.Audio
             private set;
         }
         
-        private object FTimerLock = new Object();
+        private object FTimerLock = new object();
         public AudioEngineTimer Timer
         {
             get;
             private set;
-        }
-        
-        /// <summary>
-        /// the buffers from the audio input
-        /// </summary>
-        public float[][] InputBuffers
-        {
-            get
-            {
-                return FRecordBuffers;
-            }
         }
         
         private bool FPlay;
@@ -102,10 +116,7 @@ namespace VL.Audio
                 Timer.Progress(calledSamples);
             }
 
-            //reduce samples count if any input signal exists
-            if (RecordingRequestedStack.Count > 0 && SamplesCounter >= calledSamples)
-                SamplesCounter -= calledSamples;
-
+            BufferNumber++;
         }
 
         //add/remove outputs
@@ -227,9 +238,29 @@ namespace VL.Audio
             }
         }
 
+        /// <summary>
+        /// If this is true the engine driver should be reset
+        /// </summary>
+        public bool NeedsReset
+        {
+            get;
+            private set;
+        }
 
         //audio input
-        protected float[][] FRecordBuffers;
+        protected float[][] recordingBuffers;
+
+        /// <summary>
+        /// The buffers from the audio input
+        /// </summary>
+        public float[][] InputBuffers
+        {
+            get
+            {
+                return recordingBuffers;
+            }
+        }
+
         public Stack<object> RecordingRequestedStack = new Stack<object>();
         public int SamplesCounter = 0;
 
@@ -256,15 +287,8 @@ namespace VL.Audio
                 this.WasapiDevice.Dispose();
                 this.WasapiDevice = null;
             }
-        }
 
-        /// <summary>
-        /// If this is true the engine driver should be reset
-        /// </summary>
-        public bool NeedsReset
-        {
-            get;
-            private set;
+            CurrentDevice = null;
         }
     }
     

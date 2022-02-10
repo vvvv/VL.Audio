@@ -104,6 +104,7 @@ namespace VL.Audio
         /// Reads from this provider
         /// </summary>
         float[] FMixerBuffer = new float[1];
+        WaveBuffer wb = new WaveBuffer(1);
         
         //this gets called from the soundcard
         public int Read(byte[] buffer, int offset, int count)
@@ -113,7 +114,8 @@ namespace VL.Audio
 
             FReadingStarted?.Invoke(samplesNeeded);
 
-            WaveBuffer wb = new WaveBuffer(buffer);
+            wb.BindTo(buffer);
+            wb.ByteBufferCount = buffer.Length;
             
             //fix buffer size
             FMixerBuffer = BufferHelpers.Ensure(FMixerBuffer, samplesNeeded);

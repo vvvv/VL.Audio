@@ -11,50 +11,53 @@ using System.Diagnostics;
 
 using NAudio.Wave;
 using NAudio;
+using VL.Audio.Utils;
 
 namespace VL.Audio
 {
     
     /// <summary>
-    /// Simple wrapper around a float array
+    /// Simple circular wrapper around a float array
     /// </summary>
     public class CircularBufferWasapi
     {
-        int FSize;
-        float[] FBuffer;
-        
+        int size;
+        float[] buffer;
+        object bufferLock = new object();
+
         public CircularBufferWasapi(int size)
         {
             Size = size;
+            timer = Stopwatch.StartNew();
         }
         
         public int Size 
         {
             get 
             {
-                return FSize; 
+                return size; 
             }
             set 
             { 
-                if (FSize != value)
+                if (size != value)
                 {
-                    FBuffer = new float[value];
-                    FSize = value;
+                    buffer = new float[value];
+                    size = value;
                     FWritePosition = 0;
-                    FirstRead = true;
                 }
             }
         }
 
-        /// <summary>
-        /// Occurs when the internal buffer was filled completely, e.g. write position has wrapped around.
-        /// </summary>
-        public Action<float[]> BufferFilled;
-        
-        int FWritePosition;
-        int FReadPosition;
-        int FFloatCount;
-        public bool FirstRead = true;
+        // for debugging
+        public ulong WritePosTotal;
+        public ulong ReadPosTotal;
+        public int FWritePosition;
+        public int FReadPosition;
+        public int AvailableSamples;
+        Stopwatch timer;
+        TimeSpan lastWriteTime;
+        TimeSpan lastReadTime;
+        int lastWriteCount;
 
         /// <summary>
         /// Writes new data after the latest ones
@@ -64,57 +67,29 @@ namespace VL.Audio
         /// <param name="count"></param>
         public void Write(float[] data, int offset, int count)
         {
-            count = Math.Min(count, FBuffer.Length);
+            lastWriteTime = timer.Elapsed;
+            lastWriteCount = count;
+            count = Math.Min(count, buffer.Length);
             var samplesWritten = 0;
 
             // write to end
-            int writeToEnd = Math.Min(FBuffer.Length - FWritePosition, count);
-            Array.Copy(data, offset, FBuffer, FWritePosition, writeToEnd);
+            int writeToEnd = Math.Min(buffer.Length - FWritePosition, count);
+            Array.Copy(data, offset, buffer, FWritePosition, writeToEnd);
             FWritePosition += writeToEnd;
-            FWritePosition %= FBuffer.Length;
+            FWritePosition %= buffer.Length;
             samplesWritten += writeToEnd;
             if (samplesWritten < count)
             {
-                BufferFilled?.Invoke(FBuffer);
                 Debug.Assert(FWritePosition == 0);
                 // must have wrapped round. Write to start
-                Array.Copy(data, offset + samplesWritten, FBuffer, FWritePosition, count - samplesWritten);
+                Array.Copy(data, offset + samplesWritten, buffer, FWritePosition, count - samplesWritten);
                 FWritePosition += (count - samplesWritten);
                 samplesWritten = count;
             }
-            FFloatCount = Math.Min(FFloatCount + samplesWritten, FBuffer.Length);
+            AvailableSamples = AvailableSamples + samplesWritten;
+            WritePosTotal += (ulong)samplesWritten;
         }
-        
-        /// <summary>
-        /// Starts reading right after the last write position, which is the oldest value
-        /// </summary>
-        /// <param name="data"></param>
-        /// <param name="offset"></param>
-        /// <param name="count"></param>
-        public void Read(float[] data, int offset, int count)
-        {
-            var readPos = FWritePosition;
-            int samplesRead = 0;
-            int readToEnd = Math.Min(FBuffer.Length - readPos, count);
-            Array.Copy(FBuffer, readPos, data, offset, readToEnd);
-            samplesRead += readToEnd;
-            readPos += readToEnd;
-            readPos %= FBuffer.Length;
-
-            if (samplesRead < count)
-            {
-                // must have wrapped round. Read from start
-                Debug.Assert(readPos == 0);
-                Array.Copy(FBuffer, readPos, data, offset + samplesRead, count - samplesRead);
-                readPos += (count - samplesRead);
-                samplesRead = count;
-            }
-
-            FFloatCount -= samplesRead;
-            Debug.Assert(FFloatCount >= 0);
-
-        }
-
+       
         /// <summary>
         /// Starts reading where the last Read call left off, but will not read further than the most recent sample.
         /// Will pad with 0 if there are not enough samples available.
@@ -124,25 +99,38 @@ namespace VL.Audio
         /// <param name="count"></param>
         public void ReadFromLastPosition(float[] data, int offset, int count)
         {
+            var maxInOrOutBufferSize = (ulong)Math.Max(lastWriteCount, 2*count);
+            if (WritePosTotal < maxInOrOutBufferSize)
+                return;
+
+            var minRead = WritePosTotal - maxInOrOutBufferSize;
+            var maxRead = WritePosTotal - (ulong)count;
+
+            var readTotal = MathUtils.Clamp(ReadPosTotal, minRead, maxRead);
+
+            if (readTotal != ReadPosTotal)
+            {
+                FReadPosition = (int)(readTotal % (ulong)buffer.Length);
+                ReadPosTotal = readTotal;
+            }
+
             var readPosition = FReadPosition;
-            //if (FirstRead)
-            //    readPosition = AudioUtils.Zmod(FWritePosition - Math.Min(FFloatCount, count), FBuffer.Length);
 
             var samplesRequested = count;
-            count = Math.Min(samplesRequested, FFloatCount);
+            count = Math.Min(samplesRequested, AvailableSamples);
 
             int samplesRead = 0;
-            int readToEnd = Math.Min(FBuffer.Length - readPosition, count);
-            Array.Copy(FBuffer, readPosition, data, offset, readToEnd);
+            int readToEnd = Math.Min(buffer.Length - readPosition, count);
+            Array.Copy(buffer, readPosition, data, offset, readToEnd);
             samplesRead += readToEnd;
             readPosition += readToEnd;
-            readPosition %= FBuffer.Length;
+            readPosition %= buffer.Length;
 
             if (samplesRead < count)
             {
                 // must have wrapped round. Read from start
                 Debug.Assert(readPosition == 0);
-                Array.Copy(FBuffer, readPosition, data, offset + samplesRead, count - samplesRead);
+                Array.Copy(buffer, readPosition, data, offset + samplesRead, count - samplesRead);
                 readPosition += (count - samplesRead);
                 samplesRead = count;
             }
@@ -150,53 +138,16 @@ namespace VL.Audio
             if (samplesRequested > samplesRead)
             {
                 data.ReadSilence(samplesRead, samplesRequested - samplesRead);
+                FReadPosition = readPosition;
             }
             else
             {
                 FReadPosition = readPosition;
             }
 
-            FFloatCount -= samplesRead;
-            FirstRead = false;
-            Debug.Assert(FFloatCount >= 0);
-        }
-
-        /// <summary>
-        /// Starts reading right after the last write position, which is the oldest value
-        /// </summary>
-        /// <param name="data"></param>
-        /// <param name="offset"></param>
-        /// <param name="count"></param>
-        public void ReadDouble(double[] data, int offset, int count)
-        {
-            var readPos = FWritePosition;
-            for (int i = 0; i < count; i++) 
-            {
-                readPos++;
-                if(readPos >= FSize)
-                    readPos = 0;
-                
-                data[i+offset] = FBuffer[readPos];
-            }
-        }
-        
-        /// <summary>
-        /// Starts reading right after the last write position, which is the oldest value
-        /// </summary>
-        /// <param name="data"></param>
-        /// <param name="offset"></param>
-        /// <param name="count"></param>
-        public void ReadDoubleWindowed(double[] data, double[] window, int offset, int count)
-        {
-            var readPos = FWritePosition;
-            for (int i = 0; i < count; i++) 
-            {
-                readPos++;
-                if(readPos >= FSize)
-                    readPos = 0;
-                
-                data[i+offset] = FBuffer[readPos] * window[i+offset];
-            }
+            AvailableSamples -= samplesRead;
+            ReadPosTotal += (ulong)samplesRead;
+            Debug.Assert(AvailableSamples >= 0);
         }
     }
 }

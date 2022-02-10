@@ -150,7 +150,7 @@ namespace VL.Audio
             var deviceInfos = new List<string>();
             foreach (var ep in allEndpoints)
             {
-                var df = ep.DataFlow.ToString();
+                var df = ep.DataFlow == DataFlow.Render ? "Output" : "Input";
                 var sr = ep.AudioClient.MixFormat.SampleRate / 1000.0f;
                 var defaultName = ep.DataFlow == DataFlow.Render ? defaultRender : defaultCapture;
                 var def = ep.FriendlyName == defaultName ? " (System Default)" : "";

@@ -62,15 +62,18 @@ namespace VL.Audio
                 MasterWaveProvider.WaveFormat = WaveFormat.CreateIeeeFloatWaveFormat(sampleRate, outputChannels);
 
                 //register for recording
-                FRecordBuffers = new float[WasapiDevice.DriverInputChannelCount][];
-                FWasapiInputBuffers.Clear();
-                for (int i = 0; i < FRecordBuffers.Length; i++)
+                recordingBuffers = new float[WasapiDevice.DriverInputChannelCount][];
+                tempInputBuffers = new float[WasapiDevice.DriverInputChannelCount][];
+                wasapiInputBuffers.Clear();
+                for (int i = 0; i < recordingBuffers.Length; i++)
                 {
-                    FRecordBuffers[i] = new float[1];
-                    FWasapiInputBuffers.Add(new CircularBufferWasapi(3));
+                    recordingBuffers[i] = new float[1];
+                    tempInputBuffers[i] = new float[1];
+                    wasapiInputBuffers.Add(new CircularBufferWasapi(3));
 
                 }
                 WasapiDevice.Input.DataAvailable += WasapiAudioAvailable;
+                
 
                 Settings.SampleRate = sampleRate;
                 Timer.SampleRate = sampleRate;
@@ -142,42 +145,38 @@ namespace VL.Audio
             }
         }
 
-        public List<CircularBufferWasapi> FWasapiInputBuffers = new List<CircularBufferWasapi>();
+        float[][] tempInputBuffers;
+        public List<CircularBufferWasapi> wasapiInputBuffers = new List<CircularBufferWasapi>();
+
         private void WasapiAudioAvailable(object sender, WaveInEventArgs e)
         {
             if (RecordingRequestedStack.Count <= 0)
-                return;
-
+                return; // no input needed
 
             var bytes = e.BytesRecorded;
             var bytesPerSample = WasapiDevice.Input.WaveFormat.BitsPerSample / 8;
             var channels = WasapiDevice.Input.WaveFormat.Channels;
             var samples = bytes / (channels * bytesPerSample);
 
-            ////only push samples if queue not too long
-            //if (SamplesCounter > samples * 3)
-            //    return;
-
-            if (FRecordBuffers[0].Length < samples)
+            if (tempInputBuffers[0].Length < samples)
             {
-                for (int i = 0; i < FRecordBuffers.Length; i++)
+                for (int i = 0; i < channels; i++)
                 {
-                    FRecordBuffers[i] = new float[samples];
-                    FWasapiInputBuffers[i] = new CircularBufferWasapi(samples * 3);
+                    tempInputBuffers[i] = new float[samples];
+                    wasapiInputBuffers[i] = new CircularBufferWasapi(16384);
                 }
             }
 
             //fill and convert buffers
-            GetInputBuffersWasapi(FRecordBuffers, samples, e);
+            GetInputBuffersWasapi(tempInputBuffers, samples, e);
 
-            for (int i = 0; i < FRecordBuffers.Length; i++)
+            for (int i = 0; i < channels; i++)
             {
-                FWasapiInputBuffers[i].Write(FRecordBuffers[i], 0, samples);
+                wasapiInputBuffers[i].Write(tempInputBuffers[i], 0, samples);
             }
-
-            SamplesCounter += samples;
         }
 
+        WaveBuffer inputWaveBuffer = new WaveBuffer(1);
         public int GetInputBuffersWasapi(float[][] samples, int sampleCount, WaveInEventArgs e)
         {
             int channels = WasapiDevice.DriverInputChannelCount;
@@ -220,7 +219,8 @@ namespace VL.Audio
                 //else
                 if (WasapiDevice.Input.WaveFormat.BitsPerSample == 32 && WasapiDevice.Input.WaveFormat.Encoding == WaveFormatEncoding.IeeeFloat)
                 {
-                    var floatBuffer = new WaveBuffer(e.Buffer).FloatBuffer;
+                    inputWaveBuffer.BindTo(e.Buffer);
+                    var floatBuffer = inputWaveBuffer.FloatBuffer;
                     for (int ch = 0; ch < channels; ch++)
                     {
                         for (int n = 0; n < sampleCount; n++)

@@ -54,15 +54,19 @@ namespace VL.Audio
 
         public string GetDefaultDriver()
         {
-            var inputDevice = Instance;
+            var outputDeviceEnum = Instance;
 
             //order of selection
-            //prefer any asio device
-            var defaultName = inputDevice.Entries.FirstOrDefault(e => e.StartsWith(AudioEngine.ASIOPrefix));
+            //prefer system default device
+            var defaultName = outputDeviceEnum.Entries.FirstOrDefault(e => e == AudioEngine.WasapiPrefix + AudioEngine.WasapiSystemDevice);
 
-            //prefer system default WASAPI
+            //prefer first available WASAPI output
             if (defaultName == null)
-                defaultName = inputDevice.Entries.FirstOrDefault(e => e == AudioEngine.WasapiPrefix + AudioEngine.WasapiSystemDevice);
+                defaultName = outputDeviceEnum.Entries.FirstOrDefault(e => e.StartsWith(AudioEngine.WasapiPrefix));
+
+            //prefer first available ASIO output
+            if (defaultName == null)
+                defaultName = outputDeviceEnum.Entries.FirstOrDefault(e => e.StartsWith(AudioEngine.ASIOPrefix));
 
             return defaultName;
         }
@@ -71,6 +75,8 @@ namespace VL.Audio
     [Serializable]
     public class WasapiInputDevice : DynamicEnumBase<WasapiInputDevice, WasapiInputDeviceDefinition>
     {
+        public const string DefaultEntry = "Default";
+
         public WasapiInputDevice(string value) : base(value)
         {
         }
@@ -79,14 +85,12 @@ namespace VL.Audio
         public static WasapiInputDevice CreateDefault()
         {
             //use method of base class if nothing special required
-            return CreateDefaultBase("Default");
+            return CreateDefaultBase(DefaultEntry);
         }
     }
 
     public class WasapiInputDeviceDefinition : DynamicEnumDefinitionBase<WasapiInputDeviceDefinition>
     {
-        const string defaultEntry = "Default";
-
         protected override IObservable<object> GetEntriesChangedObservable()
         {
             return HardwareChangedEvents.HardwareChanged;
@@ -97,7 +101,7 @@ namespace VL.Audio
             var driverNames = new Dictionary<string, object>();
 
             // Add a default entry which makes it up to the system to select a device
-            driverNames[defaultEntry] = null;
+            driverNames[WasapiInputDevice.DefaultEntry] = null;
 
             if (AudioService.WasapiInputDevices.Count > 0)
             {
@@ -109,19 +113,24 @@ namespace VL.Audio
                 }
             }
             else
-                driverNames["No WASAPI Input Device Found! -> Check Your Drivers. See https://thegraybook.vvvv.org/reference/libraries/audio.html for options!"] = null;
+                driverNames["No WASAPI Input Device Found!"] = null;
 
             return driverNames;
         }
 
         public string GetDefaultDriver()
         {
-            var inputDevice = Instance;
-            var defaultName = AudioEngine.WasapiSystemDevice;
-            if (AudioService.OutputDrivers.Count > 0)
-                defaultName = AudioService.WasapiInputDevices[AudioService.WasapiInputDevicesDefaultIndex];
+            var inputDeviceEnum = Instance;
 
-            return inputDevice.Entries.FirstOrDefault(e => e.StartsWith(defaultName)) ?? inputDevice.Entries.First(e => e != defaultEntry);
+            //order of selection
+            //prefer system default device
+            var defaultName = inputDeviceEnum.Entries.FirstOrDefault(e => e == AudioEngine.WasapiSystemDevice);
+
+            //prefer first available
+            if (defaultName == null)
+                defaultName = inputDeviceEnum.Entries.FirstOrDefault();
+
+            return defaultName;
         }
     }
 }

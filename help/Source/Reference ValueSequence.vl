@@ -15,7 +15,7 @@
       </p:NodeReference>
       <Patch Id="I8M8PlFBVzqPy77U62eL4B">
         <Canvas Id="D3DqRTITLBcMUpEPJREElP" CanvasType="Group">
-          <Node Bounds="510,941,60,19" Id="IarIOKFuf8lP8TYSAmqMtV">
+          <Node Bounds="524,909,60,19" Id="IarIOKFuf8lP8TYSAmqMtV">
             <p:NodeReference LastCategoryFullName="Audio.Sink" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="AudioOut" />
@@ -37,16 +37,6 @@
             <Pin Id="L740pUSa3BdPv2VeXDqBKa" Name="Values" Kind="InputPin" />
             <Pin Id="PKAjful7ybFM2zHObme2xb" Name="Output" Kind="OutputPin" />
             <Pin Id="TMXqOxRymwwOsx0SBwET2m" Name="Position" Kind="OutputPin" />
-          </Node>
-          <Node Bounds="510,909,39,19" Id="U1POTB1PAX7Mwze7PRAzCZ">
-            <p:NodeReference LastCategoryFullName="Collections.Spread" LastSymbolSource="VL.Collections.vl">
-              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-              <Choice Kind="OperationCallFlag" Name="Cons" />
-              <CategoryReference Kind="RecordType" Name="Spread" NeedsToBeDirectParent="true" />
-            </p:NodeReference>
-            <Pin Id="V50EaDycMj6MTTLPX5mZ2E" Name="Input" Kind="InputPin" />
-            <Pin Id="CtXacytY2XRPSFRE1Yyz0q" Name="Input 2" Kind="InputPin" />
-            <Pin Id="OLh6EDfzoXlOABiTebrTNI" Name="Result" Kind="OutputPin" />
           </Node>
           <Pad Id="UmUR97gRRhsOrzCDt1ItC3" Comment="Length" Bounds="854,200,31,17" ShowValueBox="true" isIOBox="true" Value="2">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
@@ -420,16 +410,7 @@
               <Choice Kind="TypeFlag" Name="Integer32" />
             </p:TypeAnnotation>
           </Pad>
-          <Node Bounds="524,865,37,19" Id="OrFd84tbJjxLoeJT3mXBA1">
-            <p:NodeReference LastCategoryFullName="Audio.Utils" LastSymbolSource="VL.Audio.vl">
-              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-              <Choice Kind="ProcessAppFlag" Name="Gain" />
-            </p:NodeReference>
-            <Pin Id="KrMRZJYtp1cLvAULdYSyLK" Name="Input" Kind="InputPin" />
-            <Pin Id="JZV44g4ZXROOh3eqBtUybO" Name="Gain" Kind="InputPin" />
-            <Pin Id="VZ0pk7jhSPTNPIXwdPq6t5" Name="Output" Kind="OutputPin" />
-          </Node>
-          <Pad Id="TlBIjJnxV7eNkbBnYFXBu6" Comment="Gain" Bounds="624,849,35,15" ShowValueBox="true" isIOBox="true" Value="1">
+          <Pad Id="TlBIjJnxV7eNkbBnYFXBu6" Comment="Gain" Bounds="610,852,35,15" ShowValueBox="true" isIOBox="true" Value="0.65">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Float32" />
             </p:TypeAnnotation>
@@ -517,6 +498,15 @@
               <Choice Kind="TypeFlag" Name="Integer32" />
             </p:TypeAnnotation>
           </Pad>
+          <Node Bounds="524,875,57,19" Id="DWGQ64JkQ17MU9s9IgoSS3">
+            <p:NodeReference LastCategoryFullName="Audio.Utils" LastSymbolSource="VL.Audio.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="ToStereo" />
+            </p:NodeReference>
+            <Pin Id="S6orlg0fYDjLkE2xhmmBeF" Name="Input" Kind="InputPin" />
+            <Pin Id="Hee58g8E3aCMPrVL38gI2W" Name="Gain" Kind="InputPin" />
+            <Pin Id="Aj0vGD1xvuDNWFdosSknLG" Name="Output" Kind="OutputPin" />
+          </Node>
         </Canvas>
         <Patch Id="Iql6YoywPFuM2FmfXQ3aiG" Name="Create" />
         <Patch Id="GfZ2HETUHimLlqHKatlsLL" Name="Update" />
@@ -524,7 +514,6 @@
           <Fragment Id="VaaBbmU4IZSQDBQEh65irc" Patch="Iql6YoywPFuM2FmfXQ3aiG" Enabled="true" />
           <Fragment Id="UTu6W201LsiPmViwtZBkoZ" Patch="GfZ2HETUHimLlqHKatlsLL" Enabled="true" />
         </ProcessDefinition>
-        <Link Id="Sshp7SZAE0VOercZnIESrL" Ids="OLh6EDfzoXlOABiTebrTNI,D3RkI6Ldpp1MfgTJ2iRzVn" />
         <Link Id="BpnuM7ZMTySM5MsxX2JpCg" Ids="UmUR97gRRhsOrzCDt1ItC3,OVIhgdSM6C9OkZFzwfx02W" />
         <Link Id="Sn4JZjJYBZLMNa1rE6b2QU" Ids="UmUR97gRRhsOrzCDt1ItC3,AbN605wp5HfMa3ubvHf5bh,SEHd4pQxwsLPqTihKvP38x" />
         <Link Id="LnbYA92I6tBPHEOtCdmQ6q" Ids="EDRZMo8ukDnM5FCpC6Oa8S,DBLRIohPqW4OIZfP0c3Ho3" />
@@ -569,12 +558,8 @@
         <Link Id="LCIlkO9uf8jM7ekOUqdWSJ" Ids="FaUFJ9LIsY8LkgB4HgZh5r,K4Oj0qDgGTgL2NE27zrZG3" />
         <Link Id="QDYDSkbfJ9tLadiuBVFTjL" Ids="RK2pdyQZWh1LU4aM0XwMPa,LqNVOoFUx5CP1andVkm2L5" />
         <Link Id="UrUK0cFfpkROB6BKNl22ro" Ids="BJ2TqY8gURcNKmJq9dWNFc,QbS9Be5nXKgOPPqAnIaqdy" />
-        <Link Id="JFYvzxJthWjOrkxMKnB3eK" Ids="VZ0pk7jhSPTNPIXwdPq6t5,CtXacytY2XRPSFRE1Yyz0q" />
-        <Link Id="NBt0hmVx86AN3yKzLNy8fO" Ids="VZ0pk7jhSPTNPIXwdPq6t5,V50EaDycMj6MTTLPX5mZ2E" />
-        <Link Id="BoaCb0nXCqdOPFFOlwMsot" Ids="TlBIjJnxV7eNkbBnYFXBu6,JZV44g4ZXROOh3eqBtUybO" />
         <Link Id="JbEGZrnO1npMaBmtnzOpDc" Ids="HKiATo6ikSIPfg2Orf9dtX,IgWgTFtezGIMOvJ5nzPH85" />
         <Link Id="SzNSa6RhWwJNeEMu2sxaIK" Ids="FWpJ7BXmxhgNm6iVNHfjkt,R3B7mMcG6NmOIoe5HGFnWA" />
-        <Link Id="UdQLBc9Tpl2MPpVPMQuw48" Ids="J5dKS2QoqddOXqrCQZfEKG,KrMRZJYtp1cLvAULdYSyLK" />
         <Link Id="TqGOiYWwSfXOnhXtApMkh8" Ids="Gx5sUiwcyK7L4ootltYoJe,Gqzy2so55GxPclikw3SMlQ" />
         <Link Id="HZCVzF8Mx30L7BeX3Ziov3" Ids="Gx5sUiwcyK7L4ootltYoJe,QSfXBktkPhbNiLfp5EDSSA,Jz6tiVkbXVTLwgy71E3ZEL" />
         <Link Id="L8GuvFI3yTFPnwwoZy4aB1" Ids="Bigq4gcnulYPcfc7IK394q,AUNiBHUPJtPO7JBsI3BWdI" />
@@ -587,6 +572,9 @@
         <Link Id="QCC0WgJ3yEvOgyyldhEerY" Ids="MzHL3hodYRVPqipR2zY7Va,BNfyWdaHiB2MgLKe7fkTlB" />
         <Link Id="DmULTalULSWLl9Ej6lIc4Z" Ids="L5XYcpz6L5VLXhAwuXFnxY,Ki2bRxeI32cNfKcU1pt4u5" />
         <Link Id="DP3fqtYBhMINMB99vpirxV" Ids="MzHL3hodYRVPqipR2zY7Va,DxOe1Q0zJA8PsbQdzQX0Sb" />
+        <Link Id="MrhO4G0OVDnMucDIiHTNW4" Ids="J5dKS2QoqddOXqrCQZfEKG,S6orlg0fYDjLkE2xhmmBeF" />
+        <Link Id="CwvaHm1v5W6O4Nh8iefOVh" Ids="Aj0vGD1xvuDNWFdosSknLG,D3RkI6Ldpp1MfgTJ2iRzVn" />
+        <Link Id="ROo07trMBTzPghJPXk8r0y" Ids="TlBIjJnxV7eNkbBnYFXBu6,Hee58g8E3aCMPrVL38gI2W" />
       </Patch>
     </Node>
   </Patch>
