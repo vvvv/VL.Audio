@@ -65,7 +65,6 @@ namespace VL.Audio
                 Settings.SampleRate = sampleRate;
                 Settings.BufferSize = AsioDevice.FramesPerBuffer;
                 Timer.SampleRate = sampleRate;
-                Timer.FillBeatBuffer(AsioDevice.FramesPerBuffer);
 
                 this.AsioDevice.DriverResetRequest += AsioOut_DriverResetRequest;
 

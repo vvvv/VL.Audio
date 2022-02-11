@@ -47,7 +47,12 @@ namespace VL.Audio
         private void OnStartedReading(int samples)
         {
             Settings.BufferSize = samples;
-            
+
+            //lock(FTimerLock) //needed?
+            {
+                Timer.Progress(samples);
+            }
+
             //copy wasapi input buffer into recording buffer of correct size
             if (RecordingRequestedStack.Count > 0 && WasapiDevice != null)
             {
@@ -110,11 +115,6 @@ namespace VL.Audio
         protected void OnFinishedReading(int calledSamples)
         {
             FinishedReading?.Invoke(this, new EventArgs());
-
-            //lock(FTimerLock) //needed?
-            {
-                Timer.Progress(calledSamples);
-            }
 
             BufferNumber++;
         }
