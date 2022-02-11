@@ -15,7 +15,7 @@
       </p:NodeReference>
       <Patch Id="I8M8PlFBVzqPy77U62eL4B">
         <Canvas Id="D3DqRTITLBcMUpEPJREElP" CanvasType="Group">
-          <Node Bounds="204,332,165,19" Id="JN9EWhbdfwLL1RpE2hFt4E">
+          <Node Bounds="204,308,165,19" Id="JN9EWhbdfwLL1RpE2hFt4E">
             <p:NodeReference LastCategoryFullName="Audio.Source" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="AudioPlayer" />
@@ -26,7 +26,7 @@
             <Pin Id="U2h0Zlar5CFLVyjISdwAx1" Name="Loop End Time" Kind="InputPin" />
             <Pin Id="HQYqAT6QSmMLps4nhtJODY" Name="Seek Time" Kind="InputPin" />
             <Pin Id="Ql4lwf1N6P1PpPAEvWABKc" Name="Do Seek" Kind="InputPin" />
-            <Pin Id="PT1jrJxfHMIPwxzd9XS7IN" Name="Volume" Kind="InputPin" />
+            <Pin Id="PT1jrJxfHMIPwxzd9XS7IN" Name="Volume" Kind="InputPin" DefaultValue="0.8" />
             <Pin Id="TwBK7udyhrfQEovJDuBjOS" Name="Speed" Kind="InputPin" />
             <Pin Id="F1elm1WLjBdOlrQKBp7d9S" Name="Play" Kind="InputPin" />
             <Pin Id="UO8IfKkhvUDLncHruQLUGB" Name="Output" Kind="OutputPin" />
@@ -37,7 +37,7 @@
             <Pin Id="R3aquqDaIjTM3xN4URQINs" Name="Sample Rate" Kind="OutputPin" />
             <Pin Id="SyxBO2F0yrpMxQw0UYmRKr" Name="Original Format" Kind="OutputPin" />
           </Node>
-          <Pad Id="AHz4oEomI3IObTl1sQMfgN" Comment="Filename" Bounds="206,295,140,15" ShowValueBox="true" isIOBox="true" Value="..\vvvv.mp3">
+          <Pad Id="AHz4oEomI3IObTl1sQMfgN" Comment="Filename" Bounds="205,253,140,15" ShowValueBox="true" isIOBox="true" Value="..\vvvv.mp3">
             <p:TypeAnnotation LastCategoryFullName="IO" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Path" />
             </p:TypeAnnotation>
@@ -82,7 +82,7 @@
             <Pin Id="D3RkI6Ldpp1MfgTJ2iRzVn" Name="Input" Kind="InputPin" />
             <Pin Id="VQt3yQr9EF4NsxYs2sQS1E" Name="Channel Offset" Kind="InputPin" />
           </Node>
-          <Pad Id="UqCn2n6JAcNNfTkHxlaBsr" Comment="Play" Bounds="415,300,35,35" ShowValueBox="true" isIOBox="true" Value="True">
+          <Pad Id="UqCn2n6JAcNNfTkHxlaBsr" Comment="Play" Bounds="415,276,35,35" ShowValueBox="true" isIOBox="true" Value="True">
             <p:TypeAnnotation>
               <Choice Kind="TypeFlag" Name="Boolean" />
               <FullNameCategoryReference ID="Primitive" />
@@ -91,28 +91,13 @@
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="J3ApEGEcxOHOgDDCO6RHlQ" Comment="Position" Bounds="259,385,35,15" ShowValueBox="true" isIOBox="true" />
-          <Node Bounds="225,415,145,19" Id="TPwEIbBZOdkPL36m5Tg470">
-            <p:NodeReference LastCategoryFullName="Audio.Source" LastSymbolSource="VL.Audio-Factory">
-              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-              <Choice Kind="ProcessNode" Name="OSC" />
-            </p:NodeReference>
-            <Pin Id="TVIrN76RjykNNJIidgxAjD" Name="Frequency" Kind="InputPin" />
-            <Pin Id="LYtexTeYjgCOaBOzyDAzSP" Name="Frequency Offset" Kind="InputPin" />
-            <Pin Id="EZrPfA2CCLFPc4VTWKj9ar" Name="Waveform" Kind="InputPin" />
-            <Pin Id="DgKyeqNj8JrMlabfsN5nsj" Name="Symmetry" Kind="InputPin" />
-            <Pin Id="BI5TkKl0c1YOcL8G8chtbo" Name="Anti-Aliasing Method" Kind="InputPin" />
-            <Pin Id="Ogxo34vGSGLQP4mj23z065" Name="FM" Kind="InputPin" />
-            <Pin Id="PiXQcoPMECsMj1u98wGTUF" Name="FM Level" Kind="InputPin" />
-            <Pin Id="UUYGisShIQrLxHYrtNfU79" Name="Gain" Kind="InputPin" />
-            <Pin Id="FeJn8vm8JUvO50OlPnHKMd" Name="Output" Kind="OutputPin" />
-          </Node>
-          <Pad Id="Q7aH5nSu9XzLO3Vbm5vyTz" Comment="Cutoff Offset" Bounds="267,474,35,15" ShowValueBox="true" isIOBox="true" Value="0">
+          <Pad Id="J3ApEGEcxOHOgDDCO6RHlQ" Comment="Position" Bounds="259,361,35,15" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="Q7aH5nSu9XzLO3Vbm5vyTz" Comment="Cutoff Offset" Bounds="267,474,58,13" ShowValueBox="true" isIOBox="true" Value="2000">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Float32" />
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="Jg5GszzHcZ5P1EFeGnk6Lq" Comment="Resonance Offset" Bounds="287,494,35,15" ShowValueBox="true" isIOBox="true" Value="0">
+          <Pad Id="Jg5GszzHcZ5P1EFeGnk6Lq" Comment="Resonance Offset" Bounds="287,501,35,15" ShowValueBox="true" isIOBox="true" Value="0.88">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Float32" />
             </p:TypeAnnotation>
@@ -141,6 +126,21 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
+          <Node Bounds="265,437,56,19" Id="L349Mqj2kD5LrWjiDAuGmo">
+            <p:NodeReference LastCategoryFullName="Audio.Utils" LastSymbolSource="VL.Audio.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="Lin2Freq" />
+            </p:NodeReference>
+            <Pin Id="KFs9zdwG75XM0rERWbS4PU" Name="Input" Kind="InputPin" />
+            <Pin Id="V36dG5jBPMhNUpjn3Sb3zA" Name="Center" Kind="InputPin" />
+            <Pin Id="ERlDa8yfTeVLwhoHCA6E9K" Name="Output" Kind="OutputPin" />
+            <Pin Id="CTZubbkAZJUPc5WmqfUOzK" Name="Output Normalized" Kind="OutputPin" />
+          </Node>
+          <Pad Id="LpgufaAXs48Nq1p70VHl2F" Comment="Drag here" Bounds="328,411,35,15" ShowValueBox="true" isIOBox="true" Value="1.3">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="Float32" />
+            </p:TypeAnnotation>
+          </Pad>
         </Canvas>
         <Patch Id="Iql6YoywPFuM2FmfXQ3aiG" Name="Create" />
         <Patch Id="GfZ2HETUHimLlqHKatlsLL" Name="Update" />
@@ -160,7 +160,8 @@
         <Link Id="OYny1AXxwWQMsSw5WT5viy" Ids="OBajI94SLBMPAKSd9VvwXI,GNN3oMkRLN9MGrbfuY0jwC" />
         <Link Id="GGFK1p5dN7ANdE0uMgYHBj" Ids="U81D5fd3zzjOxM1VchKoi4,R0OuKTXQs3vLEnALwgzAYW" />
         <Link Id="OQEUjrDP96yOq70iqGV8kK" Ids="R3KmGw3jUQ8OQC7hd3xvkA,KTk2YOeMtYAM6ZRlqWDVRH" />
-        <Link Id="HsIfryCIoodPKiZWnnYPL1" Ids="FeJn8vm8JUvO50OlPnHKMd,NkUxNEx5KTFNlVNDKMS966" />
+        <Link Id="DqvHOKIBChFPeVYCrqAm1l" Ids="ERlDa8yfTeVLwhoHCA6E9K,Q7aH5nSu9XzLO3Vbm5vyTz" />
+        <Link Id="IlJbQwdIEuDNJCV75QJ7AF" Ids="LpgufaAXs48Nq1p70VHl2F,KFs9zdwG75XM0rERWbS4PU" />
       </Patch>
     </Node>
   </Patch>

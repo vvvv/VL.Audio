@@ -19,6 +19,12 @@ namespace VL.Audio.Utils
             return Min(Max(x, minTemp), maxTemp);
         }
 
+        public static ulong Clamp(ulong x, ulong min, ulong max)
+        {
+            var r = x < min ? min : x;
+            return r > max ? max : r;
+        }
+
         /// <summary>
         /// Clamp function, clamps a floating point value into the range [min..max]
         /// </summary>

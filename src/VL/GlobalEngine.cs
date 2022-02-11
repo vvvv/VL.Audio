@@ -34,7 +34,7 @@ namespace VL.Audio
         {
             //define some absolut baseline defaults for when there is no settings file yet
             var selectedDriver = defaultEntry;
-            var wasapiInput = defaultEntry;
+            var selectedWasapiInput = defaultEntry;
             var selectedSamplerate = 48000;
             var selectedInputCount = 2;
             var selectedInputOffset = 0;
@@ -57,7 +57,7 @@ namespace VL.Audio
 
                 node = doc.DocumentElement.SelectSingleNode("/Settings/WasapiInput/Name");
                 if (node != null)
-                    wasapiInput = node.InnerText;
+                    selectedWasapiInput = node.InnerText;
 
                 node = doc.DocumentElement.SelectSingleNode("/Settings/Driver/SampleRate");
                 if (node != null)
@@ -96,26 +96,11 @@ namespace VL.Audio
                     float.TryParse(node.InnerText, out selectedLoopEndBeat);
             }
 
-            var drivers = AudioDeviceDefinition.Instance;
-            var wasapiInputs = WasapiInputDeviceDefinition.Instance;
-
-            //make sure selected driver is currently available
-            if (!drivers.Entries.Contains(selectedDriver))
-                selectedDriver = defaultEntry;
-
-            if (!wasapiInputs.Entries.Contains(wasapiInput))
-                wasapiInput = defaultEntry;
-
-            //if "Default" is selected, make an actual choice
-            if (selectedDriver == defaultEntry)
-                selectedDriver = drivers.GetDefaultDriver();
-
-            if (wasapiInput == defaultEntry)
-                wasapiInput = wasapiInputs.GetDefaultDriver();
+            Engine.ValidateSelections(ref selectedDriver, ref selectedWasapiInput);
 
             try
             {
-                Engine.PreviewDriver(selectedDriver, wasapiInput);
+                Engine.PreviewDriver(selectedDriver, selectedWasapiInput);
                 var sampleRates = AudioSampleRateDefinition.Instance.Entries.ToList();
                 
                 // select one and only sample rate for wasapi
@@ -127,7 +112,7 @@ namespace VL.Audio
                     Engine.GetSupportedChannels(out var inputChannelCount, out var outputChannelCount);
                     selectedInputCount = Math.Min(inputChannelCount, selectedInputOffset + selectedInputCount);
                     selectedOutputCount = Math.Min(outputChannelCount, selectedOutputOffset + selectedOutputCount);
-                    Engine.ChangeDriverSettings(selectedDriver, wasapiInput, selectedSamplerate, selectedInputCount, selectedInputOffset, selectedOutputCount, selectedOutputOffset);
+                    Engine.ChangeDriverSettings(selectedDriver, selectedWasapiInput, selectedSamplerate, selectedInputCount, selectedInputOffset, selectedOutputCount, selectedOutputOffset);
 
                     Engine.Timer.BPM = selectedTempo;
                     Engine.Timer.Loop = selectedLoop;

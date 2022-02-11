@@ -1,6 +1,5 @@
-﻿#region usings
-using System;
-#endregion
+﻿using System;
+
 namespace VL.Audio
 {
     public class AudioInSignal : AudioSignal
@@ -13,21 +12,12 @@ namespace VL.Audio
         {
             FEngine = engine;
             FIndex = index;
-            FEngine.RecordingRequestedStack.Push(this);
+            FEngine.RecordingRequestedStack.Push(new object());
         }
 
         protected override void FillBuffer(float[] buffer, int offset, int count)
         {
-            //Asio case:
-            if (FEngine.AsioDevice != null)
-            {
-                Array.Copy(FEngine.InputBuffers[FIndex], offset, buffer, offset, count);
-            }
-            else
-            {
-                if (FEngine.SamplesCounter > count)
-                    FEngine.FWasapiInputBuffers[FIndex].ReadFromLastPosition(buffer, offset, count);
-            }
+            Array.Copy(FEngine.InputBuffers[FIndex], offset, buffer, offset, count);
         }
 
         public override void Dispose()

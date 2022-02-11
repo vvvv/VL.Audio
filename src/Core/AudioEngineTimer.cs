@@ -15,11 +15,12 @@ namespace VL.Audio
         }
         
         protected double[] FBeatBuffer = new double[1];
+
         public void Progress(int samplesCount)
         {
             FSamplePosition += samplesCount;
             
-            if(Loop && FLoopSampleLength > 0)
+            if (Loop && FLoopSampleLength > 0)
             {
                 while(FSamplePosition >= (FLoopStartSample + FLoopSampleLength))
                 {
@@ -31,7 +32,6 @@ namespace VL.Audio
             FBeat = FTime * FTimeToBPM;
             
             FillBeatBuffer(samplesCount);
-            
         }
         
         public void FillBeatBuffer(int samplesCount)
