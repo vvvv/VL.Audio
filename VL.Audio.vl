@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="HTX4axw4uH5NDghqAqpe1F" LanguageVersion="2021.4.7.854" Version="0.128">
-  <NugetDependency Id="NrtwmMKDemaOAGHoKxrmNR" Location="VL.CoreLib" Version="2021.4.7-0854-g6e27633250" />
+<Document xmlns:p="property" Id="HTX4axw4uH5NDghqAqpe1F" LanguageVersion="2021.4.6.835" Version="0.128">
+  <NugetDependency Id="NrtwmMKDemaOAGHoKxrmNR" Location="VL.CoreLib" Version="2021.4.6" />
   <Patch Id="Mj1seFpSbg5MtaCXVBGhJf">
     <Canvas Id="ClqUpgLjNRdQbB5ajAF1ry" DefaultCategory="Audio" CanvasType="FullCategory">
       <!--
@@ -475,12 +475,6 @@
           <Link Id="Mr6xPXSDnumM1XdQyzUeya" Ids="FRd3ZgRXKhQQD7NXiG8zvk,PNuyr30ge8tLhDvVsvy7VS" />
           <Patch Id="EYPw05jZfOfPkEqKDlMPpv" Name="Create" />
           <Patch Id="DGCULFc9hX9MZzP7mk3AGw" Name="Update" ManuallySortedPins="true">
-            <Pin Id="BNdlRj0FMjqL6ptN7H1Y5t" Name="Selected Driver" Kind="OutputPin" Bounds="480,766" />
-            <Pin Id="PH1WsL8xIysPITbmQ6ztQ8" Name="Buffer Size" Kind="OutputPin" Bounds="336,614" />
-            <Pin Id="O8gJaqW7ZbSPZLTw7x8gKo" Name="Available Input Channels" Kind="OutputPin" Bounds="498,680" />
-            <Pin Id="V1UDU9BYpOMLW9AkvUBCtt" Name="Open Input Channels" Kind="OutputPin" Bounds="826,629" />
-            <Pin Id="HJwSwF60CHuN0oKhuLIVRN" Name="Available Output Channels" Kind="OutputPin" Bounds="662,659" />
-            <Pin Id="BZnnqMrwGCIPqMP4tEKbrY" Name="Open Output Channels" Kind="OutputPin" Bounds="991,627" />
             <Pin Id="OIZMnYAYmfwPyexJoeBhnp" Name="Driver" Kind="InputPin" DefaultValue="Default">
               <p:TypeAnnotation LastCategoryFullName="Audio" LastSymbolSource="VL.Audio.vl">
                 <Choice Kind="TypeFlag" Name="AudioDevice" />
@@ -489,6 +483,11 @@
             <Pin Id="MJ6XIiMlqkJNed56FtfXcn" Name="Sample Rate" Kind="InputPin" Bounds="356,220" DefaultValue="48000">
               <p:TypeAnnotation LastCategoryFullName="Audio" LastSymbolSource="VL.Audio.vl">
                 <Choice Kind="TypeFlag" Name="AudioSampleRate" />
+              </p:TypeAnnotation>
+            </Pin>
+            <Pin Id="KpQ4wPRd958OJG20SoD5Vu" Name="Wasapi Input" Kind="InputPin">
+              <p:TypeAnnotation>
+                <Choice Kind="TypeFlag" Name="WasapiInputDevice" />
               </p:TypeAnnotation>
             </Pin>
             <Pin Id="VBSUPzjICH2N2LPW1NlCWm" Name="Desired Input Channels" Kind="InputPin" Bounds="517,375" DefaultValue="2">
@@ -507,11 +506,12 @@
                 <Choice Kind="TypeFlag" Name="Boolean" />
               </p:TypeAnnotation>
             </Pin>
-            <Pin Id="KpQ4wPRd958OJG20SoD5Vu" Name="Wasapi Input" Kind="InputPin">
-              <p:TypeAnnotation>
-                <Choice Kind="TypeFlag" Name="WasapiInputDevice" />
-              </p:TypeAnnotation>
-            </Pin>
+            <Pin Id="BNdlRj0FMjqL6ptN7H1Y5t" Name="Selected Driver" Kind="OutputPin" Bounds="480,766" />
+            <Pin Id="PH1WsL8xIysPITbmQ6ztQ8" Name="Buffer Size" Kind="OutputPin" Bounds="336,614" />
+            <Pin Id="O8gJaqW7ZbSPZLTw7x8gKo" Name="Available Input Channels" Kind="OutputPin" Bounds="498,680" />
+            <Pin Id="V1UDU9BYpOMLW9AkvUBCtt" Name="Open Input Channels" Kind="OutputPin" Bounds="826,629" />
+            <Pin Id="HJwSwF60CHuN0oKhuLIVRN" Name="Available Output Channels" Kind="OutputPin" Bounds="662,659" />
+            <Pin Id="BZnnqMrwGCIPqMP4tEKbrY" Name="Open Output Channels" Kind="OutputPin" Bounds="991,627" />
           </Patch>
           <Patch Id="HzGrHZJW2rEOwTLtYpQJFP" Name="Dispose" />
           <Link Id="Je79nDgqXaKMkGNp6nJX6H" Ids="LtRhtL7D7zLMmuufSqJKML,IxG8AnPO0PvPuGsYq9Xhlb" />
@@ -17261,19 +17261,19 @@
             <Link Id="GpiIp02NxkQQQdYc1iGSar" Ids="GSlKZqhpm9hOsPu7aDdJjA,QwNKN48WZnaOiDcRjvtBcm" />
             <Link Id="R5pVipkXqJRN8cJZ26DYkC" Ids="QwNKN48WZnaOiDcRjvtBcm,FSkhvFjsAkkNMFc4BRTYnU" IsHidden="true" />
             <Patch Id="JROulGqcgKbLe19nRCIwnW" Name="Create" />
-            <Patch Id="DMB5mNkYh5ZL1oaO5qIFre" Name="Update">
+            <Patch Id="DMB5mNkYh5ZL1oaO5qIFre" Name="Update" ManuallySortedPins="true">
               <Pin Id="Ndhqq2HDxejMbUb0tyFiUb" Name="Is Playing" Kind="OutputPin" Bounds="295,1144" />
-              <Pin Id="NokzjVb1gVPM0UYMt1EGvd" Name="Is ASIO" Kind="OutputPin" Bounds="349,777" />
-              <Pin Id="HydJFbf9ypiQNFZyi4XWOc" Name="ASIO Output Channel Offset" Kind="OutputPin" Bounds="395,926" />
-              <Pin Id="L4nH0mL6DnwLgIXyN28pbM" Name="ASIO Input Channel Offset" Kind="OutputPin" Bounds="505,925" />
-              <Pin Id="ApKUDkbt01VOdlG0AWuOxC" Name="Sample Rate" Kind="OutputPin" Bounds="373,1183" />
-              <Pin Id="FSkhvFjsAkkNMFc4BRTYnU" Name="Selected WASAPI Input Device" Kind="OutputPin" Bounds="311,1223" />
-              <Pin Id="HNnBvILZxFlOm7ZobULUqE" Name="Buffer Size" Kind="OutputPin" Bounds="336,614" />
               <Pin Id="AOw9kEmdNr3P06sidJLknq" Name="Selected Driver" Kind="OutputPin" Bounds="480,766" />
+              <Pin Id="ApKUDkbt01VOdlG0AWuOxC" Name="Sample Rate" Kind="OutputPin" Bounds="373,1183" />
+              <Pin Id="HNnBvILZxFlOm7ZobULUqE" Name="Buffer Size" Kind="OutputPin" Bounds="336,614" />
+              <Pin Id="FSkhvFjsAkkNMFc4BRTYnU" Name="Selected WASAPI Input Device" Kind="OutputPin" Bounds="311,1223" />
               <Pin Id="GgGXwpSDq2jQDOLzUnoN01" Name="Available Input Channels" Kind="OutputPin" Bounds="498,680" />
-              <Pin Id="INA73ij0ldiPVDj4wwNoWK" Name="Available Output Channels" Kind="OutputPin" Bounds="662,659" />
               <Pin Id="Eo2AMmw9hisNzy1KiYZow9" Name="Open Input Channels" Kind="OutputPin" Bounds="826,629" />
+              <Pin Id="INA73ij0ldiPVDj4wwNoWK" Name="Available Output Channels" Kind="OutputPin" Bounds="662,659" />
               <Pin Id="MuNBPIZEJaqPqEqcYQoMr6" Name="Open Output Channels" Kind="OutputPin" Bounds="991,627" />
+              <Pin Id="NokzjVb1gVPM0UYMt1EGvd" Name="Is ASIO" Kind="OutputPin" Bounds="349,777" />
+              <Pin Id="L4nH0mL6DnwLgIXyN28pbM" Name="ASIO Input Channel Offset" Kind="OutputPin" Bounds="505,925" />
+              <Pin Id="HydJFbf9ypiQNFZyi4XWOc" Name="ASIO Output Channel Offset" Kind="OutputPin" Bounds="395,926" />
             </Patch>
           </Patch>
         </Node>
@@ -18056,7 +18056,7 @@
   <NugetDependency Id="FdfszSdTJWQMuCe0eM4QeQ" Location="NAudio" Version="2.0.1" />
   <NugetDependency Id="V37AuJ2ryAbNsol8TzkZ5q" Location="NAudio.Asio" Version="2.0.0" />
   <NugetDependency Id="KJThfL79XZ7QOdgfpy6yJ5" Location="NAudio.Core" Version="2.0.0" />
-  <NugetDependency Id="Vm7aBcJKKNAL9MZxDnrPDX" Location="VL.Skia" Version="2021.4.7-0854-g6e27633250" />
+  <NugetDependency Id="Vm7aBcJKKNAL9MZxDnrPDX" Location="VL.Skia" Version="2021.4.6" />
   <PlatformDependency Id="Qp3HZOkgG5cQcuE59UUe1j" Location="System.IO" />
   <PlatformDependency Id="CCaadwXbjs6P0MKKXnqSCL" Location="System.IO.FileSystem" />
   <NugetDependency Id="VSw4d6QSmJYMnkyboVSRG9" Location="NAudio.Wasapi" Version="2.0.0" />
