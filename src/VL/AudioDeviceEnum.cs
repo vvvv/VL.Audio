@@ -4,6 +4,7 @@ using VL.Lib;
 using VL.Lib.Collections;
 using NAudio.Wave;
 using System.Linq;
+using VL.Core.CompilerServices;
 
 namespace VL.Audio
 {
@@ -15,7 +16,7 @@ namespace VL.Audio
         {
         }
 
-        //this method needs to be imported in VL to set the default
+        [CreateDefault]
         public static AudioDevice CreateDefault()
         {
             //use method of base class if nothing special required
@@ -81,7 +82,7 @@ namespace VL.Audio
         {
         }
 
-        //this method needs to be imported in VL to set the default
+        [CreateDefault]
         public static WasapiInputDevice CreateDefault()
         {
             //use method of base class if nothing special required
