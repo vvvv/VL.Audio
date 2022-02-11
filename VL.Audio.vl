@@ -17162,7 +17162,7 @@
                 <Pin Id="CEMsXuGq8qbLhI59qFYk0f" Name="Result" Kind="OutputPin" />
                 <Pin Id="CHgzyeApEqaNsBxOAsm5F0" Name="Not Assigned" Kind="OutputPin" />
               </Node>
-              <Node Bounds="156,1092,148,136" Id="J7PYKyVLwaLLWW8XojASWs">
+              <Node Bounds="168,1097,167,116" Id="J7PYKyVLwaLLWW8XojASWs">
                 <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.dll">
                   <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
                   <Choice Kind="ApplicationStatefulRegion" Name="If" />
@@ -17172,8 +17172,29 @@
                 <Patch Id="AbE3hgPnyMbM4Bf8UGNb6w" ManuallySortedPins="true">
                   <Patch Id="ARWMEmxnEyALteyxpOp7dc" Name="Create" ManuallySortedPins="true" />
                   <Patch Id="Oa5emINQVlzN7vqqd561qQ" Name="Then" ManuallySortedPins="true" />
+                  <Node Bounds="180,1120,71,26" Id="MgR4XvjwwxdL6YdsgSFNJB">
+                    <p:NodeReference LastCategoryFullName="VL.Audio.WasapiInOut" LastSymbolSource="VL.Audio.dll">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <Choice Kind="OperationCallFlag" Name="MMInDevice" />
+                    </p:NodeReference>
+                    <Pin Id="LfV93cEBvnnLl8LZC39CQG" Name="Input" Kind="StateInputPin" />
+                    <Pin Id="JCbMLqoVGLtPS2bMrXZlxC" Name="Output" Kind="StateOutputPin" />
+                    <Pin Id="FPHfTsjPPW6Miv7v4OOO0h" Name="MMIn Device" Kind="OutputPin" />
+                  </Node>
+                  <Node Bounds="245,1159,78,26" Id="TC55Dd0U6EqOSbacmadMZf">
+                    <p:NodeReference LastCategoryFullName="NAudio.CoreAudioApi.MMDevice" LastSymbolSource="NAudio.Wasapi.dll">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <Choice Kind="OperationCallFlag" Name="FriendlyName" />
+                    </p:NodeReference>
+                    <Pin Id="RJNZzuE8mYANiHzDKOQDaa" Name="Input" Kind="StateInputPin" />
+                    <Pin Id="OxhIyFh9eLiN4rRVVnBk6W" Name="Output" Kind="StateOutputPin" />
+                    <Pin Id="KGpSxXQSRZiPwQoNA15s5z" Name="Friendly Name" Kind="OutputPin" />
+                  </Node>
                 </Patch>
+                <ControlPoint Id="GSlKZqhpm9hOsPu7aDdJjA" Bounds="318,1207" Alignment="Bottom" />
+                <ControlPoint Id="Dx28Qw9nmhgOKNuXj98q7m" Bounds="310,1104" Alignment="Top" />
               </Node>
+              <ControlPoint Id="QwNKN48WZnaOiDcRjvtBcm" Bounds="321,1233" />
             </Canvas>
             <ProcessDefinition Id="VbPG6G7AnuYMCJZYH26Lq6">
               <Fragment Id="AP4ql1msvH2MHJzsPzb6A0" Patch="JROulGqcgKbLe19nRCIwnW" Enabled="true" />
@@ -17233,6 +17254,12 @@
             <Link Id="Eb1zWwE8BUSOkKJ33ni4sx" Ids="QpprK5ouVc4OcRh9fE6ghE,JsSWAAHLijyOeXvPIbCCeL" />
             <Link Id="HknXws2usGzMBYA3mOg86j" Ids="TZwzORGva6NObo8XanZ1DK,Isb5ctOHe67PuNWkt0ffLB" />
             <Link Id="I5JUfYVoftVPtXYr0TcLK1" Ids="K7yxnGDIKPLM5GTJRt0diz,BifBOpxymNmL0FNuLqr8dr" />
+            <Link Id="Gj6fng6QcKLOYGbUjnGoLo" Ids="QDMKo0lakLKNcb5fIQ4Dlw,LfV93cEBvnnLl8LZC39CQG" />
+            <Link Id="NMaxdfg2122PyElf3m0k99" Ids="FPHfTsjPPW6Miv7v4OOO0h,RJNZzuE8mYANiHzDKOQDaa" />
+            <Link Id="UrpFCurcy3XPIgvGTUFuqV" Ids="Dx28Qw9nmhgOKNuXj98q7m,GSlKZqhpm9hOsPu7aDdJjA" IsFeedback="true" />
+            <Link Id="TlsaROed3YrNGsOS6FEs6C" Ids="KGpSxXQSRZiPwQoNA15s5z,GSlKZqhpm9hOsPu7aDdJjA" />
+            <Link Id="GpiIp02NxkQQQdYc1iGSar" Ids="GSlKZqhpm9hOsPu7aDdJjA,QwNKN48WZnaOiDcRjvtBcm" />
+            <Link Id="R5pVipkXqJRN8cJZ26DYkC" Ids="QwNKN48WZnaOiDcRjvtBcm,FSkhvFjsAkkNMFc4BRTYnU" IsHidden="true" />
             <Patch Id="JROulGqcgKbLe19nRCIwnW" Name="Create" />
             <Patch Id="DMB5mNkYh5ZL1oaO5qIFre" Name="Update">
               <Pin Id="Ndhqq2HDxejMbUb0tyFiUb" Name="Is Playing" Kind="OutputPin" Bounds="295,1144" />
@@ -17240,6 +17267,7 @@
               <Pin Id="HydJFbf9ypiQNFZyi4XWOc" Name="ASIO Output Channel Offset" Kind="OutputPin" Bounds="395,926" />
               <Pin Id="L4nH0mL6DnwLgIXyN28pbM" Name="ASIO Input Channel Offset" Kind="OutputPin" Bounds="505,925" />
               <Pin Id="ApKUDkbt01VOdlG0AWuOxC" Name="Sample Rate" Kind="OutputPin" Bounds="373,1183" />
+              <Pin Id="FSkhvFjsAkkNMFc4BRTYnU" Name="Selected WASAPI Input Device" Kind="OutputPin" Bounds="311,1223" />
               <Pin Id="HNnBvILZxFlOm7ZobULUqE" Name="Buffer Size" Kind="OutputPin" Bounds="336,614" />
               <Pin Id="AOw9kEmdNr3P06sidJLknq" Name="Selected Driver" Kind="OutputPin" Bounds="480,766" />
               <Pin Id="GgGXwpSDq2jQDOLzUnoN01" Name="Available Input Channels" Kind="OutputPin" Bounds="498,680" />
@@ -18031,4 +18059,5 @@
   <NugetDependency Id="Vm7aBcJKKNAL9MZxDnrPDX" Location="VL.Skia" Version="2021.4.7-0854-g6e27633250" />
   <PlatformDependency Id="Qp3HZOkgG5cQcuE59UUe1j" Location="System.IO" />
   <PlatformDependency Id="CCaadwXbjs6P0MKKXnqSCL" Location="System.IO.FileSystem" />
+  <NugetDependency Id="VSw4d6QSmJYMnkyboVSRG9" Location="NAudio.Wasapi" Version="2.0.0" />
 </Document>
