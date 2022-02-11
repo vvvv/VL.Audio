@@ -69,7 +69,7 @@ namespace VL.Audio
                 {
                     recordingBuffers[i] = new float[1];
                     tempInputBuffers[i] = new float[1];
-                    wasapiInputBuffers.Add(new CircularBufferWasapi(3));
+                    wasapiInputBuffers.Add(new CircularBufferWasapi(16384));
 
                 }
                 WasapiDevice.Input.DataAvailable += WasapiAudioAvailable;
