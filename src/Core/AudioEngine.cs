@@ -28,6 +28,7 @@ namespace VL.Audio
         public const string WasapiLoopbackPrefix = "Loopback: ";
         
         public string CurrentDriverName = WasapiPrefix + WasapiSystemDevice;
+        public string CurrentWasapiInputName = WasapiPrefix + WasapiSystemDevice;
         public int CurrentDesiredInputChannels = 2;
         public int CurrentDesiredOutputChannels = 2;
 
@@ -154,26 +155,77 @@ namespace VL.Audio
         public IObservable<string> DriverSettingsChanged => SettingsChanged;
         private Subject<string> SettingsChanged = new Subject<string>();
 
+        private string FLastError;
+        /// <summary>
+        /// Shows the last error (if any) that happened when changing driver settings
+        /// </summary>
+        public string LastError => FLastError;
+
+        private bool FDriverIsDefaultSelection;
+        /// <summary>
+        /// Whether or not the current driver is chosen by the engine because the "Default" driver was requested
+        /// </summary>
+        public bool DriverIsDefaultSelection => FDriverIsDefaultSelection;
+
+        private bool FWasapiInputIsDefaultSelection;
+        /// <summary>
+        /// Whether or not the current wasapi input is chosen by the engine because the "Default" input was requested
+        /// </summary>
+        public bool WasapiInputIsDefaultSelection => FWasapiInputIsDefaultSelection;
+
+        public void ValidateSelections(ref string driverName, ref string wasapiRecordingName)
+        {
+            var drivers = AudioDeviceDefinition.Instance;
+            var wasapiInputs = WasapiInputDeviceDefinition.Instance;
+
+            //make sure selected driver is currently available
+            if (!drivers.Entries.Contains(driverName))
+                driverName = AudioDevice.DefaultEntry;
+
+            if (!wasapiInputs.Entries.Contains(wasapiRecordingName))
+                wasapiRecordingName = WasapiInputDevice.DefaultEntry;
+
+            //if "Default" is selected, make an actual choice
+            FDriverIsDefaultSelection = driverName == AudioDevice.DefaultEntry;
+            if (FDriverIsDefaultSelection)
+                driverName = drivers.GetDefaultDriver();
+
+            FWasapiInputIsDefaultSelection = wasapiRecordingName == WasapiInputDevice.DefaultEntry;
+            if (FWasapiInputIsDefaultSelection)
+                wasapiRecordingName = wasapiInputs.GetDefaultDriver();
+        }
+
         /// <summary>
         /// Initialize the driver in order to be able to read its SampleRate options
         /// </summary>
         /// <param name="driverName"></param>
         /// <param name="wasapiRecordingName"></param>
-        public void PreviewDriver(string driverName, string wasapiRecordingName = null)
+        public void PreviewDriver(string driverName, string wasapiRecordingName)
         {
-            if (driverName.StartsWith(WasapiPrefix))
+            FLastError = "";
+
+            ValidateSelections(ref driverName, ref wasapiRecordingName);
+
+            try
             {
-                driverName = driverName.Replace(WasapiPrefix, "");
+                if (driverName.StartsWith(WasapiPrefix))
+                {
+                    driverName = driverName.Replace(WasapiPrefix, "");
 
-                if (string.IsNullOrWhiteSpace(wasapiRecordingName))
-                    wasapiRecordingName = WasapiSystemDevice;
+                    if (string.IsNullOrWhiteSpace(wasapiRecordingName))
+                        wasapiRecordingName = WasapiSystemDevice;
 
-                PreviewWASAPIDriver(driverName, wasapiRecordingName);
+                    PreviewWASAPIDriver(driverName, wasapiRecordingName);
+                }
+                else
+                {
+                    driverName = driverName.Replace(ASIOPrefix, "");
+                    PreviewASIODriver(driverName);
+                }
             }
-            else
+            catch (Exception e)
             {
-                driverName = driverName.Replace(ASIOPrefix, "");
-                PreviewASIODriver(driverName);
+                FLastError = e.Message;
             }
         }
 
@@ -192,19 +244,30 @@ namespace VL.Audio
             CurrentDesiredInputChannels = inputChannels;
             CurrentDesiredOutputChannels = outputChannels;
 
-            if (driverName.StartsWith(WasapiPrefix))
+            FLastError = "";
+
+            ValidateSelections(ref driverName, ref wasapiRecordingName);
+
+            try
             {
-                driverName = driverName.Replace(WasapiPrefix, "");
+                if (driverName.StartsWith(WasapiPrefix))
+                {
+                    driverName = driverName.Replace(WasapiPrefix, "");
 
-                if (string.IsNullOrWhiteSpace(wasapiRecordingName))
-                    wasapiRecordingName = WasapiSystemDevice;
+                    if (string.IsNullOrWhiteSpace(wasapiRecordingName))
+                        wasapiRecordingName = WasapiSystemDevice;
 
-                ChangeWASAPIDriverSettings(driverName, wasapiRecordingName, sampleRate, inputChannels, inputChannelOffset, outputChannels, outputChannelOffset);
+                    ChangeWASAPIDriverSettings(driverName, wasapiRecordingName, sampleRate, inputChannels, inputChannelOffset, outputChannels, outputChannelOffset);
+                }
+                else
+                {
+                    driverName = driverName.Replace(ASIOPrefix, "");
+                    ChangeASIODriverSettings(driverName, sampleRate, inputChannels, inputChannelOffset, outputChannels, outputChannelOffset);
+                }
             }
-            else
+            catch (Exception e)
             {
-                driverName = driverName.Replace(ASIOPrefix, "");
-                ChangeASIODriverSettings(driverName, sampleRate, inputChannels, inputChannelOffset, outputChannels, outputChannelOffset);
+                FLastError = e.Message;
             }
         }
 
