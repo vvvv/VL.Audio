@@ -319,14 +319,6 @@
           <Link Id="Mr6xPXSDnumM1XdQyzUeya" Ids="FRd3ZgRXKhQQD7NXiG8zvk,PNuyr30ge8tLhDvVsvy7VS" />
           <Patch Id="EYPw05jZfOfPkEqKDlMPpv" Name="Create" />
           <Patch Id="DGCULFc9hX9MZzP7mk3AGw" Name="Update" ManuallySortedPins="true">
-            <Pin Id="BNdlRj0FMjqL6ptN7H1Y5t" Name="Selected Driver" Kind="OutputPin" Bounds="480,766" />
-            <Pin Id="EyGsixaQ9P4NaHc9WyXkiQ" Name="Sample Rate" Kind="OutputPin" Bounds="531,1060" />
-            <Pin Id="PH1WsL8xIysPITbmQ6ztQ8" Name="Buffer Size" Kind="OutputPin" Bounds="336,614" />
-            <Pin Id="CfNGfJc2T2wM6TSChvXpLS" Name="Selected WASAPI Input Device" Kind="OutputPin" Bounds="578,1183" />
-            <Pin Id="O8gJaqW7ZbSPZLTw7x8gKo" Name="Available Input Channels" Kind="OutputPin" Bounds="498,680" />
-            <Pin Id="V1UDU9BYpOMLW9AkvUBCtt" Name="Open Input Channels" Kind="OutputPin" Bounds="826,629" />
-            <Pin Id="HJwSwF60CHuN0oKhuLIVRN" Name="Available Output Channels" Kind="OutputPin" Bounds="662,659" />
-            <Pin Id="BZnnqMrwGCIPqMP4tEKbrY" Name="Open Output Channels" Kind="OutputPin" Bounds="991,627" />
             <Pin Id="OIZMnYAYmfwPyexJoeBhnp" Name="Driver" Kind="InputPin" DefaultValue="Default">
               <p:TypeAnnotation LastCategoryFullName="Audio" LastSymbolSource="VL.Audio.vl">
                 <Choice Kind="TypeFlag" Name="AudioDevice" />
@@ -347,19 +339,27 @@
                 <Choice Kind="TypeFlag" Name="Integer32" />
               </p:TypeAnnotation>
             </Pin>
+            <Pin Id="FrwEZQXG05vLswhrc6r0vz" Name="Desired Input Channel Offset" Kind="InputPin" Bounds="868,364" />
             <Pin Id="CqIJkKANkggMT9zdZzDUYw" Name="Desired Output Channels" Kind="InputPin" Bounds="640,376" DefaultValue="2">
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
                 <Choice Kind="TypeFlag" Name="Integer32" />
               </p:TypeAnnotation>
             </Pin>
+            <Pin Id="IGwNe5VOrcXO77xmV6YbQc" Name="Desired Output channel Offset" Kind="InputPin" Bounds="1038,416" />
             <Pin Id="QHre9K9IaaAOX5uIVMKXd4" Name="Show Control Panel" Kind="InputPin" Bounds="427,292" />
             <Pin Id="O4XkEfbaMEbLyenVEiTeLq" Name="Enabled" Kind="InputPin" Bounds="569,474" DefaultValue="True">
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
                 <Choice Kind="TypeFlag" Name="Boolean" />
               </p:TypeAnnotation>
             </Pin>
-            <Pin Id="FrwEZQXG05vLswhrc6r0vz" Name="Desired Input Channel Offset" Kind="InputPin" Bounds="868,364" />
-            <Pin Id="IGwNe5VOrcXO77xmV6YbQc" Name="Desired Output channel Offset" Kind="InputPin" Bounds="1038,416" />
+            <Pin Id="BNdlRj0FMjqL6ptN7H1Y5t" Name="Selected Driver" Kind="OutputPin" Bounds="480,766" />
+            <Pin Id="EyGsixaQ9P4NaHc9WyXkiQ" Name="Sample Rate" Kind="OutputPin" Bounds="531,1060" />
+            <Pin Id="PH1WsL8xIysPITbmQ6ztQ8" Name="Buffer Size" Kind="OutputPin" Bounds="336,614" />
+            <Pin Id="CfNGfJc2T2wM6TSChvXpLS" Name="Selected WASAPI Input Device" Kind="OutputPin" Bounds="578,1183" />
+            <Pin Id="O8gJaqW7ZbSPZLTw7x8gKo" Name="Available Input Channels" Kind="OutputPin" Bounds="498,680" />
+            <Pin Id="V1UDU9BYpOMLW9AkvUBCtt" Name="Open Input Channels" Kind="OutputPin" Bounds="826,629" />
+            <Pin Id="HJwSwF60CHuN0oKhuLIVRN" Name="Available Output Channels" Kind="OutputPin" Bounds="662,659" />
+            <Pin Id="BZnnqMrwGCIPqMP4tEKbrY" Name="Open Output Channels" Kind="OutputPin" Bounds="991,627" />
           </Patch>
           <Patch Id="HzGrHZJW2rEOwTLtYpQJFP" Name="Dispose" />
           <Link Id="UfCs2sNdEmfOLHxAu2q0LU" Ids="IxG8AnPO0PvPuGsYq9Xhlb,BNdlRj0FMjqL6ptN7H1Y5t" IsHidden="true" />
