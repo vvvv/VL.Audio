@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="AVFPbp02s1WNAovdFBT0Wb" LanguageVersion="2021.4.5.764" Version="0.128">
-  <NugetDependency Id="Hmr7kILdlvPMagkfyf51Iz" Location="VL.CoreLib" Version="2021.4.5" />
+<Document xmlns:p="property" Id="AVFPbp02s1WNAovdFBT0Wb" LanguageVersion="2021.4.6.835" Version="0.128">
+  <NugetDependency Id="Hmr7kILdlvPMagkfyf51Iz" Location="VL.CoreLib" Version="2021.4.6" />
   <Patch Id="HaulhrPXkyCPeLW2mKcS3k">
     <Canvas Id="KNuoeWiZ9dzNZrycJV80K9" DefaultCategory="Main" BordersChecked="false" CanvasType="FullCategory" />
     <!--
@@ -15,7 +15,7 @@
       </p:NodeReference>
       <Patch Id="AFt6082b9iLOjGTv1MbRl0">
         <Canvas Id="JS6RdkEeqU0MfrOyWUQHlK" CanvasType="Group">
-          <Node Bounds="500,746,105,19" Id="J4hK9SAnUl0P911tGX9wEm">
+          <Node Bounds="500,782,165,19" Id="J4hK9SAnUl0P911tGX9wEm">
             <p:NodeReference LastCategoryFullName="Audio" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="DriverSettings" />
@@ -23,12 +23,17 @@
             <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
             <Pin Id="F4UnCTeEjFfP6nSk7psx38" Name="Driver" Kind="InputPin" />
             <Pin Id="E9xJgDqZKuGPM7MbR8ujcf" Name="Sample Rate" Kind="InputPin" />
+            <Pin Id="TU3T2qvjIvqOD73NA1LXsu" Name="Wasapi Input" Kind="InputPin" />
             <Pin Id="OAFU3pOC85YPaWEHVvNmEm" Name="Desired Input Channels" Kind="InputPin" />
+            <Pin Id="Lj1ZPY7GO22Njhp3ylZGAc" Name="Desired Input Channel Offset" Kind="InputPin" />
             <Pin Id="TEmILbpNfd8PQdoOQ5tYPq" Name="Desired Output Channels" Kind="InputPin" />
+            <Pin Id="F7r4jXovMJBLkdqFIWR7AE" Name="Desired Output channel Offset" Kind="InputPin" />
             <Pin Id="GBq6esfa6FPOYVrE8yb2WY" Name="Show Control Panel" Kind="InputPin" />
             <Pin Id="Fd4L96C85bgQLYlgwwb4yo" Name="Enabled" Kind="InputPin" />
             <Pin Id="A3TNmTaY25aQFELyPMb9GC" Name="Selected Driver" Kind="OutputPin" />
+            <Pin Id="ElzPSItwmzCPtfWmi1xXSG" Name="Sample Rate" Kind="OutputPin" />
             <Pin Id="KRq0o34QsOMOXopPXrg1ZG" Name="Buffer Size" Kind="OutputPin" />
+            <Pin Id="SCMzzJ64XYYPbt6yK9iOaV" Name="Selected WASAPI Input Device" Kind="OutputPin" />
             <Pin Id="QOb0ocu1FezPhOa9r2jQwn" Name="Available Input Channels" Kind="OutputPin" />
             <Pin Id="E5RVTAnz5RtQUt5fMSPe9e" Name="Open Input Channels" Kind="OutputPin" />
             <Pin Id="R2roofYyj4XO7mlNY24AXV" Name="Available Output Channels" Kind="OutputPin" />
@@ -39,25 +44,25 @@
               <Choice Kind="TypeFlag" Name="AudioSampleRate" />
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="Cgwsj0lyxGQQLhhmuj9DXr" Comment="Desired Input Channels" Bounds="542,640,35,15" ShowValueBox="true" isIOBox="true" Value="2">
+          <Pad Id="Cgwsj0lyxGQQLhhmuj9DXr" Comment="Desired Input Channels" Bounds="562,670,35,15" ShowValueBox="true" isIOBox="true" Value="2">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Integer32" />
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="Run1yHAD4aPPb9h6xXATdy" Comment="Desired Output Channels" Bounds="562,665,35,15" ShowValueBox="true" isIOBox="true" Value="2">
+          <Pad Id="Run1yHAD4aPPb9h6xXATdy" Comment="Desired Output Channels" Bounds="582,695,35,15" ShowValueBox="true" isIOBox="true" Value="2">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Integer32" />
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="TLDCgBfScCdNnJ3ofKADgU" Comment="Enabled" Bounds="646,734,35,35" ShowValueBox="true" isIOBox="true" Value="True">
+          <Pad Id="TLDCgBfScCdNnJ3ofKADgU" Comment="Enabled" Bounds="676,749,35,35" ShowValueBox="true" isIOBox="true" Value="True">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Boolean" />
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="TO67xuW4scpLTPRuDdaMuk" Comment="Buffer Size" Bounds="522,817,35,15" ShowValueBox="true" isIOBox="true" />
-          <Pad Id="SKUP2TPWnHYPDJ79yi8frq" Comment="Available Input Channels" Bounds="542,853,35,15" ShowValueBox="true" isIOBox="true" />
-          <Pad Id="JAU3LotFVAOLjI5RJxFTCq" Comment="Available Output Channels" Bounds="582,909,35,15" ShowValueBox="true" isIOBox="true" />
-          <Pad Id="PiFg6nYEN6KOHkwUwaVF3H" Comment="Show Control Panel" Bounds="582,695,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+          <Pad Id="TO67xuW4scpLTPRuDdaMuk" Comment="Buffer Size" Bounds="548,847,35,15" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="SKUP2TPWnHYPDJ79yi8frq" Comment="Available Input Channels" Bounds="568,883,35,15" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="JAU3LotFVAOLjI5RJxFTCq" Comment="Available Output Channels" Bounds="608,939,35,15" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="PiFg6nYEN6KOHkwUwaVF3H" Comment="Show Control Panel" Bounds="602,725,35,35" ShowValueBox="true" isIOBox="true" Value="False">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Boolean" />
             </p:TypeAnnotation>
@@ -65,7 +70,7 @@
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="VUaJ56xl0ASOOn56jwsugd" Bounds="50,371,365,527" ShowValueBox="true" isIOBox="true" Value="If you have any ASIO driver installed, vvvv will try to use it with default settings and you should already be able to use audio nodes without any further configuration.&#xD;&#xA;&#xD;&#xA;To make changes to the default settings, there are two ways to choose and configure a driver:&#xD;&#xA;&#xD;&#xA;1) Globally&#xD;&#xA;- Using the Extension: VL.Audio Configuration&#xD;&#xA;- Choose a driver and configure it&#xD;&#xA;- These settings will be saved in your AppData\vvvv\gamma\VL.Audio.Configuration.xml&#xD;&#xA;- This configuration is global to all your patches&#xD;&#xA;- Modifying the .xml manually requires a restart of vvvv for the changes to take effect.&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;2) Locally&#xD;&#xA;- This option is needed for exporting!&#xD;&#xA;- Use the DriverSettings node for configuration&#xD;&#xA;- The DriverSettings node is a singleton, meaning you  must always only have one instance of it active! &#xD;&#xA;- In case you have multiple active, it is not defined, the settings of which instance will be the active ones!&#xD;&#xA;&#xD;&#xA;Also note that global and local configurations conflict with each other. Make sure to use only either of the two options!">
+          <Pad Id="VUaJ56xl0ASOOn56jwsugd" Bounds="50,371,365,527" ShowValueBox="true" isIOBox="true" Value="vvvv will try to start the audio engine with default settings and you should already be able to use audio nodes without any further configuration.&#xD;&#xA;&#xD;&#xA;To make changes to the default settings, there are two ways to choose and configure a driver:&#xD;&#xA;&#xD;&#xA;1) Globally&#xD;&#xA;- Using the Extension: VL.Audio Configuration&#xD;&#xA;- Choose a driver and configure it&#xD;&#xA;- These settings will be saved in your AppData\vvvv\gamma\VL.Audio.Configuration.xml&#xD;&#xA;- This configuration is global to all your patches&#xD;&#xA;- Modifying the .xml manually requires a restart of vvvv for the changes to take effect.&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;2) Locally&#xD;&#xA;- This option is needed for exporting!&#xD;&#xA;- Use the DriverSettings node for configuration&#xD;&#xA;- The DriverSettings node is a singleton, meaning you  must always only have one instance of it active! &#xD;&#xA;- In case you have multiple active, it is not defined, the settings of which instance will be the active ones!&#xD;&#xA;&#xD;&#xA;Also note that global and local configurations conflict with each other. Make sure to use only either of the two options!">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -183,9 +188,10 @@
               <CategoryReference Kind="Category" Name="Source" />
               <Choice Kind="ProcessAppFlag" Name="WaveTable" />
             </p:NodeReference>
-            <Pin Id="GGPUjrjPjbcMQO4QiGoEkW" Name="Table" Kind="InputPin" />
             <Pin Id="DJKmdW32NDTP8g1QAGIESK" Name="Frequency" Kind="InputPin" />
+            <Pin Id="GGPUjrjPjbcMQO4QiGoEkW" Name="Table" Kind="InputPin" />
             <Pin Id="A6vA6Led1mmMH8grsHIPnY" Name="Window Function" Kind="InputPin" />
+            <Pin Id="IHOH44PYdZbLRw7txj9TVc" Name="Gain" Kind="InputPin" />
             <Pin Id="LiC8YTNV8niM4rCdyvsGzs" Name="Output" Kind="OutputPin" />
           </Node>
           <Node Bounds="497,223,165,19" Id="Nth6rW67cAOOYbPtgw0X7A">
@@ -196,7 +202,7 @@
               <Choice Kind="ProcessAppFlag" Name="Filter" />
             </p:NodeReference>
             <Pin Id="McJSKWKEYXVQNDlwYOpSwl" Name="Input" Kind="InputPin" />
-            <Pin Id="O22yMT1ZpKIPdmA69SUmjd" Name="Frequency" Kind="InputPin" PinGroupName="InputGroup" />
+            <Pin Id="M7zdJ6sjbbxNAyr0a4AsvX" Name="Cutoff" Kind="InputPin" />
             <Pin Id="Q2lZ4lAPgJtLlWrTYhC2Dj" Name="Resonance" Kind="InputPin" PinGroupName="InputGroup" />
             <Pin Id="Pl1ERsbPfcPPbBMARb5W7R" Name="Cutoff Offset" Kind="InputPin" PinGroupName="InputGroup" />
             <Pin Id="V52TfA5AL64O1NESPZHhoL" Name="Resonance Offset" Kind="InputPin" PinGroupName="InputGroup" />
@@ -277,9 +283,9 @@
               <Choice Kind="ProcessAppFlag" Name="FFT" />
             </p:NodeReference>
             <Pin Id="D7MkUn7MoyUP1Ufz0WRH8v" Name="Input" Kind="InputPin" />
-            <Pin Id="FUChGOSbv56Pkg8LVdCVti" Name="Smoothing" Kind="InputPin" />
-            <Pin Id="Jh27FniwB9BLwglNXWyWaF" Name="Window Function" Kind="InputPin" />
             <Pin Id="POFG9szFbhTPC42fkJc8Fg" Name="Buffer Size" Kind="InputPin" />
+            <Pin Id="Jh27FniwB9BLwglNXWyWaF" Name="Window Function" Kind="InputPin" />
+            <Pin Id="FUChGOSbv56Pkg8LVdCVti" Name="Smoothing" Kind="InputPin" />
             <Pin Id="F5G9gemrVdgP79nl6xNS4H" Name="db Range" Kind="InputPin" />
             <Pin Id="MOEGuE5Xg5gMst0qcIGQzG" Name="Output" Kind="OutputPin" />
           </Node>
@@ -409,20 +415,6 @@
             <Pin Id="C37v04Ormr2OxOjHzF5K3D" Name="Output" Kind="OutputPin" />
             <Pin Id="Hpz34xzh6P2P1o4viL5YHl" Name="IFFT Buffer Size" Kind="OutputPin" />
           </Node>
-          <Node Bounds="596,160,84,19" Id="Idw5WP1ejmGMkWxl7xf2DQ">
-            <p:NodeReference LastCategoryFullName="Audio.Source" LastSymbolSource="VL.Audio.vl">
-              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-              <CategoryReference Kind="Category" Name="Audio" />
-              <CategoryReference Kind="Category" Name="Source" />
-              <Choice Kind="ProcessAppFlag" Name="ValueSequence" />
-            </p:NodeReference>
-            <Pin Id="PDtOj4VLACYLEKnOynYh0H" Name="Length" Kind="InputPin" />
-            <Pin Id="RZwDAqi3KavMwRWPQKlobS" Name="Positions" Kind="InputPin" />
-            <Pin Id="VoGFKSBurucL4AangQDWXg" Name="Values" Kind="InputPin" />
-            <Pin Id="EqLGKqAptbXQaezPuIrXFW" Name="Is Bang" Kind="InputPin" />
-            <Pin Id="Q3wJ1xgdHzhLAifn3193wc" Name="Output" Kind="OutputPin" />
-            <Pin Id="L2EJr4NlfcgLXLBDQtqrtg" Name="Position" Kind="OutputPin" />
-          </Node>
           <Node Bounds="708,467,61,19" Id="E8utptmhE84LaUEulDtrPM">
             <p:NodeReference LastCategoryFullName="Audio.Sink" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -475,9 +467,9 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="UtQsCP8XWNdL7IeE5eNNvK" Comment="Selected Driver" Bounds="502,799,66,15" ShowValueBox="true" isIOBox="true" />
-          <Pad Id="L0sBxOmLVkyMywnm33Vfxz" Comment="Open Input Channels" Bounds="542,872,35,15" ShowValueBox="true" isIOBox="true" />
-          <Pad Id="AqC1wiQ5DsVQPJ38cIlgAY" Comment="Open Output Channels" Bounds="582,928,35,15" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="UtQsCP8XWNdL7IeE5eNNvK" Comment="Selected Driver" Bounds="502,829,162,-15" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="L0sBxOmLVkyMywnm33Vfxz" Comment="Open Input Channels" Bounds="568,902,35,15" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="AqC1wiQ5DsVQPJ38cIlgAY" Comment="Open Output Channels" Bounds="608,958,35,15" ShowValueBox="true" isIOBox="true" />
           <Pad Id="P3vOnE9Gc5wLVuTbIcaCrO" Bounds="50,339,184,25" ShowValueBox="true" isIOBox="true" Value="Driver Configuration">
             <p:TypeAnnotation>
               <Choice Kind="TypeFlag" Name="String" />
@@ -487,7 +479,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="PdX5PI9UnNRPX6G3U4pVae" Bounds="50,117,339,170" ShowValueBox="true" isIOBox="true" Value="If you have any ASIO driver installed, it will be used by default. Otherwise the system default WASAPI driver will be used. &#xD;&#xA;&#xD;&#xA;As of now, audio input is only available when using an ASIO driver!&#xD;&#xA;&#xD;&#xA;If your sound card doesn't ship with an ASIO driver, try a generic one, see:">
+          <Pad Id="PdX5PI9UnNRPX6G3U4pVae" Bounds="50,117,339,170" ShowValueBox="true" isIOBox="true" Value="VL.Audio works with both WASAPI or ASIO drivers. &#xD;&#xA;&#xD;&#xA;By default any system should have WASAPI drivers available. If you're using specialized audio hardware it may come with custom ASIO drivers. &#xD;&#xA;&#xD;&#xA;If for some reason you want to use ASIO drivers for your normal soundcard, here are some option for generic drivers:">
             <p:TypeAnnotation>
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -621,7 +613,7 @@
             <Pin Id="PYKmXIF1pNVP8DGmHUbXlU" Name="Count" Kind="InputPin" />
             <Pin Id="SN3JJjkyhkAPuOV9T5IGQE" Name="Output" Kind="OutputPin" />
           </Node>
-          <Node Bounds="808,759,105,19" Id="IZsC7XM8AzyORI6Hpz17kq">
+          <Node Bounds="807,759,105,19" Id="IZsC7XM8AzyORI6Hpz17kq">
             <p:NodeReference LastCategoryFullName="Audio" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="TimingSettings" />
@@ -635,7 +627,7 @@
             <Pin Id="Ugjofhie5KqMWw7vm8WYHb" Name="Time" Kind="OutputPin" />
             <Pin Id="Nxhb1Bf76n4LiuG5yYJUwu" Name="Beat" Kind="OutputPin" />
           </Node>
-          <Node Bounds="807,793,92,19" Id="D5YlbCdnzYbOPaVu6O9yvz">
+          <Node Bounds="807,795,92,19" Id="D5YlbCdnzYbOPaVu6O9yvz">
             <p:NodeReference LastCategoryFullName="Audio" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="SettingsFromFile" />
@@ -648,7 +640,7 @@
               <Choice Kind="TypeFlag" Name="AudioDevice" />
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="QUBpyCYzwUGLCOv9NLrpSb" Bounds="815,581,124,124" ShowValueBox="true" isIOBox="true" Value="&lt; The &quot;Default&quot; entry means that if there is any ASIO driver, take that, otherwise take the WASAPI default">
+          <Pad Id="QUBpyCYzwUGLCOv9NLrpSb" Bounds="898,583,128,158" ShowValueBox="true" isIOBox="true" Value="&lt; The &quot;Default&quot; entry means that the system default WASAPI device will be used. If not available, the first available ASIO device will be used.">
             <p:TypeAnnotation>
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -657,24 +649,46 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="ToKp740AJ0MQXQy76dBgUz" Bounds="5,167,42,79" ShowValueBox="true" isIOBox="true" Value="! ">
-            <p:TypeAnnotation>
-              <Choice Kind="TypeFlag" Name="String" />
+          <Node Bounds="807,831,225,19" Id="ML2BLyLHIK8MuriyF2qxmw">
+            <p:NodeReference LastCategoryFullName="Audio" LastSymbolSource="VL.Audio.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="DriverStatus" />
+            </p:NodeReference>
+            <Pin Id="Vk3yUThV8y5M26ig5xrBmO" Name="Is Playing" Kind="OutputPin" />
+            <Pin Id="JIf2vHI0k95O7jWpa5HYFw" Name="Selected Driver" Kind="OutputPin" />
+            <Pin Id="Jnlxq6hrF87MSHYOsf2z6A" Name="Driver Is Default Selection" Kind="OutputPin" />
+            <Pin Id="MyfzOAxRt6ANgEmgp75jwJ" Name="Is ASIO" Kind="OutputPin" />
+            <Pin Id="RHFiJo4zxmjOmuFTD4LALb" Name="Sample Rate" Kind="OutputPin" />
+            <Pin Id="VydQGdFRgZPOUGwexOFO88" Name="Buffer Size" Kind="OutputPin" />
+            <Pin Id="S7UFrsH8XrsLGj6AN8eOwN" Name="Selected WASAPI Input Device" Kind="OutputPin" />
+            <Pin Id="VCEsjKlM7pFLXjcwFqb5c4" Name="WASAPI Input Is Default Selection" Kind="OutputPin" />
+            <Pin Id="PCMndrgA4MZQdQlCOOyBSA" Name="Available Input Channels" Kind="OutputPin" />
+            <Pin Id="QkkqV9bu1z9QZjqYFv6ieT" Name="Open Input Channels" Kind="OutputPin" />
+            <Pin Id="Gk6nkg2l2TbMo61NtyVX6h" Name="Available Output Channels" Kind="OutputPin" />
+            <Pin Id="MzDNZUybNbAP0Mf4JCkFCf" Name="Open Output Channels" Kind="OutputPin" />
+            <Pin Id="EeqPHWzbBvEM4mV5AZi7Dn" Name="ASIO Input Channel Offset" Kind="OutputPin" />
+            <Pin Id="MnwbM1R28hYLfsfHFxjVis" Name="ASIO Output Channel Offset" Kind="OutputPin" />
+            <Pin Id="CYi2RhPeDtuMDEOBRUbmwF" Name="Last Error" Kind="OutputPin" />
+          </Node>
+          <Pad Id="CN8wOdZL0WMOWuaTKwWF8f" Comment="Wasapi Input" Bounds="542,638,271,15" ShowValueBox="true" isIOBox="true" Value="Current System Device">
+            <p:TypeAnnotation LastCategoryFullName="Audio" LastSymbolSource="VL.Audio.vl">
+              <Choice Kind="TypeFlag" Name="WasapiInputDevice" />
             </p:TypeAnnotation>
-            <p:ValueBoxSettings>
-              <p:fontsize p:Type="Int32">40</p:fontsize>
-              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
-            </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="PbLenJ5yuH2PPm9PqbCmcA" Bounds="380,163,42,82" ShowValueBox="true" isIOBox="true" Value="! ">
-            <p:TypeAnnotation>
-              <Choice Kind="TypeFlag" Name="String" />
-            </p:TypeAnnotation>
-            <p:ValueBoxSettings>
-              <p:fontsize p:Type="Int32">40</p:fontsize>
-              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
-            </p:ValueBoxSettings>
-          </Pad>
+          <Node Bounds="597,160,84,19" Id="D1MHJZHCKpwPeBMFkT8deq">
+            <p:NodeReference LastCategoryFullName="Audio.Source" LastSymbolSource="VL.Audio.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <CategoryReference Kind="Category" Name="Audio" />
+              <CategoryReference Kind="Category" Name="Source" />
+              <Choice Kind="ProcessAppFlag" Name="ValueSequence" />
+            </p:NodeReference>
+            <Pin Id="EpthIqRgZjdQUws56S3spT" Name="Length" Kind="InputPin" />
+            <Pin Id="D21YyvrrU1nQBwXf6lcRq7" Name="Is Bang" Kind="InputPin" />
+            <Pin Id="QiadEoGwvZYNiVCxFWDlS6" Name="Positions" Kind="InputPin" />
+            <Pin Id="JHnfIO5QTuOPHhqMJQ41ZQ" Name="Values" Kind="InputPin" />
+            <Pin Id="Q5drFtdzmu3Lk1AsR5rJ7V" Name="Output" Kind="OutputPin" />
+            <Pin Id="VR3f8NAldp1MvIM7TkHhhi" Name="Position" Kind="OutputPin" />
+          </Node>
         </Canvas>
         <Patch Id="H7AXqgMBO7VM7Hjz3LIVIi" Name="Create" />
         <Patch Id="SAUdaIhMZdzNMFreYk25vB" Name="Update" />
@@ -694,9 +708,10 @@
         <Link Id="K497Tnz1YMVPjWokyW67sJ" Ids="VqfNdhK3U7pN1lzoKo1mX6,AqC1wiQ5DsVQPJ38cIlgAY" />
         <Link Id="OEcM1LCfpXCQMCZwDHU7Tw" Ids="TLDCgBfScCdNnJ3ofKADgU,Fd4L96C85bgQLYlgwwb4yo" />
         <Link Id="RFyWjZrYSnALcv7GJgtHhf" Ids="RltxghlpJPhL0utXOOH4kr,F4UnCTeEjFfP6nSk7psx38" />
+        <Link Id="ER4rndBoc3aNm7ooDiMqaJ" Ids="CN8wOdZL0WMOWuaTKwWF8f,TU3T2qvjIvqOD73NA1LXsu" />
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="AOu5YShvTlxO1vA9BHtmEC" Location="VL.Skia" Version="2021.4.5" />
+  <NugetDependency Id="AOu5YShvTlxO1vA9BHtmEC" Location="VL.Skia" Version="2021.4.6" />
   <NugetDependency Id="RFGyRrGfUbfP2xiT2T539W" Location="VL.Audio" Version="0.0.0.0" />
 </Document>
