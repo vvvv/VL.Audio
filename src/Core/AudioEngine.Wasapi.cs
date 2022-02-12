@@ -84,7 +84,7 @@ namespace VL.Audio
 
                 CurrentDevice = WasapiDevice.Output;
                 CurrentDriverName = WasapiPrefix + driverName;
-                CurrentWasapiInputName = WasapiPrefix + WasapiDevice.MMInDevice?.FriendlyName;
+                CurrentWasapiInputName = WasapiPrefix + wasapiRecordingName;
 
                 driverInitialized = true;
 
