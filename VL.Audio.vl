@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="HTX4axw4uH5NDghqAqpe1F" LanguageVersion="2021.4.6.835" Version="0.128">
-  <NugetDependency Id="NrtwmMKDemaOAGHoKxrmNR" Location="VL.CoreLib" Version="2021.4.6" />
+<Document xmlns:p="property" Id="HTX4axw4uH5NDghqAqpe1F" LanguageVersion="2021.4.7.860" Version="0.128">
+  <NugetDependency Id="NrtwmMKDemaOAGHoKxrmNR" Location="VL.CoreLib" Version="2021.4.7-0860-gb377318ec5" />
   <Patch Id="Mj1seFpSbg5MtaCXVBGhJf">
     <Canvas Id="ClqUpgLjNRdQbB5ajAF1ry" DefaultCategory="Audio" CanvasType="FullCategory">
       <!--
@@ -190,7 +190,7 @@
               <Pin Id="FRd3ZgRXKhQQD7NXiG8zvk" Name="Engine" Kind="OutputPin" />
             </Node>
             <ControlPoint Id="IxG8AnPO0PvPuGsYq9Xhlb" Bounds="502,853" />
-            <Node Bounds="235,789,141,138" Id="Ig96UnrdNp4PE8llSJFok2">
+            <Node Bounds="235,788,141,139" Id="Ig96UnrdNp4PE8llSJFok2">
               <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.dll">
                 <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
                 <Choice Kind="ApplicationStatefulRegion" Name="If" />
@@ -227,7 +227,7 @@
                   </Patch>
                 </Node>
               </Patch>
-              <ControlPoint Id="Bc9GM06NJ3aNNHUjQ8r2CJ" Bounds="298,795" Alignment="Top" />
+              <ControlPoint Id="Bc9GM06NJ3aNNHUjQ8r2CJ" Bounds="293,795" Alignment="Top" />
               <ControlPoint Id="OEfjcFIocHIMx0PBEz1F2m" Bounds="319,921" Alignment="Bottom" />
             </Node>
             <Node Bounds="234,744,65,19" Id="Uq1lrU6uZpNLKODg32sLSJ">
@@ -284,6 +284,8 @@
             <ControlPoint Id="RdJR8qqPiqlN8rXHacGgtj" Bounds="898,334" />
             <ControlPoint Id="HRnbtq3kB3fO2DFMXqztIi" Bounds="936,384" />
             <ControlPoint Id="SJAeYxqQIp9Pr105RWk8sr" Bounds="554,920" />
+            <ControlPoint Id="CF4YBwgPBKWQJWYOjPIdFU" Bounds="853,946" />
+            <ControlPoint Id="HAKWoIgCtfcPsDKtNBWsni" Bounds="519,943" />
           </Canvas>
           <ProcessDefinition Id="V3kaH7OJV91QCmVLfu11u4">
             <Fragment Id="Rcxpcw98SOzLnG46IKM8vo" Patch="EYPw05jZfOfPkEqKDlMPpv" Enabled="true" />
@@ -360,6 +362,8 @@
             <Pin Id="V1UDU9BYpOMLW9AkvUBCtt" Name="Open Input Channels" Kind="OutputPin" Bounds="826,629" />
             <Pin Id="HJwSwF60CHuN0oKhuLIVRN" Name="Available Output Channels" Kind="OutputPin" Bounds="662,659" />
             <Pin Id="BZnnqMrwGCIPqMP4tEKbrY" Name="Open Output Channels" Kind="OutputPin" Bounds="991,627" />
+            <Pin Id="E1ZDSl3DWd2QaWHcmg4Kti" Name="Last Error" Kind="OutputPin" Bounds="854,946" />
+            <Pin Id="DBJUaG6g4AHMhZ7bx1Y9ga" Name="Is ASIO" Kind="OutputPin" Bounds="519,946" />
           </Patch>
           <Patch Id="HzGrHZJW2rEOwTLtYpQJFP" Name="Dispose" />
           <Link Id="UfCs2sNdEmfOLHxAu2q0LU" Ids="IxG8AnPO0PvPuGsYq9Xhlb,BNdlRj0FMjqL6ptN7H1Y5t" IsHidden="true" />
@@ -406,6 +410,10 @@
           <Link Id="M4DbD6c6mX1O2g7AzBv7cX" Ids="P6farQukZq0O3d7IRHZ4sx,V6lmUj4K6vsOvftbrcnKfi" />
           <Link Id="IsXlqPl0ThwL3XYnUuQZsX" Ids="EGizj9SiReMMHSsnMV4b7B,GTp4YBMhj2VLnJ6SnY8bVm" />
           <Link Id="OYDKuMtD48kQVdwhg3lKc1" Ids="RxCw6FShhTvQabvTaq4LxK,LRUoMwm0blkPj9dIPcGhQk" />
+          <Link Id="HUFkJ73tT2HOyAVG4H1jWd" Ids="Bx6ycfY7SRhOmYuxFgrJ2d,CF4YBwgPBKWQJWYOjPIdFU" />
+          <Link Id="UXi4evuD1MnLBp18cpk1Ra" Ids="CF4YBwgPBKWQJWYOjPIdFU,E1ZDSl3DWd2QaWHcmg4Kti" IsHidden="true" />
+          <Link Id="El3VEhA3LrINxJ0sRgyHFd" Ids="P4RCb2MbAFrMKwoaUHyPz1,HAKWoIgCtfcPsDKtNBWsni" />
+          <Link Id="SqaMcjtnTsZLBmFOseLXxs" Ids="HAKWoIgCtfcPsDKtNBWsni,DBJUaG6g4AHMhZ7bx1Y9ga" IsHidden="true" />
         </Patch>
       </Node>
       <Canvas Id="MbtacXaCYZtNEqN6Ps0QTL" Name="Sink" Position="148,478">
@@ -17885,7 +17893,7 @@
   <NugetDependency Id="FdfszSdTJWQMuCe0eM4QeQ" Location="NAudio" Version="2.0.1" />
   <NugetDependency Id="V37AuJ2ryAbNsol8TzkZ5q" Location="NAudio.Asio" Version="2.0.0" />
   <NugetDependency Id="KJThfL79XZ7QOdgfpy6yJ5" Location="NAudio.Core" Version="2.0.0" />
-  <NugetDependency Id="Vm7aBcJKKNAL9MZxDnrPDX" Location="VL.Skia" Version="2021.4.6" />
+  <NugetDependency Id="Vm7aBcJKKNAL9MZxDnrPDX" Location="VL.Skia" Version="2021.4.7-0860-gb377318ec5" />
   <PlatformDependency Id="Qp3HZOkgG5cQcuE59UUe1j" Location="System.IO" />
   <PlatformDependency Id="CCaadwXbjs6P0MKKXnqSCL" Location="System.IO.FileSystem" />
   <NugetDependency Id="VSw4d6QSmJYMnkyboVSRG9" Location="NAudio.Wasapi" Version="2.0.0" />
