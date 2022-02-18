@@ -93,8 +93,6 @@ namespace VL.Audio
                 //    float.TryParse(node.InnerText, out selectedLoopEndBeat);
             }
 
-            Engine.ValidateSelections(ref selectedDriver, ref selectedWasapiInput);
-
             try
             {
                 Engine.PreviewDriver(selectedDriver, selectedWasapiInput);
@@ -106,7 +104,6 @@ namespace VL.Audio
 
                 if (sampleRates.Contains(selectedSamplerate.ToString()))
                 {
-                    
                     Engine.ChangeDriverSettings(selectedDriver, selectedWasapiInput, selectedSamplerate, selectedInputCount, selectedInputOffset, selectedOutputCount, selectedOutputOffset);
 
                     Engine.Timer.BPM = selectedTempo;
