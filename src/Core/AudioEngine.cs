@@ -29,8 +29,8 @@ namespace VL.Audio
         
         public string CurrentDriverName = WasapiPrefix + WasapiSystemDevice;
         public string CurrentWasapiInputName = WasapiPrefix + WasapiSystemDevice;
-        public int CurrentDesiredInputChannels = 2;
-        public int CurrentDesiredOutputChannels = 2;
+        public int CurrentOpenInputChannels;
+        public int CurrentOpenOutputChannels;
 
         /// <summary>
         /// The buffer number that is requested, can be used by signals to check whether the current buffer was filled already.
@@ -241,8 +241,14 @@ namespace VL.Audio
         /// <param name="outputChannelOffset"></param>
         public void ChangeDriverSettings(string driverName, string wasapiRecordingName, int sampleRate, int inputChannels, int inputChannelOffset, int outputChannels, int outputChannelOffset)
         {
-            CurrentDesiredInputChannels = inputChannels;
-            CurrentDesiredOutputChannels = outputChannels;
+            //make sure that desired channel count + offset don't exceed max channel count
+            GetSupportedChannels(out var inputChannelCount, out var outputChannelCount);
+            //first make sure the channelcount does not exceed max
+            inputChannels = Math.Min(inputChannelCount, inputChannels);
+            outputChannels = Math.Min(outputChannelCount, outputChannels);
+            //then trunkate the offset if needed
+            inputChannelOffset = Math.Min(inputChannelCount - inputChannels, inputChannelOffset);
+            outputChannelOffset = Math.Min(outputChannelCount - outputChannels, outputChannelOffset);
 
             FLastError = "";
 
@@ -250,6 +256,9 @@ namespace VL.Audio
 
             try
             {
+                CurrentOpenInputChannels = 0;
+                CurrentOpenOutputChannels = 0;
+
                 if (driverName.StartsWith(WasapiPrefix))
                 {
                     driverName = driverName.Replace(WasapiPrefix, "");
@@ -264,6 +273,9 @@ namespace VL.Audio
                     driverName = driverName.Replace(ASIOPrefix, "");
                     ChangeASIODriverSettings(driverName, sampleRate, inputChannels, inputChannelOffset, outputChannels, outputChannelOffset);
                 }
+
+                CurrentOpenInputChannels = inputChannels;
+                CurrentOpenOutputChannels = outputChannels;
             }
             catch (Exception e)
             {

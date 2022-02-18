@@ -55,7 +55,7 @@ namespace VL.Audio
                 if (node != null)
                     selectedDriver = node.InnerText;
 
-                node = doc.DocumentElement.SelectSingleNode("/Settings/WasapiInput/Name");
+                node = doc.DocumentElement.SelectSingleNode("/Settings/Driver/WasapiInputName");
                 if (node != null)
                     selectedWasapiInput = node.InnerText;
 
@@ -63,40 +63,35 @@ namespace VL.Audio
                 if (node != null)
                     int.TryParse(node.InnerText, out selectedSamplerate);
 
-                node = doc.DocumentElement.SelectSingleNode("/Settings/Driver/InputCount");
+                node = doc.DocumentElement.SelectSingleNode("/Settings/Driver/InputChannels");
                 if (node != null)
-                    int.TryParse(node.InnerText, out selectedInputCount);
+                {
+                    int.TryParse(node.Attributes["Count"].Value, out selectedInputCount);
+                    int.TryParse(node.Attributes["Offset"].Value, out selectedInputOffset);
+                }
 
-                node = doc.DocumentElement.SelectSingleNode("/Settings/Driver/InputOffset");
-                if (node != null)
-                    int.TryParse(node.InnerText, out selectedInputOffset);
+                node = doc.DocumentElement.SelectSingleNode("/Settings/Driver/OutputChannels");
+                {
+                    int.TryParse(node.Attributes["Count"].Value, out selectedOutputCount);
+                    int.TryParse(node.Attributes["Offset"].Value, out selectedOutputOffset);
+                }
 
-                node = doc.DocumentElement.SelectSingleNode("/Settings/Driver/OutputCount");
-                if (node != null)
-                    int.TryParse(node.InnerText, out selectedOutputCount);
+                //node = doc.DocumentElement.SelectSingleNode("/Settings/Timing/Tempo");
+                //if (node != null)
+                //    float.TryParse(node.InnerText, out selectedTempo);
 
-                node = doc.DocumentElement.SelectSingleNode("/Settings/Driver/OutputOffset");
-                if (node != null)
-                    int.TryParse(node.InnerText, out selectedOutputOffset);
+                //node = doc.DocumentElement.SelectSingleNode("/Settings/Timing/Loop");
+                //if (node != null)
+                //    bool.TryParse(node.InnerText, out selectedLoop);
 
-                node = doc.DocumentElement.SelectSingleNode("/Settings/Timing/Tempo");
-                if (node != null)
-                    float.TryParse(node.InnerText, out selectedTempo);
+                //node = doc.DocumentElement.SelectSingleNode("/Settings/Timing/LoopStartBeat");
+                //if (node != null)
+                //    float.TryParse(node.InnerText, out selectedLoopStartBeat);
 
-                node = doc.DocumentElement.SelectSingleNode("/Settings/Timing/Loop");
-                if (node != null)
-                    bool.TryParse(node.InnerText, out selectedLoop);
-
-                node = doc.DocumentElement.SelectSingleNode("/Settings/Timing/LoopStartBeat");
-                if (node != null)
-                    float.TryParse(node.InnerText, out selectedLoopStartBeat);
-
-                node = doc.DocumentElement.SelectSingleNode("/Settings/Timing/LoopEndBeat");
-                if (node != null)
-                    float.TryParse(node.InnerText, out selectedLoopEndBeat);
+                //node = doc.DocumentElement.SelectSingleNode("/Settings/Timing/LoopEndBeat");
+                //if (node != null)
+                //    float.TryParse(node.InnerText, out selectedLoopEndBeat);
             }
-
-            Engine.ValidateSelections(ref selectedDriver, ref selectedWasapiInput);
 
             try
             {
@@ -109,9 +104,6 @@ namespace VL.Audio
 
                 if (sampleRates.Contains(selectedSamplerate.ToString()))
                 {
-                    Engine.GetSupportedChannels(out var inputChannelCount, out var outputChannelCount);
-                    selectedInputCount = Math.Min(inputChannelCount, selectedInputOffset + selectedInputCount);
-                    selectedOutputCount = Math.Min(outputChannelCount, selectedOutputOffset + selectedOutputCount);
                     Engine.ChangeDriverSettings(selectedDriver, selectedWasapiInput, selectedSamplerate, selectedInputCount, selectedInputOffset, selectedOutputCount, selectedOutputOffset);
 
                     Engine.Timer.BPM = selectedTempo;
