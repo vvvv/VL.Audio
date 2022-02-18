@@ -16828,6 +16828,11 @@
                 <ControlPoint Id="DMAT49LSJyHNjL6JB8vCoq" Bounds="325,770" Alignment="Bottom" />
                 <ControlPoint Id="PZGtFEsNYNpNr3UGbawt9o" Bounds="397,770" Alignment="Bottom" />
                 <ControlPoint Id="ATfELZ51MvzMkGnSvyUpZj" Bounds="603,770" Alignment="Bottom" />
+                <ControlPoint Id="IT18PCAiwyAOu5Xi7mFJfY" Bounds="1276,770" Alignment="Bottom" />
+                <ControlPoint Id="LgI8cGEijqkLRcB1uwyrIk" Bounds="1377,770" Alignment="Bottom" />
+                <ControlPoint Id="QUhaJTJGEcqPlDle0U7crO" Bounds="1416,770" Alignment="Bottom" />
+                <ControlPoint Id="JyRDWmwUPBmQDNlsB8T0Vj" Bounds="1629,770" Alignment="Bottom" />
+                <ControlPoint Id="QLLycZJaXNjLseVrUbi9oL" Bounds="1693,770" Alignment="Bottom" />
                 <Patch Id="CnhmwutOqIJP8QT80QqNIU" ManuallySortedPins="true">
                   <Node Bounds="620,520,120,26" Id="EucZLZWto8MMOWDMlZnhV8">
                     <p:NodeReference LastCategoryFullName="VL.Audio.AudioEngine" LastSymbolSource="VL.Audio.dll">
@@ -16843,20 +16848,20 @@
                   <Node Bounds="770,520,151,26" Id="S2lfy3BrQ2VLSTuOTeWcBU">
                     <p:NodeReference LastCategoryFullName="VL.Audio.AudioEngine" LastSymbolSource="VL.Audio.dll">
                       <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                      <Choice Kind="OperationCallFlag" Name="CurrentDesiredInputChannels" />
+                      <Choice Kind="OperationCallFlag" Name="CurrentOpenInputChannels" />
                     </p:NodeReference>
                     <Pin Id="GXv4dVKcO0aN71Y9L84Ohy" Name="Input" Kind="StateInputPin" />
                     <Pin Id="U4j6NJ5kEG1LaCF20wl5CJ" Name="Output" Kind="StateOutputPin" />
-                    <Pin Id="VSoUx9n9SUDL9U6ui5SNin" Name="Current Desired Input Channels" Kind="OutputPin" />
+                    <Pin Id="TJqNZYGJskHPUlxDbmJUgg" Name="Current Open Input Channels" Kind="OutputPin" />
                   </Node>
                   <Node Bounds="953,520,159,26" Id="RRhkHP8XHJUPh5Iz7XywJm">
                     <p:NodeReference LastCategoryFullName="VL.Audio.AudioEngine" LastSymbolSource="VL.Audio.dll">
                       <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                      <Choice Kind="OperationCallFlag" Name="CurrentDesiredOutputChannels" />
+                      <Choice Kind="OperationCallFlag" Name="CurrentOpenOutputChannels" />
                     </p:NodeReference>
                     <Pin Id="TADIT07VjrGLYiOQYqNOF6" Name="Input" Kind="StateInputPin" />
                     <Pin Id="UtqCyrfdqWiPIbexyG802A" Name="Output" Kind="StateOutputPin" />
-                    <Pin Id="NkW9HODUGt5LJi2riS4XPh" Name="Current Desired Output Channels" Kind="OutputPin" />
+                    <Pin Id="UcLZNmZ7pD3L5muiMXwwgn" Name="Current Open Output Channels" Kind="OutputPin" />
                   </Node>
                   <Node Bounds="362,520,104,26" Id="VijejT6xFb2OfcoTMSRZHV">
                     <p:NodeReference LastCategoryFullName="VL.Audio.AudioEngine" LastSymbolSource="VL.Audio.dll">
@@ -16978,11 +16983,6 @@
                     <Pin Id="GmiNnEeADCgNu9KAQAl1oF" Name="Current Wasapi Input Name" Kind="OutputPin" />
                   </Node>
                 </Patch>
-                <ControlPoint Id="IT18PCAiwyAOu5Xi7mFJfY" Bounds="1276,770" Alignment="Bottom" />
-                <ControlPoint Id="LgI8cGEijqkLRcB1uwyrIk" Bounds="1377,770" Alignment="Bottom" />
-                <ControlPoint Id="QUhaJTJGEcqPlDle0U7crO" Bounds="1416,770" Alignment="Bottom" />
-                <ControlPoint Id="JyRDWmwUPBmQDNlsB8T0Vj" Bounds="1629,770" Alignment="Bottom" />
-                <ControlPoint Id="QLLycZJaXNjLseVrUbi9oL" Bounds="1693,770" Alignment="Bottom" />
               </Node>
               <Node Bounds="351,365,30,19" Id="LwMk9LeMxuBM5PYvBGz5NK">
                 <p:NodeReference LastCategoryFullName="Primitive.Boolean" LastSymbolSource="CoreLibBasics.vl">
@@ -17041,8 +17041,6 @@
             <Link Id="JrtHiQLJpyYOdOek2W7ALP" Ids="U4j6NJ5kEG1LaCF20wl5CJ,TADIT07VjrGLYiOQYqNOF6" />
             <Link Id="HVMxdHChxjPOEBAFODQLH1" Ids="TrPlKsO6PCHOvx2Ye9ZvFM,L5ceD8dt0shNcM3PDOh2oh" />
             <Link Id="EyLh6tuNO6uLKO8pAkwgV2" Ids="HMqIebwv5DHQVcynfNaaDL,RAOlGlsSbugMgMeS63NK4q" />
-            <Link Id="LdtddppdQLQQUzYiKzVz2Z" Ids="VSoUx9n9SUDL9U6ui5SNin,FzUDyxnXQWZOlyMvIYJWJN" />
-            <Link Id="FcFABsnXcmmMGPZS0kvQZF" Ids="NkW9HODUGt5LJi2riS4XPh,T1rDp8cmcACLfqOpd6q57O" />
             <Link Id="AyD8QjLXF4GLSb5Bmg2Vwz" Ids="KI77Rvf6SYsLQR5Htpctex,CKoZwx30ZsPODSgaYU75bq" />
             <Link Id="UvcC59LfRLDMK4zPK8lEoM" Ids="OBXiYEQPW9fPslPWI1xp0Y,JQw816JsyNoLxo39WGGKgs" />
             <Link Id="V8TpEfgju53O92NVsZezk7" Ids="CgLw5Q0AuhQOeozcVYatoi,LQnAYy17lWhOC1C9FUkKzf" />
@@ -17112,6 +17110,8 @@
             <Link Id="FAZWEWOlmDBNO4jSMjW7H9" Ids="JyRDWmwUPBmQDNlsB8T0Vj,QwNKN48WZnaOiDcRjvtBcm" />
             <Link Id="SGvkXB2k1jWLfPrVNljJ6e" Ids="D215dk0MebePnmjWLFTwLi,QLLycZJaXNjLseVrUbi9oL" />
             <Link Id="PF6AS7y9p7DOR2qTeyooeX" Ids="QLLycZJaXNjLseVrUbi9oL,APGBON4IglwLL62au1LsLC" />
+            <Link Id="CpVZnbz2E9OM2H6o0dhaXk" Ids="TJqNZYGJskHPUlxDbmJUgg,FzUDyxnXQWZOlyMvIYJWJN" />
+            <Link Id="EEiQRzIJXcFMfjvH318pD8" Ids="UcLZNmZ7pD3L5muiMXwwgn,T1rDp8cmcACLfqOpd6q57O" />
           </Patch>
         </Node>
       </Canvas>

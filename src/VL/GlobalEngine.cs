@@ -106,9 +106,7 @@ namespace VL.Audio
 
                 if (sampleRates.Contains(selectedSamplerate.ToString()))
                 {
-                    Engine.GetSupportedChannels(out var inputChannelCount, out var outputChannelCount);
-                    selectedInputCount = Math.Min(inputChannelCount, selectedInputOffset + selectedInputCount);
-                    selectedOutputCount = Math.Min(outputChannelCount, selectedOutputOffset + selectedOutputCount);
+                    
                     Engine.ChangeDriverSettings(selectedDriver, selectedWasapiInput, selectedSamplerate, selectedInputCount, selectedInputOffset, selectedOutputCount, selectedOutputOffset);
 
                     Engine.Timer.BPM = selectedTempo;
