@@ -71,6 +71,7 @@ namespace VL.Audio
                 }
 
                 node = doc.DocumentElement.SelectSingleNode("/Settings/Driver/OutputChannels");
+                if (node != null)
                 {
                     int.TryParse(node.Attributes["Count"].Value, out selectedOutputCount);
                     int.TryParse(node.Attributes["Offset"].Value, out selectedOutputOffset);

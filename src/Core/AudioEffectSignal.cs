@@ -1,6 +1,4 @@
-﻿#region usings
-using System;
-#endregion usings
+﻿using System;
 
 namespace VL.Audio
 {
