@@ -93,9 +93,12 @@ namespace VL.Audio
         {
             set
             {
-                FPlay = value;
-                if (FPlay) CurrentDevice.Play();
-                else CurrentDevice.Pause();
+                if (CurrentDevice != null)
+                {
+                    FPlay = value;
+                    if (FPlay) CurrentDevice.Play();
+                    else CurrentDevice.Pause();
+                }
             }
             
             get
@@ -107,7 +110,7 @@ namespace VL.Audio
         
         public void Stop()
         {
-            CurrentDevice.Stop();
+            CurrentDevice?.Stop();
         }
 
         //tells the subscribers to prepare for the next frame
@@ -225,7 +228,10 @@ namespace VL.Audio
             }
             catch (Exception e)
             {
-                FLastError = e.Message;
+                //init the error in case e.Message is empty
+                FLastError = "Failed to initialize: " + driverName;
+                if (!string.IsNullOrEmpty(e.Message))
+                    FLastError = e.Message;
             }
         }
 
@@ -279,7 +285,10 @@ namespace VL.Audio
             }
             catch (Exception e)
             {
-                FLastError = e.Message;
+                //init the error in case e.Message is empty
+                FLastError = "Failed to initialize: " + driverName;
+                if (!string.IsNullOrEmpty(e.Message))
+                    FLastError = e.Message;
             }
         }
 
