@@ -9,11 +9,9 @@ namespace VL.Audio
         Sine,
         Triangle,
         Square,
-        Sawtooth,
-        WhiteNoise,
-        PinkNoise
+        Sawtooth
     }
-    
+
     public enum AntiAliasingAlgorithm
     {
         None,
@@ -115,30 +113,18 @@ namespace VL.Audio
                 FMInput.Read(FMBuffer, offset, count);
             }
             
-            if(WaveForm.Value == WaveFormSelection.WhiteNoise)
+            switch (AntiAliasingMethod.Value)
             {
-                WhiteNoise(buffer, count, Gain.Value*0.5f);
+                case AntiAliasingAlgorithm.None:
+                    OscBasic(buffer, count);
+                    break;
+                case AntiAliasingAlgorithm.PolyBLEP:
+                    OscPolyBLEP(buffer, count);
+                    break;
+                case AntiAliasingAlgorithm.EPTR:
+                    OscEPTR(buffer, count);
+                    break;
             }
-            else if(WaveForm.Value == WaveFormSelection.PinkNoise)
-            {
-                PinkNoise(buffer, count, Gain.Value*0.5f);
-            }
-            else
-            {
-                switch (AntiAliasingMethod.Value)
-                {
-                    case AntiAliasingAlgorithm.None:
-                        OscBasic(buffer, count);
-                        break;
-                    case AntiAliasingAlgorithm.PolyBLEP:
-                        OscPolyBLEP(buffer, count);
-                        break;
-                    case AntiAliasingAlgorithm.EPTR:
-                        OscEPTR(buffer, count);
-                        break;
-                }
-            }
-
         }
 
         const double TwoPi = (Math.PI * 2);

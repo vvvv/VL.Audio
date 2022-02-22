@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="AVFPbp02s1WNAovdFBT0Wb" LanguageVersion="2021.4.6.835" Version="0.128">
-  <NugetDependency Id="Hmr7kILdlvPMagkfyf51Iz" Location="VL.CoreLib" Version="2021.4.6" />
+<Document xmlns:p="property" Id="AVFPbp02s1WNAovdFBT0Wb" LanguageVersion="2021.4.7.882" Version="0.128">
+  <NugetDependency Id="Hmr7kILdlvPMagkfyf51Iz" Location="VL.CoreLib" Version="2021.4.7-0854-g6e27633250" />
   <Patch Id="HaulhrPXkyCPeLW2mKcS3k">
     <Canvas Id="KNuoeWiZ9dzNZrycJV80K9" DefaultCategory="Main" BordersChecked="false" CanvasType="FullCategory" />
     <!--
@@ -27,7 +27,7 @@
             <Pin Id="OAFU3pOC85YPaWEHVvNmEm" Name="Desired Input Channels" Kind="InputPin" />
             <Pin Id="Lj1ZPY7GO22Njhp3ylZGAc" Name="Desired Input Channel Offset" Kind="InputPin" />
             <Pin Id="TEmILbpNfd8PQdoOQ5tYPq" Name="Desired Output Channels" Kind="InputPin" />
-            <Pin Id="F7r4jXovMJBLkdqFIWR7AE" Name="Desired Output channel Offset" Kind="InputPin" />
+            <Pin Id="SpbAIOebkvINgu7Itp81Q8" Name="Desired Output Channel Offset" Kind="InputPin" />
             <Pin Id="GBq6esfa6FPOYVrE8yb2WY" Name="Show Control Panel" Kind="InputPin" />
             <Pin Id="Fd4L96C85bgQLYlgwwb4yo" Name="Enabled" Kind="InputPin" />
             <Pin Id="A3TNmTaY25aQFELyPMb9GC" Name="Selected Driver" Kind="OutputPin" />
@@ -38,6 +38,8 @@
             <Pin Id="E5RVTAnz5RtQUt5fMSPe9e" Name="Open Input Channels" Kind="OutputPin" />
             <Pin Id="R2roofYyj4XO7mlNY24AXV" Name="Available Output Channels" Kind="OutputPin" />
             <Pin Id="VqfNdhK3U7pN1lzoKo1mX6" Name="Open Output Channels" Kind="OutputPin" />
+            <Pin Id="NlpkRNHGd5qNhtY870gJm1" Name="Last Error" Kind="OutputPin" />
+            <Pin Id="O4lTnyfOHboQOou6pAc12L" Name="Is ASIO" Kind="OutputPin" />
           </Node>
           <Pad Id="H8TqwyTPYOGLAno15yPL5L" Comment="Sample Rate" Bounds="522,610,64,15" ShowValueBox="true" isIOBox="true" Value="48000">
             <p:TypeAnnotation LastCategoryFullName="Audio" LastSymbolSource="VL.Audio.vl">
@@ -88,7 +90,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Node Bounds="499,102,52,19" Id="LbMj9kIFnIlMVAZFn5x21L">
+          <Node Bounds="499,101,52,19" Id="LbMj9kIFnIlMVAZFn5x21L">
             <p:NodeReference LastCategoryFullName="Audio.Source" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="Category" Name="Audio" />
@@ -97,7 +99,7 @@
             </p:NodeReference>
             <Pin Id="DntPRCJXk3MOzGOtUcXozL" Name="Output" Kind="OutputPin" />
           </Node>
-          <Node Bounds="565,102,165,19" Id="PZfcgw7cOFCP1Rhjivi83e">
+          <Node Bounds="565,101,165,19" Id="PZfcgw7cOFCP1Rhjivi83e">
             <p:NodeReference LastCategoryFullName="Audio.Source" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="Category" Name="Audio" />
@@ -122,11 +124,11 @@
             <Pin Id="FP2DrG6U6gYM3aAOUo1w5S" Name="Original Format" Kind="OutputPin" />
           </Node>
           <Node Bounds="744,101,145,19" Id="Gqb09J5bZpYPTkIb4FucjV">
-            <p:NodeReference LastCategoryFullName="Audio.Source" LastSymbolSource="VL.Audio.vl">
+            <p:NodeReference LastCategoryFullName="Audio.Source" LastSymbolSource="VL.Audio-Factory">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="Category" Name="Audio" />
               <CategoryReference Kind="Category" Name="Source" />
-              <Choice Kind="ProcessAppFlag" Name="OSC" />
+              <Choice Kind="ProcessNode" Name="Oscillator" />
             </p:NodeReference>
             <Pin Id="PTg7tjIRh7eLLtafFPAWc5" Name="Frequency" Kind="InputPin" />
             <Pin Id="UMFWV0NpIcaMtOrz0JxweU" Name="Frequency Offset" Kind="InputPin" />
@@ -181,7 +183,7 @@
             <Pin Id="UEpydf8zfiELi3ilSf9Fux" Name="Filename" Kind="InputPin" />
             <Pin Id="Cf1GlqjQCSvNacNpXvdyq2" Name="Output" Kind="OutputPin" />
           </Node>
-          <Node Bounds="548,131,64,19" Id="UsBozwF3b34NSJXU5uE1Il">
+          <Node Bounds="548,131,65,19" Id="UsBozwF3b34NSJXU5uE1Il">
             <p:NodeReference LastCategoryFullName="Audio.Source" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="Category" Name="Audio" />
@@ -689,6 +691,15 @@
             <Pin Id="Q5drFtdzmu3Lk1AsR5rJ7V" Name="Output" Kind="OutputPin" />
             <Pin Id="VR3f8NAldp1MvIM7TkHhhi" Name="Position" Kind="OutputPin" />
           </Node>
+          <Node Bounds="861,131,42,19" Id="JJUCkJkhH6MPNSHgbz2NEh">
+            <p:NodeReference LastCategoryFullName="Audio.Source" LastSymbolSource="VL.Audio-Factory">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessNode" Name="Noise" />
+            </p:NodeReference>
+            <Pin Id="TzvT5sE6WNTNSPR5evNPGi" Name="Noise" Kind="InputPin" />
+            <Pin Id="KdBAUlJM15bPLXLdPIUT7h" Name="Gain" Kind="InputPin" />
+            <Pin Id="BTyR9Z3yUvRL5RsBFpvURg" Name="Output" Kind="OutputPin" />
+          </Node>
         </Canvas>
         <Patch Id="H7AXqgMBO7VM7Hjz3LIVIi" Name="Create" />
         <Patch Id="SAUdaIhMZdzNMFreYk25vB" Name="Update" />
@@ -712,6 +723,6 @@
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="AOu5YShvTlxO1vA9BHtmEC" Location="VL.Skia" Version="2021.4.6" />
+  <NugetDependency Id="AOu5YShvTlxO1vA9BHtmEC" Location="VL.Skia" Version="2021.4.7-0854-g6e27633250" />
   <NugetDependency Id="RFGyRrGfUbfP2xiT2T539W" Location="VL.Audio" Version="0.0.0.0" />
 </Document>

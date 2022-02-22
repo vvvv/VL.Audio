@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="HTX4axw4uH5NDghqAqpe1F" LanguageVersion="2021.4.6.835" Version="0.128">
-  <NugetDependency Id="NrtwmMKDemaOAGHoKxrmNR" Location="VL.CoreLib" Version="2021.4.6" />
+<Document xmlns:p="property" Id="HTX4axw4uH5NDghqAqpe1F" LanguageVersion="2021.4.7.882" Version="0.128">
+  <NugetDependency Id="NrtwmMKDemaOAGHoKxrmNR" Location="VL.CoreLib" Version="2021.4.7-0854-g6e27633250" />
   <Patch Id="Mj1seFpSbg5MtaCXVBGhJf">
     <Canvas Id="ClqUpgLjNRdQbB5ajAF1ry" DefaultCategory="Audio" CanvasType="FullCategory">
       <!--
@@ -8,7 +8,7 @@
     ************************ DriverSettings ************************
 
 -->
-      <Node Name="DriverSettings" Bounds="148,266" Id="KuVlAdkS707LcgTmpwbm2r" Summary="Chooses and configures the audio driver" Remarks="Only one instance of this node must exist!" Tags="audioengine">
+      <Node Name="DriverSettings" Bounds="148,263" Id="KuVlAdkS707LcgTmpwbm2r" Summary="Chooses and configures the audio driver" Remarks="Only one instance of this node must exist!" Tags="audioengine">
         <p:NodeReference>
           <Choice Kind="ContainerDefinition" Name="Process" />
           <FullNameCategoryReference ID="Primitive" />
@@ -416,7 +416,7 @@
           <Link Id="SqaMcjtnTsZLBmFOseLXxs" Ids="HAKWoIgCtfcPsDKtNBWsni,DBJUaG6g4AHMhZ7bx1Y9ga" IsHidden="true" />
         </Patch>
       </Node>
-      <Canvas Id="MbtacXaCYZtNEqN6Ps0QTL" Name="Sink" Position="148,478">
+      <Canvas Id="MbtacXaCYZtNEqN6Ps0QTL" Name="Sink" Position="148,463">
         <!--
 
     ************************ AudioOut ************************
@@ -1132,7 +1132,7 @@
           </Patch>
         </Node>
       </Canvas>
-      <Canvas Id="TdfYOgYhMQ5LF73viafJkp" Name="Source" Position="148,349">
+      <Canvas Id="TdfYOgYhMQ5LF73viafJkp" Name="Source" Position="148,334">
         <!--
 
     ************************ AudioIn ************************
@@ -2650,7 +2650,7 @@
           </Patch>
         </Node>
       </Canvas>
-      <Canvas Id="CzUCcdHx9xsOIJIU8nsq4Q" Name="Analysis" Position="148,414">
+      <Canvas Id="CzUCcdHx9xsOIJIU8nsq4Q" Name="Analysis" Position="148,399">
         <!--
 
     ************************ Meter ************************
@@ -9214,7 +9214,7 @@
           <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
         </p:ValueBoxSettings>
       </Pad>
-      <Canvas Id="CDwuZmVxF1WLHmelavbTNn" Name="Operators" Position="149,606">
+      <Canvas Id="CDwuZmVxF1WLHmelavbTNn" Name="Operators" Position="149,591">
         <!--
 
     ************************ + (Spectral) ************************
@@ -9694,7 +9694,7 @@
           </Patch>
         </Node>
       </Canvas>
-      <Canvas Id="O7gcLIKf4MTOrkzHmeQEPR" Name="Utils" Position="149,670">
+      <Canvas Id="O7gcLIKf4MTOrkzHmeQEPR" Name="Utils" Position="149,655">
         <Canvas Id="Mj5mAH0aPewN4IG05ipSpR" Name="Experimental" Position="513,392">
           <!--
 
@@ -15158,7 +15158,8 @@
               <Node Bounds="427,443,145,19" Id="NggSN0vdyC3O4ZAcaNkN08">
                 <p:NodeReference LastCategoryFullName="Audio.Source" LastSymbolSource="VL.Audio-Factory">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <Choice Kind="ProcessNode" Name="OSC" />
+                  <Choice Kind="ProcessAppFlag" Name="Oscillator" />
+                  <CategoryReference Kind="Category" Name="Source" NeedsToBeDirectParent="true" />
                 </p:NodeReference>
                 <Pin Id="JZ4KYbfQSD1OkOxBjseXTh" Name="Frequency" Kind="InputPin" />
                 <Pin Id="GQbopFn5s7DLsQsl8Xlp4A" Name="Frequency Offset" Kind="InputPin" DefaultValue="0" />
@@ -17223,7 +17224,7 @@
     ************************ TimingSettings ************************
 
 -->
-      <Node Name="TimingSettings" Bounds="321,266" Id="P5Il0xX3TglQBKUh2ToNGX" Summary="Configures the audio engines timing" Remarks="Only one instance of this node must exist!" Tags="audioengine">
+      <Node Name="TimingSettings" Bounds="306,263" Id="P5Il0xX3TglQBKUh2ToNGX" Summary="Configures the audio engines timing" Remarks="Only one instance of this node must exist!" Tags="audioengine">
         <p:NodeReference>
           <Choice Kind="ContainerDefinition" Name="Process" />
           <FullNameCategoryReference ID="Primitive" />
@@ -17486,7 +17487,7 @@
     ************************ SettingsFromFile (Advanced) ************************
 
 -->
-      <Node Name="SettingsFromFile (Advanced)" Bounds="515,266" Id="RZPiRBW3tLeNQcSa1F9sBn" Summary="Loads driver and timing settings from a file">
+      <Node Name="SettingsFromFile (Advanced)" Bounds="485,263" Id="RZPiRBW3tLeNQcSa1F9sBn" Summary="Loads driver and timing settings from a file">
         <p:NodeReference>
           <Choice Kind="ContainerDefinition" Name="Process" />
           <FullNameCategoryReference ID="Primitive" />
@@ -17598,7 +17599,7 @@
     ************************ WasapiInfo (Advanced) ************************
 
 -->
-      <Node Name="WasapiInfo (Advanced)" Bounds="782,263" Id="KRtsFwtJ2n9PFTcwIFmfEx">
+      <Node Name="WasapiInfo (Advanced)" Bounds="737,263" Id="KRtsFwtJ2n9PFTcwIFmfEx">
         <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="builtin">
           <Choice Kind="ContainerDefinition" Name="Process" />
         </p:NodeReference>
@@ -17800,7 +17801,7 @@
     ************************ EngineSettings ************************
 
 -->
-      <Node Name="EngineSettings" Bounds="324,329" Id="BX7vs6sXXCiNVsz5Dsr6La">
+      <Node Name="EngineSettings" Bounds="309,329" Id="BX7vs6sXXCiNVsz5Dsr6La">
         <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="builtin">
           <Choice Kind="ContainerDefinition" Name="Process" />
         </p:NodeReference>
@@ -17893,7 +17894,7 @@
   <NugetDependency Id="FdfszSdTJWQMuCe0eM4QeQ" Location="NAudio" Version="2.0.1" />
   <NugetDependency Id="V37AuJ2ryAbNsol8TzkZ5q" Location="NAudio.Asio" Version="2.0.0" />
   <NugetDependency Id="KJThfL79XZ7QOdgfpy6yJ5" Location="NAudio.Core" Version="2.0.0" />
-  <NugetDependency Id="Vm7aBcJKKNAL9MZxDnrPDX" Location="VL.Skia" Version="2021.4.6" />
+  <NugetDependency Id="Vm7aBcJKKNAL9MZxDnrPDX" Location="VL.Skia" Version="2021.4.7-0854-g6e27633250" />
   <PlatformDependency Id="Qp3HZOkgG5cQcuE59UUe1j" Location="System.IO" />
   <PlatformDependency Id="CCaadwXbjs6P0MKKXnqSCL" Location="System.IO.FileSystem" />
   <NugetDependency Id="VSw4d6QSmJYMnkyboVSRG9" Location="NAudio.Wasapi" Version="2.0.0" />
