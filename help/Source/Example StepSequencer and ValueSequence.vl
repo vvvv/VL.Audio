@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="Qzj0cwp3rDOLYY62LqpEsD" LanguageVersion="2021.4.6.835" Version="0.128">
-  <NugetDependency Id="TLm27rLgDRMOfshTd8FG5S" Location="VL.CoreLib" Version="2021.4.6" />
+<Document xmlns:p="property" Id="Qzj0cwp3rDOLYY62LqpEsD" LanguageVersion="2021.4.7.884" Version="0.128">
+  <NugetDependency Id="TLm27rLgDRMOfshTd8FG5S" Location="VL.CoreLib" Version="2021.4.7-0884-g913c86639a" />
   <Patch Id="ET5A39rC3G1LQ2XPOFRcj7">
     <Canvas Id="UeizUXMvVlOQaGOJsgEosP" DefaultCategory="Main" BordersChecked="false" CanvasType="FullCategory" />
     <!--
@@ -30,7 +30,6 @@
               <CategoryReference Kind="Category" Name="Source" />
               <Choice Kind="ProcessNode" Name="ValueSequence" />
             </p:NodeReference>
-            <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
             <Pin Id="OVIhgdSM6C9OkZFzwfx02W" Name="Length" Kind="InputPin" />
             <Pin Id="Unrl7eQXuTpOIs3OhIDpoU" Name="Is Bang" Kind="InputPin" />
             <Pin Id="Q5rlNPBF44PNNZrBs7Be9J" Name="Positions" Kind="InputPin" />
@@ -99,7 +98,8 @@
           <Node Bounds="35,462,145,19" Id="KZcySUpJMT5Pq5z7dL4STN">
             <p:NodeReference LastCategoryFullName="Audio.Source" LastSymbolSource="VL.Audio-Factory">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-              <Choice Kind="ProcessNode" Name="OSC" />
+              <Choice Kind="ProcessAppFlag" Name="Oscillator" />
+              <CategoryReference Kind="Category" Name="Source" NeedsToBeDirectParent="true" />
             </p:NodeReference>
             <Pin Id="N4LijDuUBXTPbAgyATCZSO" Name="Frequency" Kind="InputPin" />
             <Pin Id="GyX98kXJMxKPcY7Okjj8mO" Name="Frequency Offset" Kind="InputPin" DefaultValue="0" />
@@ -187,7 +187,7 @@
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="StepSequencer" />
             </p:NodeReference>
-            <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">Low</p:HelpFocus>
+            <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
             <Pin Id="QXLfNsgzu5YLJfKk7Icq8D" Name="Length" Kind="InputPin" />
             <Pin Id="Id8qzDXK2g0NE6mTuH4ECN" Name="Positions" Kind="InputPin" />
             <Pin Id="Fq6HMdocGXbLUPIvf8n7yj" Name="Lengths" Kind="InputPin" />
@@ -300,7 +300,8 @@
           <Node Bounds="197,459,145,19" Id="GvGeZZa2kGvNTXNXbCHcLu">
             <p:NodeReference LastCategoryFullName="Audio.Source" LastSymbolSource="VL.Audio-Factory">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-              <Choice Kind="ProcessNode" Name="OSC" />
+              <Choice Kind="ProcessAppFlag" Name="Oscillator" />
+              <CategoryReference Kind="Category" Name="Source" NeedsToBeDirectParent="true" />
             </p:NodeReference>
             <Pin Id="LqNVOoFUx5CP1andVkm2L5" Name="Frequency" Kind="InputPin" />
             <Pin Id="SxBzOuAs6WuOgpDQZVUv49" Name="Frequency Offset" Kind="InputPin" DefaultValue="0" />
@@ -432,7 +433,6 @@
               <CategoryReference Kind="Category" Name="Source" />
               <Choice Kind="ProcessNode" Name="ValueSequence" />
             </p:NodeReference>
-            <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
             <Pin Id="Gqzy2so55GxPclikw3SMlQ" Name="Length" Kind="InputPin" />
             <Pin Id="HHdUBDxNBkJMrrDWtagtIM" Name="Is Bang" Kind="InputPin" />
             <Pin Id="CbbXGPzStcMPB5EsuBCbp2" Name="Positions" Kind="InputPin" />
@@ -578,6 +578,6 @@
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="HvzMQdtRhliMLXQhNAF7T1" Location="VL.CoreLib" Version="2021.4.6" />
+  <NugetDependency Id="HvzMQdtRhliMLXQhNAF7T1" Location="VL.CoreLib" Version="2021.4.7-0884-g913c86639a" />
   <NugetDependency Id="Lyjw8dV97GgOuX1bgTxjOd" Location="VL.Audio" Version="0.0.0.0" />
 </Document>
