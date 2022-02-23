@@ -7214,10 +7214,10 @@
                 <ControlPoint Id="A1E19uY4zkLLzhiIbFkvbP" Bounds="239,456" />
                 <ControlPoint Id="VCQrWAd0QsqPDCeblVFiOW" Bounds="315,98" />
                 <ControlPoint Id="UoT9p0woFuRLTBZjp0EiXo" Bounds="440,376" />
-                <ControlPoint Id="PTzfIMTSsYlOPcUpeteDGp" Bounds="508,494" />
+                <ControlPoint Id="PTzfIMTSsYlOPcUpeteDGp" Bounds="508,509" />
                 <ControlPoint Id="PYkyYWCoaHVL9NNxJC26f6" Bounds="439,672" />
                 <ControlPoint Id="I0JhCVliZRhQJdihQFPKFr" Bounds="529,375" />
-                <Node Bounds="342,414,112,225" Id="L5JgMpYAVXIO3gajy54WQx">
+                <Node Bounds="342,414,112,226" Id="L5JgMpYAVXIO3gajy54WQx">
                   <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.dll">
                     <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
                     <Choice Kind="ApplicationStatefulRegion" Name="If" />
@@ -7239,7 +7239,7 @@
                       <Pin Id="BMjyumb1zHANYgPOHZvNiI" Name="Output" Kind="StateOutputPin" />
                       <Pin Id="ESS2GIPNb5GPDDwgRER0fV" Name="Apply" Kind="InputPin" />
                     </Node>
-                    <Node Bounds="354,526,84,26" Id="PFrzHFzbowSLiAwCIsCEX4">
+                    <Node Bounds="354,541,84,26" Id="PFrzHFzbowSLiAwCIsCEX4">
                       <p:NodeReference LastCategoryFullName="VL.Audio.BufferReaderSignal" LastSymbolSource="VL.Audio.dll">
                         <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                         <Choice Kind="OperationCallFlag" Name="SetDoRead" />
@@ -7256,6 +7256,16 @@
                       <Pin Id="FZaPdbL9HUsMhpuhNUFzjn" Name="Input" Kind="StateInputPin" />
                       <Pin Id="GPr7jYnjDnyQCJgG9IB8kj" Name="Output" Kind="StateOutputPin" />
                       <Pin Id="EkHxH5OtnQ4M1DA2NxWVsC" Name="Read Position" Kind="OutputPin" />
+                    </Node>
+                    <Node Bounds="355,491" Id="SvHJDkVYnNwN9AtOMQCwXC">
+                      <p:NodeReference LastCategoryFullName="VL.Audio.BufferReaderSignal" LastSymbolSource="VL.Audio.dll">
+                        <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                        <Choice Kind="OperationCallFlag" Name="SetSpeed" />
+                        <CategoryReference Kind="AssemblyCategory" Name="BufferReaderSignal" NeedsToBeDirectParent="true" />
+                      </p:NodeReference>
+                      <Pin Id="P8gZj01Nr9xOkP8cYqib8O" Name="Input" Kind="StateInputPin" />
+                      <Pin Id="CWmq9U0B7ejMFD3AodlWH3" Name="Value" Kind="InputPin" />
+                      <Pin Id="QaKjrmi6twfML6OKv7CmMJ" Name="Output" Kind="StateOutputPin" />
                     </Node>
                   </Patch>
                 </Node>
@@ -7305,6 +7315,7 @@
                   <Pin Id="V7CRfOlPBtHPZZzBoGH3id" Name="Output" Kind="StateOutputPin" />
                 </Node>
                 <ControlPoint Id="HePBLnAbOGVOeUu1goTssl" Bounds="644,693" />
+                <ControlPoint Id="SE7D1tdPcieOaCv2NOxchn" Bounds="506,454" />
               </Canvas>
               <ProcessDefinition Id="TIuw88ttxXCNE5coqo5CLJ">
                 <Fragment Id="UTBiJCHcf2kPpgVEImFdSm" Patch="CLBqbfnLJRMNB1C4Xm9ycY" Enabled="true" />
@@ -7326,6 +7337,7 @@
                 <Pin Id="CzejhQUexKOO4mofTaz8Db" Name="Buffer" Kind="InputPin" Bounds="349,131" DefaultValue="foo" />
                 <Pin Id="Pp8CcWSxJJgLqIOYdd7Ybl" Name="Seek Position" Kind="InputPin" />
                 <Pin Id="RnF6St4n1usQCs0g9isH9H" Name="Seek" Kind="InputPin" Bounds="564,372" DefaultValue="False" />
+                <Pin Id="NpBmwmjfUCGNZrHOnUmzwB" Name="Speed" Kind="InputPin" Bounds="507,454" DefaultValue="1" />
                 <Pin Id="BLBGeQqGlTqNUbo8nXnOr8" Name="Pay" Kind="InputPin" Bounds="550,554" />
                 <Pin Id="OpLHVsEqgOxNjgMVVyvcsK" Name="Output" Kind="OutputPin" Bounds="311,456" />
                 <Pin Id="LF1xeXq1LMYOd9wxysP7ZL" Name="Current Position" Kind="OutputPin" Bounds="503,728" />
@@ -7339,7 +7351,7 @@
               <Link Id="FGCgr12kJb3PBA6p9cscey" Ids="UNjTVBitAtGNusUByt1RO7,QoALDi2zTRdMdx8jgco0yZ" />
               <Link Id="MSAupvPb15vNymqSeHD0s9" Ids="QoALDi2zTRdMdx8jgco0yZ,NAeOptuN1qsNJIbIHJKnpO" />
               <Link Id="JpvILYEOd60MmLXxRRBD1Y" Ids="N5wv9LGKbOKOdMWIomcHxR,FZaPdbL9HUsMhpuhNUFzjn" />
-              <Link Id="EHZnvyMXibvLl45BcTy1Bz" Ids="BMjyumb1zHANYgPOHZvNiI,LSpfdf1C4BLMHEOIxtOMNB" />
+              <Link Id="EHZnvyMXibvLl45BcTy1Bz" Ids="BMjyumb1zHANYgPOHZvNiI,P8gZj01Nr9xOkP8cYqib8O" />
               <Link Id="KQpFJnvWpOYOktSdf8qtwK" Ids="NAeOptuN1qsNJIbIHJKnpO,SshqXZV7PtRPNn7lYyzcER" />
               <Link Id="QZ1rKUl2gsDP5UFL9gFVHL" Ids="G6DqMMtVAfbPcIk9vPiYWd,Ch8QzUcos5NMETULF8nCZV" />
               <Link Id="AKMlLZPuHa5NOVnvZoNOXt" Ids="VFYpvlrZHXWQXoZfz0sgy7,KVNPsqwTqxTL2Mq7RYbn2K" IsFeedback="true" />
@@ -7352,6 +7364,9 @@
               <Link Id="OXekBD9AfEfPWOTKXbVnAS" Ids="PDxaZNFAfs1OaXm1iCaY3y,JVHBEz1lQLdLi43sfN02zk" />
               <Link Id="RAFXq5LMxqqLxIHJlPHMf1" Ids="KVNPsqwTqxTL2Mq7RYbn2K,O1S7hKitIYiMI3GY3ynw2k" />
               <Link Id="EbVVVsWGoNQP2dAzlegYqx" Ids="PYkyYWCoaHVL9NNxJC26f6,J0frKzjZiPUQIYPjYGr9jK" IsHidden="true" />
+              <Link Id="NDFOtjEn8OJOkNEdVrLx4J" Ids="QaKjrmi6twfML6OKv7CmMJ,LSpfdf1C4BLMHEOIxtOMNB" />
+              <Link Id="Chykzo5T7nwOR8UqBaZekY" Ids="SE7D1tdPcieOaCv2NOxchn,CWmq9U0B7ejMFD3AodlWH3" />
+              <Link Id="LWLsj9DuPuJP5ri1uswRNy" Ids="NpBmwmjfUCGNZrHOnUmzwB,SE7D1tdPcieOaCv2NOxchn" IsHidden="true" />
             </Patch>
           </Node>
           <!--

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="RyJ04bRESOJMQsDA9bJH0p" LanguageVersion="2021.4.6.835" Version="0.128">
-  <NugetDependency Id="Hmr7kILdlvPMagkfyf51Iz" Location="VL.CoreLib" Version="2021.4.6" />
+<Document xmlns:p="property" Id="RyJ04bRESOJMQsDA9bJH0p" LanguageVersion="2021.4.7.882" Version="0.128">
+  <NugetDependency Id="Hmr7kILdlvPMagkfyf51Iz" Location="VL.CoreLib" Version="2021.4.7-0854-g6e27633250" />
   <Patch Id="HaulhrPXkyCPeLW2mKcS3k">
     <Canvas Id="KNuoeWiZ9dzNZrycJV80K9" DefaultCategory="Main" CanvasType="FullCategory" />
     <!--
@@ -51,7 +51,7 @@
               <Choice Kind="TypeFlag" Name="Boolean" />
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="NczlzSnIpakPDKwbNJDlUn" Comment="Filename" Bounds="54,245,119,15" ShowValueBox="true" isIOBox="true" Value="..\vvvv.mp3">
+          <Pad Id="NczlzSnIpakPDKwbNJDlUn" Comment="Filename" Bounds="54,245,119,15" ShowValueBox="true" isIOBox="true" Value="..\demo.wav">
             <p:TypeAnnotation LastCategoryFullName="IO" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Path" />
             </p:TypeAnnotation>
@@ -99,6 +99,7 @@
             <Pin Id="IyTmTwmiOhGLeLASHYV2qi" Name="Buffer" Kind="InputPin" />
             <Pin Id="Re0o59qgLYMLZtcsqxUjMc" Name="Seek Position" Kind="InputPin" />
             <Pin Id="HUlph2DKkDWK9nifEr6EVE" Name="Seek" Kind="InputPin" DefaultValue="False" />
+            <Pin Id="IInZfd0ygKLOer5KWUqof7" Name="Speed" Kind="InputPin" />
             <Pin Id="BlGEknIZ5GZP4ewWM9fCvb" Name="Pay" Kind="InputPin" DefaultValue="True" />
             <Pin Id="NF0Aj20v9jZM0Y1VRF4Tou" Name="Output" Kind="OutputPin" />
             <Pin Id="C9ZxFfrQjXcMSpnJnDbJTU" Name="Current Position" Kind="OutputPin" />
@@ -122,7 +123,7 @@
             <Pin Id="Ugv7oUx6Y8cQHijJcmyp32" Name="Input" Kind="InputPin" />
             <Pin Id="Eq7KrV5owtuPhe3WFFVARg" Name="Result" Kind="OutputPin" />
           </Node>
-          <Pad Id="P8PhW5RrUmyLZNCkfZ1oaA" Comment="Seek" Bounds="652,603,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+          <Pad Id="P8PhW5RrUmyLZNCkfZ1oaA" Comment="Seek" Bounds="643,603,35,35" ShowValueBox="true" isIOBox="true" Value="False">
             <p:TypeAnnotation>
               <Choice Kind="TypeFlag" Name="Boolean" />
               <FullNameCategoryReference ID="Primitive" />
@@ -131,7 +132,7 @@
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="QparOTp0XBYN2lhOjI4JMT" Comment="Play" Bounds="735,603,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+          <Pad Id="QparOTp0XBYN2lhOjI4JMT" Comment="Play" Bounds="852,606,35,35" ShowValueBox="true" isIOBox="true" Value="False">
             <p:TypeAnnotation>
               <Choice Kind="TypeFlag" Name="Boolean" />
               <FullNameCategoryReference ID="Primitive" />
@@ -179,7 +180,7 @@
             <Pin Id="EGV1JOI1owvNXzdNZazHQB" Name="In Progress" Kind="OutputPin" />
             <Pin Id="KT4RDJAJ2S2LNSUpWQDd0H" Name="On Completed" Kind="OutputPin" />
           </Node>
-          <Pad Id="DGxp7qRGocAM7r9tyOJ9HC" Comment="Filename" Bounds="698,244,86,15" ShowValueBox="true" isIOBox="true" Value="..\..\..\..\..\..\..\..\temp\foo.wav">
+          <Pad Id="DGxp7qRGocAM7r9tyOJ9HC" Comment="Filename" Bounds="698,244,86,15" ShowValueBox="true" isIOBox="true" Value="..\demo.wav">
             <p:TypeAnnotation LastCategoryFullName="IO" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Path" />
             </p:TypeAnnotation>
@@ -393,7 +394,12 @@
             <Pin Id="B4GQzoxPGcRPCrrNv4xHd5" Name="Output" Kind="StateOutputPin" />
             <Pin Id="DRwO3QNen55PjVyHPgTMrs" Name="Sample Count" Kind="OutputPin" />
           </Node>
-          <Pad Id="B9JNFaGqA0jMI0hBUcWtwv" Comment="Length" Bounds="463,140,35,15" ShowValueBox="true" isIOBox="true" Value="1">
+          <Pad Id="B9JNFaGqA0jMI0hBUcWtwv" Comment="Length" Bounds="463,140,35,15" ShowValueBox="true" isIOBox="true" Value="4">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="Float32" />
+            </p:TypeAnnotation>
+          </Pad>
+          <Pad Id="Sk34jDORMN3QQqhDeV13by" Comment="Speed" Bounds="750,613,35,15" ShowValueBox="true" isIOBox="true" Value="1">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Float32" />
             </p:TypeAnnotation>
@@ -451,9 +457,10 @@
         <Link Id="LBBbdxZqtbnNIg1aeItISB" Ids="B4GQzoxPGcRPCrrNv4xHd5,IyTmTwmiOhGLeLASHYV2qi" />
         <Link Id="A0vqPMvGIRFOs9pnsU6ch7" Ids="B4GQzoxPGcRPCrrNv4xHd5,GM8emtZfmiBOUyinpqmRQy" />
         <Link Id="SSj8iOnE7V8Ms91sG1dWNU" Ids="LjvplpNBGkPQCgJx0lPJR8,CElhEcbtiGJQPEnrSpcjBw" />
+        <Link Id="JEB8mi5Hj6YMVmSlmZmMbv" Ids="Sk34jDORMN3QQqhDeV13by,IInZfd0ygKLOer5KWUqof7" />
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="AOu5YShvTlxO1vA9BHtmEC" Location="VL.Skia" Version="2021.4.6" />
+  <NugetDependency Id="AOu5YShvTlxO1vA9BHtmEC" Location="VL.Skia" Version="2021.4.7-0854-g6e27633250" />
   <NugetDependency Id="RFGyRrGfUbfP2xiT2T539W" Location="VL.Audio" Version="0.0.0.0" />
 </Document>
