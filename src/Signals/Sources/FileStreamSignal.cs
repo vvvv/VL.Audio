@@ -11,8 +11,6 @@ namespace VL.Audio
 
         public bool FPlay = false;
 
-        public bool FRunToEndBeforeLooping = true;
-
         public TimeSpan LoopStartTime;
 
         public TimeSpan LoopEndTime;
@@ -83,41 +81,40 @@ namespace VL.Audio
             int samplesRead = 0;
             if (FPlay && samplesToRead > 0) 
             {
-                samplesRead = FAudioFile.Read(FFileBuffer, offset * channels, samplesToRead);
-                if (samplesRead == 0) 
+                //if we're at a loop point, then make two reads: one to the LoopEnd, another at the LoopStart with the remaining samples to read
+                var needsTwoReads = false;
+                int currentSample = 0, loopEndSample = 0;
+                if (FLoop)
                 {
-                    if (FLoop)
-                    {
-                        FAudioFile.CurrentTime = LoopStartTime;
-                        FRunToEndBeforeLooping = false;
-                        samplesRead = FAudioFile.Read(FFileBuffer, offset * channels, samplesToRead);
-                    }
-                    else 
-                    {
-                        samplesRead = FFileBuffer.ReadSilence(offset * channels, samplesToRead);
-                    }
-                
-                    if (FLoop && FAudioFile.CurrentTime >= LoopEndTime)
-                    {
-                        FAudioFile.CurrentTime = LoopStartTime;
-                        FRunToEndBeforeLooping = false;
-                        //bytesread = FAudioFile.Read(FFileBuffer, offset*channels, samplesToRead);          
-                    }
+                    currentSample = (int) (FAudioFile.CurrentTime.TotalSeconds * SampleRate);
+                    var loopEndTime = FAudioFile.TotalTime.TotalSeconds;
+                    if (LoopEndTime.TotalSeconds >= 0)
+                        loopEndTime = Math.Min(loopEndTime, LoopEndTime.TotalSeconds);
+                    loopEndSample = (int) (loopEndTime * SampleRate);
+                    //if we're past the loopEndTime, then loop now
+                    if (currentSample > loopEndSample)
+                        loopEndSample = currentSample;
+
+                    needsTwoReads = currentSample + (samplesToRead / channels) > loopEndSample;
                 }
-                if (Speed == 1.0) 
+
+                if (needsTwoReads)
                 {
-                    //copy to output buffers
-                    for (int i = 0; i < channels; i++)
-                    {
-                        for (int j = 0; j < sampleCount; j++) 
-                        {
-                            buffer[i][j] = FFileBuffer[i + j * channels];
-                        }
-                    }
+                    //first read samples remaining to loopEnd
+                    var samplesToReadAtEndOfLoop = Math.Min(samplesToRead, loopEndSample - currentSample);
+                    samplesRead = FAudioFile.Read(FFileBuffer, offset * channels, samplesToReadAtEndOfLoop);
+                    WriteFileBufferToOutputBuffer(buffer, 0, channels, samplesToReadAtEndOfLoop, samplesRead / channels);
+
+                    //then make another read at the beginning of the loop
+                    var samplesToReadAtStartOfLoop = samplesToRead - samplesToReadAtEndOfLoop;
+                    FAudioFile.CurrentTime = LoopStartTime;
+                    samplesRead = FAudioFile.Read(FFileBuffer, offset * channels, samplesToReadAtStartOfLoop);
+                    WriteFileBufferToOutputBuffer(buffer, samplesToReadAtEndOfLoop, channels, samplesToReadAtEndOfLoop, samplesRead / channels);
                 }
-                else//resample
+                else
                 {
-                    FResampler.ResampleDeinterleave(FFileBuffer, buffer, samplesToRead / channels, sampleCount, channels);
+                    samplesRead = FAudioFile.Read(FFileBuffer, offset * channels, samplesToRead);
+                    WriteFileBufferToOutputBuffer(buffer, 0, channels, samplesToRead, sampleCount);
                 }
             }
             else//silence
@@ -126,6 +123,25 @@ namespace VL.Audio
                 {
                     buffer[i].ReadSilence(offset, sampleCount);
                 }
+            }
+        }
+
+        private void WriteFileBufferToOutputBuffer(float[][] buffer, int outputOffset, int channels, int samplesToRead, int sampleCount)
+        {
+            if (Speed == 1.0)
+            {
+                //copy to output buffers
+                for (int i = 0; i < channels; i++)
+                {
+                    for (int j = 0; j < sampleCount; j++)
+                    {
+                        buffer[i][j] = FFileBuffer[i + outputOffset + j * channels];
+                    }
+                }
+            }
+            else//resample
+            {
+                FResampler.ResampleDeinterleave(FFileBuffer, buffer, samplesToRead / channels, sampleCount, channels);
             }
         }
 
