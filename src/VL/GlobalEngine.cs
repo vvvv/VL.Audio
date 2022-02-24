@@ -30,6 +30,14 @@ namespace VL.Audio
             }
         }
 
+        public int DriverSettingsCount { get; private set; }
+        public void AddDriverSettingsReference() { DriverSettingsCount += 1; }
+        public void RemoveDriverSettingsReference() { DriverSettingsCount -= 1; }
+
+        public int TimingSettingsCount { get; private set; }
+        public void AddTimingSettingsReference() { TimingSettingsCount += 1; }
+        public void RemoveTimingSettingsReference() { TimingSettingsCount -= 1; }
+
         public void LoadConfiguration(string configurationFile)
         {
             //define some absolut baseline defaults for when there is no settings file yet
