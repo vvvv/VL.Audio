@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="AVFPbp02s1WNAovdFBT0Wb" LanguageVersion="2021.4.7.893" Version="0.128">
-  <NugetDependency Id="Hmr7kILdlvPMagkfyf51Iz" Location="VL.CoreLib" Version="2021.4.7-0893-g515a4ce54e" />
+<Document xmlns:p="property" Id="AVFPbp02s1WNAovdFBT0Wb" LanguageVersion="2021.4.7.884" Version="0.128">
+  <NugetDependency Id="Hmr7kILdlvPMagkfyf51Iz" Location="VL.CoreLib" Version="2021.4.7-0884-g913c86639a" />
   <Patch Id="HaulhrPXkyCPeLW2mKcS3k">
     <Canvas Id="KNuoeWiZ9dzNZrycJV80K9" DefaultCategory="Main" BordersChecked="false" CanvasType="FullCategory" />
     <!--
@@ -195,14 +195,14 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Node Bounds="473,518,420,432" Id="KxOSuO4Z9L2O0ALqHGL1e1">
+          <Node Bounds="473,518,438,426" Id="KxOSuO4Z9L2O0ALqHGL1e1">
             <p:NodeReference LastCategoryFullName="Control" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="Comment" />
             </p:NodeReference>
             <Patch Id="Q1TQRjC7XobLrfxvQzBd38" ManuallySortedPins="true">
               <Patch Id="J4p0TECL7aCNQwwLvT0uvu" Name="Create" ManuallySortedPins="true" />
-              <Patch Id="AZOsrOagZeFMii3JBx2Rey" Name="Update" ManuallySortedPins="true" />
+              <Patch Id="AZOsrOagZeFMii3JBx2Rey" Name="Update" ParticipatingElements="ALSC9nZplEYPTPrVkAJSiw" ManuallySortedPins="true" />
               <Node Bounds="487,746,185,19" Id="J4hK9SAnUl0P911tGX9wEm">
                 <p:NodeReference LastCategoryFullName="Audio" LastSymbolSource="VL.Audio.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -229,30 +229,25 @@
                 <Pin Id="NlpkRNHGd5qNhtY870gJm1" Name="Last Error" Kind="OutputPin" />
                 <Pin Id="O4lTnyfOHboQOou6pAc12L" Name="Is ASIO" Kind="OutputPin" />
               </Node>
-              <Pad Id="H8TqwyTPYOGLAno15yPL5L" Comment="Sample Rate" Bounds="509,574,58,15" ShowValueBox="true" isIOBox="true" Value="48000">
-                <p:TypeAnnotation LastCategoryFullName="Audio" LastSymbolSource="VL.Audio.vl">
-                  <Choice Kind="TypeFlag" Name="AudioSampleRate" />
-                </p:TypeAnnotation>
-              </Pad>
-              <Pad Id="Cgwsj0lyxGQQLhhmuj9DXr" Comment="Desired Input Channels" Bounds="549,634,35,15" ShowValueBox="true" isIOBox="true" Value="2">
+              <Pad Id="Cgwsj0lyxGQQLhhmuj9DXr" Comment="Desired Input Channels" Bounds="555,632,35,15" ShowValueBox="true" isIOBox="true" Value="2">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
                   <Choice Kind="TypeFlag" Name="Integer32" />
                 </p:TypeAnnotation>
               </Pad>
-              <Pad Id="Run1yHAD4aPPb9h6xXATdy" Comment="Desired Output Channels" Bounds="569,659,35,15" ShowValueBox="true" isIOBox="true" Value="2">
+              <Pad Id="Run1yHAD4aPPb9h6xXATdy" Comment="Desired Output Channels" Bounds="602,653,35,15" ShowValueBox="true" isIOBox="true" Value="2">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
                   <Choice Kind="TypeFlag" Name="Integer32" />
                 </p:TypeAnnotation>
               </Pad>
-              <Pad Id="TLDCgBfScCdNnJ3ofKADgU" Comment="Enabled" Bounds="663,713,35,35" ShowValueBox="true" isIOBox="true" Value="True">
+              <Pad Id="TLDCgBfScCdNnJ3ofKADgU" Comment="Enabled" Bounds="718,703,35,35" ShowValueBox="true" isIOBox="true" Value="True">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
                   <Choice Kind="TypeFlag" Name="Boolean" />
                 </p:TypeAnnotation>
               </Pad>
-              <Pad Id="TO67xuW4scpLTPRuDdaMuk" Comment="Buffer Size" Bounds="535,811,35,15" ShowValueBox="true" isIOBox="true" />
-              <Pad Id="SKUP2TPWnHYPDJ79yi8frq" Comment="Available Input Channels" Bounds="555,847,35,15" ShowValueBox="true" isIOBox="true" />
-              <Pad Id="JAU3LotFVAOLjI5RJxFTCq" Comment="Available Output Channels" Bounds="595,903,35,15" ShowValueBox="true" isIOBox="true" />
-              <Pad Id="PiFg6nYEN6KOHkwUwaVF3H" Comment="Show Control Panel" Bounds="619,689,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+              <Pad Id="TO67xuW4scpLTPRuDdaMuk" Comment="Buffer Size" Bounds="528,815,35,15" ShowValueBox="true" isIOBox="true" />
+              <Pad Id="SKUP2TPWnHYPDJ79yi8frq" Comment="Available Input Channels" Bounds="578,845,35,15" ShowValueBox="true" isIOBox="true" />
+              <Pad Id="JAU3LotFVAOLjI5RJxFTCq" Comment="Available Output Channels" Bounds="608,897,35,15" ShowValueBox="true" isIOBox="true" />
+              <Pad Id="PiFg6nYEN6KOHkwUwaVF3H" Comment="Show Control Panel" Bounds="652,677,35,35" ShowValueBox="true" isIOBox="true" Value="False">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
                   <Choice Kind="TypeFlag" Name="Boolean" />
                 </p:TypeAnnotation>
@@ -261,16 +256,21 @@
                 </p:ValueBoxSettings>
               </Pad>
               <Pad Id="UtQsCP8XWNdL7IeE5eNNvK" Comment="Selected Driver" Bounds="489,793,140,15" ShowValueBox="true" isIOBox="true" />
-              <Pad Id="L0sBxOmLVkyMywnm33Vfxz" Comment="Open Input Channels" Bounds="555,866,35,15" ShowValueBox="true" isIOBox="true" />
-              <Pad Id="AqC1wiQ5DsVQPJ38cIlgAY" Comment="Open Output Channels" Bounds="595,922,35,15" ShowValueBox="true" isIOBox="true" />
-              <Pad Id="RltxghlpJPhL0utXOOH4kr" Comment="Driver" Bounds="489,546,261,15" ShowValueBox="true" isIOBox="true" Value="Default">
+              <Pad Id="L0sBxOmLVkyMywnm33Vfxz" Comment="Open Input Channels" Bounds="578,864,35,15" ShowValueBox="true" isIOBox="true" />
+              <Pad Id="AqC1wiQ5DsVQPJ38cIlgAY" Comment="Open Output Channels" Bounds="608,916,35,15" ShowValueBox="true" isIOBox="true" />
+              <Pad Id="RltxghlpJPhL0utXOOH4kr" Comment="Driver" Bounds="489,546,261,15" ShowValueBox="true" isIOBox="true" Value="WASAPI: Current System Device">
                 <p:TypeAnnotation LastCategoryFullName="Audio" LastSymbolSource="VL.Audio.vl">
                   <Choice Kind="TypeFlag" Name="AudioDevice" />
                 </p:TypeAnnotation>
               </Pad>
-              <Pad Id="CN8wOdZL0WMOWuaTKwWF8f" Comment="Wasapi Input" Bounds="529,602,271,15" ShowValueBox="true" isIOBox="true" Value="Current System Device">
+              <Pad Id="CN8wOdZL0WMOWuaTKwWF8f" Comment="Wasapi Input" Bounds="532,602,286,15" ShowValueBox="true" isIOBox="true" Value="Current System Device">
                 <p:TypeAnnotation LastCategoryFullName="Audio" LastSymbolSource="VL.Audio.vl">
                   <Choice Kind="TypeFlag" Name="WasapiInputDevice" />
+                </p:TypeAnnotation>
+              </Pad>
+              <Pad Id="PwWRtISjfQfLT61axOz3st" Comment="Sample Rate" Bounds="512,576,58,15" ShowValueBox="true" isIOBox="true" Value="48000">
+                <p:TypeAnnotation LastCategoryFullName="Audio" LastSymbolSource="VL.Audio.vl">
+                  <Choice Kind="TypeFlag" Name="AudioSampleRate" />
                 </p:TypeAnnotation>
               </Pad>
             </Patch>
@@ -309,7 +309,6 @@
           <Fragment Id="SlBfNxva2foPzAmQuH3Wo8" Patch="H7AXqgMBO7VM7Hjz3LIVIi" Enabled="true" />
           <Fragment Id="BekbCOGyP96Ogno4zU8XVR" Patch="SAUdaIhMZdzNMFreYk25vB" Enabled="true" />
         </ProcessDefinition>
-        <Link Id="TLbH2mR2ACkPDrn4CWGzOJ" Ids="H8TqwyTPYOGLAno15yPL5L,E9xJgDqZKuGPM7MbR8ujcf" />
         <Link Id="EhYwfBFSZCOQW0ck4KMDhr" Ids="Cgwsj0lyxGQQLhhmuj9DXr,OAFU3pOC85YPaWEHVvNmEm" />
         <Link Id="NpgoQC6Dda6Ln7AOZaFhFw" Ids="Run1yHAD4aPPb9h6xXATdy,TEmILbpNfd8PQdoOQ5tYPq" />
         <Link Id="QMyEI1pW06oNFOZyZrdmGB" Ids="KRq0o34QsOMOXopPXrg1ZG,TO67xuW4scpLTPRuDdaMuk" />
@@ -322,9 +321,10 @@
         <Link Id="OEcM1LCfpXCQMCZwDHU7Tw" Ids="TLDCgBfScCdNnJ3ofKADgU,Fd4L96C85bgQLYlgwwb4yo" />
         <Link Id="RFyWjZrYSnALcv7GJgtHhf" Ids="RltxghlpJPhL0utXOOH4kr,F4UnCTeEjFfP6nSk7psx38" />
         <Link Id="ER4rndBoc3aNm7ooDiMqaJ" Ids="CN8wOdZL0WMOWuaTKwWF8f,TU3T2qvjIvqOD73NA1LXsu" />
+        <Link Id="ALSC9nZplEYPTPrVkAJSiw" Ids="PwWRtISjfQfLT61axOz3st,E9xJgDqZKuGPM7MbR8ujcf" />
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="AOu5YShvTlxO1vA9BHtmEC" Location="VL.Skia" Version="2021.4.7-0893-g515a4ce54e" />
+  <NugetDependency Id="AOu5YShvTlxO1vA9BHtmEC" Location="VL.Skia" Version="2021.4.7-0884-g913c86639a" />
   <NugetDependency Id="RFGyRrGfUbfP2xiT2T539W" Location="VL.Audio" Version="0.0.0.0" />
 </Document>

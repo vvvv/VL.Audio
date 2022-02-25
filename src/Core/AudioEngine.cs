@@ -318,7 +318,7 @@ namespace VL.Audio
             else if (CurrentDevice is WasapiOut wasapiOut)
             {
                 inputChannels = WasapiDevice.DriverInputChannelCount;
-                outputChannels = wasapiOut.OutputWaveFormat.Channels;
+                outputChannels = WasapiDevice.DriverOutputChannelCount;
             }
         }
 

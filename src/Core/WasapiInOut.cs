@@ -22,6 +22,7 @@ namespace VL.Audio
         public bool OutputInitialized { get; private set; }
         public bool InputInitialized { get; private set; }
 
+        public int DriverOutputChannelCount { get; internal set; } = 2;
         public int DriverInputChannelCount { get; internal set; } = 2;
         public ISampleProvider InputSampleProvider { get; private set; }
 
@@ -45,17 +46,17 @@ namespace VL.Audio
 
         internal void InitRecordAndPlayback(MasterWaveProvider masterWaveProvider, int inputChannels, int sampleRate)
         {
-
             Output.Init(masterWaveProvider);
             Input.StartRecording();
 
             OutputInitialized = Output != null;
             InputInitialized = Input != null;
 
+            if (OutputInitialized)
+                DriverOutputChannelCount = MMOutDevice.AudioClient.MixFormat.Channels;
+
             if (InputInitialized)
-            {
-                DriverInputChannelCount = Input.WaveFormat.Channels;
-            }
+                DriverInputChannelCount = MMInDevice.AudioClient.MixFormat.Channels;
         }
 
         public void Dispose()

@@ -20,6 +20,7 @@ namespace VL.Audio
         public FFTOutSignal(AudioSignal input)
         {
             InputSignal.Value = input;
+            FRingBuffer.BufferFilled = CalcFFT;
         }
 
         public int Size 
@@ -62,9 +63,6 @@ namespace VL.Audio
             {
                 InputSignal.Read(buffer, offset, count);
                 
-                //write to buffer
-                FRingBuffer.Write(buffer, offset, count);
-                
                 //calc fft
                 var fftSize = FRingBuffer.Size;
                 
@@ -74,11 +72,18 @@ namespace VL.Audio
                     FFTOut = new double[fftSize];
                     FWindow = AudioUtils.CreateWindowDouble(fftSize, WindowFunc);
                 }
-            
-                FRingBuffer.ReadDoubleWindowed(FFFTBuffer, FWindow, 0, fftSize);
-                FFFT.RealFFT(FFFTBuffer, true);
-                Array.Copy(FFFTBuffer, FFTOut, fftSize);
+
+                //write to buffer
+                FRingBuffer.Write(buffer, offset, count);
             }
+        }
+
+        void CalcFFT(float[] ringbufferData)
+        {
+            var fftSize = FRingBuffer.Size;
+            FRingBuffer.ReadDoubleWindowed(FFFTBuffer, FWindow, 0, fftSize);
+            FFFT.RealFFT(FFFTBuffer, true);
+            Array.Copy(FFFTBuffer, FFTOut, fftSize);
         }
     }
 }
