@@ -1,7 +1,8 @@
-﻿#region usings
-using System;
-using Lomont;
-#endregion
+﻿using System;
+using System.Runtime.InteropServices;
+using FftSharp;
+using NAudio.Utils;
+
 namespace VL.Audio
 {
     public enum FFTWindowFunction
@@ -11,10 +12,9 @@ namespace VL.Audio
         Hann,
         BlackmannHarris
     }
-    
+
     public class FFTOutSignal : SinkSignal
     {
-        protected LomontFFT FFFT = new LomontFFT();
         protected CircularBuffer FRingBuffer = new CircularBuffer(512);
 
         public FFTOutSignal(AudioSignal input)
@@ -23,29 +23,43 @@ namespace VL.Audio
             FRingBuffer.BufferFilled = CalcFFT;
         }
 
-        public int Size 
+        public int Size
         {
-            get 
+            get
             {
-                return FRingBuffer.Size; 
+                return FRingBuffer.Size;
             }
-            set 
-            { 
+            set
+            {
                 FRingBuffer.Size = value;
             }
         }
-        
-        WindowFunction windowFunc;
-        
-        public WindowFunction WindowFunc 
+
+        public float DBRange
         {
-            get 
-            { 
-                return windowFunc; 
+            get => FdBRange;
+            set
+            {
+                FdBRange = value;
+                FMindB = (float)Decibels.DecibelsToLinear(-FdBRange);
             }
-            set 
-            { 
-                if(windowFunc != value)
+        }
+
+        float FMindB = (float)Decibels.DecibelsToLinear(-120);
+
+        public float Smoothing { get; set; }
+
+        WindowFunction windowFunc;
+
+        public WindowFunction WindowFunc
+        {
+            get
+            {
+                return windowFunc;
+            }
+            set
+            {
+                if (windowFunc != value)
                 {
                     windowFunc = value;
                     FWindow = AudioUtils.CreateWindowDouble(FRingBuffer.Size, WindowFunc);
@@ -54,22 +68,25 @@ namespace VL.Audio
         }
 
         double[] FFFTBuffer = new double[1];
-        public double[] FFTOut = new double[2];
+        Complex[] FFFTComplexBuffer = new Complex[1];
+        public float[] FFTOut = new float[2];
         double[] FWindow = new double[1];
+        private float FdBRange;
 
         protected override void FillBuffer(float[] buffer, int offset, int count)
         {
-            if (InputSignal.Value != null) 
+            if (InputSignal.Value != null)
             {
                 InputSignal.Read(buffer, offset, count);
-                
+
                 //calc fft
                 var fftSize = FRingBuffer.Size;
-                
+
                 if (FFFTBuffer.Length != fftSize)
                 {
                     FFFTBuffer = new double[fftSize];
-                    FFTOut = new double[fftSize];
+                    FFFTComplexBuffer = new Complex[fftSize];
+                    FFTOut = new float[fftSize/2];
                     FWindow = AudioUtils.CreateWindowDouble(fftSize, WindowFunc);
                 }
 
@@ -82,8 +99,21 @@ namespace VL.Audio
         {
             var fftSize = FRingBuffer.Size;
             FRingBuffer.ReadDoubleWindowed(FFFTBuffer, FWindow, 0, fftSize);
-            FFFT.RealFFT(FFFTBuffer, true);
-            Array.Copy(FFFTBuffer, FFTOut, fftSize);
+
+            var complex = new Span<Complex>(FFFTComplexBuffer);
+            Transform.MakeComplex(complex, new Span<double>(FFFTBuffer));
+
+            // Calculate the FFT as an array of complex numbers
+            Transform.FFT(complex);
+
+            var halfSize = fftSize/2;
+            //FFTOut[0] = 0;
+            for (int n = 0; n < halfSize; n++)
+            {
+                var lastValue = FFTOut[n];
+                var newValue = (float)Decibels.LinearToDecibels(Math.Max(complex[n].MagnitudeSquared, FMindB)) / FdBRange + 1;
+                FFTOut[n] = newValue * (1 - Smoothing) + lastValue * Smoothing;
+            }
         }
     }
 }
