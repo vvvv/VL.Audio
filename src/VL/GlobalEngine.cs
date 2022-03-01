@@ -63,7 +63,7 @@ namespace VL.Audio
                 if (node != null)
                     selectedDriver = node.InnerText;
 
-                node = doc.DocumentElement.SelectSingleNode("/Settings/Driver/WasapiInputName");
+                node = doc.DocumentElement.SelectSingleNode("/Settings/Driver/WASAPIInputName");
                 if (node != null)
                     selectedWasapiInput = node.InnerText;
 
