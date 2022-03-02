@@ -112,8 +112,8 @@ namespace VL.Audio
 
         public override void Dispose()
         {
-			foreach (var signal in Outputs)
-				signal.Dispose();
+            foreach (var signal in Outputs)
+                signal.Dispose();
 
             base.Dispose();
         }

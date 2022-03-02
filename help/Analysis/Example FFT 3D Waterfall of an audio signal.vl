@@ -62,7 +62,7 @@
                 <Choice Kind="ProcessAppFlag" Name="DynamicBuffer" />
               </p:NodeReference>
               <Pin Id="OoMBIqJgFOGM3xhUWzCjgv" Name="Input" Kind="InputPin" />
-              <Pin Id="H5uxjNU28I6M62lBKzupvG" Name="Element Size In Bytes" Kind="InputPin" />
+              <Pin Id="H5uxjNU28I6M62lBKzupvG" Name="Element Size In Bytes" Kind="InputPin" DefaultValue="4" />
               <Pin Id="IyFUOVjC9NrLrsShYjJ0Sl" Name="Offset In Bytes" Kind="InputPin" />
               <Pin Id="P1uE4iJxWVPLZYvyQ7srBT" Name="Recreate" Kind="InputPin" />
               <Pin Id="GREmfdDyOWBLbTI9O2Elnx" Name="Apply" Kind="InputPin" />
@@ -124,11 +124,6 @@
             <ControlPoint Id="RSyqYrAVhX1OHS7zMcUVB6" Bounds="813,445" />
             <ControlPoint Id="LtwA6zZFy5kLkecIiMYsGD" Bounds="468,699" />
           </Canvas>
-          <!--
-
-    ************************  ************************
-
--->
           <ProcessDefinition Id="TJTaHPmMv4ZPLNMn0McVRE">
             <Fragment Id="BSK3TdmGl1HOAfpLUY1lAc" Patch="FxwvLxOYZfnLsxy2LYFufS" Enabled="true" />
             <Fragment Id="Ivx2JTWnBmPMYHYKidOZU7" Patch="O5hN197B6fSLQQAhTkxZ0u" Enabled="true" />
@@ -332,11 +327,6 @@
           <Patch Id="GVsSH1t2pm2OxFQbgkVvMl" Name="Update">
             <Pin Id="S3XNgKQVTvJLk2xPS20CLW" Name="Output" Kind="OutputPin" Bounds="498,699" />
           </Patch>
-          <!--
-
-    ************************  ************************
-
--->
           <ProcessDefinition Id="NzamjJBGeFZNX1DPwEAOa1">
             <Fragment Id="VfVpavtshqDNPbnXDDNTXR" Patch="KfprNj0goACNp0l3zUmXnx" Enabled="true" />
             <Fragment Id="GF3qny9syS0PskmFNGb0XF" Patch="GVsSH1t2pm2OxFQbgkVvMl" Enabled="true" />
@@ -412,7 +402,7 @@
             <Pin Id="GJPboSyOY1aOSuaHPU5VQJ" Name="db Range" Kind="InputPin" />
             <Pin Id="GFJD498Q9RWMlEHQFGtZ4K" Name="Output" Kind="OutputPin" />
           </Node>
-          <Pad Id="IY88FhCpk0tLFU5YWe2Vtx" Comment="Window Function" Bounds="478,255,105,15" ShowValueBox="true" isIOBox="true" Value="Hamming">
+          <Pad Id="IY88FhCpk0tLFU5YWe2Vtx" Comment="Window Function" Bounds="478,255,105,15" ShowValueBox="true" isIOBox="true" Value="Hann">
             <p:TypeAnnotation LastCategoryFullName="Audio" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="TypeFlag" Name="WindowFunction" />
             </p:TypeAnnotation>
@@ -427,7 +417,7 @@
               <Choice Kind="TypeFlag" Name="Float32" />
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="H573wQc495MLkDXXu6U47g" Comment="Smoothing" Bounds="498,287,35,15" ShowValueBox="true" isIOBox="true" Value="0.67">
+          <Pad Id="H573wQc495MLkDXXu6U47g" Comment="Smoothing" Bounds="498,287,35,15" ShowValueBox="true" isIOBox="true" Value="0.5">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Float32" />
             </p:TypeAnnotation>
@@ -487,7 +477,7 @@
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="SceneWindow" />
             </p:NodeReference>
-            <Pin Id="Ex0OYucZCADPyj2WUEgk30" Name="Bounds" Kind="InputPin" DefaultValue="1250.667, 50.66667, 1074.667, 864" />
+            <Pin Id="Ex0OYucZCADPyj2WUEgk30" Name="Bounds" Kind="InputPin" DefaultValue="1250.667, 101.3333, 1074.667, 813.3333" />
             <Pin Id="OZLZicRmSXKQQ0eRdukbuI" Name="Input" Kind="InputPin" />
             <Pin Id="T23Bc9IHH1vMchBB7VFo6f" Name="Camera" Kind="InputPin" />
             <Pin Id="UktE8RpiN4hPbYJfTtLlh2" Name="Enable Default Camera" Kind="InputPin" />
