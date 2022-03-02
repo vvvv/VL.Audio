@@ -102,6 +102,10 @@ namespace VL.Audio
                 {
                     //first read samples remaining to loopEnd
                     var samplesToReadAtEndOfLoop = Math.Min(samplesToRead, loopEndSample - currentSample);
+                    //block align
+                    var remainder = samplesToReadAtEndOfLoop % blockAlign;
+                    samplesToReadAtEndOfLoop -= remainder;
+
                     samplesRead = FAudioFile.Read(FFileBuffer, offset * channels, samplesToReadAtEndOfLoop);
                     WriteFileBufferToOutputBuffer(buffer, 0, channels, samplesToReadAtEndOfLoop, samplesRead / channels);
 
