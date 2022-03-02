@@ -5,11 +5,11 @@ shader FFTQueue_ComputeFX : ComputeShaderBase
 
     override void Compute()
     {
-        uint count, stride;
-        FFTValues.GetDimensions(count, stride);
+        uint w, h;
+        Queue.GetDimensions(w, h);
         uint2 uv = streams.DispatchThreadId.xy;
 
-        if (uv.y == (count - 1)) // last row
+        if (uv.y == (h - 1)) // last row
         {
             var x = FFTValues[uv.x];
             Queue[uv.xy] = float4(x, x, x, 1);

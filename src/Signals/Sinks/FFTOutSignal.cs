@@ -107,8 +107,8 @@ namespace VL.Audio
             Transform.FFT(complex);
 
             var halfSize = fftSize/2;
-            //FFTOut[0] = 0;
-            for (int n = 0; n < halfSize; n++)
+            FFTOut[0] = 0;
+            for (int n = 1; n < halfSize; n++)
             {
                 var lastValue = FFTOut[n];
                 var newValue = (float)Decibels.LinearToDecibels(Math.Max(complex[n].MagnitudeSquared, FMindB)) / FdBRange + 1;
