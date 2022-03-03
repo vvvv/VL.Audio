@@ -83,14 +83,13 @@ namespace VL.Audio
             {
                 //if we're at a loop point, then make two reads: one to the LoopEnd, another at the LoopStart with the remaining samples to read
                 var needsTwoReads = false;
-                int currentSample = 0, loopEndSample = 0;
+                long currentSample = 0, loopEndSample = 0;
                 if (FLoop)
                 {
-                    currentSample = (int) (FAudioFile.CurrentTime.TotalSeconds * SampleRate);
-                    var loopEndTime = FAudioFile.TotalTime.TotalSeconds;
+                    currentSample = FAudioFile.Position;
+                    loopEndSample = FAudioFile.Length;
                     if (LoopEndTime.TotalSeconds >= 0)
-                        loopEndTime = Math.Min(loopEndTime, LoopEndTime.TotalSeconds);
-                    loopEndSample = (int) (loopEndTime * SampleRate);
+                        loopEndSample = Math.Min(loopEndSample, (long) (LoopEndTime.TotalSeconds * FAudioFile.WaveFormat.SampleRate * FAudioFile.BlockAlign));
                     //if we're past the loopEndTime, then loop now
                     if (currentSample > loopEndSample)
                         loopEndSample = currentSample;
@@ -101,11 +100,7 @@ namespace VL.Audio
                 if (needsTwoReads)
                 {
                     //first read samples remaining to loopEnd
-                    var samplesToReadAtEndOfLoop = Math.Min(samplesToRead, loopEndSample - currentSample);
-                    //block align
-                    var remainder = samplesToReadAtEndOfLoop % blockAlign;
-                    samplesToReadAtEndOfLoop -= remainder;
-
+                    var samplesToReadAtEndOfLoop = (int) Math.Min(samplesToRead, loopEndSample - currentSample);
                     samplesRead = FAudioFile.Read(FFileBuffer, offset * channels, samplesToReadAtEndOfLoop);
                     WriteFileBufferToOutputBuffer(buffer, 0, channels, samplesToReadAtEndOfLoop, samplesRead / channels);
 
