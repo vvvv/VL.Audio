@@ -38,6 +38,8 @@ namespace VL.Audio
         public void AddTimingSettingsReference() { TimingSettingsCount += 1; }
         public void RemoveTimingSettingsReference() { TimingSettingsCount -= 1; }
 
+        public bool ShowScopeInTooltip { get; set; }
+
         public void LoadConfiguration(string configurationFile)
         {
             //define some absolut baseline defaults for when there is no settings file yet
@@ -100,6 +102,12 @@ namespace VL.Audio
                 //node = doc.DocumentElement.SelectSingleNode("/Settings/Timing/LoopEndBeat");
                 //if (node != null)
                 //    float.TryParse(node.InnerText, out selectedLoopEndBeat);
+
+                node = doc.DocumentElement.SelectSingleNode("/Settings/Tooltip/ShowScope");
+                if (node != null && bool.TryParse(node.InnerText, out var showScope))
+                    ShowScopeInTooltip = showScope;
+                else
+                    ShowScopeInTooltip = true;
             }
 
             try
