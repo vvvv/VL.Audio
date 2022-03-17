@@ -7,13 +7,15 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using System.Collections.Generic;
 using Lomont;
+using VL.Lib.Collections;
 
 namespace VL.Audio
 {
     public class IFFTPullBuffer : CircularPullBuffer
     {
-        public IFFTPullBuffer(SigParam<float[]> fftDataReal, SigParam<float[]> fftDataImag, int size, WindowFunction window)
+        public IFFTPullBuffer(SigParam<IReadOnlyList<float>> fftDataReal, SigParam<IReadOnlyList<float>> fftDataImag, int size, WindowFunction window)
             : base(size)
         {
             FFFTDataReal = fftDataReal;
@@ -25,8 +27,8 @@ namespace VL.Audio
             PullCount = size;
         }
 
-        readonly SigParam<float[]> FFFTDataReal;
-        readonly SigParam<float[]> FFFTDataImag;
+        readonly SigParam<IReadOnlyList<float>> FFFTDataReal;
+        readonly SigParam<IReadOnlyList<float>> FFFTDataImag;
         readonly double[] RealImagData;
         readonly double[] Window;
         public readonly WindowFunction WindowFunc;
@@ -37,20 +39,32 @@ namespace VL.Audio
 
         public override void Pull(int count)
         {
-            var real = FFFTDataReal.Value;
-            var imag = FFFTDataImag.Value;
-            var copyCount = Math.Min(count / 2, Math.Max(real.Length, imag.Length));
+            var real = FFFTDataReal.Value ?? Spread<float>.Empty;
+            var imag = FFFTDataImag.Value ?? Spread<float>.Empty;
+
+            var copyCount = Math.Min(count / 2, Math.Max(real.Count, imag.Count));
             var j = 0;
 
-            if (real.Length > imag.Length)
+            if (real.Count > imag.Count)
             {
-                for (int i = 0; i < copyCount; i++)
+                if (imag.Count == 0)
                 {
-                    RealImagData[j++] = real[i];
-                    RealImagData[j++] = imag[AudioUtils.Zmod(i, imag.Length)];
+                    for (int i = 0; i < copyCount; i++)
+                    {
+                        RealImagData[j++] = real[i];
+                        RealImagData[j++] = 0.0;
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < copyCount; i++)
+                    {
+                        RealImagData[j++] = real[i];
+                        RealImagData[j++] = imag[AudioUtils.Zmod(i, imag.Count)];
+                    }
                 }
             }
-            else if(real.Length == imag.Length)
+            else if(real?.Count == imag?.Count)
             {
                 for (int i = 0; i < copyCount; i++)
                 {
@@ -60,10 +74,21 @@ namespace VL.Audio
             }
             else
             {
-                for (int i = 0; i < copyCount; i++)
+                if (real.Count == 0)
                 {
-                    RealImagData[j++] = real[AudioUtils.Zmod(i, real.Length)];
-                    RealImagData[j++] = imag[i];
+                    for (int i = 0; i < copyCount; i++)
+                    {
+                        RealImagData[j++] = 0.0;
+                        RealImagData[j++] = imag[i];
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < copyCount; i++)
+                    {
+                        RealImagData[j++] = real[AudioUtils.Zmod(i, real.Count)];
+                        RealImagData[j++] = imag[i];
+                    }
                 }
             }
 
@@ -92,11 +117,11 @@ namespace VL.Audio
     /// </summary>
     public class IFFTSignal : AudioSignal
     {
-        SigParam<float[]> FFTDataReal = new SigParam<float[]>("FFT Data Real");
-        SigParam<float[]> FFTDataImag = new SigParam<float[]>("FFT Data Imaginary");
+        SigParam<IReadOnlyList<float>> FFTDataReal = new SigParam<IReadOnlyList<float>>("FFT Data Real");
+        SigParam<IReadOnlyList<float>> FFTDataImag = new SigParam<IReadOnlyList<float>>("FFT Data Imaginary");
         SigParam<WindowFunction> FWindowFunc = new SigParam<WindowFunction>("Window Function");
         SigParam<double> FGain = new SigParam<double>("Gain", 0.5);
-        SigParam<int> BufferSize = new SigParam<int>("IFFT Buffer Size", true);
+        SigParam<int> FBufferSize = new SigParam<int>("IFFT Buffer Size", true);
         
         public IFFTSignal()
         {
@@ -118,18 +143,18 @@ namespace VL.Audio
         protected override void FillBuffer(float[] buffer, int offset, int count)
         {
             //recreate ring buffer?
-            var size = Math.Max(NextPow2(FFTDataReal.Value.Length), NextPow2(FFTDataImag.Value.Length)) * 2;
+            var size = Math.Max(NextPow2(FFTDataReal.Value?.Count ?? 0), NextPow2(FFTDataImag.Value?.Count ?? 0)) * 2;
 
             if (size < count)
             {
-                BufferSize.Value = 0;
+                FBufferSize.Value = 0;
                 return;
             }
 
             if(FIFFTBuffer == null || size != FIFFTBuffer.PullCount || FWindowFunc.Value != FIFFTBuffer.WindowFunc)
             {
                 FIFFTBuffer = new IFFTPullBuffer(FFTDataReal, FFTDataImag, size, FWindowFunc.Value);
-                BufferSize.Value = size;
+                FBufferSize.Value = size;
             }
 
             FIFFTBuffer.Gain = FGain.Value;
