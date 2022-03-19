@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="HTX4axw4uH5NDghqAqpe1F" LanguageVersion="2021.4.7.892" Version="0.128">
-  <NugetDependency Id="NrtwmMKDemaOAGHoKxrmNR" Location="VL.CoreLib" Version="2021.4.7-0892-g77eda0271b" />
+<Document xmlns:p="property" Id="HTX4axw4uH5NDghqAqpe1F" LanguageVersion="2021.4.7.906" Version="0.128">
+  <NugetDependency Id="NrtwmMKDemaOAGHoKxrmNR" Location="VL.CoreLib" Version="2021.4.7" />
   <Patch Id="Mj1seFpSbg5MtaCXVBGhJf">
     <Canvas Id="ClqUpgLjNRdQbB5ajAF1ry" DefaultCategory="Audio" CanvasType="FullCategory">
       <!--
@@ -7087,14 +7087,14 @@
             <Patch Id="IqwQQVn9gktOy8gs4Ku4kI">
               <Canvas Id="NUihQbEjtNqLeTA2CEMz1W" CanvasType="Group">
                 <ControlPoint Id="Hm6r7fEOAMsOxFAz3mjXyd" Bounds="560,194" />
-                <Node Bounds="214,335,363,528" Id="Fuc38vFuhRgOS9oh7Wd5f5">
+                <Node Bounds="214,334,356,559" Id="Fuc38vFuhRgOS9oh7Wd5f5">
                   <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.dll">
                     <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
                     <Choice Kind="ProcessStatefulRegion" Name="Cache" />
                     <FullNameCategoryReference ID="Primitive" />
                   </p:NodeReference>
                   <Pin Id="EeQMnUcPcuvL2E5GUjdPGP" Name="Force" Kind="InputPin" />
-                  <Pin Id="QBkhelrDV51LQTlQ9S7MD7" Name="Dispose Cached Outputs" Kind="InputPin" DefaultValue="True" />
+                  <Pin Id="QBkhelrDV51LQTlQ9S7MD7" Name="Dispose Cached Outputs" Kind="InputPin" DefaultValue="False" />
                   <Pin Id="M2RbVvzw2HpLxi7IH2cm0i" Name="Has Changed" Kind="OutputPin" />
                   <ControlPoint Id="LDepba8WwKTLkGfWEBeamV" Bounds="555,341" Alignment="Top" />
                   <ControlPoint Id="VtBSEdFPS5BO8UalpZr2Tr" Bounds="354,857,2,0" Alignment="Bottom" />
@@ -7111,13 +7111,6 @@
                       <Pin Id="Jzh2y78AAaiNANCeOGNqCi" Name="Key" Kind="InputPin" />
                       <Pin Id="V8Q7UYC8MaFNGvRAWUPvZL" Name="Buffer" Kind="InputPin" />
                       <Pin Id="OeaGaPOnwdzOdrlXOW2qAv" Name="Output" Kind="StateOutputPin" />
-                    </Node>
-                    <Node Bounds="226,777,80,19" Id="VtUxp9fKNaNPqibFFtpdbH">
-                      <p:NodeReference LastCategoryFullName="VL.Audio.AudioService" LastSymbolSource="VL.Audio.dll">
-                        <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                        <Choice Kind="OperationCallFlag" Name="BufferStorage" />
-                      </p:NodeReference>
-                      <Pin Id="BJutSHsYrWlLjd4lxi2Laf" Name="Buffer Storage" Kind="OutputPin" />
                     </Node>
                     <Node Bounds="286,361,50,26" Id="OEUuQrAsDg1Mw1uR1KnQzU">
                       <p:NodeReference LastCategoryFullName="Collections.Sequence" LastSymbolSource="VL.Collections.vl">
@@ -7187,7 +7180,7 @@
                 </Node>
                 <ControlPoint Id="FXXQ9Fis81pPEQFwCHywRQ" Bounds="143,776,2,0" />
                 <ControlPoint Id="M4gdFel5BTgPoevUelU7pL" Bounds="217,301" />
-                <ControlPoint Id="VWDQEUHAMuKNcGsPsC2kWC" Bounds="353,904,2,0" />
+                <ControlPoint Id="VWDQEUHAMuKNcGsPsC2kWC" Bounds="354,917,2,0" />
                 <ControlPoint Id="EIlKj0naxrzLC2eL1tZNFp" Bounds="439,213" />
                 <Node Bounds="141,622,48,26" Id="BTj0t0RFnUxQKmK7rMNz11">
                   <p:NodeReference LastCategoryFullName="System.GUID" LastSymbolSource="CoreLibBasics.vl">
@@ -7272,6 +7265,24 @@
                   <Pin Id="Or9jhWW3xkhP6tELF6itKf" Name="Input" Kind="InputPin" />
                   <Pin Id="C9EKjY4fianLkzqCIGEs1f" Name="Result" Kind="OutputPin" />
                 </Node>
+                <Node Bounds="12,744,80,19" Id="VtUxp9fKNaNPqibFFtpdbH">
+                  <p:NodeReference LastCategoryFullName="VL.Audio.AudioService" LastSymbolSource="VL.Audio.dll">
+                    <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                    <Choice Kind="OperationCallFlag" Name="BufferStorage" />
+                  </p:NodeReference>
+                  <Pin Id="BJutSHsYrWlLjd4lxi2Laf" Name="Buffer Storage" Kind="OutputPin" />
+                </Node>
+                <Node Bounds="15,830,79,26" Id="Kt00fBpmuOtM2lQBHw51d0">
+                  <p:NodeReference LastCategoryFullName="VL.Audio.BufferDictionary" LastSymbolSource="VL.Audio.dll">
+                    <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                    <CategoryReference Kind="AssemblyCategory" Name="BufferDictionary" NeedsToBeDirectParent="true" />
+                    <Choice Kind="OperationCallFlag" Name="RemoveBuffer" />
+                  </p:NodeReference>
+                  <Pin Id="FbrjMUf9vfBN5vYVKLOfnl" Name="Input" Kind="StateInputPin" />
+                  <Pin Id="J4Ip75SbGDUNLOwVdWghXQ" Name="Key" Kind="InputPin" />
+                  <Pin Id="Iv43ggbv68nMhVf8yJGxT6" Name="Output" Kind="StateOutputPin" />
+                </Node>
+                <Pad Id="E6f1YfQjADGPucPOLZsZk6" Bounds="15,779" />
               </Canvas>
               <ProcessDefinition Id="QPblnc57vANLyXMYPP8PLO" HasStateOut="true">
                 <Fragment Id="AJbp2K3Ng95OolHe8XMw3o" Patch="BkHvpeWqvnMOoflcLfhYQd" Enabled="true" />
@@ -7280,13 +7291,12 @@
                 <Fragment Id="RSSLYbT7nhwLDre5mbXvDX" Patch="Gcrqo0Af7HlOFvSwRoiQKC" />
               </ProcessDefinition>
               <Link Id="MgPDPktBWBoNFNN9UsGJY3" Ids="Vh35RNhg9AhLnTwun89uUk,Hm6r7fEOAMsOxFAz3mjXyd" IsHidden="true" />
-              <Link Id="QPxjD4UUzChMimkcEkI5Zd" Ids="BJutSHsYrWlLjd4lxi2Laf,HDu3arpNMqiOqWLos9XG2V" />
               <Link Id="Dg5aAMaIgH6LPJs36eTyZd" Ids="MpOTi5i5aO8OlVHAFXBtEz,EW8rZS3lngdPV6UHaO0SCn" />
               <Link Id="RiYRTxb6INCOoyoaaSGyK8" Ids="FXXQ9Fis81pPEQFwCHywRQ,RPpxQVJgsAiOensOn4aLX3" IsHidden="true" />
               <Link Id="VlWUfvn2v5kL9IfMqZybkq" Ids="CSyx1YrJH92LclYXnvmrqt,M4gdFel5BTgPoevUelU7pL" IsHidden="true" />
               <Link Id="IgAZ61Klc99OagM5AQehhT" Ids="VtBSEdFPS5BO8UalpZr2Tr,VWDQEUHAMuKNcGsPsC2kWC" />
               <Link Id="JbHWGVaouRqMqqJQSCIbci" Ids="VWDQEUHAMuKNcGsPsC2kWC,TYmFr87PaxLLo8Df0CthTq" IsHidden="true" />
-              <Patch Id="BkHvpeWqvnMOoflcLfhYQd" Name="Create" ParticipatingElements="Dg5aAMaIgH6LPJs36eTyZd" />
+              <Patch Id="BkHvpeWqvnMOoflcLfhYQd" Name="Create" ParticipatingElements="VtUxp9fKNaNPqibFFtpdbH,Dg5aAMaIgH6LPJs36eTyZd" />
               <Patch Id="D9SXel2n7PyOw5ENnvBXog" Name="Update" ManuallySortedPins="true">
                 <Pin Id="Vh35RNhg9AhLnTwun89uUk" Name="Size" Kind="InputPin" Bounds="466,167" Visibility="Optional" Summary="Number of samples. Ignored, if an Initial Buffer is provided">
                   <p:TypeAnnotation>
@@ -7339,6 +7349,11 @@
               <Link Id="ILpZYNLgy5hLRyptDIAWb4" Ids="C9EKjY4fianLkzqCIGEs1f,HHemdoImciONH0OLYUtCtn" />
               <Link Id="HWTtMRmDKzgMXEn6qCaJRa" Ids="SgIqAceflBJPVmGmFJaav3,HDFb7K4POEVLDfFZTrBFqi" />
               <Link Id="Q8DufOmaE4YNuXePMXp5My" Ids="Ih24fKS4rkHPE0avpbYX8f,Q1onBFN4TLcMfjUcdXhKHn" />
+              <Link Id="CX3zlMFMtJ7LSiLWhIYJCL" Ids="EW8rZS3lngdPV6UHaO0SCn,J4Ip75SbGDUNLOwVdWghXQ" />
+              <Link Id="R9bTt4IPJJrLZyHdyxS2RO" Ids="BJutSHsYrWlLjd4lxi2Laf,E6f1YfQjADGPucPOLZsZk6" />
+              <Patch Id="P0Z4iw9u6vaQbPOs9OAir8" Name="Dispose" ParticipatingElements="Kt00fBpmuOtM2lQBHw51d0" />
+              <Link Id="K2QHz8EwUnFNKE3to7FQul" Ids="E6f1YfQjADGPucPOLZsZk6,FbrjMUf9vfBN5vYVKLOfnl" />
+              <Link Id="Q6Cg1HfSMuwLM7yVuGHRrQ" Ids="E6f1YfQjADGPucPOLZsZk6,HDu3arpNMqiOqWLos9XG2V" />
             </Patch>
           </Node>
           <!--
@@ -29452,10 +29467,10 @@
   <NugetDependency Id="FdfszSdTJWQMuCe0eM4QeQ" Location="NAudio" Version="2.0.1" />
   <NugetDependency Id="V37AuJ2ryAbNsol8TzkZ5q" Location="NAudio.Asio" Version="2.0.0" />
   <NugetDependency Id="KJThfL79XZ7QOdgfpy6yJ5" Location="NAudio.Core" Version="2.0.0" />
-  <NugetDependency Id="Vm7aBcJKKNAL9MZxDnrPDX" Location="VL.Skia" Version="2021.4.7-0892-g77eda0271b" />
+  <NugetDependency Id="Vm7aBcJKKNAL9MZxDnrPDX" Location="VL.Skia" Version="2021.4.7" />
   <PlatformDependency Id="Qp3HZOkgG5cQcuE59UUe1j" Location="System.IO" />
   <PlatformDependency Id="CCaadwXbjs6P0MKKXnqSCL" Location="System.IO.FileSystem" />
   <NugetDependency Id="VSw4d6QSmJYMnkyboVSRG9" Location="NAudio.Wasapi" Version="2.0.0" />
-  <NugetDependency Id="DM5JDnk2swOQKypc2Jv6Xc" Location="VL.HDE" IsFriend="true" Version="2021.4.7-0892-g77eda0271b" />
-  <NugetDependency Id="D9rZJPBuZu9N7ISVdeOtGO" Location="VL.Lang" Version="2021.4.7-0892-g77eda0271b" />
+  <NugetDependency Id="DM5JDnk2swOQKypc2Jv6Xc" Location="VL.HDE" IsFriend="true" Version="2021.4.7" />
+  <NugetDependency Id="D9rZJPBuZu9N7ISVdeOtGO" Location="VL.Lang" Version="2021.4.7" />
 </Document>
