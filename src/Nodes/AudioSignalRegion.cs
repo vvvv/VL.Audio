@@ -88,7 +88,7 @@ namespace VL.Audio
 
         TState State;
 
-        public Spread<AudioSignal> Update(TIn input, bool reset, Func<TState> create, Func<TState, TIn, AudioBufferMulti, Tuple<TState, TOut>> update, out IObservable<TOut> onBufferProcessed, out Time time)
+        public IReadOnlyList<AudioSignal> Update(TIn input, bool reset, Func<TState> create, Func<TState, TIn, AudioBufferMulti, Tuple<TState, TOut>> update, out IObservable<TOut> onBufferProcessed, out Time time)
         {
             if (reset || State == null)
                 State = create();
@@ -117,7 +117,7 @@ namespace VL.Audio
             if (FOutput != null)
                 FSubject.OnNext(FOutput);
             onBufferProcessed = FSubject;
-            return PerBufferSignal.Outputs.ToSpread();
+            return PerBufferSignal.Outputs;
         }
 
         public void Dispose()

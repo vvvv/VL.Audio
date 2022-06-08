@@ -113,8 +113,8 @@ namespace VL.Audio.Utils
                 //split into channels
                 for (int channel = 0; channel < channels; channel++)
                 {
-                    for (int i = 0; i < samplesRead; i += channels)
-                        outputBuffers[channel][t * blockSize + i] = buffer[i + channel];
+                    for (int i = 0; i < samplesRead / channels; i ++)
+                        outputBuffers[channel][t * blockSize + i] = buffer[(i*channels) + channel];
 
                     ct.ThrowIfCancellationRequested();
                 }

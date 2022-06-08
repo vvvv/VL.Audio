@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="D7IBwO2zC8qQJwplUikxnZ" LanguageVersion="2021.4.6.835" Version="0.128">
-  <NugetDependency Id="Hmr7kILdlvPMagkfyf51Iz" Location="VL.CoreLib" Version="2021.4.6" />
+<Document xmlns:p="property" Id="D7IBwO2zC8qQJwplUikxnZ" LanguageVersion="2021.4.7.884" Version="0.128">
+  <NugetDependency Id="Hmr7kILdlvPMagkfyf51Iz" Location="VL.CoreLib" Version="2021.4.7-0884-g913c86639a" />
   <Patch Id="HaulhrPXkyCPeLW2mKcS3k">
     <Canvas Id="KNuoeWiZ9dzNZrycJV80K9" DefaultCategory="Main" CanvasType="FullCategory">
       <!--
@@ -389,14 +389,6 @@
       </p:NodeReference>
       <Patch Id="AFt6082b9iLOjGTv1MbRl0">
         <Canvas Id="JS6RdkEeqU0MfrOyWUQHlK" CanvasType="Group">
-          <Node Bounds="343,450,60,19" Id="Nuop8cIAGwTOWfLCrRRuny">
-            <p:NodeReference LastCategoryFullName="Audio.Sink" LastSymbolSource="VL.Audio.vl">
-              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-              <Choice Kind="ProcessAppFlag" Name="AudioOut" />
-            </p:NodeReference>
-            <Pin Id="N7otD8PaHBSL5ydm7Sr4uS" Name="Input" Kind="InputPin" />
-            <Pin Id="UuybLHh9euhOYkIzJUJEin" Name="Channel Offset" Kind="InputPin" />
-          </Node>
           <Node Bounds="345,520,52,19" Id="G8kHR0PUe2pLVTg7GsoXSD">
             <p:NodeReference LastCategoryFullName="Audio.Source" LastSymbolSource="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -414,17 +406,23 @@
             </p:NodeReference>
             <Pin Id="CocAMIyvyDePzj7GQIn2jD" Name="Driver" Kind="InputPin" DefaultValue="WASAPI: Current System Device" />
             <Pin Id="NKdEo8WybrdQUZzL9226lz" Name="Sample Rate" Kind="InputPin" />
+            <Pin Id="PnHDjOLMfQgM7MofM5D3GT" Name="Wasapi Input" Kind="InputPin" />
             <Pin Id="OPqD1dZ0U5TMxpCyr81pcK" Name="Desired Input Channels" Kind="InputPin" />
+            <Pin Id="EzBJ3VjMRS9OltlXj4N4rO" Name="Desired Input Channel Offset" Kind="InputPin" />
             <Pin Id="C0ZgyQus3vMNgfaJmBCGfp" Name="Desired Output Channels" Kind="InputPin" />
+            <Pin Id="RoDb0DEHI55Nzhvz8FKP2S" Name="Desired Output Channel Offset" Kind="InputPin" />
             <Pin Id="T11BjH1Ppm3N7SqxsZH9h7" Name="Show Control Panel" Kind="InputPin" />
             <Pin Id="FtjZd8tSi63LP3YTZPfT6y" Name="Enabled" Kind="InputPin" />
-            <Pin Id="PnHDjOLMfQgM7MofM5D3GT" Name="Wasapi Input" Kind="InputPin" />
             <Pin Id="MN5bM75amX3LE6NxUtvrl8" Name="Selected Driver" Kind="OutputPin" />
+            <Pin Id="H6ZgzT0qqiSQPKE0CmfBma" Name="Sample Rate" Kind="OutputPin" />
             <Pin Id="OsQSLQ75YiBNoGZYPuPJIL" Name="Buffer Size" Kind="OutputPin" />
+            <Pin Id="HRw2cW84cbSQWeQXDMWlLf" Name="Selected WASAPI Input Device" Kind="OutputPin" />
             <Pin Id="TJHwL6WWXwbOrG21Ea9EdY" Name="Available Input Channels" Kind="OutputPin" />
             <Pin Id="IwlGCRXsBDcPiK1nCxBJfs" Name="Open Input Channels" Kind="OutputPin" />
             <Pin Id="QfohUkz6GcLP7wtN534QGX" Name="Available Output Channels" Kind="OutputPin" />
             <Pin Id="RZmCne3rOMLL97Qf4MNZy9" Name="Open Output Channels" Kind="OutputPin" />
+            <Pin Id="AQ3SV8VM0LgMHszoJA9vG1" Name="Last Error" Kind="OutputPin" />
+            <Pin Id="Vpp3JXHiseQNSmJjCNg0Cx" Name="Is ASIO" Kind="OutputPin" />
           </Node>
           <Node Bounds="603,193,393,19" Id="LC2cqmax0baN8rLwryMp5A">
             <p:NodeReference LastCategoryFullName="Audio" LastSymbolSource="VL.Audio.vl">
@@ -433,8 +431,8 @@
             </p:NodeReference>
             <Pin Id="QpgUeHC9uTjLYCQP3AC3VN" Name="Outputs" Kind="OutputPin" />
             <Pin Id="PmXVgPFE0fkOovdpATMkYM" Name="Inputs" Kind="OutputPin" />
-            <Pin Id="JoAyjGJ1FNqN40t4XFAg4a" Name="Write Pos" Kind="OutputPin" />
-            <Pin Id="Vd8ocPN282INPqKSkzUoyp" Name="Read Pos" Kind="OutputPin" />
+            <Pin Id="BgG9WyhJJXGLCDk2Qdr8uy" Name="Write Position" Kind="OutputPin" />
+            <Pin Id="P9uBRLKKEKjO9u4qFa8wX6" Name="Read Position" Kind="OutputPin" />
           </Node>
           <Pad Id="InJmQwBxYaSPdvCFqry5uS" Comment="Inputs" Bounds="629,256,228,64" ShowValueBox="true" isIOBox="true">
             <p:Value>
@@ -573,7 +571,7 @@
           </Pad>
           <ControlPoint Id="HWVeTUJnGTEMV1y3LIdvcP" Bounds="1017,458" />
           <ControlPoint Id="N6Ug9iMQTXwOJ8yjwHGAIZ" Bounds="996,441" />
-          <Pad Id="Agwp8NDqtojPJwkezgGAqO" Bounds="137,138,274,60" ShowValueBox="true" isIOBox="true" Value="When selecting devices, make sure they have the same sample rate. You can change the sample rate in the windows audio settings.">
+          <Pad Id="Agwp8NDqtojPJwkezgGAqO" Bounds="137,138,274,60" ShowValueBox="true" isIOBox="true" Value="When selecting devices, make sure they have the same sample rate. You can change the sample rate in the windows Sound settings.">
             <p:TypeAnnotation>
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -609,8 +607,6 @@
         <Link Id="Lh5begY53LCMRNWW6U3qo8" Ids="UdA49LEaSjxOFHo4tZ4n4r,BOgJhffMOXOOAlO8liEuUH" />
         <Link Id="ThofjZIh7obM5sl2G2tU92" Ids="Vzw5Wo4JTkKPssCGWmyhNN,BN1kjG7047MOHaLwWh8ivB" />
         <Link Id="BFOVwkA1nuuLwlkvmGXT5c" Ids="N2p8b7J5si5My8baV8j1JW,NEkD8mAKfq0NEgFw4KKlto" />
-        <Link Id="L15yDkmX2bEMfnPPq2e4uy" Ids="JoAyjGJ1FNqN40t4XFAg4a,EpbcDjflIg4NrjGHVWPeR8" />
-        <Link Id="MLSKunOn3t6Luri6xUo2x4" Ids="Vd8ocPN282INPqKSkzUoyp,CfnTKFXSPcINqMztMyYL2a" />
         <Link Id="NiW9bAFgeA4LxWSRaD3qzV" Ids="EpbcDjflIg4NrjGHVWPeR8,OhvGLdr3MhCMvDHywn8Omy" />
         <Link Id="ETlw5HfTUFMOGcsUerwtBK" Ids="CfnTKFXSPcINqMztMyYL2a,OjB8snDs4SWOP3zq5h7S49" />
         <Link Id="Rxyb57eXCHGLiY2MkLCqpy" Ids="Sx8wpxLF2PmONCDWTA2xTG,NamjQLNjfcvPhe5mRXcsta" />
@@ -621,10 +617,11 @@
         <Link Id="CHDaaPcQ9SWLaXkTx5uGCr" Ids="NAnYxDVxHrWOzNzSG7aHHx,K2S2e8jKS2MNfVsW9kXlni" />
         <Link Id="AmZIapawVanNR6BsmtD4V8" Ids="N2p8b7J5si5My8baV8j1JW,A5TiXJViMqPMS8w5TBrMRS" />
         <Link Id="UygMweGjMOtPCR2OVM0P8P" Ids="TLnN0XZASgPMCoRpgaBWRK,PnHDjOLMfQgM7MofM5D3GT" />
-        <Link Id="SRS6sVH5Z5TLTNe2x6Ny8F" Ids="T1Wux4p4HEoQSyS44QvOH7,N7otD8PaHBSL5ydm7Sr4uS" />
+        <Link Id="SztQFnVSjrxLPdg0NGGZWI" Ids="BgG9WyhJJXGLCDk2Qdr8uy,EpbcDjflIg4NrjGHVWPeR8" />
+        <Link Id="R4tT8ulRR3tPibsWVEof6e" Ids="P9uBRLKKEKjO9u4qFa8wX6,CfnTKFXSPcINqMztMyYL2a" />
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="AOu5YShvTlxO1vA9BHtmEC" Location="VL.Skia" Version="2021.4.6" />
+  <NugetDependency Id="AOu5YShvTlxO1vA9BHtmEC" Location="VL.Skia" Version="2021.4.7-0884-g913c86639a" />
   <NugetDependency Id="RFGyRrGfUbfP2xiT2T539W" Location="VL.Audio" Version="0.0.0.0" />
 </Document>

@@ -124,6 +124,13 @@ namespace VL.Audio
         protected int SampleRate;
         protected int BufferSize;
         protected float[] FReadBuffer = new float[1];
+
+        // used by tooltip
+        public void GetInternalReadBuffer(out IReadOnlyList<float> internalReadBuffer, out int lastReadCount) 
+        {
+            internalReadBuffer = FReadBuffer;
+            lastReadCount = BufferSize;
+        } 
         
         public bool NeedsBufferCopy
         {

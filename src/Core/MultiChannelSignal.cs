@@ -25,8 +25,11 @@ namespace VL.Audio
         
         protected override void FillBuffer(float[] buffer, int offset, int count)
         {
-            FRequestBufferFill(offset, count);
-            Array.Copy(FBuffer, offset, buffer, offset, count);
+            if (FRequestBufferFill != null)
+            {
+                FRequestBufferFill(offset, count);
+                Array.Copy(FBuffer, offset, buffer, offset, count);
+            }
         }
         
         public override void Dispose()
@@ -112,8 +115,8 @@ namespace VL.Audio
 
         public override void Dispose()
         {
-			foreach (var signal in Outputs)
-				signal.Dispose();
+            foreach (var signal in Outputs)
+                signal.Dispose();
 
             base.Dispose();
         }

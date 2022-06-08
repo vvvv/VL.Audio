@@ -1,0 +1,20 @@
+shader FFTQueue_ComputeFX : ComputeShaderBase
+{
+    StructuredBuffer<float> FFTValues;
+    RWTexture2D<float4> Queue;
+
+    override void Compute()
+    {
+        uint w, h;
+        Queue.GetDimensions(w, h);
+        uint2 uv = streams.DispatchThreadId.xy;
+
+        if (uv.y == (h - 1)) // last row
+        {
+            var x = FFTValues[uv.x];
+            Queue[uv.xy] = float4(x, x, x, 1);
+        }
+        else
+            Queue[uv.xy] = Queue[uv.xy + uint2(0, 1)];
+    }
+};

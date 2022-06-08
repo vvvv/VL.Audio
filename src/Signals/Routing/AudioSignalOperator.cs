@@ -51,6 +51,8 @@ namespace VL.Audio
                     }
                 }
             }
+            else
+                buffer.ReadSilence(offset, count);
         }
     }
 

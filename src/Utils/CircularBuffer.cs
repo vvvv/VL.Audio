@@ -62,8 +62,7 @@ namespace VL.Audio
                 if(FWritePos >= FSize)
                 {
                     FWritePos = 0;
-                    if(BufferFilled != null)
-                        BufferFilled(Buffer);
+                    BufferFilled?.Invoke(Buffer);
                 }
                 
                 Buffer[FWritePos] = data[i+offset];
@@ -81,11 +80,11 @@ namespace VL.Audio
             var readPos = FWritePos;
             for (int i = 0; i < count; i++) 
             {
-                readPos++;
                 if(readPos >= FSize)
                     readPos = 0;
                 
                 data[i+offset] = Buffer[readPos];
+                readPos++;
             }
         }
         
@@ -100,11 +99,11 @@ namespace VL.Audio
             var readPos = FWritePos;
             for (int i = 0; i < count; i++) 
             {
-                readPos++;
                 if(readPos >= FSize)
                     readPos = 0;
                 
                 data[i+offset] = Buffer[readPos];
+                readPos++;
             }
         }
         
@@ -119,11 +118,11 @@ namespace VL.Audio
             var readPos = FWritePos;
             for (int i = 0; i < count; i++) 
             {
-                readPos++;
                 if(readPos >= FSize)
                     readPos = 0;
                 
                 data[i+offset] = Buffer[readPos] * window[i+offset];
+                readPos++;
             }
         }
     }
