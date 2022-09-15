@@ -72,7 +72,9 @@ namespace VL.Audio
                     wasapiInputBuffers.Add(new CircularBufferWasapi(16384));
 
                 }
-                WasapiDevice.Input.DataAvailable += WasapiAudioAvailable;
+
+                if (WasapiDevice.Input != null)
+                    WasapiDevice.Input.DataAvailable += WasapiAudioAvailable;
                 
 
                 Settings.SampleRate = sampleRate;

@@ -55,7 +55,7 @@ namespace VL.Audio
             }
 
             //copy wasapi input buffer into recording buffer of correct size
-            if (RecordingRequestedStack.Count > 0 && WasapiDevice != null)
+            if (RecordingRequestedStack.Count > 0 && WasapiDevice?.Input != null)
             {
                 var channels = WasapiDevice.Input.WaveFormat.Channels;
 
