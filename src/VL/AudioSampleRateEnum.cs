@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using VL.Lib;
 using VL.Lib.Collections;
 using NAudio.Wave;
+using VL.Core.CompilerServices;
 
 namespace VL.Audio
 {
@@ -30,7 +31,7 @@ namespace VL.Audio
         {
         }
 
-        //this method needs to be imported in VL to set the default
+        [CreateDefault]
         public static AudioSampleRate CreateDefault()
         {
             //use method of base class if nothing special required
