@@ -22,12 +22,36 @@ namespace VL.Audio
         public GlobalEngine()
         {
             Engine = AudioService.Engine;
-            FConfigFile = Path.Combine(VLSession.Instance.UserAppDataFolder, configFile);
+            FConfigFile = GetConfileFile();
 
             if (AudioDeviceDefinition.Instance.Entries.Count > 1) //"Default" entry is always there!
             {
                 LoadConfiguration(FConfigFile);
             }
+        }
+
+        // Tries to fetch user app data path from VLSession.Instance.UserAppDataFolder by reflection to avoid dependency on VLSession.Instance (not present in exported app as of 2022.5)
+        static string GetConfileFile()
+        {
+            var langAssembly = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(a => a.GetName().Name == "VL.Lang");
+            if (langAssembly is null)
+                return null;
+            var sessionType = langAssembly.GetType("VL.Model.VLSession");
+            if (sessionType is null)
+                return null;
+            var instanceProperty = sessionType.GetProperty("Instance", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static);
+            if (instanceProperty is null)
+                return null;
+            var session = instanceProperty.GetValue(null);
+            if (session is null)
+                return null;
+            var userAppDataFolderProperty = sessionType.GetProperty("UserAppDataFolder");
+            if (userAppDataFolderProperty is null)
+                return null;
+            var userAppDataFolder = userAppDataFolderProperty.GetValue(session) as string;
+            if (userAppDataFolder is null)
+                return null;
+            return Path.Combine(userAppDataFolder, configFile);
         }
 
         public int DriverSettingsCount { get; private set; }
