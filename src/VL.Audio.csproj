@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net472</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <OutputPath>..\lib\</OutputPath>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -10,9 +10,10 @@
     <PackageReference Include="FftSharp" Version="1.1.4" />
     <PackageReference Include="NAudio" Version="2.0.1" />
     <PackageReference Include="NWaves" Version="0.9.6" />
-    <PackageReference Include="System.Management" Version="4.6.0" />
-    <PackageReference Include="VL.Core" Version="2021.4.0" />
-    <PackageReference Include="VL.Lang" Version="2021.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\vvvv\public-vl\VL.Core\src\VL.Core.csproj" />
   </ItemGroup>
 
 </Project>
