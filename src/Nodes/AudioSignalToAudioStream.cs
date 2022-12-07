@@ -12,12 +12,18 @@ namespace VL.Audio.Nodes
 {
     public sealed class AudioSignalToAudioStream : MultiChannelInputSignal
     {
-        private readonly Subject<AudioFrame<float>> _audioStream = new Subject<AudioFrame<float>>();
-        private readonly BehaviorSubject<AudioFrame<float>> _silentAudioStream = new BehaviorSubject<AudioFrame<float>>(AudioFrame<float>.Empty);
+        private readonly Subject<IResourceProvider<AudioFrame>> _frames = new Subject<IResourceProvider<AudioFrame>>();
+
+        private readonly AudioStream _audioStream;
+
+        public AudioSignalToAudioStream()
+        {
+            _audioStream = new AudioStream(_frames);
+        }
 
         private string _metadata;
 
-        public IReadOnlyList<AudioSignal> Update(IReadOnlyList<AudioSignal> input, string metadata, out IObservable<AudioFrame<float>> audioStream)
+        public IReadOnlyList<AudioSignal> Update(IReadOnlyList<AudioSignal> input, string metadata, out AudioStream audioStream)
         {
             if (input.Count != FOutputCount)
             {
@@ -28,7 +34,7 @@ namespace VL.Audio.Nodes
             Input = input;
             _metadata = metadata;
 
-            audioStream = input.Count > 0 ? _audioStream : _silentAudioStream;
+            audioStream = input.Count > 0 ? _audioStream : null;
 
             return Outputs;
         }
@@ -37,7 +43,7 @@ namespace VL.Audio.Nodes
         {
             var inputs = Input;
 
-            using var memoryOwner = MemoryOwner<float>.Allocate(buffers.Length * sampleCount);
+            var memoryOwner = MemoryOwner<float>.Allocate(buffers.Length * sampleCount);
             var memory = memoryOwner.Memory.AsMemory2D(buffers.Length, sampleCount);
             var dst = memory.Span;
             for (int i = 0; i < buffers.Length; i++)
@@ -47,7 +53,12 @@ namespace VL.Audio.Nodes
                 src.CopyTo(dst.GetRowSpan(i));
             }
 
-            _audioStream.OnNext(new AudioFrame<float>(memory, SampleRate, IsInterleaved: false, Metadata: _metadata));
+            var audioFrame = new AudioFrame(memory, SampleRate, IsInterleaved: false, Metadata: _metadata);
+            var frameProvider = ResourceProvider.Return(audioFrame, memoryOwner, static memoryOwner => memoryOwner.Dispose());
+            using (frameProvider.GetHandle())
+            {
+                _frames.OnNext(frameProvider);
+            }
         }
     }
 }

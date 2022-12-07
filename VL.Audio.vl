@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="HTX4axw4uH5NDghqAqpe1F" LanguageVersion="2022.5.0-0395-62a5313337" Version="0.128">
+<Document xmlns:p="property" Id="HTX4axw4uH5NDghqAqpe1F" LanguageVersion="2022.5.0-0402-71a4e15030" Version="0.128">
   <NugetDependency Id="NrtwmMKDemaOAGHoKxrmNR" Location="VL.CoreLib" Version="2021.4.9" />
   <Patch Id="Mj1seFpSbg5MtaCXVBGhJf">
     <Canvas Id="ClqUpgLjNRdQbB5ajAF1ry" DefaultCategory="Audio" CanvasType="FullCategory">
@@ -29615,7 +29615,7 @@
               <ControlPoint Id="IkU16W2wwBiQOaV4XNNGxT" Bounds="447,385" />
               <ControlPoint Id="C4hH0mmrlcnMmSWp0S98mC" Bounds="392,277" />
               <ControlPoint Id="FFyEI5AiW6WNsW4udTGPPZ" Bounds="454,279" />
-              <Node Bounds="392,481,60,19" Id="UwLOgTNz5OiOPfO24LQ7ua">
+              <Node Bounds="387,579,60,19" Id="UwLOgTNz5OiOPfO24LQ7ua">
                 <p:NodeReference LastCategoryFullName="Audio.Sink" LastSymbolSource="VL.Audio.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                   <Choice Kind="ProcessAppFlag" Name="AudioOut" />
@@ -29623,7 +29623,7 @@
                 <Pin Id="V500mO5oGdaMIXCEVQer6M" Name="Input" Kind="InputPin" />
                 <Pin Id="OBHhQgD1qrzMBWzmKvUUM7" Name="Channel Offset" Kind="InputPin" />
               </Node>
-              <Pad Id="TxUpGaJFc4hLY8MsrdBScX" Bounds="452,488,177,19" ShowValueBox="true" isIOBox="true" Value="&lt; to trigger the audio graph">
+              <Pad Id="TxUpGaJFc4hLY8MsrdBScX" Bounds="447,586,177,19" ShowValueBox="true" isIOBox="true" Value="&lt; to trigger the audio graph">
                 <p:TypeAnnotation>
                   <Choice Kind="TypeFlag" Name="String" />
                 </p:TypeAnnotation>
@@ -29632,6 +29632,43 @@
                   <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
                 </p:ValueBoxSettings>
               </Pad>
+              <Node Bounds="375,470,79,92" Id="VUtt1rP3JSoNioM1S1Cw5Y">
+                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.dll" LastDependency="VL.CoreLib.vl">
+                  <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
+                  <CategoryReference Kind="Category" Name="Primitive" />
+                  <Choice Kind="ApplicationStatefulRegion" Name="ForEach" />
+                </p:NodeReference>
+                <Pin Id="CWBtT4zM5uyPbNnCTdXrYR" Name="Break" Kind="OutputPin" />
+                <Patch Id="DUV3hG3xmgOPCXONiU2Yp4" ManuallySortedPins="true">
+                  <Patch Id="OhcRS2Q7EsjQVzdDDGzwV1" Name="Create" ManuallySortedPins="true" />
+                  <Patch Id="MIeDFxzxUbqMmWlrt22hCq" Name="Update" ManuallySortedPins="true" />
+                  <Patch Id="An1WxaLEx9vQTalvB7zL18" Name="Dispose" ManuallySortedPins="true" />
+                  <Node Bounds="407,495,35,19" Id="QG9JU8CojsvLOMWgg83eYC">
+                    <p:NodeReference LastCategoryFullName="Audio.Source" LastSymbolSource="VL.Audio-Factory">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <CategoryReference Kind="Category" Name="Audio" />
+                      <CategoryReference Kind="Category" Name="Source" />
+                      <Choice Kind="ProcessNode" Name="V2A" />
+                    </p:NodeReference>
+                    <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
+                    <Pin Id="JBp6bbRHLL5L7fOdCNkTGs" Name="Value" Kind="InputPin" />
+                    <Pin Id="JnfRyaH58xNOaQicffHU1u" Name="Smoothing" Kind="InputPin" />
+                    <Pin Id="RpS96HOvRnGOPYdNR1JpbV" Name="Output" Kind="OutputPin" />
+                  </Node>
+                  <Node Bounds="387,522,25,19" Id="UO25kvj0bwQLM5hGvJrgyN">
+                    <p:NodeReference LastCategoryFullName="Audio.Operators" LastSymbolSource="VL.Audio.vl">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <Choice Kind="ProcessAppFlag" Name="*" />
+                      <FullNameCategoryReference ID="Audio.Operators" />
+                    </p:NodeReference>
+                    <Pin Id="BfeAs7LfKslLmeDIiCm9CN" Name="Input" Kind="InputPin" />
+                    <Pin Id="VTRNhmTH4B5PSJbyC5Xg16" Name="Input 2" Kind="InputPin" />
+                    <Pin Id="BCHVI93MqsCNeoU4Wrqxwx" Name="Output" Kind="OutputPin" />
+                  </Node>
+                </Patch>
+                <ControlPoint Id="Bemsz6ccOG5MHhCXLUNM8W" Bounds="390,476" Alignment="Top" />
+                <ControlPoint Id="SDtA4TZzfyeMhxs3ngcbR8" Bounds="389,556" Alignment="Bottom" />
+              </Node>
             </Canvas>
             <ProcessDefinition Id="K9xUXC8Kj5AL3Ga8zV69q2">
               <Fragment Id="LTcINNTcR2FNCLqqWC0VyY" Patch="LoU01FffIW9PB7syQzRtKh" Enabled="true" />
@@ -29655,7 +29692,11 @@
             </Patch>
             <Patch Id="Umps4IOyrRsOMNJ9vQHSts" Name="Dispose" ParticipatingElements="TBOoNPxSCaNOQrlNEAih5D" />
             <Link Id="KeYmGBtDT1RMm03xGWMTZu" Ids="GuiIJ6QG3XGO0eyr6ZMRKP,IkU16W2wwBiQOaV4XNNGxT" />
-            <Link Id="LjsEtyO6bwyN0V5Zk2kAVJ" Ids="TobdEW2h17TQPITsiq0TQL,V500mO5oGdaMIXCEVQer6M" />
+            <Link Id="TiBvCkfhMn8Ni6A3h706zL" Ids="TobdEW2h17TQPITsiq0TQL,Bemsz6ccOG5MHhCXLUNM8W" />
+            <Link Id="CeAWXwxcoThMihjV3MDVnM" Ids="Bemsz6ccOG5MHhCXLUNM8W,BfeAs7LfKslLmeDIiCm9CN" />
+            <Link Id="UHZmMqVeiGrNsano0nP7vh" Ids="RpS96HOvRnGOPYdNR1JpbV,VTRNhmTH4B5PSJbyC5Xg16" />
+            <Link Id="FDtTqcB7PibLKLYuVGCTu7" Ids="BCHVI93MqsCNeoU4Wrqxwx,SDtA4TZzfyeMhxs3ngcbR8" />
+            <Link Id="AbafeOIIVKHP0kNDB1ZoHu" Ids="SDtA4TZzfyeMhxs3ngcbR8,V500mO5oGdaMIXCEVQer6M" />
           </Patch>
         </Node>
       </Canvas>

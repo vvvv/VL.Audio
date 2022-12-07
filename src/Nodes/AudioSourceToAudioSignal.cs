@@ -11,7 +11,7 @@ namespace VL.Audio.Nodes
     public sealed class AudioSourceToAudioSignal : MultiChannelSignal
     {
         private AudioSignal[] _outputs;
-        private IAudioSource<float> _audioSource;
+        private IAudioSource _audioSource;
         private Optional<int> _channelCount;
 
         public AudioSourceToAudioSignal()
@@ -19,7 +19,7 @@ namespace VL.Audio.Nodes
             _outputs = Outputs.ToArray();
         }
 
-        public IReadOnlyList<AudioSignal> Update(IAudioSource<float> audioSource, Optional<int> channelCount)
+        public IReadOnlyList<AudioSignal> Update(IAudioSource audioSource, Optional<int> channelCount)
         {
             _audioSource = audioSource;
             _channelCount = channelCount;
@@ -30,9 +30,11 @@ namespace VL.Audio.Nodes
         {
             var channelCount = _channelCount.HasValue ? _channelCount.Value : 0;
 
-            using var audioFrameHandle = _audioSource?.GrabAudioFrame(sampleCount, SampleRate, channelCount, interleaved: false);
-            var audioFrame = audioFrameHandle?.Resource;
+            using var audioFrameHandle = _audioSource?
+                .GrabAudioFrame(sampleCount, SampleRate, channelCount, interleaved: false)?
+                .GetHandle();
 
+            var audioFrame = audioFrameHandle?.Resource;
             if (audioFrame is null)
             {
                 foreach (var buffer in buffers)
