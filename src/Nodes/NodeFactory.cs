@@ -17,9 +17,6 @@ namespace VL.Audio
         public readonly string Directory;
         public readonly string DirectoryToWatch;
 
-        // The node factory cache will invalidate in case a cached factory or one of its nodes invalidate
-        private readonly NodeFactoryCache factoryCache = new NodeFactoryCache();
-
         public NodeFactory(string directory = default, string directoryToWatch = default)
         {
             Directory = directory;
