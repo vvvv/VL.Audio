@@ -46,7 +46,7 @@ namespace VL.Audio
                     }
                     catch (Exception e)
                     {
-                        System.Diagnostics.Debug.WriteLine(e);
+                        RuntimeGraph.ReportException(e);
                     }
                 };
 
@@ -105,7 +105,7 @@ namespace VL.Audio
                     }
                     catch (Exception e)
                     {
-                        System.Diagnostics.Debug.WriteLine(e);
+                        RuntimeGraph.ReportException(e);
                     }
                 };
 

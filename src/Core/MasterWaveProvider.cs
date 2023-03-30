@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 using NAudio.Wave;
 using NAudio.Utils;
+using VL.Core;
 
 #endregion usings
 
@@ -134,9 +135,7 @@ namespace VL.Audio
                     }
                     catch (Exception e)
                     {
-                        System.Diagnostics.Debug.WriteLine(e.Message);
-                        System.Diagnostics.Debug.WriteLine(e.Source);
-                        System.Diagnostics.Debug.WriteLine(e.StackTrace);
+                        RuntimeGraph.ReportException(e);
                     }
                 }
                 
@@ -150,9 +149,7 @@ namespace VL.Audio
                     }
                     catch (Exception e)
                     {
-                        System.Diagnostics.Debug.WriteLine(e.Message);
-                        System.Diagnostics.Debug.WriteLine(e.Source);
-                        System.Diagnostics.Debug.WriteLine(e.StackTrace);
+                        RuntimeGraph.ReportException(e);
                     }
                 }
                     
@@ -178,9 +175,7 @@ namespace VL.Audio
                     }
                     catch (Exception e)
                     {
-                        System.Diagnostics.Debug.WriteLine(e.Message);
-                        System.Diagnostics.Debug.WriteLine(e.Source);
-                        System.Diagnostics.Debug.WriteLine(e.StackTrace);
+                        RuntimeGraph.ReportException(e);
                     }
                 }
                 
