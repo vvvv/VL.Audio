@@ -70,9 +70,8 @@ namespace VL.Audio
         double[] FFFTBuffer = new double[1];
         Complex[] FFFTComplexBuffer = new Complex[1];
         public float[] FFTOut = new float[2];
-        public float[] FFTOutFull = new float[2];
-        public float[] FFTOutRealVal = new float[2];
-        public float[] FFTOutImagVal = new float[2];
+        public double[] FFTOutRealVal = new double[2];
+        public double[] FFTOutImagVal = new double[2];
         double[] FWindow = new double[1];
         private float FdBRange;
 
@@ -90,9 +89,8 @@ namespace VL.Audio
                     FFFTBuffer = new double[fftSize];
                     FFFTComplexBuffer = new Complex[fftSize];
                     FFTOut = new float[fftSize/2];
-                    FFTOutFull = new float[fftSize / 2];
-                    FFTOutRealVal = new float[fftSize / 2];
-                    FFTOutImagVal = new float[fftSize / 2];
+                    FFTOutRealVal = new double[fftSize / 2];
+                    FFTOutImagVal = new double[fftSize / 2];
                     FWindow = AudioUtils.CreateWindowDouble(fftSize, WindowFunc);
                 }
 
@@ -119,8 +117,8 @@ namespace VL.Audio
                 var lastValue = FFTOut[n];
                 var newValue = (float)Decibels.LinearToDecibels(Math.Max(complex[n].MagnitudeSquared, FMindB)) / FdBRange + 1;
                 FFTOut[n] = newValue * (1 - Smoothing) + lastValue * Smoothing;
-                FFTOutRealVal[n] = (float)complex[n].Real;
-                FFTOutImagVal[n] = (float)complex[n].Imaginary;
+                FFTOutRealVal[n] = complex[n].Real;
+                FFTOutImagVal[n] = complex[n].Imaginary;
             }
         }
     }
