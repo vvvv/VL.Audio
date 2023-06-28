@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" xmlns:r="reflection" Id="HTX4axw4uH5NDghqAqpe1F" LanguageVersion="2023.5.2-0021-g1f5f468ca7" Version="0.128">
-  <NugetDependency Id="NrtwmMKDemaOAGHoKxrmNR" Location="VL.CoreLib" Version="2021.4.9" />
+<Document xmlns:p="property" xmlns:r="reflection" Id="HTX4axw4uH5NDghqAqpe1F" LanguageVersion="2023.5.1" Version="0.128">
+  <NugetDependency Id="NrtwmMKDemaOAGHoKxrmNR" Location="VL.CoreLib" Version="2023.5.1" />
   <Patch Id="Mj1seFpSbg5MtaCXVBGhJf">
     <Canvas Id="ClqUpgLjNRdQbB5ajAF1ry" DefaultCategory="Audio" CanvasType="FullCategory">
       <!--
@@ -6051,11 +6051,11 @@
                 <Pin Id="FFeAJsrRm9GQBg6JZqhgWM" Name="Force" Kind="InputPin" />
                 <Pin Id="LEfHkzAQUR1MkiFMHNl48p" Name="Dispose Cached Outputs" Kind="InputPin" />
                 <Pin Id="B8vRHwb4rzUPzYioesswxw" Name="Has Changed" Kind="OutputPin" />
-                <ControlPoint Id="Gn57CDdYlUmNcIZoKugcbT" Bounds="486,315" Alignment="Top" />
-                <ControlPoint Id="LflNmNaKoMTPx6uW3Nnzkv" Bounds="599,315" Alignment="Top" />
-                <ControlPoint Id="Fyp261j7FMXMLUDm6U6Wwb" Bounds="768,315" Alignment="Top" />
-                <ControlPoint Id="Si2WnTvbnAtPEmdYMhLNP9" Bounds="415,754" Alignment="Bottom" />
-                <ControlPoint Id="Ep2aANmPfKfP4A4WTjizCf" Bounds="404,315" Alignment="Top" />
+                <ControlPoint Id="Gn57CDdYlUmNcIZoKugcbT" Bounds="486,314" Alignment="Top" />
+                <ControlPoint Id="LflNmNaKoMTPx6uW3Nnzkv" Bounds="599,314" Alignment="Top" />
+                <ControlPoint Id="Fyp261j7FMXMLUDm6U6Wwb" Bounds="768,314" Alignment="Top" />
+                <ControlPoint Id="Si2WnTvbnAtPEmdYMhLNP9" Bounds="415,758" Alignment="Bottom" />
+                <ControlPoint Id="Ep2aANmPfKfP4A4WTjizCf" Bounds="404,314" Alignment="Top" />
                 <Patch Id="DaBhCPftxssPYou2fu2Sf0" ManuallySortedPins="true">
                   <Patch Id="AsbfpfuiCfVPqMrGKE1dLC" Name="Create" ManuallySortedPins="true" />
                   <Patch Id="DQdyCfrOvjtPVQqIUUueNS" Name="Then" ManuallySortedPins="true" />
@@ -6137,6 +6137,7 @@
                     <Pin Id="BIC0ZaQJPuzLI7jJN5TQ7I" Name="Output" Kind="StateOutputPin" />
                   </Node>
                 </Patch>
+                <ControlPoint Id="F6WCRhxsw4tP1zEKMZarGu" Bounds="676,758" Alignment="Bottom" />
               </Node>
               <ControlPoint Id="QsmIxUewDdSMcWdgnIZ1bb" Bounds="473,916" />
               <ControlPoint Id="U0BR6jO0232QP1JN7zkqMJ" Bounds="514,785" />
@@ -6149,6 +6150,26 @@
                 <Pin Id="U2SaeSganFFP8ev3LOyX4X" Name="Value" Kind="InputPin" />
                 <Pin Id="KTA2XY09OxVMVSCbSlp4df" Name="Output" Kind="StateOutputPin" />
               </Node>
+              <Node Bounds="703,896,85,26" Id="TsCOrFIte0FPlrYHnkytZH">
+                <p:NodeReference LastCategoryFullName="VL.Audio.FFTOutSignal" LastDependency="VL.Audio.dll">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="OperationCallFlag" Name="FFTOutImagVal" />
+                </p:NodeReference>
+                <Pin Id="Dqi1TZVypsjMfULZ4rvhQF" Name="Input" Kind="StateInputPin" />
+                <Pin Id="LzsoPqdENUKLZZk7rh8Bmb" Name="Output" Kind="StateOutputPin" />
+                <Pin Id="CIysctfe8QTOy8aX93qUGU" Name="FFTOut Imag Val" Kind="OutputPin" />
+              </Node>
+              <Node Bounds="829,900,82,26" Id="Eb8xL4v2aJ3M3H0uByIAUV">
+                <p:NodeReference LastCategoryFullName="VL.Audio.FFTOutSignal" LastDependency="VL.Audio.dll">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="OperationCallFlag" Name="FFTOutRealVal" />
+                </p:NodeReference>
+                <Pin Id="R8phkGfC50wQaU84QNPlIv" Name="Input" Kind="StateInputPin" />
+                <Pin Id="O3pMvRYEMEaPhrmdmUShcS" Name="Output" Kind="StateOutputPin" />
+                <Pin Id="UoS67x1glTiMEtLtdk0Cdd" Name="FFTOut Real Val" Kind="OutputPin" />
+              </Node>
+              <ControlPoint Id="VOkB5fk7UbqQSaJ6mdcwwq" Bounds="777,954" />
+              <ControlPoint Id="GksPxEYZdcPLpqVjwRDnF1" Bounds="903,949" />
             </Canvas>
             <ProcessDefinition Id="RkjxTwKuXCAP8l5Dal04mm">
               <Fragment Id="AdUlmBj3ei3LBP7NFEsuTe" Patch="Lt6hp5z1A2LMaoIHRIuSQH" Enabled="true" />
@@ -6213,7 +6234,16 @@
                   <Choice Kind="TypeFlag" Name="IReadOnlyList" />
                 </p:TypeAnnotation>
               </Pin>
+              <Pin Id="NrVkdhSFJIWPgR2xApPw0K" Name="FFTOut Imag Val" Kind="OutputPin" />
+              <Pin Id="G7mrTzYy18eNXcJ9efcOYx" Name="FFTOut Real Val" Kind="OutputPin" />
             </Patch>
+            <Link Id="LesXWLPG16KLnci37Ft8K6" Ids="VOkB5fk7UbqQSaJ6mdcwwq,NrVkdhSFJIWPgR2xApPw0K" IsHidden="true" />
+            <Link Id="HJUFUbdENZ4PT2nlyvrlSf" Ids="CIysctfe8QTOy8aX93qUGU,VOkB5fk7UbqQSaJ6mdcwwq" />
+            <Link Id="CPESl54zFuPOZSf3cdrY00" Ids="GksPxEYZdcPLpqVjwRDnF1,G7mrTzYy18eNXcJ9efcOYx" IsHidden="true" />
+            <Link Id="FupPwgRjYWdN90WhBiVltl" Ids="UoS67x1glTiMEtLtdk0Cdd,GksPxEYZdcPLpqVjwRDnF1" />
+            <Link Id="UANkLdx7FHrOHjtUQQOspR" Ids="EmXaxemUI1YME0KvudtnML,F6WCRhxsw4tP1zEKMZarGu" />
+            <Link Id="RvszISPk4FlMXCqJn6hi4d" Ids="F6WCRhxsw4tP1zEKMZarGu,Dqi1TZVypsjMfULZ4rvhQF" />
+            <Link Id="KNfvY6K8Hp2NM3bEWKriMc" Ids="F6WCRhxsw4tP1zEKMZarGu,R8phkGfC50wQaU84QNPlIv" />
           </Patch>
         </Node>
       </Canvas>
@@ -8904,7 +8934,7 @@
           </Node>
         </Canvas>
       </Canvas>
-      <Pad Id="NoaHvu678xqPBpDjpGsGQv" Bounds="667,122,169,21" ShowValueBox="true" isIOBox="true" Value="Buffer and Sample region">
+      <Pad Id="NoaHvu678xqPBpDjpGsGQv" Bounds="667,122,159,19" ShowValueBox="true" isIOBox="true" Value="Buffer and Sample region">
         <p:TypeAnnotation>
           <Choice Kind="TypeFlag" Name="String" />
         </p:TypeAnnotation>
@@ -16961,7 +16991,7 @@
           </Patch>
         </Patch>
       </Node>
-      <Pad Id="BZEa0dGC2kGL3tvqKZ94XL" Bounds="537,612,156,40" ShowValueBox="true" isIOBox="true" Value="todo: &#xD;&#xA;- create a VST factory">
+      <Pad Id="BZEa0dGC2kGL3tvqKZ94XL" Bounds="537,612,139,37" ShowValueBox="true" isIOBox="true" Value="todo: &#xD;&#xA;- create a VST factory">
         <p:TypeAnnotation>
           <Choice Kind="TypeFlag" Name="String" />
         </p:TypeAnnotation>
@@ -16970,7 +17000,7 @@
           <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
         </p:ValueBoxSettings>
       </Pad>
-      <Pad Id="MU4LoZ56mz0LZ2Sv3XvZRt" Bounds="539,653,254,19" ShowValueBox="true" isIOBox="true" Value="https://github.com/obiwanjacobi/vst.net">
+      <Pad Id="MU4LoZ56mz0LZ2Sv3XvZRt" Bounds="539,653,140,19" ShowValueBox="true" isIOBox="true" Value="https://github.com/obiwanjacobi/vst.net">
         <p:TypeAnnotation>
           <Choice Kind="TypeFlag" Name="String" />
         </p:TypeAnnotation>
