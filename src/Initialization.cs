@@ -1,4 +1,5 @@
-﻿using VL.Core;
+﻿#nullable enable
+using VL.Core;
 using VL.Core.CompilerServices;
 using VL.Lib.Basics.Resources;
 
@@ -9,12 +10,26 @@ namespace VL.Audio
 {
     public class Initialization : AssemblyInitializer<Initialization>
     {
-        protected override void RegisterServices(IVLFactory factory)
-        {
-            factory.RegisterNodeFactory(nodeFactory);
-            factory.RegisterService<NodeContext, IResourceProvider<GlobalEngine>>(n => ResourceProvider.NewPooledSystemWide("VL.Audio", _ => new GlobalEngine()));
-        }
+        private IResourceProvider<GlobalEngine>? _engineProvider;
+        private NodeFactory? _nodeFactory;
 
-        static IVLNodeDescriptionFactory nodeFactory = new NodeFactory();
+        public override void Configure(AppHost appHost)
+        {
+            // Register the engine provider so patches can access it
+            if (_engineProvider is null)
+            {
+                _engineProvider = ResourceProvider.NewPooledSystemWide("VL.Audio", _ => new GlobalEngine());
+            }
+            appHost.Services.RegisterService(_engineProvider);
+
+            // Register our node factory
+            if (_nodeFactory is null)
+            {
+                _nodeFactory = new NodeFactory(_engineProvider);
+            }
+            appHost.NodeFactoryRegistry.RegisterNodeFactory(_nodeFactory);
+
+            base.Configure(appHost);
+        }
     }
 }

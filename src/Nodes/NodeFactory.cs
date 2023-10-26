@@ -10,17 +10,15 @@ using VL.Lib.Basics.Resources;
 
 namespace VL.Audio
 {
-    public class NodeFactory : IVLNodeDescriptionFactory
+    internal class NodeFactory : IVLNodeDescriptionFactory
     {
-        const string identifier = "VL.Audio-Factory";
+        public const string identifier = "VL.Audio-Factory";
 
-        public readonly string Directory;
-        public readonly string DirectoryToWatch;
+        private readonly IResourceProvider<GlobalEngine> engineProvider;
 
-        public NodeFactory(string directory = default, string directoryToWatch = default)
+        public NodeFactory(IResourceProvider<GlobalEngine> engineProvider)
         {
-            Directory = directory;
-            DirectoryToWatch = directoryToWatch;
+            this.engineProvider = engineProvider;
 
             var builder = ImmutableArray.CreateBuilder<IVLNodeDescription>();
             //sources
@@ -57,13 +55,14 @@ namespace VL.Audio
 
         class NodeDescription : IVLNodeDescription, IInfo, ITaggedInfo
         {
+            private readonly NodeFactory factory;
             ImmutableArray<string> FTags;
             List<PinDescription> inputs = new List<PinDescription>();
             List<PinDescription> outputs = new List<PinDescription>();
 
-            public NodeDescription(IVLNodeDescriptionFactory factory, Type signalType, string name, string category, string summary, string remarks, string tags)
+            public NodeDescription(NodeFactory factory, Type signalType, string name, string category, string summary, string remarks, string tags)
             {
-                Factory = factory;
+                this.factory = factory;
                 Signal = signalType;
                 Name = name;
                 Category = "Audio." + category;
@@ -102,7 +101,7 @@ namespace VL.Audio
                     return value;
             }
 
-            public IVLNodeDescriptionFactory Factory { get; }
+            public IVLNodeDescriptionFactory Factory => factory;
 
             public Type Signal { get; private set; }
 
@@ -134,7 +133,7 @@ namespace VL.Audio
 
             public IVLNode CreateInstance(NodeContext context)
             {
-                var engineHandle = context.Factory.CreateService<IResourceProvider<GlobalEngine>>(context).GetHandle();
+                var engineHandle = factory.engineProvider.GetHandle();
                 return new AudioSignalNode(this, engineHandle, context);
             }
 
@@ -163,7 +162,7 @@ namespace VL.Audio
             public string Remarks => "";
         }
 
-        class AudioSignalNode : VLObject, IVLNode
+        class AudioSignalNode : FactoryBasedVLNode, IVLNode
         {
             AudioSignal FSignalInstance;
             IResourceHandle<GlobalEngine> FEngineHandle;
