@@ -257,11 +257,19 @@ namespace VL.Audio
                 y4 = y3 * p + oldy3 * p - k * y4;
                 //Clipper band limited sigmoid
                 y4 -= (y4 * y4 * y4) / 6.0f;
+
+                //prevent NAN clipping when input signal is too loud
+                x = !float.IsNaN(x) ? x : 0;
+                y1 = !float.IsNaN(y1) ? y1 : 0;
+                y2 = !float.IsNaN(y2) ? y2 : 0;
+                y3 = !float.IsNaN(y3) ? y3 : 0;
+                y4 = !float.IsNaN(y4) ? y4 : 0;
+
                 oldx = x;
                 oldy1 = y1;
                 oldy2 = y2;
                 oldy3 = y3;
-                
+
                 switch (FilterType.Value) 
                 {
                     case AnalogModelingFilterType.LowPass:
@@ -280,5 +288,3 @@ namespace VL.Audio
 
     }
 }
-
-
