@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" xmlns:r="reflection" Id="S3BYXYbBcOQLrAesdzH6KE" LanguageVersion="2023.5.3-0423-gee17475a3a" Version="0.128">
-  <NugetDependency Id="BfQ9BqV8poEPnZWKYQROv0" Location="VL.CoreLib" Version="2023.5.2" />
+<Document xmlns:p="property" xmlns:r="reflection" Id="S3BYXYbBcOQLrAesdzH6KE" LanguageVersion="2024.6.0-0011-g82e0e7bf49" Version="0.128">
+  <NugetDependency Id="BfQ9BqV8poEPnZWKYQROv0" Location="VL.CoreLib" Version="2024.6.0-0011-g82e0e7bf49" />
   <Patch Id="DYRuwp4ufPyNyKtULooXvw">
     <Canvas Id="QYFOXjrMgATQTcpBMDj2hQ" DefaultCategory="Audio.HDE" CanvasType="FullCategory">
       <!--
@@ -2975,7 +2975,7 @@
               </p:NodeReference>
               <Pin Id="JsmmYk7IIZuO3SMMxJDnLw" Name="Node Context" Kind="InputPin" IsHidden="true" />
               <Pin Id="DF2aSDwaXGiNQa0eE1VvuM" Name="AudioChannel" Kind="InputPin" />
-              <Pin Id="C7Q000o9wWhPkqJPNr5jU5" Name="BufferSize" Kind="InputPin" DefaultValue="1" />
+              <Pin Id="C7Q000o9wWhPkqJPNr5jU5" Name="BufferSize" Kind="InputPin" DefaultValue="2" />
               <Pin Id="GplN7MOVEmOP8fT0sjXgfK" Name="DisplayMode" Kind="InputPin" DefaultValue="0" />
               <Pin Id="GAGkwNaKRR7P4wUBj0buf0" Name="ScaleMode" Kind="InputPin" DefaultValue="1" />
               <Pin Id="I0cMvqOe3pNLkJmxJ2qRre" Name="Output" Kind="StateOutputPin" />
@@ -3541,10 +3541,10 @@
                         </p:TypeArguments>
                       </p:TypeAnnotation>
                       <p:Value>
-                        <Item>32</Item>
-                        <Item>64</Item>
                         <Item>128</Item>
                         <Item>256</Item>
+                        <Item>512</Item>
+                        <Item>1024</Item>
                       </p:Value>
                     </Pad>
                     <Pad Id="DXBIxDR4YLQPmafrf1K8lx" Bounds="987,832,77,49" ShowValueBox="true" isIOBox="true">
@@ -4607,7 +4607,7 @@
         </p:NodeReference>
         <Patch Id="Fu3hG3eS8QPLFDhat72z8w">
           <Canvas Id="T1e6trnsYUgM6AkTpBQp8o" CanvasType="Group">
-            <Node Bounds="419,527,85,19" Id="J2nL7ID3rDrMg7CYEt6bHd">
+            <Node Bounds="419,628,85,19" Id="J2nL7ID3rDrMg7CYEt6bHd">
               <p:NodeReference LastCategoryFullName="Audio.Analysis" LastDependency="VL.Audio.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <CategoryReference Kind="Category" Name="Analysis" NeedsToBeDirectParent="true" />
@@ -4621,7 +4621,7 @@
               <Pin Id="IfnETKWT2VQQOwkGyy8iiO" Name="db Range" Kind="InputPin" />
               <Pin Id="KlKdEL9OTznMD5Obl0oreM" Name="Output" Kind="OutputPin" />
             </Node>
-            <Node Bounds="439,488,85,19" Id="Vx4G44W3POGMSj5KFugaPi">
+            <Node Bounds="439,564,85,19" Id="Vx4G44W3POGMSj5KFugaPi">
               <p:NodeReference LastCategoryFullName="Control" LastDependency="VL.CoreLib.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <CategoryReference Kind="Category" Name="Control" NeedsToBeDirectParent="true" />
@@ -4634,7 +4634,7 @@
               <Pin Id="ESHYQ4WDM5CLbtWLjkQrjE" Name="Input 3" Kind="InputPin" DefaultValue="129" />
               <Pin Id="DWYe3HJ12nyM4geYMvzmGQ" Name="Input 4" Kind="InputPin" DefaultValue="257" />
             </Node>
-            <Node Bounds="419,558,83,26" Id="HPfZ8kZj61XOkxhVh3Ufvw">
+            <Node Bounds="419,659,83,26" Id="HPfZ8kZj61XOkxhVh3Ufvw">
               <p:NodeReference LastCategoryFullName="Collections.Spread" LastDependency="VL.CoreLib.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <FullNameCategoryReference ID="Collections.Spread" />
@@ -4643,19 +4643,19 @@
               <Pin Id="PlQJljOWfyhLDEKfAZqeVM" Name="Input" Kind="StateInputPin" />
               <Pin Id="JN8Fh7NpThZNMy6v0aNcYy" Name="Result" Kind="OutputPin" />
             </Node>
-            <Node Bounds="407,695,109,67" Id="UJEve0XoM3SL74WrrSPjcB">
+            <Node Bounds="407,796,109,67" Id="UJEve0XoM3SL74WrrSPjcB">
               <p:NodeReference LastCategoryFullName="Primitive" LastDependency="Builtin">
                 <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
                 <CategoryReference Kind="Category" Name="Primitive" />
                 <Choice Kind="ApplicationStatefulRegion" Name="If" />
               </p:NodeReference>
               <Pin Id="S27sDGOP6xWLIK4TUfRX89" Name="Condition" Kind="InputPin" />
-              <ControlPoint Id="MFKiI2Qps0KQU39XoM4MVq" Bounds="421,701" Alignment="Top" />
-              <ControlPoint Id="JgCrokfyX4CNewAe7ULJVG" Bounds="421,756" Alignment="Bottom" />
+              <ControlPoint Id="MFKiI2Qps0KQU39XoM4MVq" Bounds="421,802" Alignment="Top" />
+              <ControlPoint Id="JgCrokfyX4CNewAe7ULJVG" Bounds="421,857" Alignment="Bottom" />
               <Patch Id="JYOEK3R5n9DP7z3xxFSgCM" ManuallySortedPins="true">
                 <Patch Id="Lcc9983s759OCWbGY6fySQ" Name="Create" ManuallySortedPins="true" />
                 <Patch Id="RrxkxngixNKPw6U9WNiWsK" Name="Then" ManuallySortedPins="true" />
-                <Node Bounds="419,718,85,19" Id="PZ2um79p6f2MXkf47U4Eku">
+                <Node Bounds="419,819,85,19" Id="PZ2um79p6f2MXkf47U4Eku">
                   <p:NodeReference LastCategoryFullName="Audio.Analysis" LastDependency="VL.Audio.vl">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <Choice Kind="ProcessAppFlag" Name="LinToLog" />
@@ -4672,7 +4672,7 @@
                 </Node>
               </Patch>
             </Node>
-            <Pad Id="QROZwPpeBQqPLX67RrDnlD" Comment="Condition" Bounds="409,648,35,35" ShowValueBox="true" isIOBox="true" Value="True">
+            <Pad Id="QROZwPpeBQqPLX67RrDnlD" Comment="Condition" Bounds="409,749,35,35" ShowValueBox="true" isIOBox="true" Value="True">
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
                 <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
               </p:TypeAnnotation>
@@ -4680,7 +4680,7 @@
                 <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
               </p:ValueBoxSettings>
             </Pad>
-            <Node Bounds="407,610,25,19" Id="MlGo8nyvvsdPtUBHFhl0EE">
+            <Node Bounds="407,711,25,19" Id="MlGo8nyvvsdPtUBHFhl0EE">
               <p:NodeReference LastCategoryFullName="Math" LastDependency="VL.CoreLib.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="=" />
@@ -4785,7 +4785,27 @@
             </Node>
             <ControlPoint Id="U87YD7bn9SmMsGc09ZSb1w" Bounds="195,132" />
             <ControlPoint Id="NfHTkAt8gaHMFYNj9iPPCl" Bounds="422,132" />
-            <ControlPoint Id="H51BllB1PGOLyyKqaQbpU1" Bounds="421,790" />
+            <ControlPoint Id="H51BllB1PGOLyyKqaQbpU1" Bounds="421,891" />
+            <Pad Id="TcmfBqs67s8OcHRqz78g8y" Comment="" Bounds="461,478,35,15" ShowValueBox="true" isIOBox="true" Value="256">
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+                <Choice Kind="TypeFlag" Name="Integer32" />
+              </p:TypeAnnotation>
+            </Pad>
+            <Pad Id="M1mkHsWOoWjN6KUdMObbpv" Comment="" Bounds="481,499,35,15" ShowValueBox="true" isIOBox="true" Value="512">
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+                <Choice Kind="TypeFlag" Name="Integer32" />
+              </p:TypeAnnotation>
+            </Pad>
+            <Pad Id="Gpq0tuEBwoaNaZZHkvfP3x" Comment="" Bounds="501,520,35,15" ShowValueBox="true" isIOBox="true" Value="1024">
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+                <Choice Kind="TypeFlag" Name="Integer32" />
+              </p:TypeAnnotation>
+            </Pad>
+            <Pad Id="QyrIUmOTkhtO0JG4WAOoTi" Comment="" Bounds="521,541,35,15" ShowValueBox="true" isIOBox="true" Value="2048">
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+                <Choice Kind="TypeFlag" Name="Integer32" />
+              </p:TypeAnnotation>
+            </Pad>
           </Canvas>
           <Patch Id="CqCmkPofHvoPNUc2KfGXiM" Name="Create" />
           <Patch Id="REhKlUTWt7KOBUfodumRg3" Name="Update">
@@ -4797,7 +4817,6 @@
             <Fragment Id="Eq3Z0dbj65WMxiboocxxgj" Patch="CqCmkPofHvoPNUc2KfGXiM" Enabled="true" />
             <Fragment Id="GD7tatgyPiHLMxhP7M0uaS" Patch="REhKlUTWt7KOBUfodumRg3" Enabled="true" />
           </ProcessDefinition>
-          <Link Id="O0Ujr9hvDhGOhy5TE1pjpg" Ids="EXbZV4w3nG0OXP5Zkv6Kzh,SAJYS391CKENlCJpLuTgQ3" />
           <Link Id="PyI6hgQj82ZPNq16PWRce9" Ids="KlKdEL9OTznMD5Obl0oreM,PlQJljOWfyhLDEKfAZqeVM" />
           <Link Id="VK0SmXA7PZxMzZlXCAoPuK" Ids="MFKiI2Qps0KQU39XoM4MVq,JgCrokfyX4CNewAe7ULJVG" IsFeedback="true" />
           <Link Id="FSbHNhYZMC8LawRhtkqnev" Ids="MFKiI2Qps0KQU39XoM4MVq,NDxKt8ROq6xMvYwbs7rs2Q" />
@@ -4825,6 +4844,11 @@
           <Link Id="NmIpbCjk1WINEmMTUXLqud" Ids="JgCrokfyX4CNewAe7ULJVG,H51BllB1PGOLyyKqaQbpU1" />
           <Link Id="VSDX4agvl9sLG75Qyjnohz" Ids="H51BllB1PGOLyyKqaQbpU1,QPGioFh951MPu46OozRkoT" IsHidden="true" />
           <Link Id="OJkQfhC1pbJO1YuAW63QS0" Ids="Q7XfLDw3UkcPtM1lZ00qJi,FXNLL0ikDazQYcI1y4MBhw" />
+          <Link Id="AgpxmjTZj8yPpYbQYQY9eN" Ids="TcmfBqs67s8OcHRqz78g8y,FlqoevuwckiOWPDEZYT058" />
+          <Link Id="VhJG0bbVp5sNKnrCMBbPuU" Ids="M1mkHsWOoWjN6KUdMObbpv,PYmF6gBiAJYOYLz5OwOHij" />
+          <Link Id="IuCSwVxg2tYM31CvoG43Im" Ids="Gpq0tuEBwoaNaZZHkvfP3x,ESHYQ4WDM5CLbtWLjkQrjE" />
+          <Link Id="R03YygsOlxEOx0prIiK4bi" Ids="QyrIUmOTkhtO0JG4WAOoTi,DWYe3HJ12nyM4geYMvzmGQ" />
+          <Link Id="FghEOlFBboHLwGAOafRa56" Ids="EXbZV4w3nG0OXP5Zkv6Kzh,SAJYS391CKENlCJpLuTgQ3" />
         </Patch>
       </Node>
       <!--
@@ -5941,7 +5965,7 @@
             <Pin Id="Uf3vkJGiVudOaNoGj0u1B0" Name="Enabled" Kind="InputPin" />
             <Pin Id="Uc6UTTKHqw3NpbwZFSqdJN" Name="On Execute" Kind="OutputPin" />
           </Node>
-          <Pad Id="PwRXCgg2xE3NIEQ7hPQOUx" Comment="Label for menu entry" Bounds="1061,247,149,15" ShowValueBox="true" isIOBox="true" Value="VL.Audio Spectrum">
+          <Pad Id="PwRXCgg2xE3NIEQ7hPQOUx" Comment="Label for menu entry" Bounds="1061,231,149,15" ShowValueBox="true" isIOBox="true" Value="VL.Audio Spectrum">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -6067,7 +6091,7 @@
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="FTuw3HXZnpyNmyWpw4MgOm" Comment="Visible" Bounds="1101,273,35,35" ShowValueBox="true" isIOBox="true" Value="True">
+          <Pad Id="FTuw3HXZnpyNmyWpw4MgOm" Comment="Visible" Bounds="1101,257,35,35" ShowValueBox="true" isIOBox="true" Value="True">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
             </p:TypeAnnotation>
@@ -6176,12 +6200,12 @@
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="PplJ8M06DDYNWsWk2Slfxl" Location="VL.Skia" Version="2023.5.2" />
-  <NugetDependency Id="Vx0IDKk0ZwjLq5dkCVhG5Z" Location="VL.HDE" IsFriend="true" Version="2023.5.2" />
+  <NugetDependency Id="PplJ8M06DDYNWsWk2Slfxl" Location="VL.Skia" Version="2024.6.0-0011-g82e0e7bf49" />
+  <NugetDependency Id="Vx0IDKk0ZwjLq5dkCVhG5Z" Location="VL.HDE" IsFriend="true" Version="2024.6.0-0011-g82e0e7bf49" />
   <DocumentDependency Id="Sm1TqsTkVFsProAmpQaAlM" Location="./VL.Audio.vl" IsFriend="true" />
   <PlatformDependency Id="B0ArPMwHxcwMimXPEdrU3u" Location="System.Drawing" />
-  <NugetDependency Id="EImtShzGIJXMkL6c9MuVL7" Location="VL.CoreLib.Windows" Version="2023.5.2" />
-  <NugetDependency Id="F3OJevNnWdzNw4KBVACdu0" Location="VL.ImGui.Skia" Version="2023.5.2" />
-  <NugetDependency Id="IfXpnmRofznO3niNgtLvxh" Location="VL.Stride" Version="2023.5.2" />
-  <NugetDependency Id="Mdbl2fa0QQHN5UsW0Dcff5" Location="VL.Stride.TextureFX" Version="2023.5.3-0423-gee17475a3a" />
+  <NugetDependency Id="EImtShzGIJXMkL6c9MuVL7" Location="VL.CoreLib.Windows" Version="2024.6.0-0011-g82e0e7bf49" />
+  <NugetDependency Id="F3OJevNnWdzNw4KBVACdu0" Location="VL.ImGui.Skia" Version="2024.6.0-0011-g82e0e7bf49" />
+  <NugetDependency Id="IfXpnmRofznO3niNgtLvxh" Location="VL.Stride" Version="2024.6.0-0011-g82e0e7bf49" />
+  <NugetDependency Id="Mdbl2fa0QQHN5UsW0Dcff5" Location="VL.Stride.TextureFX" Version="2024.6.0-0011-g82e0e7bf49" />
 </Document>
