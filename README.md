@@ -1,14 +1,35 @@
 # VL.Audio
-Set of nodes to use play, record and analyse sound in VL.
+Record, play, filter, synthesize and analyse sound.
 
-Try it with vvvv, the visual live-programming environment for .NET  
-Download: http://visualprogramming.net
+For use with vvvv, the visual live-programming environment for .NET: http://visualprogramming.net
 
-## Using the library
-Recent vvvv versions (>= 2021.4.7) have this package pre-installed. Simply open the node browser and select the `VL.Audio` package.
+## Getting started
+- Ships with vvvv
+- Usage examples and more information are included in the pack and can be found via the [Help Browser](https://thegraybook.vvvv.org/reference/hde/findinghelp.html)
 
-In order to use this library with earlier versions, you'll have to install the nuget that is available via nuget.org. For information on how to use nugets with VL, see [Managing Nugets](https://thegraybook.vvvv.org/reference/hde/managing-nugets.html) in the documentation. As described there you go to the commandline and then type:
+## Audio driver selection and configuration
+![VL.Audio Configuration UI](https://github.com/vvvv/VL.Audio/assets/1067952/0417814a-9a7d-4e70-bdc1-1e6ce77facb6)
 
-    nuget install VL.Audio
+As soon as VL.Audio is referenced in a document, the Configuration UI is available via `Quad -> Extensions -> VL.Audio.Configuration` or <span class="keyseq"><kbd>Alt</kbd><kbd>C</kbd></span>. Here you can choose between the system default WASAPI driver or any installed ASIO driver and configure its inputs and outputs. Changing the sample rate for the WASAPI driver is only possible via the Windows Sound Settings!
 
-Once the VL.Audio nuget is installed and referenced in your VL document you'll see the category "Audio" in the nodebrowser. Press F1 to open the Help Browser and search for the term "audio" to see relevant how-to patches.
+You can also offer this UI in exported applications, see "HowTo Use ConfigurationUI in your patch".
+
+As an alternative to a UI based driver selection have a look at the `DriverSettings [Audio]` node.
+
+### ASIO driver options
+In case you want to use an ASIO driver with your soundcard that doesn't come with dedicated ASIO drivers, here are some options:
+* [FlexASIO](https://github.com/dechamps/FlexASIO/releases) and [FlexASIO GUI](https://github.com/flipswitchingmonkey/FlexASIO_GUI/releases)
+* [ASIO4All](http://www.asio4all.org)
+* [FL Studio ASIO](https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/envsettings_audio.htm#FLStudioASIO) as included with the free download of [FL Studio](https://www.image-line.com/fl-studio-download)
+
+### Related useful tools
+* [Dante Via](https://www.audinate.com/products/software/dante-via) Versatile Audio Networking 
+* [Virtual Audio Cable](https://vb-audio.com/Cable/index.htm)
+
+## Contributing
+- Report issues on [github](https://github.com/vvvv/VL.MediaPipe/issues) or on [the vvvv forum](https://discourse.vvvv.org/c/vvvv-gamma/28)
+- For custom development requests, please [get in touch](mailto:devvvvs@vvvv.org)
+- When making a pull-request, please make sure to read the general [guidlines on contributing to vvvv libraries](https://thegraybook.vvvv.org/reference/extending/contributing.html)
+
+## Credits
+Based on [NAudio](https://github.com/naudio/NAudio).
