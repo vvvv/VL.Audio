@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" xmlns:r="reflection" Id="S3BYXYbBcOQLrAesdzH6KE" LanguageVersion="2024.6.0-0244-ga4b76baedd" Version="0.128">
-  <NugetDependency Id="BfQ9BqV8poEPnZWKYQROv0" Location="VL.CoreLib" Version="2024.6.0-0244-ga4b76baedd" />
+<Document xmlns:p="property" xmlns:r="reflection" Id="S3BYXYbBcOQLrAesdzH6KE" LanguageVersion="2024.6.0-0254-g5387c3cd24" Version="0.128">
+  <NugetDependency Id="BfQ9BqV8poEPnZWKYQROv0" Location="VL.CoreLib" Version="2024.6.0-0254-g5387c3cd24" />
   <Patch Id="DYRuwp4ufPyNyKtULooXvw">
     <Canvas Id="QYFOXjrMgATQTcpBMDj2hQ" DefaultCategory="Audio.HDE" CanvasType="FullCategory">
       <!--
@@ -3714,7 +3714,7 @@
               <Pin Id="ELcTdH3EyqdMFMzYBB8LXU" Name="Spacing" Kind="InputPin" />
               <Pin Id="U0SXxlHCZJ8NHjj9NSEA6b" Name="Context" Kind="OutputPin" />
             </Node>
-            <Pad Id="Sgv6zeOqrQqOfH5aeGLs6w" Bounds="433,1007,35,95" ShowValueBox="true" isIOBox="true">
+            <Pad Id="Sgv6zeOqrQqOfH5aeGLs6w" Bounds="498,952,35,95" ShowValueBox="true" isIOBox="true">
               <p:TypeAnnotation LastCategoryFullName="Collections" LastDependency="VL.CoreLib.vl">
                 <Choice Kind="ImmutableTypeFlag" Name="Spread" />
                 <p:TypeArguments>
@@ -3724,11 +3724,11 @@
                 </p:TypeArguments>
               </p:TypeAnnotation>
               <p:Value>
-                <Item>64</Item>
                 <Item>128</Item>
                 <Item>256</Item>
                 <Item>512</Item>
                 <Item>1024</Item>
+                <Item>2048</Item>
               </p:Value>
             </Pad>
             <Pad Id="DXBIxDR4YLQPmafrf1K8lx" Bounds="398,831,77,49" ShowValueBox="true" isIOBox="true">
@@ -4038,15 +4038,10 @@
                   </p:NodeReference>
                   <Pin Id="UAJh8UX8uYvPIflmWrAho2" Name="Node Context" Kind="InputPin" IsHidden="true" />
                   <Pin Id="NDxKt8ROq6xMvYwbs7rs2Q" Name="Input" Kind="InputPin" />
-                  <Pin Id="O0iITfkl5F6OsNoT0MVQHK" Name="Pow" Kind="InputPin" DefaultValue="1" />
                   <Pin Id="AafympVTSk0PMHq3SvQi6O" Name="Output" Kind="OutputPin" />
                   <Pin Id="H6SOy7MGGKRNYJjiNhp0fA" Name="Frequencies" Kind="OutputPin" />
+                  <Pin Id="O0iITfkl5F6OsNoT0MVQHK" Name="Pow" Kind="InputPin" DefaultValue="4" />
                 </Node>
-                <Pad Id="TX5F1VgbVn8OjiAZ9r0Bua" Comment="Pow" Bounds="525,799,35,15" ShowValueBox="true" isIOBox="true" Value="4">
-                  <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
-                    <Choice Kind="TypeFlag" Name="Float32" />
-                  </p:TypeAnnotation>
-                </Pad>
               </Patch>
             </Node>
             <Pad Id="QROZwPpeBQqPLX67RrDnlD" Comment="Condition" Bounds="409,677,35,35" ShowValueBox="true" isIOBox="true" Value="True">
@@ -4339,12 +4334,6 @@
                 <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
               </p:ValueBoxSettings>
             </Pad>
-            <Pad Id="RoxbW3aS0VvO0r5wYbQHkc" Comment="" Bounds="200,559,55,203" ShowValueBox="true" isIOBox="true">
-              <p:ValueBoxSettings>
-                <p:maxvisibleentries p:Type="Int32">12</p:maxvisibleentries>
-                <p:showentryindex p:Type="Boolean">true</p:showentryindex>
-              </p:ValueBoxSettings>
-            </Pad>
           </Canvas>
           <Patch Id="CqCmkPofHvoPNUc2KfGXiM" Name="Create" />
           <Patch Id="REhKlUTWt7KOBUfodumRg3" Name="Update">
@@ -4385,7 +4374,6 @@
           <Link Id="OJkQfhC1pbJO1YuAW63QS0" Ids="Q7XfLDw3UkcPtM1lZ00qJi,FXNLL0ikDazQYcI1y4MBhw" />
           <Link Id="P5LwNuo7rOIQRY7byfiVOm" Ids="KEJHxOGYB0ONHJs2TzUXIC,SAJYS391CKENlCJpLuTgQ3" />
           <Link Id="ABQShv9DaXyQMz9zmW68VJ" Ids="UnfrR7vf02EMLmNZlWJGhY,HKtOUZ6DCw9QPRvpyHUZo4" IsFeedback="true" />
-          <Link Id="FLKz5SCWe1PNJwa8s3boZE" Ids="TX5F1VgbVn8OjiAZ9r0Bua,O0iITfkl5F6OsNoT0MVQHK" />
           <Link Id="D7oTCVJbd8wNLKmPUIbDuA" Ids="TNqXVyO5Wy7LLXS553kiXz,Civic2atwx0PKYCgaXlm9D" />
           <Link Id="Bd9VVL3lLajOUhHaO3KXHd" Ids="U88AxLPmit9MsvAVBdSl72,FLKKdtDT9hXNS1iexlDF2i" />
           <Link Id="TlKn26IUv9iOuuWnwbmblZ" Ids="QROZwPpeBQqPLX67RrDnlD,QHJ3BIZVTmgPfmJzwh2hZ9" />
@@ -4409,7 +4397,6 @@
           <Link Id="LBFQlZNiDNyN5P3DxmKyeJ" Ids="GYVcsd9nH2nPSsewCARLe9,SuZY1EMj2QtPKXHAOdkzEw" />
           <Link Id="MkpvDxxAwmqM2cmxzx4y6c" Ids="SAi6cRUzXvEMtwutj835Pq,Uyrgh3mgWqEPUOU1T613i7" />
           <Link Id="JJdASriXaBYMMm1EyW3QVb" Ids="H6SOy7MGGKRNYJjiNhp0fA,HKtOUZ6DCw9QPRvpyHUZo4" />
-          <Link Id="KA9lJwopStlN4Z24m3w06o" Ids="KlKdEL9OTznMD5Obl0oreM,RoxbW3aS0VvO0r5wYbQHkc" />
         </Patch>
       </Node>
       <!--
@@ -6134,16 +6121,16 @@
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="PplJ8M06DDYNWsWk2Slfxl" Location="VL.Skia" Version="2024.6.0-0244-ga4b76baedd" />
+  <NugetDependency Id="PplJ8M06DDYNWsWk2Slfxl" Location="VL.Skia" Version="2024.6.0-0254-g5387c3cd24" />
   <DocumentDependency Id="Sm1TqsTkVFsProAmpQaAlM" Location="./VL.Audio.vl" IsFriend="true" />
   <PlatformDependency Id="B0ArPMwHxcwMimXPEdrU3u" Location="System.Drawing" />
-  <NugetDependency Id="F3OJevNnWdzNw4KBVACdu0" Location="VL.ImGui.Skia" Version="2024.6.0-0244-ga4b76baedd" />
+  <NugetDependency Id="F3OJevNnWdzNw4KBVACdu0" Location="VL.ImGui.Skia" Version="2024.6.0-0254-g5387c3cd24" />
   <PlatformDependency Id="TqeyhiHDH1DLXUuu6q2XUM" Location="VL.Audio.dll" />
   <PlatformDependency Id="Bc9FjSm9X3nMuuqjYgisI3" Location="System.Runtime" />
   <NugetDependency Id="O2IOzH3lC2BMRrI0GYGQvM" Location="NAudio.Asio" Version="2.0.0" />
-  <NugetDependency Id="U7OuyJL2jqyNXiDsDTCQig" Location="VL.HDE" Version="2024.6.0-0244-ga4b76baedd" />
-  <NugetDependency Id="Kx7DLVcQj1FNGcnDhwDLCl" Location="VL.Stride" Version="2024.6.0-0244-ga4b76baedd" />
-  <NugetDependency Id="EsrYkOtK0oHOU8yNlVM1CA" Location="VL.Stride.TextureFX" Version="2024.6.0-0244-ga4b76baedd" />
+  <NugetDependency Id="U7OuyJL2jqyNXiDsDTCQig" Location="VL.HDE" Version="2024.6.0-0254-g5387c3cd24" />
+  <NugetDependency Id="Kx7DLVcQj1FNGcnDhwDLCl" Location="VL.Stride" Version="2024.6.0-0254-g5387c3cd24" />
+  <NugetDependency Id="EsrYkOtK0oHOU8yNlVM1CA" Location="VL.Stride.TextureFX" Version="2024.6.0-0254-g5387c3cd24" />
   <NugetDependency Id="NeoaOFwhQ6iNdkujsrVjfN" Location="VL.UI.Core" Version="2023.5.0" />
   <DocumentDependency Id="EHjDcih4UFxPG8iRiIOCev" Location="C:/Users/Christoph/chk Drive/Workspace/vvvv/VL.3e8.vl" />
 </Document>

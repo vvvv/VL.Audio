@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" xmlns:r="reflection" Id="Lw82kigDYVnPSpBFRq5sme" LanguageVersion="2024.6.0-0244-ga4b76baedd" Version="0.128">
-  <NugetDependency Id="TYf79nb544MLF61AGRTpOc" Location="VL.CoreLib" Version="2024.6.0-0244-ga4b76baedd" />
+<Document xmlns:p="property" xmlns:r="reflection" Id="Lw82kigDYVnPSpBFRq5sme" LanguageVersion="2024.6.0-0254-g5387c3cd24" Version="0.128">
+  <NugetDependency Id="TYf79nb544MLF61AGRTpOc" Location="VL.CoreLib" Version="2024.6.0-0254-g5387c3cd24" />
   <Patch Id="VZkaz8VsRYJP6v0v4QPOMn">
     <Canvas Id="Ahwc5v75zl6Oat4EZVtFRE" DefaultCategory="Main" BordersChecked="false" CanvasType="FullCategory" />
     <!--
@@ -50,7 +50,7 @@
             <Pin Id="BjGJKazyaCKN9BDCF5fklK" Name="Input" Kind="InputPin" />
             <Pin Id="Nttm69SIQypMgSOO0O4OwP" Name="Channel Offset" Kind="InputPin" />
           </Node>
-          <Pad Id="G13cdXXlHzwNUWSCp9jfB7" Comment="Frequency Offset" Bounds="151,179,66,15" ShowValueBox="true" isIOBox="true" Value="1000">
+          <Pad Id="G13cdXXlHzwNUWSCp9jfB7" Comment="Frequency Offset" Bounds="151,179,66,15" ShowValueBox="true" isIOBox="true" Value="440">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="Float32" />
             </p:TypeAnnotation>
@@ -79,7 +79,7 @@
               <Choice Kind="TypeFlag" Name="Integer32" />
             </p:TypeAnnotation>
           </Pad>
-          <Node Bounds="479,399,85,19" Id="TvuGPHVgPHsNHvkk12bR1E">
+          <Node Bounds="479,390,85,19" Id="TvuGPHVgPHsNHvkk12bR1E">
             <p:NodeReference LastCategoryFullName="Audio.Analysis" LastDependency="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="FFT" />
@@ -92,7 +92,7 @@
             <Pin Id="HUTm667MAkDNL2o4UFttOH" Name="db Range" Kind="InputPin" />
             <Pin Id="PC1j4y1Ii7tMmOqhsTM6Mr" Name="Output" Kind="OutputPin" />
           </Node>
-          <Pad Id="DMX1TGqcGH6MQamUuxKwoK" Comment="Buffer Size" Bounds="501,376,35,15" ShowValueBox="true" isIOBox="true" Value="512">
+          <Pad Id="DMX1TGqcGH6MQamUuxKwoK" Comment="Buffer Size" Bounds="501,374,35,15" ShowValueBox="true" isIOBox="true" Value="512">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="Integer32" />
             </p:TypeAnnotation>
@@ -108,13 +108,13 @@
             <Pin Id="D8npW75wiQrPaYp96saYQl" Name="Output" Kind="StateOutputPin" />
             <Pin Id="MjKOhDcLcrgQTq0wVBEHvJ" Name="Item" Kind="OutputPin" />
           </Node>
-          <Pad Id="QG24vJKUVBdMhO8QGADi6c" Comment="Index" Bounds="541,478,35,15" ShowValueBox="true" isIOBox="true" Value="12">
+          <Pad Id="QG24vJKUVBdMhO8QGADi6c" Comment="Index" Bounds="541,478,35,15" ShowValueBox="true" isIOBox="true" Value="6">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="Integer32" />
             </p:TypeAnnotation>
           </Pad>
           <Pad Id="KPnD8d6K5h3LcDTHYLEO3y" Comment="Item" Bounds="541,539,46,15" ShowValueBox="true" isIOBox="true" />
-          <Node Bounds="219,623,119,19" Id="FLxLsC1XAvGNRPjDC7hzER">
+          <Node Bounds="256,617,119,19" Id="FLxLsC1XAvGNRPjDC7hzER">
             <p:NodeReference LastCategoryFullName="Audio.Analysis" LastDependency="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="Category" Name="Analysis" />
@@ -127,13 +127,13 @@
             <Pin Id="L9GpjKao8pFPCGw3O8pes1" Name="Gain" Kind="InputPin" />
             <Pin Id="LPV8AulYEilN6tA3dEf9ij" Name="Level" Kind="OutputPin" />
           </Node>
-          <Pad Id="NmDIlFcFOkgLXDLGqM7KiD" Comment="Level" Bounds="221,666,51,15" ShowValueBox="true" isIOBox="true">
+          <Pad Id="NmDIlFcFOkgLXDLGqM7KiD" Comment="Level" Bounds="258,660,51,15" ShowValueBox="true" isIOBox="true">
             <p:ValueBoxSettings>
               <p:precision p:Type="Int32">4</p:precision>
               <p:stepsize p:Type="Single">0.01</p:stepsize>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="C2GksSOUborQdGzlU2GBtS" Comment="Frequency" Bounds="259,604,49,15" ShowValueBox="true" isIOBox="true" Value="1000">
+          <Pad Id="C2GksSOUborQdGzlU2GBtS" Comment="Frequency" Bounds="296,598,49,15" ShowValueBox="true" isIOBox="true" Value="440">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="Float32" />
             </p:TypeAnnotation>
@@ -160,7 +160,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="LiGQGGbNo0COkoYpQCckgJ" Bounds="343,630,217,66" ShowValueBox="true" isIOBox="true" Value="&lt;-- But this value seems to be completely off...">
+          <Pad Id="LiGQGGbNo0COkoYpQCckgJ" Bounds="380,624,217,66" ShowValueBox="true" isIOBox="true" Value="&lt;-- But this value seems to be completely off...">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -168,6 +168,11 @@
               <p:fontsize p:Type="Int32">9</p:fontsize>
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="FvDtBZRisIILrOwsDTqKLq" Comment="Gain" Bounds="346,129,35,15" ShowValueBox="true" isIOBox="true" Value="0.01">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="Float32" />
+            </p:TypeAnnotation>
           </Pad>
         </Canvas>
         <Patch Id="HWtq4poidrbOAFKwP9liIZ" Name="Create" />
@@ -190,6 +195,7 @@
         <Link Id="IwpW2KGJAgoLez7fFwrJo4" Ids="PC1j4y1Ii7tMmOqhsTM6Mr,LJurXLwj3G3N2OpIqZfObe" />
         <Link Id="RmtpJN9anCMPqcCKwfCOeK" Ids="LPV8AulYEilN6tA3dEf9ij,NmDIlFcFOkgLXDLGqM7KiD" />
         <Link Id="QYrXBlnBycvMjLmoMZpobG" Ids="C2GksSOUborQdGzlU2GBtS,JjMAcdvDsWMQIeB5PRXHhB" />
+        <Link Id="E6sTclNcSVaO2tQCE2axti" Ids="FvDtBZRisIILrOwsDTqKLq,Qpm6InMeQQ1LOydEMA8iRN" />
       </Patch>
     </Node>
   </Patch>
