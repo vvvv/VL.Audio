@@ -13,6 +13,17 @@ namespace VL.Audio
         BlackmannHarris
     }
 
+    public enum FFTBinCount
+    {
+        Bins_64 = 64,
+        Bins_128 = 128,
+        Bins_256 = 256,
+        Bins_512 = 512,
+        Bins_1024 = 1024,
+        Bins_2048 = 2048,
+        Bins_4096 = 4096,
+    }
+
     public class FFTOutSignal : SinkSignal
     {
         protected CircularBuffer FRingBuffer = new CircularBuffer(512);
