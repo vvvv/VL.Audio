@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" xmlns:r="reflection" Id="HTX4axw4uH5NDghqAqpe1F" LanguageVersion="2024.6.0-0248-g5f796ddc1a" Version="0.128">
+<Document xmlns:p="property" xmlns:r="reflection" Id="HTX4axw4uH5NDghqAqpe1F" LanguageVersion="2024.6.0-0258-g2531a86036" Version="0.128">
   <Patch Id="Mj1seFpSbg5MtaCXVBGhJf">
     <Canvas Id="ClqUpgLjNRdQbB5ajAF1ry" DefaultCategory="Audio" CanvasType="FullCategory">
       <!--
@@ -10682,7 +10682,7 @@
     ************************ FFTBinIndexToFrequency ************************
 
 -->
-          <Node Name="FFTBinIndexToFrequency" Bounds="539,1350,207,190" Id="Uz6BwcZMYoENzUVrAp0mw5">
+          <Node Name="FFTBinIndexToFrequency" Bounds="539,1297,207,243" Id="Uz6BwcZMYoENzUVrAp0mw5">
             <p:NodeReference LastCategoryFullName="Primitive" LastDependency="builtin">
               <Choice Kind="OperationDefinition" Name="Operation" />
             </p:NodeReference>
@@ -10705,11 +10705,11 @@
                 <Pin Id="Mf8y4tj91kbOyuERJpTXhb" Name="Input" Kind="InputPin" />
                 <Pin Id="RDNm7TIAH7DPGWtAHzlUsl" Name="Result" Kind="OutputPin" />
               </Node>
-              <ControlPoint Id="LCUqNn6mFaSLcWXdPLqJH6" Bounds="628,1368" />
+              <ControlPoint Id="LCUqNn6mFaSLcWXdPLqJH6" Bounds="628,1315" />
               <Link Id="QCRrbbB4U0qPVvxcBWc3Zc" Ids="JhX4y8vU3ZPOOQURTHXBBZ,H7cFnGZC6zDMYiqUcDghzq" IsHidden="true" />
               <Link Id="I2LzwyMcQDvOWMXcieGVaH" Ids="H7cFnGZC6zDMYiqUcDghzq,JZw9NWkPUZoNj4vU5h0mru" />
               <Link Id="RIhJhuFdSz6MjQuMjxNHSn" Ids="RDNm7TIAH7DPGWtAHzlUsl,StcNqnf9P5PQddTxpHjgms" />
-              <Link Id="UlOfDm74P0HMJ9rwz3s30V" Ids="LCUqNn6mFaSLcWXdPLqJH6,Mf8y4tj91kbOyuERJpTXhb" />
+              <Link Id="UlOfDm74P0HMJ9rwz3s30V" Ids="LCUqNn6mFaSLcWXdPLqJH6,Nz65ljlO8ptPjJiT8H6sn2" />
               <Link Id="U6Z7Hv91SazM4Dv7RanGIl" Ids="UpTeAwlDW0nLJocgrB07KY,LCUqNn6mFaSLcWXdPLqJH6" IsHidden="true" />
               <ControlPoint Id="Tqj5C2xf2ZCPXW7mC9iv5H" Bounds="553,1523" />
               <Link Id="KaCRyB8trFyP5Nj60Va2d7" Ids="Tqj5C2xf2ZCPXW7mC9iv5H,FtnkZGebulSNygbQiqsed1" IsHidden="true" />
@@ -10743,6 +10743,22 @@
                 </p:TypeAnnotation>
               </Pin>
               <Pin Id="FtnkZGebulSNygbQiqsed1" Name="Frequency" Kind="OutputPin" Bounds="635,367" />
+              <Node Bounds="626,1352,25,19" Id="LTLfGfKNiSTLBertKDwIYt">
+                <p:NodeReference LastCategoryFullName="Math" LastDependency="VL.CoreLib.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="OperationCallFlag" Name="*" />
+                </p:NodeReference>
+                <Pin Id="Nz65ljlO8ptPjJiT8H6sn2" Name="Input" Kind="InputPin" />
+                <Pin Id="G0JtJwwQWoAQBLicLncua6" Name="Input 2" Kind="InputPin" />
+                <Pin Id="FW81iIuoUNtMN4zxCyya90" Name="Output" Kind="OutputPin" />
+              </Node>
+              <Link Id="Ak1kr3zO1X9LQqArbHPmQH" Ids="FW81iIuoUNtMN4zxCyya90,Mf8y4tj91kbOyuERJpTXhb" />
+              <Pad Id="D3IQU4qJMDKNGjFTlGVVnM" Comment="" Bounds="663,1340,35,15" ShowValueBox="true" isIOBox="true" Value="2">
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+                  <Choice Kind="TypeFlag" Name="Integer32" />
+                </p:TypeAnnotation>
+              </Pad>
+              <Link Id="NJayXcVlci2LjiT9wSpaN3" Ids="D3IQU4qJMDKNGjFTlGVVnM,G0JtJwwQWoAQBLicLncua6" />
             </Patch>
           </Node>
           <!--
@@ -10750,7 +10766,7 @@
     ************************ FrequencyToFFTBinIndex ************************
 
 -->
-          <Node Name="FrequencyToFFTBinIndex" Bounds="848,1353,230,231" Id="Ff0hSQAJT22LeDoWaUxUhx">
+          <Node Name="FrequencyToFFTBinIndex" Bounds="848,1303,228,281" Id="Ff0hSQAJT22LeDoWaUxUhx">
             <p:NodeReference LastCategoryFullName="Primitive" LastDependency="builtin">
               <Choice Kind="OperationDefinition" Name="Operation" />
             </p:NodeReference>
@@ -10773,11 +10789,11 @@
                 <Pin Id="SOnQdnV7EabLw0Qwq9W5no" Name="Input" Kind="InputPin" />
                 <Pin Id="Rl5kdEM9LCCPO5Yt0XUHLj" Name="Result" Kind="OutputPin" />
               </Node>
-              <ControlPoint Id="GNP85fBucUCO0lZSsJPJ6v" Bounds="960,1371" />
+              <ControlPoint Id="GNP85fBucUCO0lZSsJPJ6v" Bounds="958,1321" />
               <Link Id="G4oZQMu2tBtPU75yGcuV5d" Ids="QwWgV9ngpS0Lc1q7Xoppqv,Fzmks3Keo9LMoW630Op2qH" IsHidden="true" />
               <Link Id="DEo0CLM5O5nNYUDduGG9HG" Ids="Fzmks3Keo9LMoW630Op2qH,Hq9oP5pfDMWMXeQR8SZ5zx" />
               <Link Id="EE6J6pxSlFaOBqUPiYggJ3" Ids="Rl5kdEM9LCCPO5Yt0XUHLj,Ghsl3b3VVNoMVTqzgShTOJ" />
-              <Link Id="Hs5Z48joySxLr6giSpksO1" Ids="GNP85fBucUCO0lZSsJPJ6v,SOnQdnV7EabLw0Qwq9W5no" />
+              <Link Id="Hs5Z48joySxLr6giSpksO1" Ids="GNP85fBucUCO0lZSsJPJ6v,SnV0Pwt8m5sP6xAvoJxQcM" />
               <Link Id="MNQHYvfDi67NjYV6lobBOM" Ids="BqPd5lQkubDLUIIJIh7W7Z,GNP85fBucUCO0lZSsJPJ6v" IsHidden="true" />
               <ControlPoint Id="RV9V4IjQ7yLP2RjTylHU54" Bounds="862,1567" />
               <Link Id="ANT2H3yJvPyOhVDvpx33Oe" Ids="RV9V4IjQ7yLP2RjTylHU54,UXL4fm1pQ1oMDfuS0P2605" IsHidden="true" />
@@ -10821,6 +10837,22 @@
                 </p:TypeAnnotation>
               </Pin>
               <Pin Id="UXL4fm1pQ1oMDfuS0P2605" Name="Index" Kind="OutputPin" Bounds="635,367" />
+              <Node Bounds="957,1360,25,19" Id="BMgquHxdm9mP7gICpsbjOh">
+                <p:NodeReference LastCategoryFullName="Math" LastDependency="VL.CoreLib.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="OperationCallFlag" Name="*" />
+                </p:NodeReference>
+                <Pin Id="SnV0Pwt8m5sP6xAvoJxQcM" Name="Input" Kind="InputPin" />
+                <Pin Id="GYalZt1lpWPQA3efvjE4pX" Name="Input 2" Kind="InputPin" />
+                <Pin Id="Gai1Spkrz8zLlJHCvbmjNn" Name="Output" Kind="OutputPin" />
+              </Node>
+              <Link Id="VDIDyy1EUIROwieDjJaE7C" Ids="Gai1Spkrz8zLlJHCvbmjNn,SOnQdnV7EabLw0Qwq9W5no" />
+              <Pad Id="AmIDyAU0eVWLP0W7G31vVo" Comment="" Bounds="980,1346,35,15" ShowValueBox="true" isIOBox="true" Value="2">
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+                  <Choice Kind="TypeFlag" Name="Integer32" />
+                </p:TypeAnnotation>
+              </Pad>
+              <Link Id="J0mJzDV9OgNPwVqYCsnh8W" Ids="AmIDyAU0eVWLP0W7G31vVo,GYalZt1lpWPQA3efvjE4pX" />
             </Patch>
           </Node>
           <!--
@@ -25890,8 +25922,8 @@
   <PlatformDependency Id="Qp3HZOkgG5cQcuE59UUe1j" Location="System.IO" />
   <PlatformDependency Id="CCaadwXbjs6P0MKKXnqSCL" Location="System.IO.FileSystem" />
   <NugetDependency Id="VSw4d6QSmJYMnkyboVSRG9" Location="NAudio.Wasapi" Version="2.0.0" />
-  <NugetDependency Id="TDiqd3R8e2tOT8QIUqmyZg" Location="VL.CoreLib" Version="0.0.0" />
-  <NugetDependency Id="Ftpl8TXJkrIOwgb8rxyB1J" Location="VL.Skia" Version="2023.5.2" />
-  <NugetDependency Id="LFQz3BIOGILOXZ5UxLSj0F" Location="VL.ImGui.Skia" Version="2023.5.2" />
-  <NugetDependency Id="T4hKWRLsgdRPUqXNm9Ykry" Location="VL.UI.Core" Version="0.0.0" />
+  <NugetDependency Id="TDiqd3R8e2tOT8QIUqmyZg" Location="VL.CoreLib" Version="2024.6.0-0258-g2531a86036" />
+  <NugetDependency Id="Ftpl8TXJkrIOwgb8rxyB1J" Location="VL.Skia" Version="2024.6.0-0258-g2531a86036" />
+  <NugetDependency Id="LFQz3BIOGILOXZ5UxLSj0F" Location="VL.ImGui.Skia" Version="2024.6.0-0258-g2531a86036" />
+  <NugetDependency Id="T4hKWRLsgdRPUqXNm9Ykry" Location="VL.UI.Core" Version="2023.5.0" />
 </Document>
