@@ -1,7 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Reactive.Linq;
+using System.Reactive.Subjects;
 using System.Runtime.InteropServices;
 using FftSharp;
 using NAudio.Utils;
+using VL.Core.CompilerServices;
+using VL.Lib.Collections;
 
 namespace VL.Audio
 {
@@ -13,15 +18,43 @@ namespace VL.Audio
         BlackmannHarris
     }
 
-    public enum FFTBinCount
+    [Serializable]
+    public class FFTBinCountEnum : DynamicEnumBase<FFTBinCountEnum, FFTBinCountEnumDefinition>
     {
-        Bins_64 = 64,
-        Bins_128 = 128,
-        Bins_256 = 256,
-        Bins_512 = 512,
-        Bins_1024 = 1024,
-        Bins_2048 = 2048,
-        Bins_4096 = 4096,
+        public FFTBinCountEnum(string value) : base(value)
+        {
+        }
+
+        [CreateDefault]
+        public static FFTBinCountEnum CreateDefault()
+        {
+            return CreateDefaultBase();
+        }
+    }
+
+    public class FFTBinCountEnumDefinition : DynamicEnumDefinitionBase<FFTBinCountEnumDefinition>
+    {
+        //Return the current enum entries
+        protected override IReadOnlyDictionary<string, object> GetEntries()
+        {
+            var entries = new Dictionary<string, object>();
+            entries.Add("64", 64);
+            entries.Add("128", 128);
+            entries.Add("256", 256);
+            entries.Add("512", 512);
+            entries.Add("1024", 1024);
+            entries.Add("2048", 2048);
+            entries.Add("4096", 4096);
+            return entries;
+        }
+
+        protected override IObservable<object> GetEntriesChangedObservable()
+        {
+            //e.g.: return HardwareChangedEvents.HardwareChanged; //reports device (e.g. usb) addition/removal
+            return Observable.Empty<object>();
+        }
+
+        protected override bool AutoSortAlphabetically => false;
     }
 
     public class FFTOutSignal : SinkSignal
