@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" xmlns:r="reflection" Id="NR5BxW1lyeTPk9FmnQTdcZ" LanguageVersion="2024.6.0-0031-g2d4df47e07" Version="0.128">
+<Document xmlns:p="property" xmlns:r="reflection" Id="NR5BxW1lyeTPk9FmnQTdcZ" LanguageVersion="2024.6.2" Version="0.128">
   <Patch Id="TaMJfSrYEeBPspKO1oP4Qg">
     <Canvas Id="CZ1gXhd4m1lNsITVV4J3mO" DefaultCategory="Main" BordersChecked="false" CanvasType="FullCategory" />
     <!--
@@ -30,6 +30,7 @@
             <Pin Id="UIskMLSYIyPNowls3ckR74" Name="Space" Kind="InputPin" />
             <Pin Id="GxW8gVDpE1fMRkBA4rGTUC" Name="Show Cursor" Kind="InputPin" />
             <Pin Id="OtfGjIjXRoZOV5HGIeVPbJ" Name="VSync" Kind="InputPin" />
+            <Pin Id="JY9DkfprSRNNJOAKvCt3uy" Name="Commands" Kind="InputPin" IsHidden="true" />
             <Pin Id="QdbelvFqgN7OqY3D3TVGLo" Name="Enable Keyboard Shortcuts" Kind="InputPin" IsHidden="true" />
             <Pin Id="NSlvnP2Yb5OND8N4WOTMBB" Name="Enabled" Kind="InputPin" />
             <Pin Id="B4IMYlputMpMaDN0xajDBL" Name="Form Bounds Notifications" Kind="OutputPin" IsHidden="true" />
@@ -50,7 +51,7 @@
               <Patch Id="Hz2KTOCDEl9PBwla90y48G" Name="Create" ManuallySortedPins="true" />
               <Patch Id="LqfNI6ZzVkHLImTOXOsplG" Name="Then" ManuallySortedPins="true" />
               <Node Bounds="355,428,62,19" Id="LbtBzSvt75ANdJbo6XiAko">
-                <p:NodeReference LastCategoryFullName="Audio.SettingsUI" LastDependency="VL.Audio.vl">
+                <p:NodeReference LastCategoryFullName="Audio.SettingsUI" LastDependency="VL.Audio.UI.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                   <Choice Kind="ProcessAppFlag" Name="SettingsUI (Layer)" />
                 </p:NodeReference>
@@ -219,6 +220,7 @@
               <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="Comment" />
             </p:NodeReference>
+            <Pin Id="LNba8rTy0FGPfmof1VYiXk" Name="Node Context" Kind="InputPin" IsHidden="true" />
             <Patch Id="SvI2p1WJptILDMA08TBLic" ManuallySortedPins="true">
               <Patch Id="L9fhweVwmVQN3HCgvvTmkW" Name="Create" ManuallySortedPins="true" />
               <Patch Id="QI9tQsgJCzwQGRRC0EV3Rm" Name="Update" ManuallySortedPins="true" />
@@ -232,7 +234,7 @@
                 </p:ValueBoxSettings>
               </Pad>
               <Node Bounds="748,704,62,19" Id="N6NrSR01v6DM23VL6BuhdB">
-                <p:NodeReference LastCategoryFullName="Audio.SettingsUI" LastDependency="VL.Audio.vl">
+                <p:NodeReference LastCategoryFullName="Audio.SettingsUI" LastDependency="VL.Audio.UI.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                   <Choice Kind="ProcessAppFlag" Name="SettingsUI (Widget)" />
                 </p:NodeReference>
@@ -241,7 +243,6 @@
                 <Pin Id="QYhHJeclGz5PAdpUgXsJP8" Name="Output" Kind="OutputPin" />
               </Node>
             </Patch>
-            <Pin Id="LNba8rTy0FGPfmof1VYiXk" Name="Node Context" Kind="InputPin" IsHidden="true" />
           </Node>
         </Canvas>
         <Patch Id="OiOnt0bxO8bPWOUaaDspOh" Name="Create" />
@@ -273,8 +274,9 @@
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="RjLpSoQ6KYbPNfmInmq55V" Location="VL.CoreLib" Version="2021.4.7-0876-ga6f823a2d6" />
-  <NugetDependency Id="NNQAWTdz4ASOfCKgPmnPVT" Location="VL.Skia" Version="2021.4.7-0876-ga6f823a2d6" />
+  <NugetDependency Id="RjLpSoQ6KYbPNfmInmq55V" Location="VL.CoreLib" Version="2024.6.2" />
+  <NugetDependency Id="NNQAWTdz4ASOfCKgPmnPVT" Location="VL.Skia" Version="2024.6.2" />
   <NugetDependency Id="M8pV1m6w3NtM4SUcIX0kzo" Location="VL.Audio" Version="0.0.0.0" />
-  <NugetDependency Id="LykJIX4tjxrLMNJI7qf0xH" Location="VL.ImGui.Skia" Version="0.0.0" />
+  <NugetDependency Id="LykJIX4tjxrLMNJI7qf0xH" Location="VL.ImGui.Skia" Version="2024.6.2" />
+  <NugetDependency Id="CgWeiBugElFQboTwPY44cH" Location="VL.Audio.UI" Version="0.0.0" />
 </Document>

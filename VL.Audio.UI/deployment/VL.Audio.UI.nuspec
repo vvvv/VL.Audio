@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata>
+    <id>VL.Audio.UI</id>
+    <version>0.0.1-alpha</version>
+    <title>VL.Audio.UI</title>
+    <authors>vvvv</authors>
+    <owners>vvvv</owners>
+    <projectUrl>https://github.com/vvvv/vl.audio</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <summary>UI for VL.Audio Settings</summary>
+    <description>UI for VL.Audio Settings</description>
+    <tags>VL, sound, music, asio, wasapi, analysis, synthesis, buffer, wav, mp3, aiff, audioin, audioout, audioplayer, fft</tags>
+    <dependencies>
+	<dependency id="VL.Audio" version="1.6.0-alpha" />
+    </dependencies>
+    <license type="expression">LGPL-3.0-only</license>
+    <icon>icon\nugeticon.png</icon>
+  </metadata>
+  <files>
+    <file src="..\*.vl" target="" exclude="" />
+    <file src="..\assets\**" target="assets\" exclude="" />
+    <file src="..\shaders\**" target="shaders\" exclude="" />
+    <file src="..\help\**" target="help\" exclude="" />
+    <file src="nugeticon.png" target="icon\" />
+  </files>
+</package>

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" xmlns:r="reflection" Id="S3BYXYbBcOQLrAesdzH6KE" LanguageVersion="2024.6.0-0265-ga193ffb214" Version="0.128">
-  <NugetDependency Id="BfQ9BqV8poEPnZWKYQROv0" Location="VL.CoreLib" Version="2024.6.0-0265-ga193ffb214" />
+<Document xmlns:p="property" xmlns:r="reflection" Id="S3BYXYbBcOQLrAesdzH6KE" LanguageVersion="2024.6.2" Version="0.128">
+  <NugetDependency Id="BfQ9BqV8poEPnZWKYQROv0" Location="VL.CoreLib" Version="2024.6.2" />
   <Patch Id="DYRuwp4ufPyNyKtULooXvw">
     <Canvas Id="QYFOXjrMgATQTcpBMDj2hQ" DefaultCategory="Audio.HDE" CanvasType="FullCategory">
       <!--
@@ -3783,7 +3783,7 @@
               <Pin Id="DX4Hgo3rP7rMWkWZVAisyX" Name="Value" Kind="OutputPin" />
             </Node>
             <Pad Id="HWoBImuQUcXMlBrv4Ga9ni" Comment="" Bounds="523,877">
-              <p:TypeAnnotation LastCategoryFullName="VL.Audio" LastDependency="VL.Audio.vl">
+              <p:TypeAnnotation LastCategoryFullName="VL.Audio" LastDependency="VL.Audio.dll">
                 <Choice Kind="TypeFlag" Name="FFTBinCountEnum" />
               </p:TypeAnnotation>
             </Pad>
@@ -6135,7 +6135,7 @@
                   <Patch Id="AApW5torL3AMVKVJgBhpmy" Name="Create" ManuallySortedPins="true" />
                   <Patch Id="JZODtTo2AAeMEChSq5goP3" Name="Update" ManuallySortedPins="true" />
                   <Node Bounds="626,786,62,19" Id="VJ7laVAZSN6O0CSb7Mvx5P">
-                    <p:NodeReference LastCategoryFullName="Audio.SettingsUI" LastDependency="VL.Audio.vl">
+                    <p:NodeReference LastCategoryFullName="Audio.SettingsUI" LastDependency="VL.Audio.UI.vl">
                       <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                       <Choice Kind="ProcessAppFlag" Name="SettingsUI (Widget)" />
                     </p:NodeReference>
@@ -6180,7 +6180,7 @@
             <Pin Id="ClGmlsSwQfgOePNSg9MNrB" Name="Output" Kind="StateOutputPin" />
             <Pin Id="QSvgs7gZ2v8OLXbuU0bmF1" Name="Value" Kind="OutputPin" />
           </Node>
-          <Pad Id="E7KEYQ3sg0mLorVRUCuEko" Comment="Lifespan" Bounds="952,471,47,15" ShowValueBox="true" isIOBox="true" Value="Short">
+          <Pad Id="E7KEYQ3sg0mLorVRUCuEko" Comment="Lifespan" Bounds="999,475,47,15" ShowValueBox="true" isIOBox="true" Value="Short">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="ProcessLifespan" />
             </p:TypeAnnotation>
@@ -6483,15 +6483,16 @@
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="PplJ8M06DDYNWsWk2Slfxl" Location="VL.Skia" Version="2024.6.0-0265-ga193ffb214" />
-  <DocumentDependency Id="Sm1TqsTkVFsProAmpQaAlM" Location="./VL.Audio.vl" IsFriend="true" />
+  <NugetDependency Id="PplJ8M06DDYNWsWk2Slfxl" Location="VL.Skia" Version="2024.6.2" />
   <PlatformDependency Id="B0ArPMwHxcwMimXPEdrU3u" Location="System.Drawing" />
-  <NugetDependency Id="F3OJevNnWdzNw4KBVACdu0" Location="VL.ImGui.Skia" Version="2024.6.0-0265-ga193ffb214" />
+  <NugetDependency Id="F3OJevNnWdzNw4KBVACdu0" Location="VL.ImGui.Skia" Version="2024.6.2" />
   <PlatformDependency Id="TqeyhiHDH1DLXUuu6q2XUM" Location="VL.Audio.dll" />
   <PlatformDependency Id="Bc9FjSm9X3nMuuqjYgisI3" Location="System.Runtime" />
   <NugetDependency Id="O2IOzH3lC2BMRrI0GYGQvM" Location="NAudio.Asio" Version="2.0.0" />
-  <NugetDependency Id="U7OuyJL2jqyNXiDsDTCQig" Location="VL.HDE" Version="2024.6.0-0265-ga193ffb214" />
-  <NugetDependency Id="Kx7DLVcQj1FNGcnDhwDLCl" Location="VL.Stride" Version="2024.6.0-0265-ga193ffb214" />
-  <NugetDependency Id="EsrYkOtK0oHOU8yNlVM1CA" Location="VL.Stride.TextureFX" Version="2024.6.0-0265-ga193ffb214" />
+  <NugetDependency Id="U7OuyJL2jqyNXiDsDTCQig" Location="VL.HDE" Version="2024.6.2" />
+  <NugetDependency Id="Kx7DLVcQj1FNGcnDhwDLCl" Location="VL.Stride" Version="2024.6.2" />
+  <NugetDependency Id="EsrYkOtK0oHOU8yNlVM1CA" Location="VL.Stride.TextureFX" Version="2024.6.2" />
   <NugetDependency Id="NeoaOFwhQ6iNdkujsrVjfN" Location="VL.UI.Core" Version="2023.5.0" />
+  <NugetDependency Id="BiEWNeoo9CfLawTzRzZUZU" Location="VL.Audio" Version="1.5.0" />
+  <NugetDependency Id="CEPPwDQseldN0bcRRcDKJj" Location="VL.Audio.UI" Version="0.0.0" />
 </Document>
