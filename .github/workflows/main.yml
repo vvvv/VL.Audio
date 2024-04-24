@@ -24,10 +24,10 @@ jobs:
     - name: Publish VL.Audio Nuget
       uses: vvvv/PublishVLNuget@1.0.43
       with:
-        csproj: src\VL.Audio.csproj
+        csproj: VL.Audio\src\VL.Audio.csproj
         nuspec: VL.Audio\deployment\VL.Audio.nuspec
         icon-src: https://raw.githubusercontent.com/vvvv/PublicContent/master/nugeticon.png
-        icon-dst: ./deployment/nugeticon.png
+        icon-dst: ./VL.Audio/deployment/nugeticon.png
         nuget-key: ${{ secrets.VVVV_ORG_NUGET_KEY }}
         
     - name: Publish VL.Audio.UI Nuget
@@ -35,5 +35,5 @@ jobs:
       with:
         nuspec: VL.Audio.UI\deployment\VL.Audio.nuspec
         icon-src: https://raw.githubusercontent.com/vvvv/PublicContent/master/nugeticon.png
-        icon-dst: ./deployment/nugeticon.png
+        icon-dst: ./VL.Audio.UI/deployment/nugeticon.png
         nuget-key: ${{ secrets.VVVV_ORG_NUGET_KEY }}
