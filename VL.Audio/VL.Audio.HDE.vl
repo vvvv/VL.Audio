@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" xmlns:r="reflection" Id="RSFE1WvlyuUNvRZSB4UdJS" LanguageVersion="2024.6.7-0104-g83ddb8b44f" Version="0.128">
-  <NugetDependency Id="BfQ9BqV8poEPnZWKYQROv0" Location="VL.CoreLib" Version="2024.6.7-0104-g83ddb8b44f" />
+<Document xmlns:p="property" xmlns:r="reflection" Id="RSFE1WvlyuUNvRZSB4UdJS" LanguageVersion="2024.6.7-0113-ga9b832a275" Version="0.128">
+  <NugetDependency Id="BfQ9BqV8poEPnZWKYQROv0" Location="VL.CoreLib" Version="2024.6.7-0113-ga9b832a275" />
   <Patch Id="DYRuwp4ufPyNyKtULooXvw">
     <Canvas Id="QYFOXjrMgATQTcpBMDj2hQ" DefaultCategory="Audio.HDE" CanvasType="FullCategory">
       <!--
@@ -2928,7 +2928,7 @@
               </p:NodeReference>
               <Pin Id="JsmmYk7IIZuO3SMMxJDnLw" Name="Node Context" Kind="InputPin" IsHidden="true" />
               <Pin Id="DF2aSDwaXGiNQa0eE1VvuM" Name="AudioChannel" Kind="InputPin" />
-              <Pin Id="C7Q000o9wWhPkqJPNr5jU5" Name="BinCount" Kind="InputPin" DefaultValue="2" />
+              <Pin Id="C7Q000o9wWhPkqJPNr5jU5" Name="BinCount" Kind="InputPin" DefaultValue="3" />
               <Pin Id="LEY3deAKTaAPBwU9fYtXYc" Name="WindowFunction" Kind="InputPin" DefaultValue="2" />
               <Pin Id="BZI1GGUb8ftNev5VhSqe2K" Name="Smoothing" Kind="InputPin" DefaultValue="0.5" />
               <Pin Id="Bi5tTAEwtrmQTQIOvme4oN" Name="DBRange" Kind="InputPin" DefaultValue="72" />
@@ -3261,7 +3261,7 @@
                   <Pin Id="UrTU35nacCWOBRGtNuV2Ti" Name="Y" Kind="InputPin" />
                   <Pin Id="DXEIXx3w3LsLdY4AbtFLgE" Name="Output" Kind="StateOutputPin" />
                 </Node>
-                <Pad Id="KmHEKsipigjP20YobAvzbz" Comment="" Bounds="465,691,35,15" ShowValueBox="true" isIOBox="true" Value="-3.46">
+                <Pad Id="KmHEKsipigjP20YobAvzbz" Comment="" Bounds="465,691,35,15" ShowValueBox="true" isIOBox="true" Value="-4.5">
                   <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
                     <Choice Kind="TypeFlag" Name="Float32" />
                   </p:TypeAnnotation>
@@ -3643,16 +3643,6 @@
               <Pin Id="UOFgl7kzhmLLkD4XL1xMEq" Name="Width" Kind="InputPin" DefaultValue="1.1" />
               <Pin Id="TNDluzFm2sFMbi6Qjx1itu" Name="Context" Kind="OutputPin" />
             </Node>
-            <Node Bounds="381,709,59,19" Id="IOkW6VlLAzVNYJ52y4Gubf">
-              <p:NodeReference LastCategoryFullName="ImGui.Commands" LastDependency="VL.ImGui.vl">
-                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                <Choice Kind="ProcessNode" Name="SameLine" />
-              </p:NodeReference>
-              <Pin Id="V4yQ8RBfBqjNKDDKQBp5ny" Name="Context" Kind="InputPin" />
-              <Pin Id="RTiX2epIDsHPuZp8ZDAdW7" Name="Offset" Kind="InputPin" />
-              <Pin Id="D9oT7akpSUoPWkzaUCiVPU" Name="Spacing" Kind="InputPin" DefaultValue="0.25" />
-              <Pin Id="NTVxLmpfPDzLQZaI3xzD9x" Name="Context" Kind="OutputPin" />
-            </Node>
             <Node Bounds="89,1074,97,19" Id="ACP64PiTjQ6P5sR6skukxu">
               <p:NodeReference LastCategoryFullName="ImGui.Commands" LastDependency="VL.ImGui.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -3734,7 +3724,7 @@
               </p:NodeReference>
               <Pin Id="RagwaJU31rgNg7UzSNvEZM" Name="Context" Kind="InputPin" />
               <Pin Id="U0151kRvmgWLCd83Pb5gJk" Name="Offset" Kind="InputPin" />
-              <Pin Id="FPOTOMIBYlAMrUTR2u8Pbz" Name="Spacing" Kind="InputPin" DefaultValue="0.12" />
+              <Pin Id="FPOTOMIBYlAMrUTR2u8Pbz" Name="Spacing" Kind="InputPin" DefaultValue="0.18" />
               <Pin Id="Mrsyb3I5WeQQP8dQlgwBdk" Name="Context" Kind="OutputPin" />
             </Node>
             <Node Bounds="345,1051,59,19" Id="IIjpEeocmJnLnrx5MvrOU4">
@@ -3817,7 +3807,7 @@
               </p:NodeReference>
               <Pin Id="TPW5mSn7GorK9h5Dg9OBk3" Name="Context" Kind="InputPin" />
               <Pin Id="Er2FmJXMZxXQNLx15hWtkj" Name="Offset" Kind="InputPin" />
-              <Pin Id="GxLfSXTjRgGMiKmYcPdRm9" Name="Spacing" Kind="InputPin" DefaultValue="0.2" />
+              <Pin Id="GxLfSXTjRgGMiKmYcPdRm9" Name="Spacing" Kind="InputPin" DefaultValue="0.3" />
               <Pin Id="H98jA8JBjA7L8N2yjMIkTb" Name="Context" Kind="OutputPin" />
             </Node>
             <Pad Id="COnHD3AbAXqPrVwFw0yYR5" Comment="Width" Bounds="726,667,35,15" ShowValueBox="true" isIOBox="true" Value="1">
@@ -4049,8 +4039,6 @@
           <Link Id="JtMO041fx6mLge6O4huKKE" Ids="FDcaYq6D5puMZRnLiOhVbR,Rm1es9ejyeZPiM7HUxOEGp" />
           <Link Id="UMjn3fZr5DSNpfd9Gp3tI3" Ids="BT1VTPLIsDVLw0TkaxsqbC,RagwaJU31rgNg7UzSNvEZM" />
           <Link Id="BT9sW7zJVo6Po3m0A6nYpt" Ids="Mrsyb3I5WeQQP8dQlgwBdk,HfwjXls8ICzMzUmULHU0vD" />
-          <Link Id="BzRektcvOJ0NwhaXwVWtkM" Ids="GakltqkjxgZMkG2vSBdsPn,V4yQ8RBfBqjNKDDKQBp5ny" />
-          <Link Id="Nsbh0jOz5ctP6Jw0BEG3pO" Ids="NTVxLmpfPDzLQZaI3xzD9x,RRKmTdlI1qWMcpXWLXlqJT" />
           <Link Id="TLvevyVV6FCNDKbjWrA0wq" Ids="AcOg1yQLATBPSxCSwctFHc,TPW5mSn7GorK9h5Dg9OBk3" />
           <Link Id="SBfVJ9rH985O8UGGk7y2Rp" Ids="HWoBImuQUcXMlBrv4Ga9ni,BZhNpqyFHC2Oed6846sKC2" />
           <Link Id="VjBC1KBBVo7NrCYFVsSL38" Ids="KC9FePfe6NVQWX4BDHzNUn,QhRDrRXAcmRMw6ykGzmOtk" />
@@ -4086,6 +4074,7 @@
           <Link Id="RqbuD5WKeRGNykws911z5i" Ids="P0BJfDBVF5lPX3b8mOlA7A,KoUjrj7xOY2MZu2tlMcmmC" />
           <Link Id="UMeResXDSI6Nt1UTyyk8Wi" Ids="J5P7NlOs7PeOTz2mKROIQ3,CNXipIZcUY0O4yK3nrXYaN" />
           <Link Id="Ryop26g1Qk6LL7nJndilQW" Ids="JcpQCV9BJKQMsIsaUqyh5N,MWS9g6MLNvELkimzXFLCkq" />
+          <Link Id="HM1tsuJ01kPMLErWfxP5Yk" Ids="GakltqkjxgZMkG2vSBdsPn,RRKmTdlI1qWMcpXWLXlqJT" />
         </Patch>
       </Node>
       <!--
@@ -6683,15 +6672,15 @@
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="PplJ8M06DDYNWsWk2Slfxl" Location="VL.Skia" Version="2024.6.7-0104-g83ddb8b44f" />
+  <NugetDependency Id="PplJ8M06DDYNWsWk2Slfxl" Location="VL.Skia" Version="2024.6.7-0113-ga9b832a275" />
   <PlatformDependency Id="B0ArPMwHxcwMimXPEdrU3u" Location="System.Drawing" />
-  <NugetDependency Id="F3OJevNnWdzNw4KBVACdu0" Location="VL.ImGui.Skia" Version="2024.6.7-0104-g83ddb8b44f" />
+  <NugetDependency Id="F3OJevNnWdzNw4KBVACdu0" Location="VL.ImGui.Skia" Version="2024.6.7-0113-ga9b832a275" />
   <PlatformDependency Id="TqeyhiHDH1DLXUuu6q2XUM" Location="VL.Audio.dll" />
   <PlatformDependency Id="Bc9FjSm9X3nMuuqjYgisI3" Location="System.Runtime" />
   <NugetDependency Id="O2IOzH3lC2BMRrI0GYGQvM" Location="NAudio.Asio" Version="2.0.0" />
-  <NugetDependency Id="U7OuyJL2jqyNXiDsDTCQig" Location="VL.HDE" Version="2024.6.7-0104-g83ddb8b44f" />
-  <NugetDependency Id="Kx7DLVcQj1FNGcnDhwDLCl" Location="VL.Stride" Version="2024.6.7-0104-g83ddb8b44f" />
-  <NugetDependency Id="EsrYkOtK0oHOU8yNlVM1CA" Location="VL.Stride.TextureFX" Version="2024.6.7-0104-g83ddb8b44f" />
+  <NugetDependency Id="U7OuyJL2jqyNXiDsDTCQig" Location="VL.HDE" Version="2024.6.7-0113-ga9b832a275" />
+  <NugetDependency Id="Kx7DLVcQj1FNGcnDhwDLCl" Location="VL.Stride" Version="2024.6.7-0113-ga9b832a275" />
+  <NugetDependency Id="EsrYkOtK0oHOU8yNlVM1CA" Location="VL.Stride.TextureFX" Version="2024.6.7-0113-ga9b832a275" />
   <NugetDependency Id="NeoaOFwhQ6iNdkujsrVjfN" Location="VL.UI.Core" Version="2024.6.4" />
   <NugetDependency Id="BiEWNeoo9CfLawTzRzZUZU" Location="VL.Audio" Version="1.8.3" />
   <NugetDependency Id="CEPPwDQseldN0bcRRcDKJj" Location="VL.Audio.UI" Version="1.8.3" />
