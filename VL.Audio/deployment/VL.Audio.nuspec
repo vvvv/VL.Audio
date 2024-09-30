@@ -2,12 +2,13 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
   <metadata>
     <id>VL.Audio</id>
-    <version>1.7.0</version>
+    <version>1.8.4</version>
     <title>VL.Audio</title>
     <authors>NAudio, vvvv</authors>
     <owners>vvvv</owners>
     <projectUrl>https://github.com/vvvv/vl.audio</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <summary>Audio engine for VL based on NAudio</summary>
     <description>Audio engine for VL based on NAudio</description>
     <tags>VL, sound, music, asio, wasapi, analysis, synthesis, buffer, wav, mp3, aiff, audioin, audioout, audioplayer, fft</tags>
     <dependencies>
@@ -25,6 +26,7 @@
     <file src="..\lib\net6.0-windows\VL.Audio.dll" target="lib\net6.0-windows7.0\" exclude="" />
     <file src="..\runtimes\**" target="runtimes\" exclude="" />
     <file src="..\*.vl" target="" exclude="" />
+	<file src="..\shaders\**" target="shaders\" exclude="" />
     <file src="..\help\**" target="help\" exclude="" />
     <file src="..\..\README.md" target="docs\" />
     <file src="..\..\.github\images\*" target="docs\" />

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
   <metadata>
     <id>VL.Audio.UI</id>
-    <version>1.7.0</version>
+    <version>1.8.4</version>
     <title>VL.Audio.UI</title>
     <authors>vvvv</authors>
     <owners>vvvv</owners>
@@ -11,18 +11,18 @@
     <description>Extension pack for VL.Audio that brings in UI's for driver configuration and more</description>
     <tags>VL</tags>
     <dependencies>
-	<dependency id="VL.Audio" version="1.7.0" />
+	  <dependency id="VL.Audio" version="1.8.4" />
+	  <dependency id="VL.ImGui.Skia" version="2024.6.2" />
     </dependencies>
     <license type="expression">LGPL-3.0-only</license>
     <icon>icon\nugeticon.png</icon>
-    <readme>docs\README.md</readme>
+	<readme>docs\README.md</readme>
   </metadata>
   <files>
     <file src="..\*.vl" target="" exclude="" />
     <file src="..\assets\**" target="assets\" exclude="" />
-    <file src="..\shaders\**" target="shaders\" exclude="" />
     <file src="..\help\**" target="help\" exclude="" />
-    <file src="..\README.md" target="docs\" />
+	<file src="..\README.md" target="docs\" />
     <file src="nugeticon.png" target="icon\" />
   </files>
 </package>
