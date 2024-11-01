@@ -1,8 +1,8 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using NAudio.Wave;
 
 namespace VL.Audio
@@ -123,15 +123,17 @@ namespace VL.Audio
         /// </summary>
         protected int SampleRate;
         protected int BufferSize;
-        protected float[] FReadBuffer = new float[1];
+        protected float[] FReadBuffer;
 
         // used by tooltip
         public void GetInternalReadBuffer(out IReadOnlyList<float> internalReadBuffer, out int lastReadCount) 
         {
-            internalReadBuffer = FReadBuffer;
+            internalReadBuffer = FReadBuffer ?? Array.Empty<float>();
             lastReadCount = BufferSize;
-        } 
-        
+        }
+
+        public float[] ReadBuffer => FReadBuffer;
+
         public bool NeedsBufferCopy
         {
             get;
@@ -145,9 +147,9 @@ namespace VL.Audio
             if(true || NeedsBufferCopy)
             {
                 //ensure internal buffer size and shrink size if too large
-                if (FReadBuffer.Length < count || FReadBuffer.Length > (count * 2))
+                if (FReadBuffer is null || FReadBuffer.Length < count || FReadBuffer.Length > (count * 2))
                 {
-                    FReadBuffer = new float[count];
+                    FReadBuffer = GC.AllocateArray<float>(count, pinned: true);
                 }
                 
                 //first call per frame
@@ -167,11 +169,11 @@ namespace VL.Audio
             
             return count;
         }
-        
+
         /// <summary>
         /// This method should be overwritten in the sub class to do the actual processing work
         /// </summary>
-        /// <param name="buffer">The buffer to fill</param>
+        /// <param name="buffer">The buffer to fill. It is allocated on the POC and can therefor be used with <see cref="Marshal.UnsafeAddrOfPinnedArrayElement"/></param>
         /// <param name="offset">Write offset for the buffer</param>
         /// <param name="count">Count of samples need</param>
         protected virtual void FillBuffer(float[] buffer, int offset, int count)
