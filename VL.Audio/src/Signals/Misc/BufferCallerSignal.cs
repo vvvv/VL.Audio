@@ -5,7 +5,7 @@ using VL.Lib.Collections;
 
 namespace VL.Audio
 {
-    internal class SilenceSignal : AudioSignal
+    public class SilenceSignal : AudioSignal
     {
 
     }
