@@ -2,18 +2,19 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
   <metadata>
     <id>VL.Audio</id>
-    <version>1.8.4</version>
+    <version>1.9.0</version>
     <title>VL.Audio</title>
     <authors>NAudio, vvvv</authors>
     <owners>vvvv</owners>
-    <projectUrl>https://github.com/vvvv/vl.audio</projectUrl>
+    <projectUrl>http://vvvv.org</projectUrl>
+    <repository type="git" url="https://github.com/vvvv/vl.audio.git" />
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>Audio engine for VL based on NAudio</summary>
     <description>Audio engine for VL based on NAudio</description>
     <tags>VL, sound, music, asio, wasapi, analysis, synthesis, buffer, wav, mp3, aiff, audioin, audioout, audioplayer, fft</tags>
     <dependencies>
-      <group targetFramework="net6.0-windows7.0">
-            <dependency id="NAudio" version="2.0.1" />
+      <group targetFramework="net8.0-windows">
+            <dependency id="NAudio" version="2.2.1" />
             <dependency id="FftSharp" version="1.1.4" />
       </group>
     </dependencies>
@@ -23,7 +24,7 @@
   </metadata>
   <files>
     <file src="..\lib\*.dll" target="lib\" exclude="" />
-    <file src="..\lib\net6.0-windows\VL.Audio.dll" target="lib\net6.0-windows7.0\" exclude="" />
+    <file src="..\lib\net8.0-windows\VL.Audio.dll" target="lib\net8.0-windows7.0\" exclude="" />
     <file src="..\runtimes\**" target="runtimes\" exclude="" />
     <file src="..\*.vl" target="" exclude="" />
 	<file src="..\shaders\**" target="shaders\" exclude="" />
