@@ -22,7 +22,7 @@ namespace VL.Audio
         public GlobalEngine()
         {
             Engine = AudioService.Engine;
-            FConfigFile = GetConfileFile();
+            FConfigFile = GetConfigFile();
 
             if (AudioDeviceDefinition.Instance.Entries.Count > 1) //"Default" entry is always there!
             {
@@ -31,24 +31,18 @@ namespace VL.Audio
         }
 
         // Tries to fetch user app data path from VLSession.Instance.UserAppDataFolder by reflection to avoid dependency on VLSession.Instance (not present in exported app as of 2022.5)
-        static string GetConfileFile()
+        static string GetConfigFile()
         {
-            var langAssembly = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(a => a.GetName().Name == "VL.Lang");
+            var langAssembly = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(a => a.GetName().Name == "VL.HDE");
             if (langAssembly is null)
                 return null;
-            var sessionType = langAssembly.GetType("VL.Model.VLSession");
+            var sessionType = langAssembly.GetType("VL.HDE.API");
             if (sessionType is null)
-                return null;
-            var instanceProperty = sessionType.GetProperty("Instance", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static);
-            if (instanceProperty is null)
-                return null;
-            var session = instanceProperty.GetValue(null);
-            if (session is null)
                 return null;
             var userAppDataFolderProperty = sessionType.GetProperty("UserAppDataFolder");
             if (userAppDataFolderProperty is null)
                 return null;
-            var userAppDataFolder = userAppDataFolderProperty.GetValue(session) as string;
+            var userAppDataFolder = userAppDataFolderProperty.GetValue(null) as string;
             if (userAppDataFolder is null)
                 return null;
             return Path.Combine(userAppDataFolder, configFile);
