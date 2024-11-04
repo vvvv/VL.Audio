@@ -22,8 +22,8 @@ namespace VL.Audio
         public bool OutputInitialized { get; private set; }
         public bool InputInitialized { get; private set; }
 
-        public int DriverOutputChannelCount { get; internal set; } = 2;
-        public int DriverInputChannelCount { get; internal set; } = 2;
+        public int DriverOutputChannelCount => Output.OutputWaveFormat.Channels;
+        public int DriverInputChannelCount => Input.WaveFormat.Channels;
         public ISampleProvider InputSampleProvider { get; private set; }
 
         public WasapiInOut(MMDevice outputDevice, MMDevice inputDevice, bool isLoopback)
@@ -52,17 +52,28 @@ namespace VL.Audio
 
         internal void InitRecordAndPlayback(MasterWaveProvider masterWaveProvider, int inputChannels, int sampleRate)
         {
-            Output?.Init(masterWaveProvider);
-            Input?.StartRecording();
+            OutputInitialized = false;
+            InputInitialized = false;
 
-            OutputInitialized = Output != null;
-            InputInitialized = Input != null;
+            try
+            {
+                Output?.Init(masterWaveProvider);
+                OutputInitialized = Output != null;
+            }
+            catch (Exception)
+            {
+                Output?.Dispose();
+            }
 
-            if (OutputInitialized)
-                DriverOutputChannelCount = MMOutDevice.AudioClient.MixFormat.Channels;
-
-            if (InputInitialized)
-                DriverInputChannelCount = MMInDevice.AudioClient.MixFormat.Channels;
+            try
+            {
+                Input?.StartRecording();
+                InputInitialized = Input != null;
+            }
+            catch (Exception)
+            {
+                Input?.Dispose();
+            }
         }
 
         public void Dispose()

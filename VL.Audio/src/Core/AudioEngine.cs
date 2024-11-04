@@ -307,8 +307,8 @@ namespace VL.Audio
 
         public void GetSupportedChannels(out int inputChannels, out int outputChannels)
         {
-            inputChannels = 2;
-            outputChannels = 2;
+            inputChannels = 0;
+            outputChannels = 0;
 
             if (CurrentDevice is AsioOut asioOut)
             {
