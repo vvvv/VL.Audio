@@ -51,18 +51,15 @@ namespace VL.Audio
         {
             var samplingRates = new Dictionary<string, object>();
 
-            try
-            {
-                foreach (var item in Enum.GetValues(typeof(AudioSampleRateEnum)))
+            foreach (var item in Enum.GetValues(typeof(AudioSampleRateEnum)))
+                try
+                {
                     if (AudioService.Engine?.IsSampleRateSupported((int)item) ?? false)
-                        samplingRates.Add(((int)item).ToString(), (int)item);
-            }
-            catch
-            {
-                //Realtek ASIO drivers seem to fail getting samplerates, but 48000 still works
-                if (samplingRates.None())
-                    samplingRates.Add("48000", 48000);
-            }
+                            samplingRates.Add(((int)item).ToString(), (int)item);
+                }
+                catch
+                {
+                }
 
             return samplingRates;
         }
