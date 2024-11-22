@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 
 #endregion usings
 
@@ -51,7 +52,7 @@ namespace VL.Audio
             SetOutputCount(2);
         }
         
-        protected void SetOutputCount(int newCount)
+        public void SetOutputCount(int newCount)
         {
             //recreate output signals?
             if(FOutputCount != newCount)
@@ -84,7 +85,7 @@ namespace VL.Audio
                 FReadBuffers = new float[FOutputCount][];
                 for (int i = 0; i < FOutputCount; i++)
                 {
-                    FReadBuffers[i] = new float[count];
+                    FReadBuffers[i] = GC.AllocateArray<float>(count, pinned: true);
                     (Outputs[i] as SingleSignal).SetBuffer(FReadBuffers[i]);
                 }
             }
@@ -101,11 +102,11 @@ namespace VL.Audio
             
             //since the buffers are already assigned to the SingleSignals nothing more to do
         }
-        
+
         /// <summary>
         /// Does the actual work
         /// </summary>
-        /// <param name="buffers"></param>
+        /// <param name="buffers">The buffers are allocated on the POC and therefor already pinned.</param>
         /// <param name="offset"></param>
         /// <param name="count"></param>
         protected virtual void FillBuffers(float[][] buffers, int offset, int count)

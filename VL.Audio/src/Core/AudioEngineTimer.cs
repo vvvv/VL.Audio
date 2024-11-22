@@ -8,6 +8,7 @@ namespace VL.Audio
     public class AudioEngineTimer
     {
         protected long FSamplePosition = 0;
+        protected long FContinousSamplePosition = 0;
         public AudioEngineTimer(int sampleRate)
         {
             FSampleRate = sampleRate;
@@ -19,7 +20,8 @@ namespace VL.Audio
         public void Progress(int samplesCount)
         {
             FSamplePosition += samplesCount;
-            
+            FContinousSamplePosition += samplesCount;
+
             if (Loop && FLoopSampleLength > 0)
             {
                 while(FSamplePosition >= (FLoopStartSample + FLoopSampleLength))
@@ -75,6 +77,8 @@ namespace VL.Audio
                 return FSamplePosition;
             }
         }
+
+        public long ContinousSamplePosition => FContinousSamplePosition;
         
         double FTime = 0;
         public double Time
