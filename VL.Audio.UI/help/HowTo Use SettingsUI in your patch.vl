@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" xmlns:r="reflection" Id="NR5BxW1lyeTPk9FmnQTdcZ" LanguageVersion="2024.6.2" Version="0.128">
+<Document xmlns:p="property" xmlns:r="reflection" Id="NR5BxW1lyeTPk9FmnQTdcZ" LanguageVersion="2024.6.7-0269-g8e4af16a47" Version="0.128">
   <Patch Id="TaMJfSrYEeBPspKO1oP4Qg">
     <Canvas Id="CZ1gXhd4m1lNsITVV4J3mO" DefaultCategory="Main" BordersChecked="false" CanvasType="FullCategory" />
     <!--
@@ -25,6 +25,7 @@
             <Pin Id="BtHBmbwB6kKNCbDGfCONRu" Name="Node Context" Kind="InputPin" IsHidden="true" />
             <Pin Id="ObCJp4GWyALMrgkmbGqDky" Name="Dialog If Document Changed" Kind="InputPin" IsHidden="true" />
             <Pin Id="DOrnaOBiMHnOX6cV1k9rKG" Name="Input" Kind="InputPin" />
+            <Pin Id="Tntnh1iAR0wLVNwAxzZ0ME" Name="Title" Kind="InputPin" />
             <Pin Id="R34hc4CRA6kLC7AuGnR8MW" Name="Color" Kind="InputPin" />
             <Pin Id="NOcfgVAxwuTPAFKv01cyA0" Name="Clear" Kind="InputPin" />
             <Pin Id="UIskMLSYIyPNowls3ckR74" Name="Space" Kind="InputPin" />
@@ -105,17 +106,7 @@
                   <Choice Kind="ProcessAppFlag" Name="DefaultDarkTheme" />
                 </p:NodeReference>
                 <Pin Id="MVsiHiGt7USMM0zOgDqkuV" Name="Node Context" Kind="InputPin" IsHidden="true" />
-                <Pin Id="EqzT7vdQ6HENJ3CtRPutBL" Name="Update" Kind="ApplyPin" DefaultValue="False" />
                 <Pin Id="K7FSDCtm8VjLV2PbIGcUvZ" Name="Output" Kind="OutputPin" />
-              </Node>
-              <Node Bounds="355,350,54,19" Id="NEiBr7xBPZOLkWtowSOaOX">
-                <p:NodeReference LastCategoryFullName="Control" LastDependency="VL.CoreLib.vl">
-                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <Choice Kind="ProcessAppFlag" Name="OnOpen" />
-                </p:NodeReference>
-                <Pin Id="HYR4GDdCXMqLAgAl6QoLQj" Name="Node Context" Kind="InputPin" IsHidden="true" />
-                <Pin Id="F3cRqiqdCX7MS8MRbd1Ck8" Name="Simulate" Kind="InputPin" />
-                <Pin Id="PYWEjuFOwwIMsEgSHsG7i2" Name="Output" Kind="OutputPin" />
               </Node>
               <Node Bounds="435,429,70,26" Id="VtZ6mpwx7CCLD6Q2T1yUDl">
                 <p:NodeReference LastCategoryFullName="Graphics.Themes.ColorTheme" LastDependency="VL.CoreLib.vl">
@@ -242,6 +233,7 @@
                 <Pin Id="O8P6Y7DHEbSOCcQL8ffwCP" Name="ColorTheme" Kind="InputPin" />
                 <Pin Id="QYhHJeclGz5PAdpUgXsJP8" Name="Output" Kind="OutputPin" />
               </Node>
+              <Patch Id="Ddfgf712BNiNmDGLhT93vT" Name="Dispose" />
             </Patch>
           </Node>
         </Canvas>
@@ -267,7 +259,6 @@
         <Link Id="Ue0v5ZSzXb3MqANFgEL5jE" Ids="OHFCP9ygwugQaqSsM3Nhwo,OYiZNzGp9kfLNQwJoUUeXx" />
         <Link Id="UCE9G2dKjxeMh0A6yqxxAr" Ids="PDNpXLNQteePQJUCNG1zzh,TaRe9JfLISZO6xkSTkYt6s" />
         <Link Id="NrVbJQ3rBzPPyGX7ZcoMN1" Ids="QFCvfx0EqFrO9qxdsPZEU3,BffRSbHPwkwNa2DtSJCjaq" />
-        <Link Id="KbOslhSKD28QGurRuIxsRx" Ids="PYWEjuFOwwIMsEgSHsG7i2,EqzT7vdQ6HENJ3CtRPutBL" />
         <Link Id="CLORRRTCbtuPejQ0VDRUpF" Ids="K7FSDCtm8VjLV2PbIGcUvZ,PUUy8FxN3qyNtxTDL5jGAT" />
         <Link Id="VZ7wGLgrfpONqP0WarNdre" Ids="K7FSDCtm8VjLV2PbIGcUvZ,GxyRAXwlFTcP7f8LPCebpe" />
         <Link Id="Ny0E3rAInGVPl5u6UUGRCH" Ids="CcUJjmdBAQnP3x14Z3lveE,RrDcPTjvoCVPiBdhNUl8Ix" />
