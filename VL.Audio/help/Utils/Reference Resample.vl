@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="Qzj0cwp3rDOLYY62LqpEsD" LanguageVersion="2021.4.6.835" Version="0.128">
-  <NugetDependency Id="TLm27rLgDRMOfshTd8FG5S" Location="VL.CoreLib" Version="2021.4.6" />
+<Document xmlns:p="property" xmlns:r="reflection" Id="Qzj0cwp3rDOLYY62LqpEsD" LanguageVersion="2025.7.0-0005-gfd21b8f14a" Version="0.128">
+  <NugetDependency Id="TLm27rLgDRMOfshTd8FG5S" Location="VL.CoreLib" Version="2025.7.0-0005-gfd21b8f14a" />
   <Patch Id="ET5A39rC3G1LQ2XPOFRcj7">
     <Canvas Id="UeizUXMvVlOQaGOJsgEosP" DefaultCategory="Main" BordersChecked="false" CanvasType="FullCategory" />
     <!--
@@ -16,10 +16,11 @@
       <Patch Id="I8M8PlFBVzqPy77U62eL4B">
         <Canvas Id="D3DqRTITLBcMUpEPJREElP" CanvasType="Group">
           <Node Bounds="234,269,165,19" Id="JN9EWhbdfwLL1RpE2hFt4E">
-            <p:NodeReference LastCategoryFullName="Audio.Source" LastSymbolSource="VL.Audio.vl">
+            <p:NodeReference LastCategoryFullName="Audio.Source" LastDependency="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="AudioPlayer" />
             </p:NodeReference>
+            <Pin Id="Nw2adpyp2e7OiMjsidh7T6" Name="Node Context" Kind="InputPin" IsHidden="true" />
             <Pin Id="HQqWtoQFjfiOAcgMT4ptbt" Name="Filename" Kind="InputPin" />
             <Pin Id="MB7wvuSYQn4LDF9NwOO1Q6" Name="Loop" Kind="InputPin" DefaultValue="True" />
             <Pin Id="MtNwFYOyQalNlPYGFBUEiP" Name="Loop Start Time" Kind="InputPin" />
@@ -36,14 +37,15 @@
             <Pin Id="J8SY5HIlDWyOmRkochkjOQ" Name="Channels" Kind="OutputPin" />
             <Pin Id="R3aquqDaIjTM3xN4URQINs" Name="Sample Rate" Kind="OutputPin" />
             <Pin Id="AoPKXS95HK7MqBVYpJq9ft" Name="Original Format" Kind="OutputPin" />
+            <Pin Id="IAPZQhKcf4bO7KAjQeVosV" Name="Required Transition Band" Kind="InputPin" />
           </Node>
           <Pad Id="AHz4oEomI3IObTl1sQMfgN" Comment="Filename" Bounds="237,232,140,15" ShowValueBox="true" isIOBox="true" Value="..\vvvv.mp3">
-            <p:TypeAnnotation LastCategoryFullName="IO" LastSymbolSource="CoreLibBasics.vl">
+            <p:TypeAnnotation LastCategoryFullName="IO" LastDependency="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Path" />
             </p:TypeAnnotation>
           </Pad>
           <Node Bounds="223,569,111,86" Id="Q7m6c9hrwisMRVS3BhS3W1">
-            <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.dll">
+            <p:NodeReference LastCategoryFullName="Primitive" LastDependency="Builtin">
               <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
               <Choice Kind="ApplicationStatefulRegion" Name="ForEach" />
               <CategoryReference Kind="Category" Name="Primitive" />
@@ -57,11 +59,12 @@
               <Patch Id="OWVbcrZfVVqLrxbXtvdshd" Name="Update" ManuallySortedPins="true" />
               <Patch Id="TCqLjnSjXWrM4OSwV0g3sF" Name="Dispose" ManuallySortedPins="true" />
               <Node Bounds="235,612,85,19" Id="Pn6kaviZHuXO3RAp6pjQeI">
-                <p:NodeReference LastCategoryFullName="Audio.Filter" LastSymbolSource="VL.Audio.vl">
+                <p:NodeReference LastCategoryFullName="Audio.Filter" LastDependency="VL.Audio.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                   <Choice Kind="ProcessAppFlag" Name="Resample" />
                 </p:NodeReference>
                 <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
+                <Pin Id="V70zu3y8IX7LlBKwv7VIqD" Name="Node Context" Kind="InputPin" IsHidden="true" />
                 <Pin Id="SfeTP2a4sqGP6RGxkQmeTR" Name="Input" Kind="InputPin" />
                 <Pin Id="Kz4dRqILOF4QMtvm3nJZn3" Name="Source Rate" Kind="InputPin" />
                 <Pin Id="Cwyc8QK5EihNoBeMB6Eo1g" Name="Destination Rate" Kind="InputPin" />
@@ -73,15 +76,16 @@
             </Patch>
           </Node>
           <Node Bounds="235,700,60,19" Id="IarIOKFuf8lP8TYSAmqMtV">
-            <p:NodeReference LastCategoryFullName="Audio.Sink" LastSymbolSource="VL.Audio.vl">
+            <p:NodeReference LastCategoryFullName="Audio.Sink" LastDependency="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="AudioOut" />
             </p:NodeReference>
+            <Pin Id="T89VkcxkSMmPuTrOGTLrcr" Name="Node Context" Kind="InputPin" IsHidden="true" />
             <Pin Id="D3RkI6Ldpp1MfgTJ2iRzVn" Name="Input" Kind="InputPin" />
             <Pin Id="VQt3yQr9EF4NsxYs2sQS1E" Name="Channel Offset" Kind="InputPin" />
           </Node>
           <Pad Id="UqCn2n6JAcNNfTkHxlaBsr" Comment="Play" Bounds="445,237,35,35" ShowValueBox="true" isIOBox="true" Value="True">
-            <p:TypeAnnotation>
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="Boolean" />
               <FullNameCategoryReference ID="Primitive" />
             </p:TypeAnnotation>
@@ -92,27 +96,36 @@
           <Pad Id="J3ApEGEcxOHOgDDCO6RHlQ" Comment="Position" Bounds="289,322,35,15" ShowValueBox="true" isIOBox="true" />
           <Pad Id="L2B9p1ZFRGDNYMFkfjtDaH" Comment="" Bounds="318,677,35,49" ShowValueBox="true" isIOBox="true" Value="0" />
           <Pad Id="MAZrBuzA7dtLRl1cUOg3X0" Comment="Source Rate" Bounds="257,422,53,15" ShowValueBox="true" isIOBox="true" Value="48000">
-            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Float32" />
             </p:TypeAnnotation>
           </Pad>
           <Pad Id="EEEjywMIlhzORXgFpoDIIq" Comment="Destination Rate" Bounds="277,446,53,15" ShowValueBox="true" isIOBox="true" Value="44100">
-            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Float32" />
             </p:TypeAnnotation>
           </Pad>
           <Pad Id="MYYtAowqY0kLxGEcgKLgXs" Comment="Required Transition Band" Bounds="297,471,35,15" ShowValueBox="true" isIOBox="true" Value="3">
-            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Float32" />
             </p:TypeAnnotation>
           </Pad>
           <Pad Id="UFl4N7XvlkmQWxcc1u5OUR" Comment="Destination Rate is Engine Rate" Bounds="317,496,35,35" ShowValueBox="true" isIOBox="true" Value="False">
-            <p:TypeAnnotation>
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="Boolean" />
               <FullNameCategoryReference ID="Primitive" />
             </p:TypeAnnotation>
             <p:ValueBoxSettings>
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="Ijb6s4sGzQRPwT7GnCkeQt" Bounds="530,471,360,301" ShowValueBox="true" isIOBox="true" Value="Required transition band, in percent of the spectral space of the input signal (or the output signal if downsampling is performed) between filter's -3 dB point and the Nyquist frequency. &#xD;&#xA;&#xD;&#xA;The selection of ReqTransBand depends on the level of desire to preserve the high-frequency content. While values 0.5 to 2 are extremely &quot;greedy&quot; settings, not necessary in most cases, values 2 to 3 can be used in most cases. Values 3 to 4 are relaxed settings, but they still offer a flat frequency response up to 21kHz with 44.1k source or destination sample rate.&#xD;&#xA;&#xD;&#xA;When upsampling 88200 or 96000 audio to a higher sample rates the ReqTransBand can be considerably increased, up to 30. &#xD;&#xA;">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
         </Canvas>
@@ -138,6 +151,5 @@
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="HvzMQdtRhliMLXQhNAF7T1" Location="VL.CoreLib" Version="2021.4.6" />
   <NugetDependency Id="Lyjw8dV97GgOuX1bgTxjOd" Location="VL.Audio" Version="0.0.0.0" />
 </Document>
