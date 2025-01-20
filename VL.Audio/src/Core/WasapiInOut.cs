@@ -22,8 +22,8 @@ namespace VL.Audio
         public bool OutputInitialized { get; private set; }
         public bool InputInitialized { get; private set; }
 
-        public int DriverOutputChannelCount => Output.OutputWaveFormat.Channels;
-        public int DriverInputChannelCount => Input.WaveFormat.Channels;
+        public int DriverOutputChannelCount => Output? .OutputWaveFormat.Channels ?? 0;
+        public int DriverInputChannelCount => Input?.WaveFormat.Channels ?? 0;
         public ISampleProvider InputSampleProvider { get; private set; }
 
         public WasapiInOut(MMDevice outputDevice, MMDevice inputDevice, bool isLoopback)
