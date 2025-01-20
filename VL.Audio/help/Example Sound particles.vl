@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="VyQUk12jCbTNqpXuGVUmdQ" LanguageVersion="2021.4.9.982" Version="0.128">
+<Document xmlns:p="property" xmlns:r="reflection" Id="VyQUk12jCbTNqpXuGVUmdQ" LanguageVersion="2025.7.0-0005-gfd21b8f14a" Version="0.128">
   <Patch Id="IA0AXbLyDTiPWYpKtTYl8G">
     <Canvas Id="PdEVv2nrsEMMoBZMkn86dj" DefaultCategory="Main" CanvasType="FullCategory">
       <!--
@@ -8,16 +8,17 @@
 
 -->
       <Node Name="Particle" Bounds="411,309" Id="GxgvhRU58eCPIdhasZyCfD">
-        <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="builtin">
+        <p:NodeReference LastCategoryFullName="Primitive" LastDependency="builtin">
           <Choice Kind="RecordDefinition" Name="Record" />
         </p:NodeReference>
         <Patch Id="LZDIl6HRacwOkpKJzrvGn9">
           <Canvas Id="BfdnEnLZDC1MYtWg58xnt7" CanvasType="Group">
-            <Node Bounds="369,332" Id="IyUIwiMfed7QBRqz966rR1">
-              <p:NodeReference LastCategoryFullName="Audio.Source" LastSymbolSource="VL.Audio.vl">
+            <Node Bounds="369,332,165,19" Id="IyUIwiMfed7QBRqz966rR1">
+              <p:NodeReference LastCategoryFullName="Audio.Source" LastDependency="VL.Audio.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="AudioPlayer" />
               </p:NodeReference>
+              <Pin Id="KhRzyyDFAe5OE2T5VwPWGa" Name="Node Context" Kind="InputPin" IsHidden="true" />
               <Pin Id="GVc50WnhD2FLJ2pVAf63bv" Name="Filename" Kind="InputPin" />
               <Pin Id="QqwMFoAsKynLwO3VTf9QdY" Name="Loop" Kind="InputPin" />
               <Pin Id="NUhzdraPk2fNK9on9qUp3R" Name="Loop Start Time" Kind="InputPin" />
@@ -34,11 +35,12 @@
               <Pin Id="OXpvRhAb3GzL816EYTxsJG" Name="Channels" Kind="OutputPin" />
               <Pin Id="L0lx4x0PIMTMbF6jl4GZpB" Name="Sample Rate" Kind="OutputPin" />
               <Pin Id="Lga5w1xrgqGPjqnYliizIF" Name="Original Format" Kind="OutputPin" />
+              <Pin Id="TfacdyR0AUDQU7GQI5Ur0s" Name="Required Transition Band" Kind="InputPin" IsHidden="true" />
             </Node>
             <ControlPoint Id="PW787qiD4gcO35JqNkrlep" Bounds="371,275" />
             <Pad Id="OeRtZU1JXK9QAJaErGrK9M" Bounds="371,305" />
             <Node Bounds="435,412,25,19" Id="KxlaVaj2UjDOWkJKzT0JWT">
-              <p:NodeReference LastCategoryFullName="Math" LastSymbolSource="CoreLibBasics.vl">
+              <p:NodeReference LastCategoryFullName="Math" LastDependency="CoreLibBasics.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="&lt;" />
               </p:NodeReference>
@@ -49,7 +51,7 @@
             <ControlPoint Id="DgTCKOV34lTNa6UI66TJoo" Bounds="437,465" />
             <ControlPoint Id="GkjJy93FklYOXHllDaeHXr" Bounds="371,434" />
             <Pad Id="TKktpcOfWTzLKDYZEFNalY" Bounds="189,91,287,162" ShowValueBox="true" isIOBox="true" Value="NOTE: This Record has a Dispose operation as you can see in the Patch Explorer.&#xD;&#xA;&#xD;&#xA;This is needed because the AudioPlayer needs to be disposed. So in order to be able to call Dispose on the Particle from outside, we need a Dispose operation, which in turn will call Dispose on all Process nodes.  ">
-              <p:TypeAnnotation>
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
                 <Choice Kind="TypeFlag" Name="String" />
               </p:TypeAnnotation>
               <p:ValueBoxSettings>
@@ -95,15 +97,16 @@
       <Patch Id="VnfMKdpJurDO3fLWZ14Ilz">
         <Canvas Id="CYOMHJ84U3GLcQj2OsSi7M" CanvasType="Group">
           <Node Bounds="374,787,60,19" Id="T269bxOC2jAN6iWAeSBIjg">
-            <p:NodeReference LastCategoryFullName="Audio.Sink" LastSymbolSource="VL.Audio.vl">
+            <p:NodeReference LastCategoryFullName="Audio.Sink" LastDependency="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="AudioOut" />
             </p:NodeReference>
+            <Pin Id="PQOjpgm8qaaNzypjvm4jsN" Name="Node Context" Kind="InputPin" IsHidden="true" />
             <Pin Id="UYBj6oBwPjGQA7XWMHGZpG" Name="Input" Kind="InputPin" />
             <Pin Id="PvKoIxQWbwRPKY5YHRExOp" Name="Channel Offset" Kind="InputPin" DefaultValue="0" />
           </Node>
           <Node Bounds="374,751,39,19" Id="TD8COwtkTgOMVw8S8vXCRp">
-            <p:NodeReference LastCategoryFullName="Collections.Spread" LastSymbolSource="VL.Collections.vl">
+            <p:NodeReference LastCategoryFullName="Collections.Spread" LastDependency="VL.Collections.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="OperationCallFlag" Name="Cons" />
               <CategoryReference Kind="RecordType" Name="Spread" NeedsToBeDirectParent="true" />
@@ -112,7 +115,7 @@
             <Pin Id="VNteZOfIZTgMOAIpBQWf5G" Name="Result" Kind="OutputPin" />
           </Node>
           <Node Bounds="339,466,195,228" Id="RF45aiH6YKjL60rUATbdmS">
-            <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.dll">
+            <p:NodeReference LastCategoryFullName="Primitive" LastDependency="Builtin">
               <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
               <Choice Kind="ApplicationStatefulRegion" Name="ForEach" />
               <CategoryReference Kind="Category" Name="Primitive" />
@@ -127,7 +130,7 @@
               </Patch>
               <Patch Id="LBDbCfENcsyOPr02mW0RQc" Name="Dispose" ManuallySortedPins="true" />
               <Node Bounds="352,495,49,26" Id="J1Q3I2c5pDqLl8FMaLPRZe">
-                <p:NodeReference LastCategoryFullName="Main.Particle" LastSymbolSource="ParticlePlayer.vl">
+                <p:NodeReference LastCategoryFullName="Main.Particle" LastDependency="ParticlePlayer.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                   <CategoryReference Kind="RecordType" Name="Particle" />
                   <Choice Kind="OperationCallFlag" Name="Update" />
@@ -139,16 +142,17 @@
               </Node>
               <ControlPoint Id="DyXveU4ZYj4PWVf9sKnrE5" Bounds="397,627" />
               <Node Bounds="374,646,25,19" Id="J5a7f4hFHQeOHokXYEkrFv">
-                <p:NodeReference LastCategoryFullName="Audio.Operators" LastSymbolSource="VL.Audio.vl">
+                <p:NodeReference LastCategoryFullName="Audio.Operators" LastDependency="VL.Audio.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                   <FullNameCategoryReference ID="Audio.Operators" />
                   <Choice Kind="ProcessAppFlag" Name="+ (Spectral)" />
                 </p:NodeReference>
+                <Pin Id="BpAgCHybeQKLBztgL3XKhE" Name="Node Context" Kind="InputPin" IsHidden="true" />
                 <Pin Id="IHIMO1mlPH6PNPJGlnwOJt" Name="Input" Kind="InputPin" />
                 <Pin Id="UdJQ07wWwnlLrYZw8Cin45" Name="Output" Kind="OutputPin" />
               </Node>
               <Node Bounds="432,568,58,26" Id="S0F7iEg244ILCzpB7AZJzt">
-                <p:NodeReference LastCategoryFullName="Primitive.IDisposable" LastSymbolSource="CoreLibBasics.vl">
+                <p:NodeReference LastCategoryFullName="Primitive.IDisposable" LastDependency="CoreLibBasics.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                   <CategoryReference Kind="MutableInterfaceType" Name="IDisposable" />
                   <Choice Kind="OperationCallFlag" Name="Dispose" />
@@ -158,7 +162,7 @@
                 <Pin Id="E4iTpM2wgK7M7UvwGfN9iK" Name="Apply" Kind="InputPin" />
               </Node>
               <Node Bounds="485,539,37,19" Id="BXS8R9tC5c7OiSbbhEm496">
-                <p:NodeReference LastCategoryFullName="Primitive.Boolean" LastSymbolSource="CoreLibBasics.vl">
+                <p:NodeReference LastCategoryFullName="Primitive.Boolean" LastDependency="CoreLibBasics.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                   <Choice Kind="OperationCallFlag" Name="NOT" />
                 </p:NodeReference>
@@ -171,7 +175,7 @@
           <Pad Id="Evl1sdG4JK9Nmnk3kOgfyd" SlotId="Q6Vkg5GXcR2LeJuptzihMj" Bounds="312,739" />
           <Pad Id="UZVpTnyjZWrMazbZP4i2Y3" SlotId="Q6Vkg5GXcR2LeJuptzihMj" Bounds="316,156" />
           <Pad Id="AfQi0iD1zZpM94ZjaVbWJh" Comment="Apply" Bounds="341,121,35,35" ShowValueBox="true" isIOBox="true" Value="False">
-            <p:TypeAnnotation>
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
               <FullNameCategoryReference ID="Primitive" />
             </p:TypeAnnotation>
@@ -179,8 +183,8 @@
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
             </p:ValueBoxSettings>
           </Pad>
-          <Node Bounds="340,215,204,222" Id="FhUxBlD0ft0OOKwfiQsA27">
-            <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.dll">
+          <Node Bounds="340,215,204,223" Id="FhUxBlD0ft0OOKwfiQsA27">
+            <p:NodeReference LastCategoryFullName="Primitive" LastDependency="Builtin">
               <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
               <Choice Kind="ApplicationStatefulRegion" Name="If" />
               <FullNameCategoryReference ID="Primitive" />
@@ -190,7 +194,7 @@
               <Patch Id="BshByQqRdsXQcYYgXPqWTD" Name="Create" ManuallySortedPins="true" />
               <Patch Id="DLyJz2UEQagLJDrIUl6C4g" Name="Then" ManuallySortedPins="true" />
               <Node Bounds="352,387,45,26" Id="JzwfSQwJw46MuBtK5NrTCF">
-                <p:NodeReference LastCategoryFullName="Collections.Spread" LastSymbolSource="VL.Collections.vl">
+                <p:NodeReference LastCategoryFullName="Collections.Spread" LastDependency="VL.Collections.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                   <Choice Kind="OperationCallFlag" Name="Add" />
                   <CategoryReference Kind="RecordType" Name="Spread" NeedsToBeDirectParent="true" />
@@ -200,16 +204,17 @@
                 <Pin Id="EI4NaS40l6PMjOkByHVzdH" Name="Output" Kind="StateOutputPin" />
               </Node>
               <Node Bounds="392,346,46,26" Id="SY5fvq75bk0PwoJHAfc5BJ">
-                <p:NodeReference LastCategoryFullName="Main.Particle" LastSymbolSource="ParticlePlayer.vl">
+                <p:NodeReference LastCategoryFullName="Main.Particle" LastDependency="ParticlePlayer.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                   <CategoryReference Kind="RecordType" Name="Particle" />
                   <Choice Kind="OperationCallFlag" Name="Create" />
                 </p:NodeReference>
+                <Pin Id="MOTB0S9avZ3NhglR61tPTk" Name="Node Context" Kind="InputPin" IsHidden="true" />
                 <Pin Id="OcvpPl3fVkpO4aKa6fA0qj" Name="Filename" Kind="InputPin" />
                 <Pin Id="JaJy5pirB7SOxwikP9GSM0" Name="Output" Kind="StateOutputPin" />
               </Node>
               <Node Bounds="392,309,52,19" Id="D20M1K1AwuML3FoFHc35yA">
-                <p:NodeReference LastCategoryFullName="Collections.Spread" LastSymbolSource="VL.Collections.vl">
+                <p:NodeReference LastCategoryFullName="Collections.Spread" LastDependency="VL.Collections.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                   <Choice Kind="OperationCallFlag" Name="GetSlice" />
                   <CategoryReference Kind="RecordType" Name="Spread" NeedsToBeDirectParent="true" />
@@ -220,16 +225,16 @@
                 <Pin Id="DvOMT3DVvAqOTq42Ec6Lgf" Name="Result" Kind="OutputPin" />
               </Node>
               <Node Bounds="439,275,54,19" Id="DoIbdxCJZSMMtnkXXtDBfX">
-                <p:NodeReference LastCategoryFullName="Math" LastSymbolSource="CoreLibBasics.vl">
+                <p:NodeReference LastCategoryFullName="Math" LastDependency="CoreLibBasics.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <Choice Kind="OperationCallFlag" Name="Random" />
+                  <Choice Kind="OperationNode" Name="Random (FromTo)" />
                 </p:NodeReference>
                 <Pin Id="U9SR1bL2mNrNNrW8QMUoje" Name="From" Kind="InputPin" />
                 <Pin Id="NT3Ahsf5UQwMAviOetxMYa" Name="To" Kind="InputPin" />
                 <Pin Id="C00ygTm1VwCM3haaAxJhjq" Name="Output" Kind="OutputPin" />
               </Node>
               <Node Bounds="488,238,44,26" Id="LgelOMR2TU8MtHhVXQuREw">
-                <p:NodeReference LastCategoryFullName="Collections.Spread" LastSymbolSource="VL.Collections.vl">
+                <p:NodeReference LastCategoryFullName="Collections.Spread" LastDependency="VL.Collections.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                   <Choice Kind="OperationCallFlag" Name="Count" />
                   <CategoryReference Kind="RecordType" Name="Spread" NeedsToBeDirectParent="true" />
@@ -238,14 +243,15 @@
                 <Pin Id="D2f57iULuwCPSE5cC9fCJO" Name="Count" Kind="OutputPin" />
               </Node>
             </Patch>
-            <ControlPoint Id="KoY7avN53mXPReMCHKzyNv" Bounds="354,264" Alignment="Top" />
+            <ControlPoint Id="KoY7avN53mXPReMCHKzyNv" Bounds="354,221" Alignment="Top" />
             <ControlPoint Id="EtCLeSz9PlQPinAZYtMgzp" Bounds="354,432" Alignment="Bottom" />
           </Node>
           <Node Bounds="488,172,85,19" Id="TNRhWvjcH0gLj7HYncpxaB">
-            <p:NodeReference LastCategoryFullName="IO.Path" LastSymbolSource="CoreLibBasics.vl">
+            <p:NodeReference LastCategoryFullName="IO.Path" LastDependency="CoreLibBasics.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="Dir" />
             </p:NodeReference>
+            <Pin Id="B8GAA6uwUPzL9xEiHdIbZC" Name="Node Context" Kind="InputPin" IsHidden="true" />
             <Pin Id="TKAFE1qgfiOP6mhlUjY9nO" Name="Directory" Kind="InputPin" />
             <Pin Id="TVVaPbdnlHQNK2wL2HLsvK" Name="Search Pattern" Kind="InputPin" />
             <Pin Id="K55RMYO1aVRL4bDLXNwU1v" Name="Include Subdirectories" Kind="InputPin" />
@@ -254,15 +260,16 @@
             <Pin Id="JFHT12HgkujLeR9BsXTWEy" Name="Files" Kind="OutputPin" />
           </Node>
           <Node Bounds="568,128,54,19" Id="Bg6at8504sXODnq3f58Alm">
-            <p:NodeReference LastCategoryFullName="Control" LastSymbolSource="CoreLibBasics.vl">
+            <p:NodeReference LastCategoryFullName="Control" LastDependency="CoreLibBasics.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="OnOpen" />
             </p:NodeReference>
+            <Pin Id="OMLScqkRBwkNg8RgxPzo2u" Name="Node Context" Kind="InputPin" IsHidden="true" />
             <Pin Id="LeZXhOpLLL6NZ1BwLQ5cUS" Name="Simulate" Kind="InputPin" DefaultValue="False" />
             <Pin Id="M7rkPm0nzepO6TjgrzbRRm" Name="Output" Kind="OutputPin" />
           </Node>
           <Pad Id="UKLCTtWTkstLhUgkndgJKt" Comment="" Bounds="341,74,35,35" ShowValueBox="true" isIOBox="true" Value="False">
-            <p:TypeAnnotation>
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
               <FullNameCategoryReference ID="Primitive" />
             </p:TypeAnnotation>
@@ -271,7 +278,7 @@
             </p:ValueBoxSettings>
           </Pad>
           <Pad Id="MT7bXneYXzKQNI4EIfvcnE" Bounds="549,578,231,98" ShowValueBox="true" isIOBox="true" Value="&lt; Since the AudioPlayer inside the Particle needs to be disposed, we need to call Dispose on the particle here before removing it from the spread.">
-            <p:TypeAnnotation>
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
             <p:ValueBoxSettings>
@@ -279,22 +286,26 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="VMhHFnCrZJTP74kQniObvO" Comment="Directory" Bounds="489,86,69,12" ShowValueBox="true" isIOBox="true" Value="sounds\">
-            <p:TypeAnnotation LastCategoryFullName="IO" LastSymbolSource="CoreLibBasics.vl">
+          <Pad Id="VMhHFnCrZJTP74kQniObvO" Comment="Directory" Bounds="489,86,69,15" ShowValueBox="true" isIOBox="true" Value="sounds\">
+            <p:TypeAnnotation LastCategoryFullName="IO" LastDependency="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Path" />
             </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:pathtype p:Assembly="VL.Core" p:Type="VL.Core.PathType">Directory</p:pathtype>
+            </p:ValueBoxSettings>
           </Pad>
           <Node Bounds="374,720,53,19" Id="ISD8DmBfN1kMcT5XPsqGbm">
-            <p:NodeReference LastCategoryFullName="Audio.Utils" LastSymbolSource="VL.Audio.vl">
+            <p:NodeReference LastCategoryFullName="Audio.Utils" LastDependency="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="ToMono" />
             </p:NodeReference>
+            <Pin Id="NkqxuKMtK14QdwnAg3gRPM" Name="Node Context" Kind="InputPin" IsHidden="true" />
             <Pin Id="BTiJ0YBLmrNLWMqsb6SU7i" Name="Input" Kind="InputPin" />
             <Pin Id="UOjWxioCvElLSBG2oBdVwP" Name="Gain" Kind="InputPin" />
             <Pin Id="RLuVm6FA1zLNh2tH6334Pl" Name="Output" Kind="OutputPin" />
           </Node>
           <Pad Id="O1O8YIVwe1uLLgW3bughEr" Bounds="636,83,146,41" ShowValueBox="true" isIOBox="true" Value="&lt; Assumes a directory of sound files">
-            <p:TypeAnnotation>
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
             <p:ValueBoxSettings>
@@ -341,7 +352,6 @@
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="HUOkZnlYoTeLw3arAIWJJQ" Location="VL.CoreLib" Version="2021.4.9" />
-  <NugetDependency Id="NmnQoX7opATLk5l9oS9heN" Location="VL.IO.M2MQTT" Version="0.0.0.0" />
+  <NugetDependency Id="HUOkZnlYoTeLw3arAIWJJQ" Location="VL.CoreLib" Version="2025.7.0-0005-gfd21b8f14a" />
   <NugetDependency Id="LlShOOkMVkgNATe4UWJOPr" Location="VL.Audio" Version="0.0.0.0" />
 </Document>
