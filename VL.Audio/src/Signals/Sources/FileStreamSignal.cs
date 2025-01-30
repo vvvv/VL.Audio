@@ -56,13 +56,14 @@ namespace VL.Audio
             var channels = FAudioFile.WaveFormat.Channels;
             var blockAlign = FAudioFile.OriginalFileFormat.BlockAlign;
             int samplesToRead;
-            if (Speed == 1.0) 
+            var speed = Speed * FAudioFile.WaveFormat.SampleRate / AudioService.Engine.Settings.SampleRate;
+            if (speed == 1.0) 
             {
                 samplesToRead = sampleCount * channels;
             }
             else 
             {
-                var desiredSamples = sampleCount * channels * Speed;
+                var desiredSamples = sampleCount * channels * speed;
                 //ideal value
                 samplesToRead = (int)Math.Truncate(desiredSamples);
                 //can only read that much
@@ -102,18 +103,18 @@ namespace VL.Audio
                     //first read samples remaining to loopEnd
                     var samplesToReadAtEndOfLoop = (int) Math.Min(samplesToRead, loopEndSample - currentSample);
                     samplesRead = FAudioFile.Read(FFileBuffer, offset * channels, samplesToReadAtEndOfLoop);
-                    WriteFileBufferToOutputBuffer(buffer, 0, channels, samplesToReadAtEndOfLoop, samplesRead / channels);
+                    WriteFileBufferToOutputBuffer(buffer, 0, channels, samplesToReadAtEndOfLoop, sampleCount, speed);
 
                     //then make another read at the beginning of the loop
                     var samplesToReadAtStartOfLoop = samplesToRead - samplesToReadAtEndOfLoop;
                     FAudioFile.CurrentTime = LoopStartTime;
                     samplesRead = FAudioFile.Read(FFileBuffer, offset * channels, samplesToReadAtStartOfLoop);
-                    WriteFileBufferToOutputBuffer(buffer, samplesToReadAtEndOfLoop, channels, samplesToReadAtEndOfLoop, samplesRead / channels);
+                    WriteFileBufferToOutputBuffer(buffer, samplesToReadAtEndOfLoop, channels, samplesToReadAtEndOfLoop, sampleCount, speed);
                 }
                 else
                 {
                     samplesRead = FAudioFile.Read(FFileBuffer, offset * channels, samplesToRead);
-                    WriteFileBufferToOutputBuffer(buffer, 0, channels, samplesToRead, sampleCount);
+                    WriteFileBufferToOutputBuffer(buffer, 0, channels, samplesToRead, sampleCount, speed);
                 }
             }
             else//silence
@@ -125,9 +126,9 @@ namespace VL.Audio
             }
         }
 
-        private void WriteFileBufferToOutputBuffer(float[][] buffer, int outputOffset, int channels, int samplesToRead, int sampleCount)
+        private void WriteFileBufferToOutputBuffer(float[][] buffer, int outputOffset, int channels, int samplesToRead, int sampleCount, double speed)
         {
-            if (Speed == 1.0)
+            if (speed == 1.0)
             {
                 //copy to output buffers
                 for (int i = 0; i < channels; i++)
