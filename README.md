@@ -1,7 +1,7 @@
 # VL.Audio
 Record, play, filter, synthesize and analyse sound.
 
-For use with vvvv, the visual live-programming environment for .NET: http://visualprogramming.net
+For use with vvvv, the visual live-programming environment for .NET: https://vvvv.org
 
 ## Getting started
 - Ships with vvvv
@@ -27,7 +27,7 @@ In case you want to use an ASIO driver with your soundcard that doesn't come wit
 * [Virtual Audio Cable](https://vb-audio.com/Cable/index.htm)
 
 ## Contributing
-- Report issues on [the vvvv forum](https://discourse.vvvv.org/c/vvvv-gamma/28)
+- Report issues on [the vvvv forum](https://forum.vvvv.org/c/vvvv-gamma/28)
 - For custom development requests, please [get in touch](mailto:devvvvs@vvvv.org)
 - When making a pull-request, please make sure to read the general [guidelines on contributing to vvvv libraries](https://thegraybook.vvvv.org/reference/extending/contributing.html)
 
