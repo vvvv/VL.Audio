@@ -21,7 +21,7 @@ namespace VL.Audio
     public class CircularBuffer
     {
         int FSize;
-        float[] Buffer;
+        public float[] Buffer;
         
         public CircularBuffer(int size)
         {
