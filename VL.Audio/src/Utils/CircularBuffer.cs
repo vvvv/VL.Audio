@@ -56,16 +56,19 @@ namespace VL.Audio
         /// <param name="count"></param>
         public void Write(float[] data, int offset, int count)
         {
-            for (int i = 0; i < count; i++) 
+            lock (Buffer)
             {
-                FWritePos++;
-                if(FWritePos >= FSize)
+                for (int i = 0; i < count; i++)
                 {
-                    FWritePos = 0;
-                    BufferFilled?.Invoke(Buffer);
+                    FWritePos++;
+                    if (FWritePos >= FSize)
+                    {
+                        FWritePos = 0;
+                        BufferFilled?.Invoke(Buffer);
+                    }
+
+                    Buffer[FWritePos] = data[i + offset];
                 }
-                
-                Buffer[FWritePos] = data[i+offset];
             }
         }
         
@@ -78,13 +81,16 @@ namespace VL.Audio
         public void Read(float[] data, int offset, int count)
         {
             var readPos = FWritePos;
-            for (int i = 0; i < count; i++) 
+            lock (Buffer)
             {
-                if(readPos >= FSize)
-                    readPos = 0;
-                
-                data[i+offset] = Buffer[readPos];
-                readPos++;
+                for (int i = 0; i < count; i++)
+                {
+                    if (readPos >= FSize)
+                        readPos = 0;
+
+                    data[i + offset] = Buffer[readPos];
+                    readPos++;
+                }
             }
         }
         
@@ -97,32 +103,16 @@ namespace VL.Audio
         public void ReadDouble(double[] data, int offset, int count)
         {
             var readPos = FWritePos;
-            for (int i = 0; i < count; i++) 
+            lock (Buffer)
             {
-                if(readPos >= FSize)
-                    readPos = 0;
-                
-                data[i+offset] = Buffer[readPos];
-                readPos++;
-            }
-        }
-        
-        /// <summary>
-        /// Starts reading right after the last write position, which is the oldest value
-        /// </summary>
-        /// <param name="data"></param>
-        /// <param name="offset"></param>
-        /// <param name="count"></param>
-        public void ReadDoubleWindowed(double[] data, double[] window, int offset, int count)
-        {
-            var readPos = FWritePos;
-            for (int i = 0; i < count; i++) 
-            {
-                if(readPos >= FSize)
-                    readPos = 0;
-                
-                data[i+offset] = Buffer[readPos] * window[i+offset];
-                readPos++;
+                for (int i = 0; i < count; i++)
+                {
+                    if (readPos >= FSize)
+                        readPos = 0;
+
+                    data[i + offset] = Buffer[readPos];
+                    readPos++;
+                }
             }
         }
     }

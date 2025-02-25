@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
 using System.Runtime.InteropServices;
+using System.Threading;
 using FftSharp;
 using NAudio.Utils;
 using VL.Core.CompilerServices;
@@ -46,6 +48,8 @@ namespace VL.Audio
             entries.Add("2048", 2048);
             entries.Add("4096", 4096);
             entries.Add("8192", 8192);
+            entries.Add("16384", 16384);
+            entries.Add("32768", 32768);
             return entries;
         }
 
@@ -64,6 +68,10 @@ namespace VL.Audio
 
         private bool bufferReady = false;
 
+        private AutoResetEvent processingTrigger = new AutoResetEvent(false);
+        private Thread processingThread;
+        private bool stopFlag = false;
+
         private void OnBufferReady(float[] buffer)
         {
             bufferReady = true;
@@ -73,6 +81,28 @@ namespace VL.Audio
         {
             InputSignal.Value = input;
             FRingBuffer.BufferFilled = OnBufferReady;
+            processingThread = new Thread(() =>
+            {
+                while (true)
+                {
+                    if (processingTrigger.WaitOne())
+                    {
+                        if (stopFlag)
+                        {
+                            return;
+                        }
+                        CalcFFT();
+                    }
+                }
+            });
+            processingThread.Start();
+        }
+
+        public override void Dispose()
+        {
+            stopFlag = true;
+            processingTrigger.Set();
+            base.Dispose();
         }
 
         public int Size
@@ -122,6 +152,7 @@ namespace VL.Audio
 
         double[] FFFTBuffer = new double[1];
         Complex[] FFFTComplexBuffer = new Complex[1];
+        float[] FFTOutThreadInternal = new float[2];
         float[] FFTOutInternal = new float[2];
         double[] FWindow = new double[1];
         private float FdBRange;
@@ -140,6 +171,7 @@ namespace VL.Audio
                     FFFTBuffer = new double[fftSize];
                     FFFTComplexBuffer = new Complex[fftSize];
                     FFTOutInternal = new float[fftSize/2];
+                    FFTOutThreadInternal = new float[fftSize / 2];
                     FWindow = AudioUtils.CreateWindowDouble(fftSize, WindowFunc);
                 }
 
@@ -148,14 +180,18 @@ namespace VL.Audio
             }
         }
 
-        public float[] CalcFFT()
+        private void CalcFFT()
         {
             int fftSize = FRingBuffer.Size;
             if(!bufferReady)
             {
-                return new float[fftSize];
+                return;
             }
-            FRingBuffer.ReadDoubleWindowed(FFFTBuffer, FWindow, 0, fftSize);
+            FRingBuffer.ReadDouble(FFFTBuffer, 0, fftSize);
+            for(int i = 0; i < FFFTBuffer.Length; i++)
+            {
+                FFFTBuffer[i] *= FWindow[i];
+            }
 
             var complex = new Span<Complex>(FFFTComplexBuffer);
             Transform.MakeComplex(complex, new Span<double>(FFFTBuffer));
@@ -164,15 +200,26 @@ namespace VL.Audio
             Transform.FFT(complex);
 
             var halfSize = fftSize/2;
-            FFTOutInternal[0] = 0;
+            FFTOutThreadInternal[0] = 0;
             for (int n = 1; n < halfSize; n++)
             {
-                var lastValue = FFTOutInternal[n];
+                var lastValue = FFTOutThreadInternal[n];
                 var newValue = (float)Decibels.LinearToDecibels(Math.Max(complex[n].MagnitudeSquared, FMindB)) / FdBRange + 1;
-                FFTOutInternal[n] = newValue * (1 - Smoothing) + lastValue * Smoothing;
+                FFTOutThreadInternal[n] = newValue * (1 - Smoothing) + lastValue * Smoothing;
             }
+            lock (FFTOutInternal)
+            {
+                Array.Copy(FFTOutThreadInternal, FFTOutInternal, halfSize);
+            }
+        }
 
-            return FFTOutInternal;
+        public float[] GetFFT()
+        {
+            processingTrigger.Set();
+            lock (FFTOutInternal)
+            {
+                return FFTOutInternal;
+            }
         }
     }
 }
