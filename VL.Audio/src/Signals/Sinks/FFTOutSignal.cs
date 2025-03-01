@@ -77,10 +77,19 @@ namespace VL.Audio
             bufferReady = true;
         }
 
+        private void OnNewData(float[] data)
+        {
+            if (ContinuouslyCalculate)
+            {
+                processingTrigger.Set();
+            }
+        }
+
         public FFTOutSignal(AudioSignal input)
         {
             InputSignal.Value = input;
             FRingBuffer.BufferFilled = OnBufferReady;
+            FRingBuffer.WriteCompleted = OnNewData;
             processingThread = new Thread(() =>
             {
                 while (true)
@@ -131,6 +140,7 @@ namespace VL.Audio
         float FMindB = (float)Decibels.DecibelsToLinear(-120);
 
         public float Smoothing { get; set; }
+        public bool ContinuouslyCalculate = false;
 
         WindowFunction windowFunc;
 

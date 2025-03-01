@@ -46,7 +46,8 @@ namespace VL.Audio
         }
         
         public Action<float[]> BufferFilled;
-        
+        public Action<float[]> WriteCompleted;
+
         int FWritePos = -1;
         /// <summary>
         /// Writes new data after the latest ones
@@ -64,11 +65,12 @@ namespace VL.Audio
                     if (FWritePos >= FSize)
                     {
                         FWritePos = 0;
-                        BufferFilled?.Invoke(Buffer);
+                        BufferFilled?.Invoke(Buffer); // Potentially problematic in combination with the lock if the callback is not quick
                     }
 
                     Buffer[FWritePos] = data[i + offset];
                 }
+                WriteCompleted?.Invoke(Buffer);
             }
         }
         
