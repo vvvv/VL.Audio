@@ -32,6 +32,8 @@ namespace VL.Audio
             set;
         }
 
+        public float Volume { get; set; } = 1f;
+
         public void OpenFile(string filename)
         {
             if (FFileQueue.TryTake(out var oldfile))
@@ -72,6 +74,8 @@ namespace VL.Audio
             FInTheWorks.Reset();
             try
             {
+                FAudioFile.Volume = Volume;
+
                 var channels = FAudioFile.WaveFormat.Channels;
                 var blockAlign = FAudioFile.OriginalFileFormat.BlockAlign;
                 int samplesToRead;
