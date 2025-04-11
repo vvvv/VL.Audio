@@ -67,7 +67,7 @@ namespace VL.Audio
             //make sure new buffers get assigned by the manage buffers method
             if(FOutputCount > 0)
             {
-                FReadBuffers[0] = new float[0];
+                FReadBuffers = new float[FOutputCount][];
             }
         }
         
@@ -80,7 +80,7 @@ namespace VL.Audio
         protected float[][] FReadBuffers;
         protected void ManageBuffers(int count)
         {
-            if(FReadBuffers[0].Length < count)
+            if(FReadBuffers[0] is null || FReadBuffers[0].Length < count)
             {
                 FReadBuffers = new float[FOutputCount][];
                 for (int i = 0; i < FOutputCount; i++)
