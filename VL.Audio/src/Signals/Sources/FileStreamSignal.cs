@@ -11,6 +11,11 @@ namespace VL.Audio
 {
     public class FileStreamSignal : MultiChannelSignal
     {
+        private readonly BlockingCollection<AudioFileReaderVVVV> FFileQueue = new(boundedCapacity: 1);
+        private readonly BlockingCollection<float> FSeekQueue = new(boundedCapacity: 1);
+        private readonly ManualResetEvent FInTheWorks = new ManualResetEvent(true);
+        private AudioFileReaderVVVV FAudioFile;
+
         public bool FLoop;
 
         public bool FPlay = false;
@@ -21,18 +26,30 @@ namespace VL.Audio
 
         public TimeSpan FSeekTime;
 
-        public AudioFileReaderVVVV FAudioFile;
-
-        private BlockingCollection<AudioFileReaderVVVV> FFileQueue = new(boundedCapacity: 1);
-        private ManualResetEvent FInTheWorks = new ManualResetEvent(true);
-
-        public double Speed 
-        {
-            get;
-            set;
-        }
+        public double Speed { get; set; }
 
         public float Volume { get; set; } = 1f;
+
+        public float Position => FAudioFile != null ? (float)FAudioFile.CurrentTime.TotalSeconds : 0f;
+
+        public float Duration { get; private set; }
+
+        public bool CanSeek { get; private set; }
+
+        public int Channels { get; private set; }
+
+        public int OriginalSampleRate { get; private set; }
+
+        public string OriginalFormat { get; private set; }
+
+        public void Seek(float seekTime)
+        {
+            if (!FSeekQueue.TryAddSafe(seekTime))
+            {
+                FSeekQueue.TryTake(out _);
+                FSeekQueue.TryAddSafe(seekTime);
+            }
+        }
 
         public void OpenFile(string filename)
         {
@@ -45,11 +62,23 @@ namespace VL.Audio
                 //NOTE: switching between files of different output count may cause troubles here:
                 SetOutputCount(audiofile.WaveFormat.Channels);
                 FFileQueue.TryAddSafe(audiofile);
+
+                Duration = (float)audiofile.TotalTime.TotalSeconds;
+                CanSeek = audiofile.CanSeek;
+                Channels = audiofile.WaveFormat.Channels;
+                OriginalSampleRate = audiofile.WaveFormat.SampleRate;
+                OriginalFormat = audiofile.OriginalFileFormat.ToString();
             }
             else 
             {
                 SetOutputCount(0);
                 FFileQueue.TryAddSafe(null);
+
+                Duration = default;
+                CanSeek = default;
+                Channels = default;
+                OriginalSampleRate = default;
+                OriginalFormat = string.Empty;
             }
         }
 
@@ -74,6 +103,9 @@ namespace VL.Audio
             FInTheWorks.Reset();
             try
             {
+                if (FSeekQueue.TryTake(out var seekTime))
+                    FAudioFile.CurrentTime = TimeSpan.FromSeconds(seekTime);
+
                 FAudioFile.Volume = Volume;
 
                 var channels = FAudioFile.WaveFormat.Channels;
