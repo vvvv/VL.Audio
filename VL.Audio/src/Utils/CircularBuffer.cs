@@ -21,7 +21,7 @@ namespace VL.Audio
     public class CircularBuffer
     {
         int FSize;
-        public float[] Buffer;
+        float[] Buffer;
         
         public CircularBuffer(int size)
         {
@@ -46,8 +46,7 @@ namespace VL.Audio
         }
         
         public Action<float[]> BufferFilled;
-        public Action<float[]> WriteCompleted;
-
+        
         int FWritePos = -1;
         /// <summary>
         /// Writes new data after the latest ones
@@ -57,20 +56,16 @@ namespace VL.Audio
         /// <param name="count"></param>
         public void Write(float[] data, int offset, int count)
         {
-            lock (Buffer)
+            for (int i = 0; i < count; i++) 
             {
-                for (int i = 0; i < count; i++)
+                FWritePos++;
+                if(FWritePos >= FSize)
                 {
-                    FWritePos++;
-                    if (FWritePos >= FSize)
-                    {
-                        FWritePos = 0;
-                        BufferFilled?.Invoke(Buffer); // Potentially problematic in combination with the lock if the callback is not quick
-                    }
-
-                    Buffer[FWritePos] = data[i + offset];
+                    FWritePos = 0;
+                    BufferFilled?.Invoke(Buffer);
                 }
-                WriteCompleted?.Invoke(Buffer);
+                
+                Buffer[FWritePos] = data[i+offset];
             }
         }
         
@@ -83,16 +78,13 @@ namespace VL.Audio
         public void Read(float[] data, int offset, int count)
         {
             var readPos = FWritePos;
-            lock (Buffer)
+            for (int i = 0; i < count; i++) 
             {
-                for (int i = 0; i < count; i++)
-                {
-                    if (readPos >= FSize)
-                        readPos = 0;
-
-                    data[i + offset] = Buffer[readPos];
-                    readPos++;
-                }
+                if(readPos >= FSize)
+                    readPos = 0;
+                
+                data[i+offset] = Buffer[readPos];
+                readPos++;
             }
         }
         
@@ -105,16 +97,32 @@ namespace VL.Audio
         public void ReadDouble(double[] data, int offset, int count)
         {
             var readPos = FWritePos;
-            lock (Buffer)
+            for (int i = 0; i < count; i++) 
             {
-                for (int i = 0; i < count; i++)
-                {
-                    if (readPos >= FSize)
-                        readPos = 0;
-
-                    data[i + offset] = Buffer[readPos];
-                    readPos++;
-                }
+                if(readPos >= FSize)
+                    readPos = 0;
+                
+                data[i+offset] = Buffer[readPos];
+                readPos++;
+            }
+        }
+        
+        /// <summary>
+        /// Starts reading right after the last write position, which is the oldest value
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="offset"></param>
+        /// <param name="count"></param>
+        public void ReadDoubleWindowed(double[] data, double[] window, int offset, int count)
+        {
+            var readPos = FWritePos;
+            for (int i = 0; i < count; i++) 
+            {
+                if(readPos >= FSize)
+                    readPos = 0;
+                
+                data[i+offset] = Buffer[readPos] * window[i+offset];
+                readPos++;
             }
         }
     }
