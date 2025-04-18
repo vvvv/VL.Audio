@@ -1,6 +1,7 @@
 ﻿#region usings
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using System.Runtime.InteropServices;
 
@@ -23,6 +24,8 @@ namespace VL.Audio
         }
         
         float[] FBuffer;
+
+        internal float[] Buffer => FBuffer;
         
         protected override void FillBuffer(float[] buffer, int offset, int count)
         {
@@ -45,55 +48,62 @@ namespace VL.Audio
     /// </summary>
     public class MultiChannelSignal : AudioSignal
     {
-        protected int FOutputCount;
+        private ImmutableArray<SingleSignal> FOutputs = ImmutableArray<SingleSignal>.Empty;
+
         public MultiChannelSignal()
         {
-            Outputs = new List<AudioSignal>();
             SetOutputCount(2);
         }
         
         public void SetOutputCount(int newCount)
         {
-            //recreate output signals?
-            if(FOutputCount != newCount)
+            if (newCount != FOutputs.Length)
             {
-                FOutputCount = newCount;
-                
-                Outputs.ResizeAndDispose(newCount, () => new SingleSignal(Read));
+                foreach (var s in FOutputs)
+                    s.Dispose();
 
-                FReadBuffers = new float[FOutputCount][];
-            }
-            
-            //make sure new buffers get assigned by the manage buffers method
-            if(FOutputCount > 0)
-            {
-                FReadBuffers[0] = new float[0];
+                var outputs = ImmutableArray.CreateBuilder<SingleSignal>(newCount);
+                for (int i = 0; i < newCount; i++)
+                    outputs.Add(new SingleSignal(Read));
+                FOutputs = outputs.MoveToImmutable();
+                FNeedsRead = true;
             }
         }
-        
-        public List<AudioSignal> Outputs
-        {
-            get;
-            protected set;
-        }
-        
+
+        public IReadOnlyList<AudioSignal> Outputs => FOutputs;
+        public int OutputCount => FOutputs.Length;
+
         protected float[][] FReadBuffers;
         protected void ManageBuffers(int count)
         {
-            if(FReadBuffers[0].Length < count)
+            var outputs = FOutputs;
+            if (!BuffersAreLargeEnough(outputs, count))
             {
-                FReadBuffers = new float[FOutputCount][];
-                for (int i = 0; i < FOutputCount; i++)
+                FReadBuffers = new float[outputs.Length][];
+                for (int i = 0; i < FReadBuffers.Length; i++)
                 {
                     FReadBuffers[i] = GC.AllocateArray<float>(count, pinned: true);
-                    (Outputs[i] as SingleSignal).SetBuffer(FReadBuffers[i]);
+                    outputs[i].SetBuffer(FReadBuffers[i]);
                 }
+            }
+
+            static bool BuffersAreLargeEnough(ImmutableArray<SingleSignal> outputs, int count)
+            {
+                foreach (var o in outputs)
+                    if (!BufferIsLargeEnough(o.Buffer, count))
+                        return false;
+                return true;
+            }
+
+            static bool BufferIsLargeEnough(float[] buffer, int count)
+            {
+                return buffer != null && buffer.Length >= count;
             }
         }
         
         protected void Read(int offset, int count)
         {
-            if(FNeedsRead && FOutputCount > 0)
+            if (FNeedsRead && FOutputs.Length > 0)
             {
                 ManageBuffers(count);
                 FillBuffers(FReadBuffers, offset, count);
@@ -120,36 +130,6 @@ namespace VL.Audio
                 signal.Dispose();
 
             base.Dispose();
-        }
-    }
-    
-    public static class ListExtra
-    {
-        public static void ResizeAndDispose<T>(this List<T> list, int newSize, Func<T> create)
-        {
-            int count = list.Count;
-            if(newSize < count)
-            {
-                var itemCount = count - newSize;
-                var toRemove = list.GetRange(newSize, itemCount);
-                toRemove.Reverse();
-                foreach(var item in toRemove)
-                {
-                    list.Remove(item);
-                    var disposable = item as IDisposable;
-                    if(item != null)
-                        disposable.Dispose();
-                }
-            }
-            else if(newSize > count)
-            {
-                var itemCount = newSize - count;
-                
-                for(int i=0; i < itemCount; i++)
-                {
-                    list.Add(create());
-                }
-            }
         }
     }
 }

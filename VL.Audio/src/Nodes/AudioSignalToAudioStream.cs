@@ -25,11 +25,7 @@ namespace VL.Audio.Nodes
 
         public IReadOnlyList<AudioSignal> Update(IReadOnlyList<AudioSignal> input, string metadata, out AudioStream audioStream)
         {
-            if (input.Count != FOutputCount)
-            {
-                SetOutputCount(input.Count);
-                FNeedsRead = true;
-            }
+            SetOutputCount(input.Count);
 
             Input = input;
             _metadata = metadata;

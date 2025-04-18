@@ -42,7 +42,7 @@ namespace VL.Audio.Nodes
             }
             else
             {
-                if (audioFrame.ChannelCount != FOutputCount)
+                if (audioFrame.ChannelCount != OutputCount)
                 {
                     SetOutputCount(audioFrame.ChannelCount);
                     ManageBuffers(sampleCount);

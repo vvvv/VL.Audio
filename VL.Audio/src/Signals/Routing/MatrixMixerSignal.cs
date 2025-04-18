@@ -15,7 +15,7 @@ namespace VL.Audio
         {
             get
             {
-                return this.FOutputCount;
+                return this.OutputCount;
             }
             set
             {
@@ -31,12 +31,12 @@ namespace VL.Audio
             if (FInput != null && FInput.Count != 0) 
             {
                 FTempBuffer = BufferHelpers.Ensure(FTempBuffer, count);
-                for (int outSlice = 0; outSlice < FOutputCount; outSlice++)
+                for (int outSlice = 0; outSlice < buffer.Length; outSlice++)
                 {
                     var outbuf = buffer[outSlice];
                     for (int inSlice = 0; inSlice < FInput.Count; inSlice++)
                     {
-                        var gain = GainMatrix[outSlice + inSlice * FOutputCount];
+                        var gain = GainMatrix[outSlice + inSlice * buffer.Length];
                         var inSig = FInput[inSlice];
                         if (inSig != null)
                         {
