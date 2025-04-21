@@ -169,7 +169,7 @@ namespace VL.Audio
     public class FFTOutSignalThreaded : SinkSignal
     {
         protected CircularBufferThreadSafe FRingBuffer = new CircularBufferThreadSafe(512);
-        private bool bufferReady = false;
+        private volatile bool bufferReady = false;
 
         private AutoResetEvent processingTrigger = new AutoResetEvent(false);
         private Thread processingThread;
