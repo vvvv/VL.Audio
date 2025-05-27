@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" xmlns:r="reflection" Id="RckyMa2RP3mPQ0ttObPClA" LanguageVersion="2024.6.0-0265-ga193ffb214" Version="0.128">
-  <NugetDependency Id="IlUqfwe6HR2L9rkYbIdX10" Location="VL.CoreLib" Version="2024.6.0-0265-ga193ffb214" />
+<Document xmlns:p="property" xmlns:r="reflection" Id="RckyMa2RP3mPQ0ttObPClA" LanguageVersion="2024.6.6" Version="0.128">
+  <NugetDependency Id="IlUqfwe6HR2L9rkYbIdX10" Location="VL.CoreLib" Version="2024.6.6" />
   <Patch Id="GyDr543O1TcOUDqifVBonO">
     <Canvas Id="NGVH3wHg5wPO46ApuQGiwK" DefaultCategory="Main" BordersChecked="false" CanvasType="FullCategory" />
     <!--
@@ -46,20 +46,6 @@
               <p:sliderdirection p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.SliderDirectionEnum">Vertical</p:sliderdirection>
             </p:ValueBoxSettings>
           </Pad>
-          <Node Bounds="389,270,85,19" Id="IbjV3OTaF7CQM1iXyE3nI6">
-            <p:NodeReference LastCategoryFullName="Audio.Sink" LastDependency="VL.Audio.vl">
-              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-              <Choice Kind="ProcessAppFlag" Name="FFT" />
-            </p:NodeReference>
-            <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
-            <Pin Id="DEOG663TkGkOQcdqpwtdAf" Name="Node Context" Kind="InputPin" IsHidden="true" />
-            <Pin Id="RzuBOEWpbiDNruEMPQv1pK" Name="Input" Kind="InputPin" />
-            <Pin Id="OQ2t8zlxdUZNPRB28ro1ev" Name="Bin Count" Kind="InputPin" />
-            <Pin Id="AYMJhQgr0IjO64tEe3nnWw" Name="Window Function" Kind="InputPin" />
-            <Pin Id="NBDN4qyMj4tLuJBjwMEuEd" Name="Smoothing" Kind="InputPin" />
-            <Pin Id="GJPboSyOY1aOSuaHPU5VQJ" Name="db Range" Kind="InputPin" />
-            <Pin Id="GFJD498Q9RWMlEHQFGtZ4K" Name="Output" Kind="OutputPin" />
-          </Node>
           <Node Bounds="388,780,145,19" Id="ELjmj8P2WvHQOftp3Ogf15">
             <p:NodeReference LastCategoryFullName="Graphics.Skia" LastDependency="VL.Skia.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -258,22 +244,22 @@
               <Choice Kind="TypeFlag" Name="Integer32" />
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="IY88FhCpk0tLFU5YWe2Vtx" Comment="Window Function" Bounds="431,170,105,15" ShowValueBox="true" isIOBox="true" Value="Hann">
+          <Pad Id="IY88FhCpk0tLFU5YWe2Vtx" Comment="Window Function" Bounds="430,138,105,15" ShowValueBox="true" isIOBox="true" Value="Hann">
             <p:TypeAnnotation LastCategoryFullName="Audio" LastDependency="VL.Audio.vl">
               <Choice Kind="TypeFlag" Name="WindowFunction" />
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="KWb570t0jLgQLf6b6RPOao" Comment="db Range" Bounds="471,248,35,15" ShowValueBox="true" isIOBox="true" Value="72">
+          <Pad Id="KWb570t0jLgQLf6b6RPOao" Comment="db Range" Bounds="450,173,35,15" ShowValueBox="true" isIOBox="true" Value="72">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="Float32" />
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="H573wQc495MLkDXXu6U47g" Comment="Smoothing" Bounds="451,202,35,15" ShowValueBox="true" isIOBox="true" Value="0.5">
+          <Pad Id="H573wQc495MLkDXXu6U47g" Comment="Smoothing" Bounds="470,208,35,15" ShowValueBox="true" isIOBox="true" Value="0.5">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="Float32" />
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="LjdFqnu69uCQGN0qBYcJuT" Comment="Bin Count" Bounds="411,138,48,15" ShowValueBox="true" isIOBox="true" Value="256">
+          <Pad Id="LjdFqnu69uCQGN0qBYcJuT" Comment="Bin Count" Bounds="410,103,53,15" ShowValueBox="true" isIOBox="true" Value="256">
             <p:TypeAnnotation LastCategoryFullName="VL.Audio" LastDependency="VL.Audio.vl">
               <Choice Kind="TypeFlag" Name="FFTBinCountEnum" />
             </p:TypeAnnotation>
@@ -335,6 +321,37 @@
             </p:TypeAnnotation>
           </Pad>
           <Pad Id="SvydDtAgupDNkxozsYMuYH" Comment="Level" Bounds="664,561,35,15" ShowValueBox="true" isIOBox="true" />
+          <Node Bounds="388,278,105,19" Id="PqGl0tRc7eGMTs0Qtxx6Lx">
+            <p:NodeReference LastCategoryFullName="Audio.Analysis" LastDependency="VL.Audio.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="FFTThreaded" />
+            </p:NodeReference>
+            <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
+            <Pin Id="U86PYiN3NwjQJiGlOCdg2E" Name="Node Context" Kind="InputPin" IsHidden="true" />
+            <Pin Id="JbAz9veppNLQQBrUdLdMn5" Name="Input" Kind="InputPin" />
+            <Pin Id="S9tyIfOMuMKQEB2TTuEZ1o" Name="Bin Count" Kind="InputPin" />
+            <Pin Id="Cvp1E8DYnd7OmARug4XkGg" Name="Window Function" Kind="InputPin" />
+            <Pin Id="UbdXCyt8admOXmdpYYpH7t" Name="db Range" Kind="InputPin" />
+            <Pin Id="FPAlJToLgFOMziwbofbrS9" Name="Smoothing" Kind="InputPin" />
+            <Pin Id="D0RVvzQ50NyPeg0mwvdyiB" Name="Calculate Continuously" Kind="InputPin" />
+            <Pin Id="O9FIfdeYGMMPvcDndqOFHT" Name="Output" Kind="OutputPin" />
+          </Node>
+          <Pad Id="KRMPHytGs5uOceVFLoanZj" Comment="Calculate Continuously" Bounds="490,235,35,35" ShowValueBox="true" isIOBox="true" Value="True">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="LATUF2vJ96eQPJfbDDRXaO" Comment="iob" Bounds="653,194,260,95" ShowValueBox="true" isIOBox="true" Value="When &quot;Calculate Continuously&quot; is set, the FFT is calculated as soon as there is new data resulting in minimal latency. &#xD;&#xA;&#x9;Setting it to false makes it only calculate once per frame which may save some CPU on average, but incurs an additional one-frame delay.">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="ImmutableTypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
         </Canvas>
         <Patch Id="BZfyHIn50AMOhy8qYm4OJJ" Name="Create" />
         <Patch Id="SKJMq4OWRupPBKu5KHiGNr" Name="Update" />
@@ -343,7 +360,6 @@
           <Fragment Id="BZwuoSJFti1MYHzqE2gwT3" Patch="SKJMq4OWRupPBKu5KHiGNr" Enabled="true" />
         </ProcessDefinition>
         <Link Id="Q9m5GkIVYOrNR9HofEKGKw" Ids="KdRPAlMIQK7Oy76z1oVaLY,LdA0Hmk4ryAP0wOoulOyre" />
-        <Link Id="D2jxvDcxyq5QTGftVXrx2p" Ids="GFJD498Q9RWMlEHQFGtZ4K,E3meBws1NkJQYu9aZvx0wE" />
         <Link Id="HAmbmX7NDwxNILNO3Ni4VD" Ids="OeSMeqdsK7gPlyxr5Soa3z,DFROFHIwaznMNjeyuniAb7" />
         <Link Id="BaTI71s8BuYMo9DMkbGp9e" Ids="E3meBws1NkJQYu9aZvx0wE,Aids3H6UZdDPUUv6WJ9SML" />
         <Link Id="FcbYqMhUFX3QRJUKldcTGC" Ids="St2Y6D7RP42MTKngsmf3Tx,E8LK2pGZK6XM2VlMF00f9c" />
@@ -360,26 +376,28 @@
         <Link Id="TmZWo3545asMGxOn71JC2j" Ids="O8mJMCMYSPlMVF5szryXJ5,IitXQRC4jxcQTGSvW1ZtWa" />
         <Link Id="EIpv7AAZMbTQPP5EiuUiCb" Ids="DULbjDCw5DjPdJC7CJJSO8,IPFyjvZ2UuWQdKDXUz8zMR" />
         <Link Id="L7BqCH20iNyMi35sgsd5d8" Ids="OoaNToXVw3wL3amlUs4r87,Ek4hOkUZUUrLPjc5GfMeDQ" />
-        <Link Id="KTYCd6XvpjvQWhrQdAUSle" Ids="OoaNToXVw3wL3amlUs4r87,RzuBOEWpbiDNruEMPQv1pK" />
         <Link Id="PGNormQde4sMI96Y3KzhYG" Ids="EVzxxwlQLndMP9grFBHoLE,Bb833f6c461POQdhkVhQ2U" />
         <Link Id="AYvTuTM3eVPMstz2yPRzcy" Ids="BC05mEL9T4mMBQEhvqG6pe,BIMNN3e2DZhLfeCAzYrNjq" />
-        <Link Id="EaNqRHvsqXjLm2TkaZBGpW" Ids="GFJD498Q9RWMlEHQFGtZ4K,Uu6DKy7LsvWQXioSMeQXh2" />
         <Link Id="FXmLevsb5WPLXLRRUtlSLh" Ids="HAobF4x39JON7iZGYVzKvw,UzXtYMlf12LPj1PRN6wrQ3" />
         <Link Id="K9E95y3ZmzwNxH8GqR4kvq" Ids="GrsrLfiqm3zPZFx9FCTLmL,IwYRbTKWblVMfow3EJXlnn" />
         <Link Id="CGMbfu5dBAhNOJuCzSI0mL" Ids="GrsrLfiqm3zPZFx9FCTLmL,AVX2U86nsG4O7zeasE80gs" />
-        <Link Id="Vw5gSkDBcn9OtFfeOXNZJ9" Ids="LjdFqnu69uCQGN0qBYcJuT,OQ2t8zlxdUZNPRB28ro1ev" />
-        <Link Id="DhYe2VszmfpOMOTA2uHMhb" Ids="GFJD498Q9RWMlEHQFGtZ4K,CAddiljm0ZRPzI4D6T2znd" />
         <Link Id="QAxXrR8vITtO7GWXrzZnBQ" Ids="HS7BmYmpFpwOmj9moNQJeI,AByJUMG70YfMiaAG3iqhz0" />
         <Link Id="Ij8H94lDZgnORftyY7BL09" Ids="IukDm9cacKXLyE8ObQB3Au,RcllWl1QwBhMGLz5YWVVk5" />
-        <Link Id="N7GFu1hPecNMfbRlhzLXgV" Ids="IY88FhCpk0tLFU5YWe2Vtx,AYMJhQgr0IjO64tEe3nnWw" />
-        <Link Id="RyYnDgb37hnQTnhTq0cnuI" Ids="H573wQc495MLkDXXu6U47g,NBDN4qyMj4tLuJBjwMEuEd" />
-        <Link Id="SCk4MvT7ELUPI7omx1BQ1v" Ids="KWb570t0jLgQLf6b6RPOao,GJPboSyOY1aOSuaHPU5VQJ" />
-        <Link Id="SndqZMtERGbOWZzz41m0OE" Ids="GFJD498Q9RWMlEHQFGtZ4K,OW2zlQmlvKqNAZ5bUAIXC5" />
         <Link Id="NUCgZYHKCopP4T36UIP6PL" Ids="JSsRw72aPFeQKiZcyOTXzV,Am8ENeQOjPGMMb5hKusBhu" />
         <Link Id="E6eONVq4h63O7zHTNrETAF" Ids="KSR6Am5zcTDO0V5c2k2dNt,SvydDtAgupDNkxozsYMuYH" />
+        <Link Id="UUYvT4nZk9CPhYXJPc73La" Ids="LjdFqnu69uCQGN0qBYcJuT,S9tyIfOMuMKQEB2TTuEZ1o" />
+        <Link Id="VIaVhJHnG3JNoQOPCrs6Sb" Ids="IY88FhCpk0tLFU5YWe2Vtx,Cvp1E8DYnd7OmARug4XkGg" />
+        <Link Id="H3DR4rjWeI7M1I7lvjE90K" Ids="H573wQc495MLkDXXu6U47g,FPAlJToLgFOMziwbofbrS9" />
+        <Link Id="NJAJinGzdD2NEHKK0HQKNH" Ids="KWb570t0jLgQLf6b6RPOao,UbdXCyt8admOXmdpYYpH7t" />
+        <Link Id="DunP1ivUu0qPShYStWUMpo" Ids="O9FIfdeYGMMPvcDndqOFHT,E3meBws1NkJQYu9aZvx0wE" />
+        <Link Id="Jaw6eg7JPAoMUFATp5gmht" Ids="O9FIfdeYGMMPvcDndqOFHT,OW2zlQmlvKqNAZ5bUAIXC5" />
+        <Link Id="IdLL8QPLZTqOdnnFxjQlXN" Ids="O9FIfdeYGMMPvcDndqOFHT,Uu6DKy7LsvWQXioSMeQXh2" />
+        <Link Id="LJME2BVgBGZLAI9HgcAgIe" Ids="O9FIfdeYGMMPvcDndqOFHT,CAddiljm0ZRPzI4D6T2znd" />
+        <Link Id="R2g27iZ9djsOm2Ql57iRZH" Ids="OoaNToXVw3wL3amlUs4r87,JbAz9veppNLQQBrUdLdMn5" />
+        <Link Id="HJly7G7PCQqPao9MfnIqYV" Ids="KRMPHytGs5uOceVFLoanZj,D0RVvzQ50NyPeg0mwvdyiB" />
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="Lv6fAP4LMmWP2ovZCiIeTO" Location="VL.Skia" Version="2024.6.0-0265-ga193ffb214" />
+  <NugetDependency Id="Lv6fAP4LMmWP2ovZCiIeTO" Location="VL.Skia" Version="2024.6.6" />
   <NugetDependency Id="Encrxf37rREOTYwNeB8Dwi" Location="VL.Audio" Version="0.0.0.0" />
 </Document>

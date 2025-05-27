@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" xmlns:r="reflection" Id="DRzSNJUNA27NjzU3h3fvFq" LanguageVersion="2024.6.0-0258-g2531a86036" Version="0.128">
-  <NugetDependency Id="IlUqfwe6HR2L9rkYbIdX10" Location="VL.CoreLib" Version="2024.6.0-0258-g2531a86036" />
+<Document xmlns:p="property" xmlns:r="reflection" Id="DRzSNJUNA27NjzU3h3fvFq" LanguageVersion="2024.6.6" Version="0.128">
+  <NugetDependency Id="IlUqfwe6HR2L9rkYbIdX10" Location="VL.CoreLib" Version="2024.6.6" />
   <Patch Id="GyDr543O1TcOUDqifVBonO">
     <Canvas Id="NGVH3wHg5wPO46ApuQGiwK" DefaultCategory="Main" CanvasType="FullCategory">
       <!--
@@ -376,7 +376,7 @@
       </p:NodeReference>
       <Patch Id="MGS6ltj9xGtNSGe03nDRhU">
         <Canvas Id="SotxguxdlTyNaQv2wICXG3" CanvasType="Group">
-          <Node Bounds="397,80,52,19" Id="R8F6ObfWTfZM4nekGdr68m">
+          <Node Bounds="396,80,52,19" Id="R8F6ObfWTfZM4nekGdr68m">
             <p:NodeReference LastCategoryFullName="Audio.Source" LastDependency="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="AudioIn" />
@@ -402,19 +402,6 @@
               <p:sliderdirection p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.SliderDirectionEnum">Vertical</p:sliderdirection>
             </p:ValueBoxSettings>
           </Pad>
-          <Node Bounds="396,299,85,19" Id="IbjV3OTaF7CQM1iXyE3nI6">
-            <p:NodeReference LastCategoryFullName="Audio.Sink" LastDependency="VL.Audio.vl">
-              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-              <Choice Kind="ProcessAppFlag" Name="FFT" />
-            </p:NodeReference>
-            <Pin Id="IqOH64mn9lwLrzrLoUARar" Name="Node Context" Kind="InputPin" IsHidden="true" />
-            <Pin Id="RzuBOEWpbiDNruEMPQv1pK" Name="Input" Kind="InputPin" />
-            <Pin Id="JFuT9Bgv0WDNZfWGJAfO7w" Name="Bin Count" Kind="InputPin" />
-            <Pin Id="AYMJhQgr0IjO64tEe3nnWw" Name="Window Function" Kind="InputPin" />
-            <Pin Id="NBDN4qyMj4tLuJBjwMEuEd" Name="Smoothing" Kind="InputPin" />
-            <Pin Id="GJPboSyOY1aOSuaHPU5VQJ" Name="db Range" Kind="InputPin" />
-            <Pin Id="GFJD498Q9RWMlEHQFGtZ4K" Name="Output" Kind="OutputPin" />
-          </Node>
           <Node Bounds="353,596,225,19" Id="KCR9WNyIZO9LReZ3WjQAdY">
             <p:NodeReference LastCategoryFullName="Stride.Materials" LastDependency="VL.Stride.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -589,7 +576,7 @@
               <Choice Kind="TypeFlag" Name="Vector2" />
             </p:TypeAnnotation>
           </Pad>
-          <Node Bounds="397,134,53,19" Id="S044M1sLHrAMVTuaGQTvnK">
+          <Node Bounds="396,134,53,19" Id="S044M1sLHrAMVTuaGQTvnK">
             <p:NodeReference LastCategoryFullName="Audio.Utils" LastDependency="VL.Audio.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="ToMono" />
@@ -686,6 +673,20 @@
               <Choice Kind="TypeFlag" Name="RGBA" />
             </p:TypeAnnotation>
           </Pad>
+          <Node Bounds="396,257,105,19" Id="PceEUg3J0ibP0zXo7irk7U">
+            <p:NodeReference LastCategoryFullName="Audio.Analysis" LastDependency="VL.Audio.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="FFTThreaded" />
+            </p:NodeReference>
+            <Pin Id="F2hlKBeufrUM1hmgIqu1n2" Name="Node Context" Kind="InputPin" IsHidden="true" />
+            <Pin Id="PDGcVXeLiw3Neh02O06AZQ" Name="Input" Kind="InputPin" />
+            <Pin Id="JQNsm4fyJRjP23LJqZK5Sf" Name="Bin Count" Kind="InputPin" />
+            <Pin Id="PVj2NuEqqEyOHNlX0NqRaT" Name="Window Function" Kind="InputPin" />
+            <Pin Id="GV1v1tmf8PwPkZtRxnRnjL" Name="db Range" Kind="InputPin" />
+            <Pin Id="C1F3jWtxqkcLELsaFyZjZT" Name="Smoothing" Kind="InputPin" />
+            <Pin Id="UCJZ5DMyGClNkFZr1p5iUS" Name="Calculate Continuously" Kind="InputPin" />
+            <Pin Id="LhXg3u8YJl0PwI46cUxWtE" Name="Output" Kind="OutputPin" />
+          </Node>
         </Canvas>
         <Patch Id="BZfyHIn50AMOhy8qYm4OJJ" Name="Create" />
         <Patch Id="SKJMq4OWRupPBKu5KHiGNr" Name="Update" />
@@ -711,19 +712,19 @@
         <Link Id="Mks0asswWLBOLenGTV9QSR" Ids="IJn3jn2E49DP2RUHRdsArq,DvWUEq4Ao3SQXtOVhllD3M" />
         <Link Id="SJBbV9yt7bALwbjnxvjuSg" Ids="SQCSsOZixoTPGi8qGna7az,U95uVQwIm4dPG3r2hkqcWl" />
         <Link Id="D6GtZcYhtYENcPTjH2tGco" Ids="PuH5KTBfOaNLfJLa4M1dkN,HdkYU7CyO9cMTuTO1dexnv" />
-        <Link Id="DCOwfGdwVwHNH5g2EhB0El" Ids="GFJD498Q9RWMlEHQFGtZ4K,UrBDRL0NAU6MFw6mMlc86Z" />
         <Link Id="MfLg4FVOx2sL8Ybj7UUbFA" Ids="PJ4qXW1UNaROzKhHXhv8Iq,ElTuXWQNKCLNzpzaMGOF4W" />
-        <Link Id="GSIH7bEfgr4QIe2AQ1CIz4" Ids="TLe7dujZfvFMFw6QqlWXaB,RzuBOEWpbiDNruEMPQv1pK" />
         <Link Id="UN0myk2WSqhNVU0o1DHiDh" Ids="SQCSsOZixoTPGi8qGna7az,GyY2ERPTjjHLKhUdnrkydv" />
         <Link Id="TFc7qW3bABxOViR4cQPNcD" Ids="MH4O3saFFi5MrHgTVVOdcA,RGdwjVzkoB6QHCf5NcISJV" />
         <Link Id="Nvz7jFbZoVQMKvf4Z3Pl6J" Ids="NThrIhKJ14nLpD1kzyE766,OTXmNFM5mZFPdvXiTZUzEI" />
         <Link Id="P7nOF96bMoFOt5iMNbqjA3" Ids="RSiYnX4ll3qLVbC0Ml3xXm,SUuQMu6N3H8MAn49XJQDd7" />
         <Link Id="VnRpkWZiuFdMU6pNkBv2jX" Ids="Q0Dd6whocIVNXZrcjFXZHL,AzVIbi4ruMGOn67LccwHtJ" />
         <Link Id="GBLJdOP08IRLNTccuG95VY" Ids="EGds0DqRfVFNn63jQeNYN7,Mz50hB1fqVMPTzMciIJfIh" />
+        <Link Id="QLIM0ehMqj3N9Ddk4zpfVU" Ids="TLe7dujZfvFMFw6QqlWXaB,PDGcVXeLiw3Neh02O06AZQ" />
+        <Link Id="CGzhnVocea8Lp4LQVyMuO8" Ids="LhXg3u8YJl0PwI46cUxWtE,UrBDRL0NAU6MFw6mMlc86Z" />
       </Patch>
     </Node>
   </Patch>
   <NugetDependency Id="Encrxf37rREOTYwNeB8Dwi" Location="VL.Audio" Version="0.0.0.0" />
-  <NugetDependency Id="MPbdB4jct3zMZl8bMcjF5M" Location="VL.Stride" Version="2024.6.0-0258-g2531a86036" />
-  <NugetDependency Id="RmhUYuK34RbPqVWgyQV5xd" Location="VL.Stride.TextureFX" Version="2024.6.0-0258-g2531a86036" />
+  <NugetDependency Id="MPbdB4jct3zMZl8bMcjF5M" Location="VL.Stride" Version="2024.6.6" />
+  <NugetDependency Id="RmhUYuK34RbPqVWgyQV5xd" Location="VL.Stride.TextureFX" Version="2024.6.6" />
 </Document>
