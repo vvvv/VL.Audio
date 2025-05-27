@@ -135,8 +135,7 @@ namespace VL.Audio
                     }
                     catch (Exception e)
                     {
-                        //RuntimeGraph.ReportException(e);
-                        System.Diagnostics.Trace.TraceError("VL.Audio error thrown while notifying for buffer preparation!");
+                        RuntimeGraph.ReportException(e);
                     }
                 }
                 
@@ -150,8 +149,7 @@ namespace VL.Audio
                     }
                     catch (Exception e)
                     {
-                        //RuntimeGraph.ReportException(e);
-                        System.Diagnostics.Trace.TraceError("VL.Audio error thrown while evaluating sinks!");
+                        RuntimeGraph.ReportException(e);
                     }
                 }
                     
@@ -177,8 +175,7 @@ namespace VL.Audio
                     }
                     catch (Exception e)
                     {
-                        //RuntimeGraph.ReportException(e);
-                        System.Diagnostics.Trace.TraceError("VL.Audio error thrown while evaluating inputs!");
+                        RuntimeGraph.ReportException(e);
                     }
                 }
                 

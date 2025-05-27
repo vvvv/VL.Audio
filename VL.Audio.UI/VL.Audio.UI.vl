@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" xmlns:r="reflection" Id="FdvhOQsiIB4NKB1rujALP9" LanguageVersion="2025.7.0-0143-g930c3c303e" Version="0.128">
+<Document xmlns:p="property" xmlns:r="reflection" Id="FdvhOQsiIB4NKB1rujALP9" LanguageVersion="2025.7.0-0331-g9df6dd8d92" Version="0.128">
   <NugetDependency Id="Bk8EKpBwPx7LCwjvwMgOHz" Location="VL.CoreLib" Version="2024.6.7-0220-ge2c006c41f" />
   <Patch Id="QIb1TRKUpOaPhjWn282mBj">
     <Canvas Id="P2Jby5wdecWNde37EXKdta" DefaultCategory="Audio" CanvasType="FullCategory">
@@ -404,6 +404,7 @@
                       <Pin Id="PLybGrd2dpeN8Mk6efbsy4" Name="Bounds" Kind="InputPin" />
                       <Pin Id="E2u6Al8EwCENbAtWgXdZV0" Name="Paint" Kind="InputPin" />
                       <Pin Id="TDpld3LcsDmLwyALMjYnWJ" Name="Enabled" Kind="InputPin" />
+                      <Pin Id="Tus0b7JBRhXLREsBPtFjmH" Name="State Output" Kind="OutputPin" IsHidden="true" />
                       <Pin Id="RCJ3PJADcDTMNkt9T9nfN1" Name="Output" Kind="OutputPin" />
                     </Node>
                     <Node Bounds="141,1307,45,19" Id="Tdusx3oUcbML2nenbdheDf">
@@ -1078,6 +1079,7 @@
                           <Pin Id="Lz3dy7PEt6dNSBtRTeIcgr" Name="Bounds" Kind="InputPin" />
                           <Pin Id="JRsehFmZJD4OS3H7Ivlp9G" Name="Paint" Kind="InputPin" />
                           <Pin Id="DdGEqZ2QPgRPqlK7V5WAo1" Name="Enabled" Kind="InputPin" />
+                          <Pin Id="QrglDuw3ASqPvBw6W5d9ao" Name="State Output" Kind="OutputPin" IsHidden="true" />
                           <Pin Id="ChIj8KVyy7wMek7s4Zxbaw" Name="Output" Kind="OutputPin" />
                         </Node>
                         <Node Bounds="309,512,52,26" Id="N9K9X0WRNasLqgCv5ZwZHE">
@@ -2583,6 +2585,7 @@
                   <Pin Id="ABsKShoKH8UQEJZ4waxpRN" Name="Node Context" Kind="InputPin" IsHidden="true" />
                   <Pin Id="H7K27OHDcGSN0GYnqgPs3r" Name="Messages" Kind="InputPin" />
                   <Pin Id="AGoJT1rnXP4MeFReqZR3cp" Name="Reset" Kind="InputPin" />
+                  <Pin Id="GR00obQXpkEQM8SiilZZmN" Name="Output" Kind="OutputPin" IsHidden="true" />
                   <Pin Id="KJvUaUpVDyzLkZfyWvZyt5" Name="Result" Kind="OutputPin" />
                   <Patch Id="L8cgvJa2WR7LlPFJzgNF1V" ManuallySortedPins="true">
                     <ControlPoint Id="NKs2m9PU064Og1Uh8W5obW" Bounds="1164,238" />
@@ -2741,6 +2744,7 @@
                   <Pin Id="UJusPR8xPqBMs78wbOWxJ2" Name="Node Context" Kind="InputPin" IsHidden="true" />
                   <Pin Id="Ow8WX4qkH5lMeLrGkA2Lm6" Name="Messages" Kind="InputPin" />
                   <Pin Id="UYtBK1JBpLMM9brIFHygwa" Name="Reset" Kind="InputPin" />
+                  <Pin Id="JIgSGT6cKBFQH4lgHOuJaf" Name="Output" Kind="OutputPin" IsHidden="true" />
                   <Pin Id="GDJi3y0JbWXQAEgpmohtM7" Name="Result" Kind="OutputPin" />
                   <Patch Id="T9kfk6cKpcrLBUhEbaURIQ" ManuallySortedPins="true">
                     <Patch Id="V6fVhV3XtHRMKhEMr84NNV" Name="Create" ManuallySortedPins="true" />
@@ -7266,7 +7270,6 @@
                           <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                           <Choice Kind="ProcessAppFlag" Name="FileWatcher" />
                         </p:NodeReference>
-                        <Pin Id="AcdIurtjaISN3t1bAO8XcI" Name="Node Context" Kind="InputPin" IsHidden="true" />
                         <Pin Id="Epk3Ys5woGcQZ37yuN1PWG" Name="Path" Kind="InputPin" />
                         <Pin Id="T1HuKpSxE64M5EcBCEwlwX" Name="Filter" Kind="InputPin" />
                         <Pin Id="OFIyXayyjjzO5Dx3YpkbD4" Name="Include Subdirectories" Kind="InputPin" />
@@ -7335,6 +7338,7 @@
                         <Pin Id="URN9HbXtVAJP2TCbRGNIR9" Name="Node Context" Kind="InputPin" IsHidden="true" />
                         <Pin Id="ADhJaWBvOmDMm36Vr0FcRY" Name="Messages" Kind="InputPin" />
                         <Pin Id="AE0JH5P81eEMOTwZvcJ0Aj" Name="Reset" Kind="InputPin" />
+                        <Pin Id="DwgYUftjxr9Mpx8pI49Nm5" Name="Output" Kind="OutputPin" IsHidden="true" />
                         <Pin Id="FJjNOiCYND2P3ss56tvC2k" Name="Result" Kind="OutputPin" />
                         <Patch Id="U8fP6nrp4ggOHtzvanvw7G" ManuallySortedPins="true">
                           <Patch Id="E9hWpyStqcgQKwKkm1Cwp3" Name="Create" ManuallySortedPins="true" />
@@ -7503,6 +7507,7 @@
                             <Pin Id="HKtVhQAYEA2OcVStbfy4M9" Name="Node Context" Kind="InputPin" IsHidden="true" />
                             <Pin Id="S44TogYYh75QB7wZ2Qps5V" Name="Messages" Kind="InputPin" />
                             <Pin Id="HmudbQOUluNP3FfaCTyjbD" Name="Reset" Kind="InputPin" />
+                            <Pin Id="Tb99TSk7wyJOsQqTOzfy8B" Name="Output" Kind="OutputPin" IsHidden="true" />
                             <Pin Id="Hr4XRRcH3A9MpqmVb3a7Jx" Name="Result" Kind="OutputPin" />
                             <Patch Id="D750kzgLApPMFxViIU9wr5" ManuallySortedPins="true">
                               <Patch Id="UZR2b2JbZl9PLuXpt3tTbp" Name="Create" ManuallySortedPins="true" />
@@ -10083,7 +10088,6 @@
   <NugetDependency Id="EksYu87rCxOQIfihiC7nN5" Location="VL.Skia" Version="2024.6.6" />
   <NugetDependency Id="PJK42WSpDjoPerTf3BqLz2" Location="VL.ImGui.Skia" Version="2024.6.6" />
   <NugetDependency Id="UnOtEcn5wksMXTxiOjoDDY" Location="VL.Audio" Version="1.5.0" />
-  <NugetDependency Id="PdvmfRI1BgQNt7MzNXBt9v" Location="VL.Stride" Version="2024.6.6" />
   <NugetDependency Id="Uf7bXE6H7hvNhAgZQ3F4X6" Location="NAudio.Asio" Version="2.2.1" />
   <NugetDependency Id="LuiDLnZlt9HLfSlJrrHeUc" Location="VL.ImGui" Version="0.0.0" />
 </Document>
