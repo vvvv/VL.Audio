@@ -17,7 +17,7 @@ namespace VL.Audio
     public class AudioFileReaderVVVV : WaveStream, ISampleProvider
     {
         public string FileName;
-        private WaveStream FReaderStream; // the waveStream which we will use for all positioning
+        private WaveStream? FReaderStream; // the waveStream which we will use for all positioning
         private VolumeSampleProvider FSampleChannel; // sample provider that gives us most stuff we need
         private readonly int FDestBytesPerSample;
         private readonly int FSourceBytesPerSample;
@@ -200,10 +200,10 @@ namespace VL.Audio
         /// </summary>
         public override long Position
         {
-            get { return SourceToDest(FReaderStream.Position); }
+            get { return SourceToDest(FReaderStream == null || disposing || !FReaderStream.CanRead ? 0 : FReaderStream.Position) ; }
             set 
             { 
-                //lock (FLockObject) 
+                if (FReaderStream != null && !disposing && FReaderStream.CanSeek)
                 { 
                     FReaderStream.Position = DestToSource(value); 
                 }  
@@ -265,6 +265,9 @@ namespace VL.Audio
             return FSourceBytesPerSample * (destBytes / FDestBytesPerSample);
         }
 
+
+        bool disposing = false;
+
         /// <summary>
         /// Disposes this AudioFileReader
         /// </summary>
@@ -273,7 +276,8 @@ namespace VL.Audio
         {
             if (disposing)
             {
-                if(FReaderStream != null)
+                this.disposing = true;
+                if (FReaderStream != null)
                     FReaderStream.Dispose();
                 FReaderStream = null;
             }
