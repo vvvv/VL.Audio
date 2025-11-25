@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using NAudio.Utils;
+using VL.Lib.Collections;
 namespace VL.Audio
 {
     public class MatrixMixerSignal : MultiChannelInputSignal
     {
-        public IReadOnlyList<float> GainMatrix
-        {
-            get;
-            set;
-        }
+        public Spread<float> GainMatrix { get; set; }
 
         public int OutputChannelCount
         {
@@ -20,7 +18,6 @@ namespace VL.Audio
             set
             {
                 SetOutputCount(value);
-                GainMatrix = new List<float>(value);
             }
         }
 
@@ -30,39 +27,48 @@ namespace VL.Audio
         {
             if (FInput != null && FInput.Count != 0) 
             {
-                FTempBuffer = BufferHelpers.Ensure(FTempBuffer, count);
-                for (int outSlice = 0; outSlice < buffer.Length; outSlice++)
+                var gainMatrix = GainMatrix;
+                var inCount = FInput.Count();
+
+                if (gainMatrix.Count >= inCount * buffer.Length)
                 {
-                    var outbuf = buffer[outSlice];
-                    for (int inSlice = 0; inSlice < FInput.Count; inSlice++)
+                    FTempBuffer = BufferHelpers.Ensure(FTempBuffer, count);
+                    for (int outSlice = 0; outSlice < buffer.Length; outSlice++)
                     {
-                        var gain = GainMatrix[outSlice + inSlice * buffer.Length];
-                        var inSig = FInput[inSlice];
-                        if (inSig != null)
+                        var outbuf = buffer[outSlice];
+                        for (int inSlice = 0; inSlice < inCount; inSlice++)
                         {
-                            inSig.Read(FTempBuffer, offset, count);
-                            if (inSlice == 0)
+                            var gain = gainMatrix[outSlice + inSlice * buffer.Length];
+                            var inSig = FInput[inSlice];
+                            if (inSig != null)
                             {
-                                for (int j = 0; j < count; j++) 
+                                inSig.Read(FTempBuffer, offset, count);
+                                if (inSlice == 0)
                                 {
-                                    outbuf[j] = FTempBuffer[j] * gain;
+                                    for (int j = 0; j < count; j++)
+                                    {
+                                        outbuf[j] = FTempBuffer[j] * gain;
+                                    }
                                 }
-                            }
-                            else 
-                            {
-                                for (int j = 0; j < count; j++) 
+                                else
                                 {
-                                    outbuf[j] += FTempBuffer[j] * gain;
+                                    for (int j = 0; j < count; j++)
+                                    {
+                                        outbuf[j] += FTempBuffer[j] * gain;
+                                    }
                                 }
                             }
                         }
+                    }
+                }
+                else
+                {
+                    foreach (var b in buffer)
+                    {
+                        b.ReadSilence(offset, count);
                     }
                 }
             }
         }
     }
 }
-
-
-
-
