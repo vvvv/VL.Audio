@@ -10,7 +10,7 @@ For use with vvvv, the visual live-programming environment for .NET: https://vvv
 ## Audio driver selection and configuration
 ![VL.Audio.UI Settings UI](https://raw.githubusercontent.com/vvvv/VL.Audio/main/.github/images/ConfigurationUI.png)
 
-As soon as VL.Audio is referenced in a document, the Settings UI is available via `Quad -> Extensions -> VL.Audio.Configuration` or <span class="keyseq"><kbd>Alt</kbd><kbd>C</kbd></span>. Here you can choose between the system default WASAPI driver or any installed ASIO driver and configure its inputs and outputs. Changing the sample rate for the WASAPI driver is only possible via the Windows Sound Settings!
+As soon as VL.Audio is referenced in a document, the Settings UI is available via `Quad -> Extensions -> VL.Audio.Configuration` or `Alt`+`C`. Here you can choose between the system default WASAPI driver or any installed ASIO driver and configure its inputs and outputs. Changing the sample rate for the WASAPI driver is only possible via the Windows Sound Settings!
 
 You can also offer this UI in exported applications, see "HowTo Use ConfigurationUI in your patch".
 
