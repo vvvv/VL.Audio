@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" xmlns:r="reflection" Id="HTX4axw4uH5NDghqAqpe1F" LanguageVersion="2025.7.1-0106-gc0edd1f65b" Version="0.128">
+<Document xmlns:p="property" xmlns:r="reflection" Id="HTX4axw4uH5NDghqAqpe1F" LanguageVersion="2025.7.1" Version="0.128">
   <Patch Id="Mj1seFpSbg5MtaCXVBGhJf">
     <Canvas Id="ClqUpgLjNRdQbB5ajAF1ry" DefaultCategory="Audio" CanvasType="FullCategory">
       <!--
@@ -1769,18 +1769,18 @@
                 <ControlPoint Id="SNqsxhiwZEqNhHCtCABHoy" Bounds="802,980" Alignment="Bottom" />
                 <ControlPoint Id="Bc3pBm7FrMyNz0IDKxtQrB" Bounds="920,980" Alignment="Bottom" />
               </Node>
-              <Node Bounds="896,1060,182,99" Id="FC9Cv42OFa8OE5Ai4R26iH">
+              <Node Bounds="894,1060,182,149" Id="FC9Cv42OFa8OE5Ai4R26iH">
                 <p:NodeReference LastCategoryFullName="Reactive.Channel" LastDependency="VL.CoreLib.vl">
                   <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
                   <Choice Kind="ProcessAppFlag" Name="ForEach (Channel)" />
                 </p:NodeReference>
                 <Pin Id="DxoBKjbkQkfNd8cljsm3qu" Name="Node Context" Kind="InputPin" IsHidden="true" />
-                <Pin Id="UOLtPdzpTvNLSBmHphyzdo" Name="At Least Run Once" Kind="InputPin" />
+                <Pin Id="UOLtPdzpTvNLSBmHphyzdo" Name="At Least Run Once" Kind="InputPin" DefaultValue="True" />
                 <Patch Id="Q3mWh41xAyrNNx1GX58Lb3" ManuallySortedPins="true">
                   <Patch Id="Ci3heJgN7HrLVarurd09X8" Name="Create" ManuallySortedPins="true" />
                   <Patch Id="ByOodfeTVmWLclj8sUAtBM" Name="Update" ParticipatingElements="OSFFWFhWFWgPEU4IQ80Ckp" ManuallySortedPins="true" />
                   <Patch Id="Vo6DWMXzGgXNITtW9kB9Ua" Name="Dispose" ManuallySortedPins="true" />
-                  <Node Bounds="910,1120,85,19" Id="QoUo4gxnuHHLXApTrhDF9L">
+                  <Node Bounds="908,1170,85,19" Id="QoUo4gxnuHHLXApTrhDF9L">
                     <p:NodeReference LastCategoryFullName="System.Logging" LastDependency="VL.CoreLib.vl">
                       <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                       <CategoryReference Kind="Category" Name="Logging" NeedsToBeDirectParent="true" />
@@ -1794,11 +1794,20 @@
                     <Pin Id="PfZBfJwYFDbLLU67Z90PQ3" Name="Exception" Kind="InputPin" />
                     <Pin Id="MiegjvdE59KL709rWXdU76" Name="Apply" Kind="InputPin" />
                   </Node>
-                  <Pad Id="NRT1yvU6P3oPMUGKwpek2C" Comment="Message" Bounds="912,1100,93,15" ShowValueBox="true" isIOBox="true" Value="AudioPlayer Error!">
+                  <Pad Id="NRT1yvU6P3oPMUGKwpek2C" Comment="Message" Bounds="910,1150,93,15" ShowValueBox="true" isIOBox="true" Value="AudioPlayer Error!">
                     <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
                       <Choice Kind="TypeFlag" Name="String" />
                     </p:TypeAnnotation>
                   </Pad>
+                  <Node Bounds="988,1100,65,19" Id="V6dqyHLQZMmPnUF4y4R8RC">
+                    <p:NodeReference LastCategoryFullName="Primitive.Object" LastDependency="VL.CoreLib.vl">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <Choice Kind="OperationCallFlag" Name="IsAssigned" />
+                    </p:NodeReference>
+                    <Pin Id="TrDdCck75GHO67S4Oth0lg" Name="X" Kind="InputPin" />
+                    <Pin Id="KZwARn0FL0QOjLWVnlYaQJ" Name="Result" Kind="OutputPin" />
+                    <Pin Id="R9vcSFeeXptPZBwmdoJgJt" Name="Not Assigned" Kind="OutputPin" />
+                  </Node>
                 </Patch>
                 <Pin Id="HyPiXqEgpL1OSqxfHm9dAc" Name="Force Push" Kind="InputPin" IsHidden="true" />
                 <ControlPoint Id="VFaRVbfBzAsMzpScOWre7y" Bounds="933,1066" Alignment="Top" />
@@ -1925,6 +1934,8 @@
             <Link Id="Qrwc1PiOz3gM3tYWi48ywu" Ids="DRpER9DH3DeOaaCBD2ZG6V,VFaRVbfBzAsMzpScOWre7y" />
             <Link Id="NCu9kNyeqjWP7cZfY5xsj2" Ids="VFaRVbfBzAsMzpScOWre7y,PfZBfJwYFDbLLU67Z90PQ3" />
             <Link Id="OSFFWFhWFWgPEU4IQ80Ckp" Ids="NRT1yvU6P3oPMUGKwpek2C,PsWcrARzlSkLPZPRe5ZLqL" />
+            <Link Id="B4WKdlb7cq6QUeRv6LONYS" Ids="VFaRVbfBzAsMzpScOWre7y,TrDdCck75GHO67S4Oth0lg" />
+            <Link Id="T1r0L2LxmKcPeTUURM5UD4" Ids="KZwARn0FL0QOjLWVnlYaQJ,MiegjvdE59KL709rWXdU76" />
           </Patch>
         </Node>
         <!--
@@ -16832,7 +16843,7 @@
   <PlatformDependency Id="VuKJB0bRCwzOw8myrmblKI" Location="System.Runtime" />
   <PlatformDependency Id="Qp3HZOkgG5cQcuE59UUe1j" Location="System.IO" />
   <PlatformDependency Id="CCaadwXbjs6P0MKKXnqSCL" Location="System.IO.FileSystem" />
-  <NugetDependency Id="TDiqd3R8e2tOT8QIUqmyZg" Location="VL.CoreLib" Version="2025.7.1-0106-gc0edd1f65b" />
+  <NugetDependency Id="TDiqd3R8e2tOT8QIUqmyZg" Location="VL.CoreLib" Version="2025.7.1" />
   <NugetDependency Id="SFJUM3180QILdDPO5WTujk" Location="NAudio" Version="2.2.1" />
   <NugetDependency Id="AGQtLYjpCx7PhN4g8ZBcIN" Location="NAudio.Asio" Version="2.2.1" />
   <NugetDependency Id="OyQbpILJqvSQQ6uHg7eipM" Location="NAudio.Core" Version="2.2.1" />
